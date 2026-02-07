@@ -13,219 +13,412 @@
         
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 50%, #16213e 100%);
             min-height: 100vh;
             color: #e8e8e8;
             line-height: 1.6;
         }
         
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             padding: 20px;
         }
         
         header {
             text-align: center;
-            padding: 40px 0;
+            padding: 50px 0;
             border-bottom: 1px solid rgba(255,255,255,0.1);
             margin-bottom: 40px;
         }
         
         h1 {
-            font-size: 2.5rem;
-            background: linear-gradient(90deg, #00d9ff, #00ff88);
+            font-size: 3rem;
+            background: linear-gradient(90deg, #00d9ff, #00ff88, #ff6b6b);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
+            font-weight: 800;
         }
         
         .subtitle {
             color: #888;
-            font-size: 1.1rem;
+            font-size: 1.2rem;
         }
         
         .date {
             color: #00d9ff;
-            font-size: 0.9rem;
-            margin-top: 10px;
+            font-size: 0.95rem;
+            margin-top: 15px;
+            display: inline-block;
+            background: rgba(0,217,255,0.1);
+            padding: 8px 20px;
+            border-radius: 20px;
         }
         
-        .top-section {
-            background: rgba(255,255,255,0.05);
+        /* 评分说明 */
+        .score-legend {
+            background: rgba(255,255,255,0.03);
             border-radius: 16px;
-            padding: 30px;
+            padding: 25px;
             margin-bottom: 40px;
-            border: 1px solid rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.08);
+        }
+        
+        .score-legend h3 {
+            color: #00d9ff;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+        
+        .legend-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 15px;
+        }
+        
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+        
+        .legend-item .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+        
+        .dot.market { background: #00ff88; }
+        .dot.tech { background: #00d9ff; }
+        .dot.profit { background: #ffd700; }
+        .dot.compete { background: #ff6b6b; }
+        .dot.growth { background: #a855f7; }
+        
+        /* Top 5 Section */
+        .top-section {
+            background: linear-gradient(135deg, rgba(0,217,255,0.1) 0%, rgba(0,255,136,0.05) 100%);
+            border-radius: 20px;
+            padding: 35px;
+            margin-bottom: 50px;
+            border: 1px solid rgba(0,217,255,0.2);
         }
         
         .top-section h2 {
-            color: #00ff88;
-            margin-bottom: 20px;
-            font-size: 1.5rem;
+            color: #fff;
+            margin-bottom: 25px;
+            font-size: 1.6rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
         
         .top-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
         }
         
         .top-card {
-            background: rgba(0,217,255,0.1);
-            border-radius: 12px;
-            padding: 20px;
-            border: 1px solid rgba(0,217,255,0.3);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-        
-        .top-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0,217,255,0.2);
-        }
-        
-        .top-card .rank {
-            font-size: 2rem;
-            margin-bottom: 10px;
-        }
-        
-        .top-card .name {
-            font-weight: bold;
-            color: #fff;
-            margin-bottom: 5px;
-        }
-        
-        .top-card .score {
-            color: #00ff88;
-            font-size: 1.2rem;
-            font-weight: bold;
-        }
-        
-        .top-card .reason {
-            color: #aaa;
-            font-size: 0.85rem;
-            margin-top: 10px;
-        }
-        
-        .ideas-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 25px;
-        }
-        
-        .idea-card {
-            background: rgba(255,255,255,0.03);
+            background: rgba(0,0,0,0.3);
             border-radius: 16px;
             padding: 25px;
-            border: 1px solid rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.1);
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
         }
         
-        .idea-card::before {
+        .top-card::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
-            width: 4px;
-            height: 100%;
-            background: linear-gradient(180deg, #00d9ff, #00ff88);
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #00d9ff, #00ff88);
+        }
+        
+        .top-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,217,255,0.15);
+            border-color: rgba(0,217,255,0.3);
+        }
+        
+        .top-card .rank {
+            font-size: 2.5rem;
+            margin-bottom: 12px;
+        }
+        
+        .top-card .name {
+            font-weight: 700;
+            color: #fff;
+            font-size: 1.15rem;
+            margin-bottom: 8px;
+        }
+        
+        .top-card .score {
+            color: #00ff88;
+            font-size: 1.4rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .top-card .reason {
+            color: #999;
+            font-size: 0.85rem;
+            line-height: 1.5;
+        }
+        
+        /* Ideas Grid */
+        .ideas-section h2 {
+            color: #fff;
+            font-size: 1.6rem;
+            margin-bottom: 30px;
+            padding-left: 15px;
+            border-left: 4px solid #00ff88;
+        }
+        
+        .ideas-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+            gap: 30px;
+        }
+        
+        .idea-card {
+            background: rgba(255,255,255,0.02);
+            border-radius: 20px;
+            padding: 30px;
+            border: 1px solid rgba(255,255,255,0.06);
+            transition: all 0.3s ease;
+            position: relative;
         }
         
         .idea-card:hover {
-            background: rgba(255,255,255,0.06);
-            transform: translateX(5px);
-            border-color: rgba(0,217,255,0.3);
+            background: rgba(255,255,255,0.04);
+            border-color: rgba(0,217,255,0.2);
+            transform: translateY(-5px);
         }
         
         .idea-header {
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
         }
         
         .idea-number {
             background: linear-gradient(135deg, #00d9ff, #00ff88);
-            color: #1a1a2e;
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
+            color: #0a0a0f;
+            width: 40px;
+            height: 40px;
+            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-weight: bold;
-            font-size: 0.9rem;
+            font-weight: 800;
+            font-size: 1.1rem;
+        }
+        
+        .idea-score-badge {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
         }
         
         .idea-score {
-            background: rgba(0,255,136,0.2);
+            background: rgba(0,255,136,0.15);
             color: #00ff88;
-            padding: 4px 12px;
+            padding: 6px 16px;
             border-radius: 20px;
             font-weight: bold;
-            font-size: 0.9rem;
+            font-size: 1.1rem;
         }
         
         .idea-title {
-            font-size: 1.3rem;
+            font-size: 1.5rem;
             color: #fff;
             margin-bottom: 12px;
-            font-weight: 600;
+            font-weight: 700;
         }
         
         .idea-desc {
-            color: #bbb;
-            margin-bottom: 15px;
-            font-size: 0.95rem;
+            color: #aaa;
+            margin-bottom: 20px;
+            font-size: 1rem;
+            line-height: 1.7;
         }
         
+        /* Meta Tags */
         .idea-meta {
             display: flex;
             flex-wrap: wrap;
             gap: 10px;
-            margin-bottom: 15px;
+            margin-bottom: 25px;
         }
         
         .meta-tag {
-            background: rgba(255,255,255,0.1);
-            padding: 4px 10px;
-            border-radius: 6px;
-            font-size: 0.8rem;
-            color: #ddd;
+            padding: 6px 14px;
+            border-radius: 8px;
+            font-size: 0.85rem;
         }
         
         .meta-tag.user {
-            background: rgba(0,217,255,0.2);
+            background: rgba(0,217,255,0.15);
             color: #00d9ff;
         }
         
         .meta-tag.product {
-            background: rgba(0,255,136,0.2);
+            background: rgba(0,255,136,0.15);
             color: #00ff88;
         }
         
-        .idea-reason {
-            background: rgba(255,255,255,0.05);
-            padding: 12px;
-            border-radius: 8px;
-            font-size: 0.9rem;
+        .meta-tag.stage {
+            background: rgba(255,215,0,0.15);
+            color: #ffd700;
+        }
+        
+        /* 分析维度 */
+        .analysis-section {
+            background: rgba(0,0,0,0.2);
+            border-radius: 16px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .analysis-title {
+            color: #888;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+        }
+        
+        .score-bars {
+            display: grid;
+            gap: 12px;
+        }
+        
+        .score-bar {
+            display: grid;
+            grid-template-columns: 100px 1fr 40px;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .score-bar .label {
+            font-size: 0.85rem;
             color: #aaa;
-            border-left: 3px solid #00ff88;
         }
         
-        .idea-reason strong {
+        .score-bar .bar-bg {
+            height: 8px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        
+        .score-bar .bar-fill {
+            height: 100%;
+            border-radius: 4px;
+            transition: width 0.5s ease;
+        }
+        
+        .score-bar .bar-fill.market { background: linear-gradient(90deg, #00ff88, #00cc6a); }
+        .score-bar .bar-fill.tech { background: linear-gradient(90deg, #00d9ff, #0099cc); }
+        .score-bar .bar-fill.profit { background: linear-gradient(90deg, #ffd700, #ffaa00); }
+        .score-bar .bar-fill.compete { background: linear-gradient(90deg, #ff6b6b, #ff4444); }
+        .score-bar .bar-fill.growth { background: linear-gradient(90deg, #a855f7, #8b5cf6); }
+        
+        .score-bar .value {
+            font-size: 0.9rem;
+            color: #fff;
+            font-weight: 600;
+            text-align: right;
+        }
+        
+        /* 详细分析 */
+        .detail-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .detail-box {
+            background: rgba(255,255,255,0.03);
+            border-radius: 12px;
+            padding: 15px;
+        }
+        
+        .detail-box h4 {
+            color: #00d9ff;
+            font-size: 0.85rem;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        
+        .detail-box p {
+            color: #999;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+        
+        /* 推荐理由 */
+        .recommendation {
+            background: linear-gradient(135deg, rgba(0,255,136,0.1) 0%, rgba(0,217,255,0.05) 100%);
+            padding: 18px;
+            border-radius: 12px;
+            border-left: 4px solid #00ff88;
+        }
+        
+        .recommendation h4 {
             color: #00ff88;
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+        }
+        
+        .recommendation p {
+            color: #ccc;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        
+        /* MVP建议 */
+        .mvp-suggestion {
+            background: rgba(168,85,247,0.1);
+            padding: 15px;
+            border-radius: 12px;
+            margin-top: 15px;
+            border: 1px solid rgba(168,85,247,0.2);
+        }
+        
+        .mvp-suggestion h4 {
+            color: #a855f7;
+            font-size: 0.85rem;
+            margin-bottom: 8px;
+        }
+        
+        .mvp-suggestion p {
+            color: #aaa;
+            font-size: 0.9rem;
         }
         
         footer {
             text-align: center;
-            padding: 40px 0;
-            margin-top: 40px;
+            padding: 50px 0;
+            margin-top: 60px;
             border-top: 1px solid rgba(255,255,255,0.1);
             color: #666;
+        }
+        
+        footer p {
+            margin-bottom: 10px;
         }
         
         footer a {
@@ -234,17 +427,11 @@
         }
         
         @media (max-width: 768px) {
-            h1 {
-                font-size: 1.8rem;
-            }
-            
-            .ideas-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .container {
-                padding: 15px;
-            }
+            h1 { font-size: 2rem; }
+            .ideas-grid { grid-template-columns: 1fr; }
+            .detail-grid { grid-template-columns: 1fr; }
+            .container { padding: 15px; }
+            .score-bar { grid-template-columns: 80px 1fr 35px; }
         }
     </style>
 </head>
@@ -252,331 +439,550 @@
     <div class="container">
         <header>
             <h1>🚀 创意广场</h1>
-            <p class="subtitle">Reddit精选产品创意 · 每日更新</p>
-            <p class="date">📅 2026-02-08 · 第1期</p>
+            <p class="subtitle">Reddit精选产品创意 · 深度分析 · 每日更新</p>
+            <p class="date">📅 2026-02-08 · 第1期 · 收录20个创意</p>
         </header>
         
+        <!-- 评分维度说明 -->
+        <div class="score-legend">
+            <h3>📊 评分维度说明</h3>
+            <div class="legend-grid">
+                <div class="legend-item"><span class="dot market"></span> 市场需求 - 目标市场规模与用户痛点强度</div>
+                <div class="legend-item"><span class="dot tech"></span> 技术可行 - 开发难度与技术门槛</div>
+                <div class="legend-item"><span class="dot profit"></span> 变现潜力 - 商业模式清晰度与付费意愿</div>
+                <div class="legend-item"><span class="dot compete"></span> 竞争优势 - 市场竞争程度与差异化空间</div>
+                <div class="legend-item"><span class="dot growth"></span> 增长潜力 - 用户增长与规模化可能性</div>
+            </div>
+        </div>
+        
+        <!-- Top 5 推荐 -->
         <section class="top-section">
-            <h2>📊 今日 Top 5 推荐</h2>
+            <h2>🏆 今日 Top 5 强烈推荐</h2>
             <div class="top-grid">
                 <div class="top-card">
                     <div class="rank">🥇</div>
                     <div class="name">AI报价单SaaS</div>
-                    <div class="score">8.5/10</div>
-                    <div class="reason">B2B付费意愿高，开发难度适中</div>
+                    <div class="score">综合 8.6/10</div>
+                    <div class="reason">B2B刚需场景，付费意愿强，技术成熟，3个月可MVP上线</div>
                 </div>
                 <div class="top-card">
                     <div class="rank">🥈</div>
                     <div class="name">AI建筑缺陷检测</div>
-                    <div class="score">8.5/10</div>
-                    <div class="reason">高价值企业市场，技术壁垒</div>
+                    <div class="score">综合 8.5/10</div>
+                    <div class="reason">企业级高客单价，技术壁垒高，政策利好</div>
                 </div>
                 <div class="top-card">
                     <div class="rank">🥉</div>
                     <div class="name">时间胶囊App</div>
-                    <div class="score">8.5/10</div>
-                    <div class="reason">情感需求强，变现模式清晰</div>
+                    <div class="score">综合 8.4/10</div>
+                    <div class="reason">情感需求强烈，订阅制变现，病毒传播潜力大</div>
                 </div>
                 <div class="top-card">
                     <div class="rank">4️⃣</div>
                     <div class="name">人脸姓名记忆卡</div>
-                    <div class="score">8.0/10</div>
-                    <div class="reason">解决真实痛点，职场刚需</div>
+                    <div class="score">综合 8.2/10</div>
+                    <div class="reason">职场真实痛点，垂直市场，企业采购潜力</div>
                 </div>
                 <div class="top-card">
                     <div class="rank">5️⃣</div>
-                    <div class="name">超市折扣食谱</div>
-                    <div class="score">8.0/10</div>
-                    <div class="reason">高频使用，多种变现方式</div>
+                    <div class="name">食谱去广告提取</div>
+                    <div class="score">综合 8.0/10</div>
+                    <div class="reason">高频使用场景，开发简单，SEO流量大</div>
                 </div>
             </div>
         </section>
         
-        <section class="ideas-grid">
-            <div class="idea-card">
-                <div class="idea-header">
-                    <span class="idea-number">1</span>
-                    <span class="idea-score">8.5</span>
+        <!-- 完整创意列表 -->
+        <section class="ideas-section">
+            <h2>📋 完整创意分析（20个）</h2>
+            <div class="ideas-grid">
+                
+                <!-- 创意 1 -->
+                <div class="idea-card">
+                    <div class="idea-header">
+                        <span class="idea-number">1</span>
+                        <div class="idea-score-badge">
+                            <span class="idea-score">8.6</span>
+                        </div>
+                    </div>
+                    <h3 class="idea-title">AI报价单SaaS</h3>
+                    <p class="idea-desc">为自由职业者和小企业提供智能报价单生成工具，支持自动发送邮件、智能跟进提醒、客户管理等功能。</p>
+                    <div class="idea-meta">
+                        <span class="meta-tag user">👥 自由职业者/小企业</span>
+                        <span class="meta-tag product">💻 SaaS网站</span>
+                        <span class="meta-tag stage">🎯 MVP友好</span>
+                    </div>
+                    <div class="analysis-section">
+                        <div class="analysis-title">五维评分</div>
+                        <div class="score-bars">
+                            <div class="score-bar">
+                                <span class="label">市场需求</span>
+                                <div class="bar-bg"><div class="bar-fill market" style="width: 90%"></div></div>
+                                <span class="value">9.0</span>
+                            </div>
+                            <div class="score-bar">
+                                <span class="label">技术可行</span>
+                                <div class="bar-bg"><div class="bar-fill tech" style="width: 85%"></div></div>
+                                <span class="value">8.5</span>
+                            </div>
+                            <div class="score-bar">
+                                <span class="label">变现潜力</span>
+                                <div class="bar-bg"><div class="bar-fill profit" style="width: 90%"></div></div>
+                                <span class="value">9.0</span>
+                            </div>
+                            <div class="score-bar">
+                                <span class="label">竞争优势</span>
+                                <div class="bar-bg"><div class="bar-fill compete" style="width: 75%"></div></div>
+                                <span class="value">7.5</span>
+                            </div>
+                            <div class="score-bar">
+                                <span class="label">增长潜力</span>
+                                <div class="bar-bg"><div class="bar-fill growth" style="width: 85%"></div></div>
+                                <span class="value">8.5</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="detail-grid">
+                        <div class="detail-box">
+                            <h4>🎯 目标用户</h4>
+                            <p>设计师、开发者、咨询顾问、摄影师等自由职业者；10人以下小型服务公司</p>
+                        </div>
+                        <div class="detail-box">
+                            <h4>💰 商业模式</h4>
+                            <p>免费版（5份/月）+ Pro版 $15/月 + 团队版 $49/月</p>
+                        </div>
+                        <div class="detail-box">
+                            <h4>⚔️ 竞品分析</h4>
+                            <p>Bonsai、HoneyBook 功能重，价格高；可主打轻量+AI智能</p>
+                        </div>
+                        <div class="detail-box">
+                            <h4>🚧 主要风险</h4>
+                            <p>获客成本较高，需要精准的内容营销和SEO策略</p>
+                        </div>
+                    </div>
+                    <div class="recommendation">
+                        <h4>✅ 推荐理由</h4>
+                        <p>B2B产品付费意愿强，客户生命周期价值高。技术栈成熟（Next.js + Supabase），单人可在2-3个月内完成MVP。建议从设计师社群切入。</p>
+                    </div>
+                    <div class="mvp-suggestion">
+                        <h4>🛠️ MVP建议</h4>
+                        <p>核心功能：报价单模板 → PDF导出 → 邮件发送 → 状态追踪。预计开发周期：6-8周</p>
+                    </div>
                 </div>
-                <h3 class="idea-title">时间胶囊 App</h3>
-                <p class="idea-desc">录制视频/语音给未来的自己，设定时间后解锁。记录人生重要时刻，给未来的自己一份惊喜。</p>
-                <div class="idea-meta">
-                    <span class="meta-tag user">👥 年轻人、自我提升者</span>
-                    <span class="meta-tag product">📱 移动App</span>
+                
+                <!-- 创意 2 -->
+                <div class="idea-card">
+                    <div class="idea-header">
+                        <span class="idea-number">2</span>
+                        <div class="idea-score-badge">
+                            <span class="idea-score">8.5</span>
+                        </div>
+                    </div>
+                    <h3 class="idea-title">AI建筑缺陷检测</h3>
+                    <p class="idea-desc">利用计算机视觉技术，通过手机拍照自动识别建筑物裂缝、渗水、结构问题等质量缺陷，生成专业检测报告。</p>
+                    <div class="idea-meta">
+                        <span class="meta-tag user">👥 建筑公司/质检员</span>
+                        <span class="meta-tag product">💻 SaaS + App</span>
+                        <span class="meta-tag stage">🔬 技术驱动</span>
+                    </div>
+                    <div class="analysis-section">
+                        <div class="analysis-title">五维评分</div>
+                        <div class="score-bars">
+                            <div class="score-bar">
+                                <span class="label">市场需求</span>
+                                <div class="bar-bg"><div class="bar-fill market" style="width: 85%"></div></div>
+                                <span class="value">8.5</span>
+                            </div>
+                            <div class="score-bar">
+                                <span class="label">技术可行</span>
+                                <div class="bar-bg"><div class="bar-fill tech" style="width: 70%"></div></div>
+                                <span class="value">7.0</span>
+                            </div>
+                            <div class="score-bar">
+                                <span class="label">变现潜力</span>
+                                <div class="bar-bg"><div class="bar-fill profit" style="width: 95%"></div></div>
+                                <span class="value">9.5</span>
+                            </div>
+                            <div class="score-bar">
+                                <span class="label">竞争优势</span>
+                                <div class="bar-bg"><div class="bar-fill compete" style="width: 85%"></div></div>
+                                <span class="value">8.5</span>
+                            </div>
+                            <div class="score-bar">
+                                <span class="label">增长潜力</span>
+                                <div class="bar-bg"><div class="bar-fill growth" style="width: 90%"></div></div>
+                                <span class="value">9.0</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="detail-grid">
+                        <div class="detail-box">
+                            <h4>🎯 目标用户</h4>
+                            <p>建筑施工企业、房屋检测机构、物业管理公司、保险理赔部门</p>
+                        </div>
+                        <div class="detail-box">
+                            <h4>💰 商业模式</h4>
+                            <p>按检测次数收费 或 企业年费 $2000-10000/年</p>
+                        </div>
+                        <div class="detail-box">
+                            <h4>⚔️ 竞品分析</h4>
+                            <p>传统人工检测为主，AI方案少且贵，中小企业市场空白</p>
+                        </div>
+                        <div class="detail-box">
+                            <h4>🚧 主要风险</h4>
+                            <p>需要大量标注数据训练模型，早期准确率可能不够高</p>
+                        </div>
+                    </div>
+                    <div class="recommendation">
+                        <h4>✅ 推荐理由</h4>
+                        <p>企业级产品客单价高，一个大客户可养活整个项目。技术壁垒形成护城河，竞争对手难以快速复制。政策层面建筑安全监管趋严。</p>
+                    </div>
+                    <div class="mvp-suggestion">
+                        <h4>🛠️ MVP建议</h4>
+                        <p>先聚焦「裂缝检测」单一场景，使用预训练模型微调。找1-2家建筑公司做付费试点。预计周期：3-4个月</p>
+                    </div>
                 </div>
-                <div class="idea-reason"><strong>✅ 推荐理由：</strong>情感需求强，变现空间大（订阅制），技术实现简单</div>
-            </div>
-            
-            <div class="idea-card">
-                <div class="idea-header">
-                    <span class="idea-number">2</span>
-                    <span class="idea-score">8.0</span>
+                
+                <!-- 创意 3 -->
+                <div class="idea-card">
+                    <div class="idea-header">
+                        <span class="idea-number">3</span>
+                        <div class="idea-score-badge">
+                            <span class="idea-score">8.4</span>
+                        </div>
+                    </div>
+                    <h3 class="idea-title">时间胶囊App</h3>
+                    <p class="idea-desc">录制视频、语音或写信给未来的自己，设定解锁时间（1年后、5年后等），到期后收到来自过去的惊喜。</p>
+                    <div class="idea-meta">
+                        <span class="meta-tag user">👥 年轻人/学生</span>
+                        <span class="meta-tag product">📱 移动App</span>
+                        <span class="meta-tag stage">🎯 MVP友好</span>
+                    </div>
+                    <div class="analysis-section">
+                        <div class="analysis-title">五维评分</div>
+                        <div class="score-bars">
+                            <div class="score-bar">
+                                <span class="label">市场需求</span>
+                                <div class="bar-bg"><div class="bar-fill market" style="width: 85%"></div></div>
+                                <span class="value">8.5</span>
+                            </div>
+                            <div class="score-bar">
+                                <span class="label">技术可行</span>
+                                <div class="bar-bg"><div class="bar-fill tech" style="width: 95%"></div></div>
+                                <span class="value">9.5</span>
+                            </div>
+                            <div class="score-bar">
+                                <span class="label">变现潜力</span>
+                                <div class="bar-bg"><div class="bar-fill profit" style="width: 80%"></div></div>
+                                <span class="value">8.0</span>
+                            </div>
+                            <div class="score-bar">
+                                <span class="label">竞争优势</span>
+                                <div class="bar-bg"><div class="bar-fill compete" style="width: 75%"></div></div>
+                                <span class="value">7.5</span>
+                            </div>
+                            <div class="score-bar">
+                                <span class="label">增长潜力</span>
+                                <div class="bar-bg"><div class="bar-fill growth" style="width: 90%"></div></div>
+                                <span class="value">9.0</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="detail-grid">
+                        <div class="detail-box">
+                            <h4>🎯 目标用户</h4>
+                            <p>18-35岁年轻人、大学生、新婚夫妇、准父母、自我成长爱好者</p>
+                        </div>
+                        <div class="detail-box">
+">技术可行</span><div class="bar-bg"><div class="bar-fill tech" style="width: 85%"></div></div><span class="value">8.5</span></div>
+                            <div class="score-bar"><span class="label">变现潜力</span><div class="bar-bg"><div class="bar-fill profit" style="width: 75%"></div></div><span class="value">7.5</span></div>
+                            <div class="score-bar"><span class="label">竞争优势</span><div class="bar-bg"><div class="bar-fill compete" style="width: 60%"></div></div><span class="value">6.0</span></div>
+                            <div class="score-bar"><span class="label">增长潜力</span><div class="bar-bg"><div class="bar-fill growth" style="width: 80%"></div></div><span class="value">8.0</span></div>
+                        </div>
+                    </div>
+                    <div class="recommendation">
+                        <h4>✅ 推荐理由</h4>
+                        <p>社交需求永恒，匿名降低社交压力。但内容审核成本高，需要严格的安全机制。</p>
+                    </div>
                 </div>
-                <h3 class="idea-title">超市折扣食谱推荐</h3>
-                <p class="idea-desc">根据附近超市促销商品自动推荐食谱，帮用户省钱又省心。</p>
-                <div class="idea-meta">
-                    <span class="meta-tag user">👥 家庭主妇、省钱达人</span>
-                    <span class="meta-tag product">📱 移动App + 小程序</span>
+                
+                <div class="idea-card">
+                    <div class="idea-header">
+                        <span class="idea-number">12</span>
+                        <div class="idea-score-badge">
+                            <span class="idea-score">7.3</span>
+                        </div>
+                    </div>
+                    <h3 class="idea-title">数字书架</h3>
+                    <p class="idea-desc">可视化展示你读过的书，生成精美3D书架图，支持分享到社交媒体，记录阅读历程。</p>
+                    <div class="idea-meta">
+                        <span class="meta-tag user">👥 读书博主/爱好者</span>
+                        <span class="meta-tag product">🌐 网站</span>
+                        <span class="meta-tag stage">🎨 设计驱动</span>
+                    </div>
+                    <div class="analysis-section">
+                        <div class="analysis-title">五维评分</div>
+                        <div class="score-bars">
+                            <div class="score-bar"><span class="label">市场需求</span><div class="bar-bg"><div class="bar-fill market" style="width: 70%"></div></div><span class="value">7.0</span></div>
+                            <div class="score-bar"><span class="label">技术可行</span><div class="bar-bg"><div class="bar-fill tech" style="width: 85%"></div></div><span class="value">8.5</span></div>
+                            <div class="score-bar"><span class="label">变现潜力</span><div class="bar-bg"><div class="bar-fill profit" style="width: 60%"></div></div><span class="value">6.0</span></div>
+                            <div class="score-bar"><span class="label">竞争优势</span><div class="bar-bg"><div class="bar-fill compete" style="width: 80%"></div></div><span class="value">8.0</span></div>
+                            <div class="score-bar"><span class="label">增长潜力</span><div class="bar-bg"><div class="bar-fill growth" style="width: 75%"></div></div><span class="value">7.5</span></div>
+                        </div>
+                    </div>
+                    <div class="recommendation">
+                        <h4>✅ 推荐理由</h4>
+                        <p>满足展示欲和记录欲，社交分享带来自然传播。可接入豆瓣/Goodreads数据。</p>
+                    </div>
                 </div>
-                <div class="idea-reason"><strong>✅ 推荐理由：</strong>高频刚需，可接广告和联盟分成</div>
-            </div>
-            
-            <div class="idea-card">
-                <div class="idea-header">
-                    <span class="idea-number">3</span>
-                    <span class="idea-score">8.5</span>
+                
+                <div class="idea-card">
+                    <div class="idea-header">
+                        <span class="idea-number">13</span>
+                        <div class="idea-score-badge">
+                            <span class="idea-score">7.2</span>
+                        </div>
+                    </div>
+                    <h3 class="idea-title">Google文档转网站</h3>
+                    <p class="idea-desc">一键把Google Doc发布为干净的网站，自动生成美观样式，支持自定义域名。</p>
+                    <div class="idea-meta">
+                        <span class="meta-tag user">👥 内容创作者</span>
+                        <span class="meta-tag product">💻 SaaS</span>
+                        <span class="meta-tag stage">🔧 工具型</span>
+                    </div>
+                    <div class="analysis-section">
+                        <div class="analysis-title">五维评分</div>
+                        <div class="score-bars">
+                            <div class="score-bar"><span class="label">市场需求</span><div class="bar-bg"><div class="bar-fill market" style="width: 70%"></div></div><span class="value">7.0</span></div>
+                            <div class="score-bar"><span class="label">技术可行</span><div class="bar-bg"><div class="bar-fill tech" style="width: 80%"></div></div><span class="value">8.0</span></div>
+                            <div class="score-bar"><span class="label">变现潜力</span><div class="bar-bg"><div class="bar-fill profit" style="width: 70%"></div></div><span class="value">7.0</span></div>
+                            <div class="score-bar"><span class="label">竞争优势</span><div class="bar-bg"><div class="bar-fill compete" style="width: 70%"></div></div><span class="value">7.0</span></div>
+                            <div class="score-bar"><span class="label">增长潜力</span><div class="bar-bg"><div class="bar-fill growth" style="width: 70%"></div></div><span class="value">7.0</span></div>
+                        </div>
+                    </div>
+                    <div class="recommendation">
+                        <h4>✅ 推荐理由</h4>
+                        <p>简化建站流程，对非技术用户友好。可与Notion转网站差异化竞争。</p>
+                    </div>
                 </div>
-                <h3 class="idea-title">AI报价单SaaS</h3>
-                <p class="idea-desc">快速生成专业报价单，自动发邮件+智能跟进提醒，让自由职业者更专业。</p>
-                <div class="idea-meta">
-                    <span class="meta-tag user">👥 自由职业者、小企业</span>
-                    <span class="meta-tag product">💻 SaaS网站</span>
+                
+                <div class="idea-card">
+                    <div class="idea-header">
+                        <span class="idea-number">14</span>
+                        <div class="idea-score-badge">
+                            <span class="idea-score">7.2</span>
+                        </div>
+                    </div>
+                    <h3 class="idea-title">创业工具导航</h3>
+                    <p class="idea-desc">整理创业各阶段所需工具（域名、建站、支付、营销、法务等），一站式入口+评测对比。</p>
+                    <div class="idea-meta">
+                        <span class="meta-tag user">👥 创业者/独立开发</span>
+                        <span class="meta-tag product">🌐 网站</span>
+                        <span class="meta-tag stage">💰 联盟变现</span>
+                    </div>
+                    <div class="analysis-section">
+                        <div class="analysis-title">五维评分</div>
+                        <div class="score-bars">
+                            <div class="score-bar"><span class="label">市场需求</span><div class="bar-bg"><div class="bar-fill market" style="width: 75%"></div></div><span class="value">7.5</span></div>
+                            <div class="score-bar"><span class="label">技术可行</span><div class="bar-bg"><div class="bar-fill tech" style="width: 95%"></div></div><span class="value">9.5</span></div>
+                            <div class="score-bar"><span class="label">变现潜力</span><div class="bar-bg"><div class="bar-fill profit" style="width: 70%"></div></div><span class="value">7.0</span></div>
+                            <div class="score-bar"><span class="label">竞争优势</span><div class="bar-bg"><div class="bar-fill compete" style="width: 55%"></div></div><span class="value">5.5</span></div>
+                            <div class="score-bar"><span class="label">增长潜力</span><div class="bar-bg"><div class="bar-fill growth" style="width: 70%"></div></div><span class="value">7.0</span></div>
+                        </div>
+                    </div>
+                    <div class="recommendation">
+                        <h4>✅ 推荐理由</h4>
+                        <p>内容型产品，SEO友好。通过联盟链接变现，几乎零边际成本。竞争多但持续更新可建立优势。</p>
+                    </div>
                 </div>
-                <div class="idea-reason"><strong>✅ 推荐理由：</strong>B2B付费意愿高，市场需求明确</div>
-            </div>
-            
-            <div class="idea-card">
-                <div class="idea-header">
-                    <span class="idea-number">4</span>
-                    <span class="idea-score">7.5</span>
+                
+                <div class="idea-card">
+                    <div class="idea-header">
+                        <span class="idea-number">15</span>
+                        <div class="idea-score-badge">
+                            <span class="idea-score">7.1</span>
+                        </div>
+                    </div>
+                    <h3 class="idea-title">个人仪表盘</h3>
+                    <p class="idea-desc">自定义Widget的个人主页/浏览器起始页，整合天气、待办、书签、日历等常用信息。</p>
+                    <div class="idea-meta">
+                        <span class="meta-tag user">👥 效率党/极客</span>
+                        <span class="meta-tag product">🌐 网站+插件</span>
+                        <span class="meta-tag stage">🔧 工具型</span>
+                    </div>
+                    <div class="analysis-section">
+                        <div class="analysis-title">五维评分</div>
+                        <div class="score-bars">
+                            <div class="score-bar"><span class="label">市场需求</span><div class="bar-bg"><div class="bar-fill market" style="width: 70%"></div></div><span class="value">7.0</span></div>
+                            <div class="score-bar"><span class="label">技术可行</span><div class="bar-bg"><div class="bar-fill tech" style="width: 85%"></div></div><span class="value">8.5</span></div>
+                            <div class="score-bar"><span class="label">变现潜力</span><div class="bar-bg"><div class="bar-fill profit" style="width: 65%"></div></div><span class="value">6.5</span></div>
+                            <div class="score-bar"><span class="label">竞争优势</span><div class="bar-bg"><div class="bar-fill compete" style="width: 60%"></div></div><span class="value">6.0</span></div>
+                            <div class="score-bar"><span class="label">增长潜力</span><div class="bar-bg"><div class="bar-fill growth" style="width: 70%"></div></div><span class="value">7.0</span></div>
+                        </div>
+                    </div>
+                    <div class="recommendation">
+                        <h4>✅ 推荐理由</h4>
+                        <p>用户粘性极高（每天打开浏览器都用），可通过高级主题和Widget付费。竞品多需差异化。</p>
+                    </div>
                 </div>
-                <h3 class="idea-title">AI装修能耗优化</h3>
-                <p class="idea-desc">AI分析房屋/办公室布局，生成个性化能耗优化建议，帮助节能减排。</p>
-                <div class="idea-meta">
-                    <span class="meta-tag user">👥 房主、物业管理</span>
-                    <span class="meta-tag product">💻 SaaS + 移动App</span>
+                
+                <div class="idea-card">
+                    <div class="idea-header">
+                        <span class="idea-number">16</span>
+                        <div class="idea-score-badge">
+                            <span class="idea-score">7.0</span>
+                        </div>
+                    </div>
+                    <h3 class="idea-title">网站技术栈检测器</h3>
+                    <p class="idea-desc">输入网址，分析网站使用的技术栈（框架、CMS、分析工具、CDN等），竞品分析利器。</p>
+                    <div class="idea-meta">
+                        <span class="meta-tag user">👥 开发者/营销人员</span>
+                        <span class="meta-tag product">🌐 网站+API</span>
+                        <span class="meta-tag stage">🔧 工具型</span>
+                    </div>
+                    <div class="analysis-section">
+                        <div class="analysis-title">五维评分</div>
+                        <div class="score-bars">
+                            <div class="score-bar"><span class="label">市场需求</span><div class="bar-bg"><div class="bar-fill market" style="width: 70%"></div></div><span class="value">7.0</span></div>
+                            <div class="score-bar"><span class="label">技术可行</span><div class="bar-bg"><div class="bar-fill tech" style="width: 80%"></div></div><span class="value">8.0</span></div>
+                            <div class="score-bar"><span class="label">变现潜力</span><div class="bar-bg"><div class="bar-fill profit" style="width: 65%"></div></div><span class="value">6.5</span></div>
+                            <div class="score-bar"><span class="label">竞争优势</span><div class="bar-bg"><div class="bar-fill compete" style="width: 55%"></div></div><span class="value">5.5</span></div>
+                            <div class="score-bar"><span class="label">增长潜力</span><div class="bar-bg"><div class="bar-fill growth" style="width: 70%"></div></div><span class="value">7.0</span></div>
+                        </div>
+                    </div>
+                    <div class="recommendation">
+                        <h4>✅ 推荐理由</h4>
+                        <p>开发者刚需工具，BuiltWith/Wappalyzer有市场但可做差异化（更快、更准、免费额度更多）。</p>
+                    </div>
                 </div>
-                <div class="idea-reason"><strong>✅ 推荐理由：</strong>绿色环保趋势，政策支持</div>
-            </div>
-            
-            <div class="idea-card">
-                <div class="idea-header">
-                    <span class="idea-number">5</span>
-                    <span class="idea-score">7.0</span>
+                
+                <div class="idea-card">
+                    <div class="idea-header">
+                        <span class="idea-number">17</span>
+                        <div class="idea-score-badge">
+                            <span class="idea-score">7.0</span>
+                        </div>
+                    </div>
+                    <h3 class="idea-title">表情编辑器</h3>
+                    <p class="idea-desc">AI编辑照片中的面部表情，把哭脸变笑脸，修复表情不自然的照片，社交媒体神器。</p>
+                    <div class="idea-meta">
+                        <span class="meta-tag user">👥 摄影师/普通用户</span>
+                        <span class="meta-tag product">🌐 网站+App</span>
+                        <span class="meta-tag stage">🎨 娱乐型</span>
+                    </div>
+                    <div class="analysis-section">
+                        <div class="analysis-title">五维评分</div>
+                        <div class="score-bars">
+                            <div class="score-bar"><span class="label">市场需求</span><div class="bar-bg"><div class="bar-fill market" style="width: 75%"></div></div><span class="value">7.5</span></div>
+                            <div class="score-bar"><span class="label">技术可行</span><div class="bar-bg"><div class="bar-fill tech" style="width: 75%"></div></div><span class="value">7.5</span></div>
+                            <div class="score-bar"><span class="label">变现潜力</span><div class="bar-bg"><div class="bar-fill profit" style="width: 70%"></div></div><span class="value">7.0</span></div>
+                            <div class="score-bar"><span class="label">竞争优势</span><div class="bar-bg"><div class="bar-fill compete" style="width: 60%"></div></div><span class="value">6.0</span></div>
+                            <div class="score-bar"><span class="label">增长潜力</span><div class="bar-bg"><div class="bar-fill growth" style="width: 70%"></div></div><span class="value">7.0</span></div>
+                        </div>
+                    </div>
+                    <div class="recommendation">
+                        <h4>✅ 推荐理由</h4>
+                        <p>娱乐性强，容易病毒传播。可结合AI换脸、美颜等功能做综合图片编辑工具。</p>
+                    </div>
                 </div>
-                <h3 class="idea-title">共读匹配平台</h3>
-                <p class="idea-desc">匹配想读同一本书的人，约定进度一起读，互相督促交流。</p>
-                <div class="idea-meta">
-                    <span class="meta-tag user">👥 读书爱好者</span>
-                    <span class="meta-tag product">🌐 网站 + App</span>
+                
+                <div class="idea-card">
+                    <div class="idea-header">
+                        <span class="idea-number">18</span>
+                        <div class="idea-score-badge">
+                            <span class="idea-score">6.9</span>
+                        </div>
+                    </div>
+                    <h3 class="idea-title">教师课表管理</h3>
+                    <p class="idea-desc">专为中小学教师设计的课表+任务管理App，整合课程表、作业批改进度、家长沟通记录。</p>
+                    <div class="idea-meta">
+                        <span class="meta-tag user">👥 中小学教师</span>
+                        <span class="meta-tag product">📱 移动App</span>
+                        <span class="meta-tag stage">🏫 垂直市场</span>
+                    </div>
+                    <div class="analysis-section">
+                        <div class="analysis-title">五维评分</div>
+                        <div class="score-bars">
+                            <div class="score-bar"><span class="label">市场需求</span><div class="bar-bg"><div class="bar-fill market" style="width: 75%"></div></div><span class="value">7.5</span></div>
+                            <div class="score-bar"><span class="label">技术可行</span><div class="bar-bg"><div class="bar-fill tech" style="width: 90%"></div></div><span class="value">9.0</span></div>
+                            <div class="score-bar"><span class="label">变现潜力</span><div class="bar-bg"><div class="bar-fill profit" style="width: 60%"></div></div><span class="value">6.0</span></div>
+                            <div class="score-bar"><span class="label">竞争优势</span><div class="bar-bg"><div class="bar-fill compete" style="width: 65%"></div></div><span class="value">6.5</span></div>
+                            <div class="score-bar"><span class="label">增长潜力</span><div class="bar-bg"><div class="bar-fill growth" style="width: 65%"></div></div><span class="value">6.5</span></div>
+                        </div>
+                    </div>
+                    <div class="recommendation">
+                        <h4>✅ 推荐理由</h4>
+                        <p>垂直市场用户集中，可通过学校/教育局批量推广。教育信息化政策利好。</p>
+                    </div>
                 </div>
-                <div class="idea-reason"><strong>✅ 推荐理由：</strong>社交+读书双重价值，用户粘性高</div>
-            </div>
-            
-            <div class="idea-card">
-                <div class="idea-header">
-                    <span class="idea-number">6</span>
-                    <span class="idea-score">7.0</span>
+                
+                <div class="idea-card">
+                    <div class="idea-header">
+                        <span class="idea-number">19</span>
+                        <div class="idea-score-badge">
+                            <span class="idea-score">6.8</span>
+                        </div>
+                    </div>
+                    <h3 class="idea-title">酷站导航</h3>
+                    <p class="idea-desc">分类展示有趣实用的网站，用户推荐+投票，每日/每周精选，发现互联网宝藏。</p>
+                    <div class="idea-meta">
+                        <span class="meta-tag user">👥 互联网探索者</span>
+                        <span class="meta-tag product">🌐 网站</span>
+                        <span class="meta-tag stage">📰 内容型</span>
+                    </div>
+                    <div class="analysis-section">
+                        <div class="analysis-title">五维评分</div>
+                        <div class="score-bars">
+                            <div class="score-bar"><span class="label">市场需求</span><div class="bar-bg"><div class="bar-fill market" style="width: 65%"></div></div><span class="value">6.5</span></div>
+                            <div class="score-bar"><span class="label">技术可行</span><div class="bar-bg"><div class="bar-fill tech" style="width: 95%"></div></div><span class="value">9.5</span></div>
+                            <div class="score-bar"><span class="label">变现潜力</span><div class="bar-bg"><div class="bar-fill profit" style="width: 60%"></div></div><span class="value">6.0</span></div>
+                            <div class="score-bar"><span class="label">竞争优势</span><div class="bar-bg"><div class="bar-fill compete" style="width: 55%"></div></div><span class="value">5.5</span></div>
+                            <div class="score-bar"><span class="label">增长潜力</span><div class="bar-bg"><div class="bar-fill growth" style="width: 65%"></div></div><span class="value">6.5</span></div>
+                        </div>
+                    </div>
+                    <div class="recommendation">
+                        <h4>✅ 推荐理由</h4>
+                        <p>内容驱动，SEO流量稳定。Product Hunt中国版概念。需要持续运营保持新鲜感。</p>
+                    </div>
                 </div>
-                <h3 class="idea-title">酷站导航</h3>
-                <p class="idea-desc">分类展示有趣实用的网站，用户推荐+投票，发现互联网宝藏。</p>
-                <div class="idea-meta">
-                    <span class="meta-tag user">👥 互联网探索者、效率党</span>
-                    <span class="meta-tag product">🌐 网站</span>
+                
+                <div class="idea-card">
+                    <div class="idea-header">
+                        <span class="idea-number">20</span>
+                        <div class="idea-score-badge">
+                            <span class="idea-score">6.7</span>
+                        </div>
+                    </div>
+                    <h3 class="idea-title">10个创业点子周刊</h3>
+                    <p class="idea-desc">每周发布10个经过验证的创业点子，附带市场分析、竞品研究、可行性报告。</p>
+                    <div class="idea-meta">
+                        <span class="meta-tag user">👥 创业者/投资人</span>
+                        <span class="meta-tag product">📧 Newsletter</span>
+                        <span class="meta-tag stage">📰 内容型</span>
+                    </div>
+                    <div class="analysis-section">
+                        <div class="analysis-title">五维评分</div>
+                        <div class="score-bars">
+                            <div class="score-bar"><span class="label">市场需求</span><div class="bar-bg"><div class="bar-fill market" style="width: 70%"></div></div><span class="value">7.0</span></div>
+                            <div class="score-bar"><span class="label">技术可行</span><div class="bar-bg"><div class="bar-fill tech" style="width: 95%"></div></div><span class="value">9.5</span></div>
+                            <div class="score-bar"><span class="label">变现潜力</span><div class="bar-bg"><div class="bar-fill profit" style="width: 60%"></div></div><span class="value">6.0</span></div>
+                            <div class="score-bar"><span class="label">竞争优势</span><div class="bar-bg"><div class="bar-fill compete" style="width: 50%"></div></div><span class="value">5.0</span></div>
+                            <div class="score-bar"><span class="label">增长潜力</span><div class="bar-bg"><div class="bar-fill growth" style="width: 60%"></div></div><span class="value">6.0</span></div>
+                        </div>
+                    </div>
+                    <div class="recommendation">
+                        <h4>✅ 推荐理由</h4>
+                        <p>零成本启动，订阅制变现。建立个人品牌，可延伸到咨询、社群等高价值服务。</p>
+                    </div>
                 </div>
-                <div class="idea-reason"><strong>✅ 推荐理由：</strong>内容驱动，SEO流量大</div>
-            </div>
-            
-            <div class="idea-card">
-                <div class="idea-header">
-                    <span class="idea-number">7</span>
-                    <span class="idea-score">7.5</span>
-                </div>
-                <h3 class="idea-title">附近匿名聊天</h3>
-                <p class="idea-desc">基于位置的匿名社交，和同一区域的人聊天，发现身边有趣的灵魂。</p>
-                <div class="idea-meta">
-                    <span class="meta-tag user">👥 大学生、城市年轻人</span>
-                    <span class="meta-tag product">📱 移动App</span>
-                </div>
-                <div class="idea-reason"><strong>✅ 推荐理由：</strong>社交需求强，但需注意内容安全</div>
-            </div>
-            
-            <div class="idea-card">
-                <div class="idea-header">
-                    <span class="idea-number">8</span>
-                    <span class="idea-score">8.0</span>
-                </div>
-                <h3 class="idea-title">人脸姓名记忆卡</h3>
-                <p class="idea-desc">上传照片生成闪卡，用间隔重复帮助记住人名，职场社交神器。</p>
-                <div class="idea-meta">
-                    <span class="meta-tag user">👥 老师、销售、管理者</span>
-                    <span class="meta-tag product">📱 移动App</span>
-                </div>
-                <div class="idea-reason"><strong>✅ 推荐理由：</strong>解决真实痛点，职场刚需</div>
-            </div>
-            
-            <div class="idea-card">
-                <div class="idea-header">
-                    <span class="idea-number">9</span>
-                    <span class="idea-score">7.5</span>
-                </div>
-                <h3 class="idea-title">在线工具箱</h3>
-                <p class="idea-desc">整合30+常用小工具，无广告无登录，开箱即用。</p>
-                <div class="idea-meta">
-                    <span class="meta-tag user">👥 开发者、设计师、普通用户</span>
-                    <span class="meta-tag product">🌐 网站</span>
-                </div>
-                <div class="idea-reason"><strong>✅ 推荐理由：</strong>流量型产品，可通过Pro版变现</div>
-            </div>
-            
-            <div class="idea-card">
-                <div class="idea-header">
-                    <span class="idea-number">10</span>
-                    <span class="idea-score">8.0</span>
-                </div>
-                <h3 class="idea-title">食谱去广告提取器</h3>
-                <p class="idea-desc">输入食谱网址，提取纯净食谱，去掉广告和人生故事废话。</p>
-                <div class="idea-meta">
-                    <span class="meta-tag user">👥 做饭爱好者</span>
-                    <span class="meta-tag product">🌐 网站 + 浏览器插件</span>
-                </div>
-                <div class="idea-reason"><strong>✅ 推荐理由：</strong>高频痛点，病毒传播潜力大</div>
-            </div>
-            
-            <div class="idea-card">
-                <div class="idea-header">
-                    <span class="idea-number">11</span>
-                    <span class="idea-score">8.0</span>
-                </div>
-                <h3 class="idea-title">AI贸易公司后台</h3>
-                <p class="idea-desc">AI自动化处理贸易公司日常事务：询盘、报价、跟单、物流追踪。</p>
-                <div class="idea-meta">
-                    <span class="meta-tag user">👥 小型贸易公司</span>
-                    <span class="meta-tag product">💻 SaaS</span>
-                </div>
-                <div class="idea-reason"><strong>✅ 推荐理由：</strong>B2B高客单价，垂直领域机会大</div>
-            </div>
-            
-            <div class="idea-card">
-                <div class="idea-header">
-                    <span class="idea-number">12</span>
-                    <span class="idea-score">7.0</span>
-                </div>
-                <h3 class="idea-title">数字书架</h3>
-                <p class="idea-desc">可视化展示你读过的书，生成精美书架图，分享到社交媒体。</p>
-                <div class="idea-meta">
-                    <span class="meta-tag user">👥 读书爱好者、博主</span>
-                    <span class="meta-tag product">🌐 网站</span>
-                </div>
-                <div class="idea-reason"><strong>✅ 推荐理由：</strong>社交分享需求，易传播</div>
-            </div>
-            
-            <div class="idea-card">
-                <div class="idea-header">
-                    <span class="idea-number">13</span>
-                    <span class="idea-score">7.5</span>
-                </div>
-                <h3 class="idea-title">Google文档转网站</h3>
-                <p class="idea-desc">一键把Google Doc发布为干净的网站，无需懂代码。</p>
-                <div class="idea-meta">
-                    <span class="meta-tag user">👥 内容创作者、小企业</span>
-                    <span class="meta-tag product">💻 SaaS</span>
-                </div>
-                <div class="idea-reason"><strong>✅ 推荐理由：</strong>技术简单，需求明确</div>
-            </div>
-            
-            <div class="idea-card">
-                <div class="idea-header">
-                    <span class="idea-number">14</span>
-                    <span class="idea-score">7.5</span>
-                </div>
-                <h3 class="idea-title">创业工具导航</h3>
-                <p class="idea-desc">整理创业各阶段所需工具，一站式入口，从0到1全覆盖。</p>
-                <div class="idea-meta">
-                    <span class="meta-tag user">👥 创业者、独立开发者</span>
-                    <span class="meta-tag product">🌐 网站</span>
-                </div>
-                <div class="idea-reason"><strong>✅ 推荐理由：</strong>联盟变现，SEO友好</div>
-            </div>
-            
-            <div class="idea-card">
-                <div class="idea-header">
-                    <span class="idea-number">15</span>
-                    <span class="idea-score">7.0</span>
-                </div>
-                <h3 class="idea-title">个人仪表盘</h3>
-                <p class="idea-desc">自定义widget的个人主页/起始页，打造专属数字空间。</p>
-                <div class="idea-meta">
-                    <span class="meta-tag user">👥 效率党、极客</span>
-                    <span class="meta-tag product">🌐 网站 + 浏览器扩展</span>
-                </div>
-                <div class="idea-reason"><strong>✅ 推荐理由：</strong>用户粘性高，Pro版付费</div>
-            </div>
-            
-            <div class="idea-card">
-                <div class="idea-header">
-                    <span class="idea-number">16</span>
-                    <span class="idea-score">7.0</span>
-                </div>
-                <h3 class="idea-title">网站技术栈检测器</h3>
-                <p class="idea-desc">输入网址，分析使用了什么技术/框架，竞品分析利器。</p>
-                <div class="idea-meta">
-                    <span class="meta-tag user">👥 开发者、竞品分析</span>
-                    <span class="meta-tag product">🌐 网站 + API</span>
-                </div>
-                <div class="idea-reason"><strong>✅ 推荐理由：</strong>开发者工具，API可变现</div>
-            </div>
-            
-            <div class="idea-card">
-                <div class="idea-header">
-                    <span class="idea-number">17</span>
-                    <span class="idea-score">8.5</span>
-                </div>
-                <h3 class="idea-title">AI建筑缺陷检测</h3>
-                <p class="idea-desc">AI识别建筑/制造业质量缺陷，拍照即检测，提升质检效率。</p>
-                <div class="idea-meta">
-                    <span class="meta-tag user">👥 建筑公司、制造商</span>
-                    <span class="meta-tag product">💻 SaaS + 移动App</span>
-                </div>
-                <div class="idea-reason"><strong>✅ 推荐理由：</strong>企业级高价值，有技术壁垒</div>
-            </div>
-            
-            <div class="idea-card">
-                <div class="idea-header">
-                    <span class="idea-number">18</span>
-                    <span class="idea-score">7.5</span>
-                </div>
-                <h3 class="idea-title">表情编辑器</h3>
-                <p class="idea-desc">AI编辑照片表情，把哭脸变笑脸，修复表情不佳的照片。</p>
-                <div class="idea-meta">
-                    <span class="meta-tag user">👥 摄影师、内容创作者</span>
-                    <span class="meta-tag product">🌐 网站 + App</span>
-                </div>
-                <div class="idea-reason"><strong>✅ 推荐理由：</strong>娱乐+实用，病毒传播潜力</div>
-            </div>
-            
-            <div class="idea-card">
-                <div class="idea-header">
-                    <span class="idea-number">19</span>
-                    <span class="idea-score">7.5</span>
-                </div>
-                <h3 class="idea-title">教师课表管理</h3>
-                <p class="idea-desc">专为中小学老师设计的课表+任务管理，简化教学日常。</p>
-                <div class="idea-meta">
-                    <span class="meta-tag user">👥 教师</span>
-                    <span class="meta-tag product">📱 移动App</span>
-                </div>
-                <div class="idea-reason"><strong>✅ 推荐理由：</strong>垂直市场，学校批量采购潜力</div>
-            </div>
-            
-            <div class="idea-card">
-                <div class="idea-header">
-                    <span class="idea-number">20</span>
-                    <span class="idea-score">7.0</span>
-                </div>
-                <h3 class="idea-title">10个创业点子周刊</h3>
-                <p class="idea-desc">每周发布10个经过验证的创业点子，含市场分析和可行性报告。</p>
-                <div class="idea-meta">
-                    <span class="meta-tag user">👥 创业者、投资人</span>
-                    <span class="meta-tag product">📧 Newsletter + 网站</span>
-                </div>
-                <div class="idea-reason"><strong>✅ 推荐理由：</strong>内容产品，订阅制变现</div>
+                
             </div>
         </section>
         
         <footer>
             <p>🤖 由 <strong>小贾</strong> 自动收集整理 · 数据来源 Reddit</p>
-            <p style="margin-top: 10px; font-size: 0.85rem;">每日早8点更新 · 发现好创意，创造好产品</p>
+            <p style="margin-top: 10px; font-size: 0.9rem;">每日早8点更新 · 发现好创意，创造好产品</p>
+            <p style="margin-top: 15px; font-size: 0.85rem; color: #555;">© 2026 创意广场 · <a href="https://github.com/KID-SSS/idea-plaza">GitHub</a></p>
         </footer>
     </div>
 </body>
