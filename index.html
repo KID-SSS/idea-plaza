@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>创意广场 - Reddit精选产品创意</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            min-height: 100vh;
+            color: #e8e8e8;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            padding: 40px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            margin-bottom: 40px;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            background: linear-gradient(90deg, #00d9ff, #00ff88);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            color: #888;
+            font-size: 1.1rem;
+        }
+        
+        .date {
+            color: #00d9ff;
+            font-size: 0.9rem;
+            margin-top: 10px;
+        }
+        
+        .top-section {
+            background: rgba(255,255,255,0.05);
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 40px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .top-section h2 {
+            color: #00ff88;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+        
+        .top-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        
+        .top-card {
+            background: rgba(0,217,255,0.1);
+            border-radius: 12px;
+            padding: 20px;
+            border: 1px solid rgba(0,217,255,0.3);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .top-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,217,255,0.2);
+        }
+        
+        .top-card .rank {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+        
+        .top-card .name {
+            font-weight: bold;
+            color: #fff;
+            margin-bottom: 5px;
+        }
+        
+        .top-card .score {
+            color: #00ff88;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+        
+        .top-card .reason {
+            color: #aaa;
+            font-size: 0.85rem;
+            margin-top: 10px;
+        }
+        
+        .ideas-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+        }
+        
+        .idea-card {
+            background: rgba(255,255,255,0.03);
+            border-radius: 16px;
+            padding: 25px;
+            border: 1px solid rgba(255,255,255,0.08);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .idea-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, #00d9ff, #00ff88);
+        }
+        
+        .idea-card:hover {
+            background: rgba(255,255,255,0.06);
+            transform: translateX(5px);
+            border-color: rgba(0,217,255,0.3);
+        }
+        
+        .idea-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+        
+        .idea-number {
+            background: linear-gradient(135deg, #00d9ff, #00ff88);
+            color: #1a1a2e;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+        
+        .idea-score {
+            background: rgba(0,255,136,0.2);
+            color: #00ff88;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+        
+        .idea-title {
+            font-size: 1.3rem;
+            color: #fff;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+        
+        .idea-desc {
+            color: #bbb;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+        
+        .idea-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .meta-tag {
+            background: rgba(255,255,255,0.1);
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            color: #ddd;
+        }
+        
+        .meta-tag.user {
+            background: rgba(0,217,255,0.2);
+            color: #00d9ff;
+        }
+        
+        .meta-tag.product {
+            background: rgba(0,255,136,0.2);
+            color: #00ff88;
+        }
+        
+        .idea-reason {
+            background: rgba(255,255,255,0.05);
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            color: #aaa;
+            border-left: 3px solid #00ff88;
+        }
+        
+        .idea-reason strong {
+            color: #00ff88;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            margin-top: 40px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #666;
+        }
+        
+        footer a {
+            color: #00d9ff;
+            text-decoration: none;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            .ideas-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .container {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🚀 创意广场</h1>
+            <p class="subtitle">Reddit精选产品创意 · 每日更新</p>
+            <p class="date">📅 2026-02-08 · 第1期</p>
+        </header>
+        
+        <section class="top-section">
+            <h2>📊 今日 Top 5 推荐</h2>
+            <div class="top-grid">
+                <div class="top-card">
+                    <div class="rank">🥇</div>
+                    <div class="name">AI报价单SaaS</div>
+                    <div class="score">8.5/10</div>
+                    <div class="reason">B2B付费意愿高，开发难度适中</div>
+                </div>
+                <div class="top-card">
+                    <div class="rank">🥈</div>
+                    <div class="name">AI建筑缺陷检测</div>
+                    <div class="score">8.5/10</div>
+                    <div class="reason">高价值企业市场，技术壁垒</div>
+                </div>
+                <div class="top-card">
+                    <div class="rank">🥉</div>
+                    <div class="name">时间胶囊App</div>
+                    <div class="score">8.5/10</div>
+                    <div class="reason">情感需求强，变现模式清晰</div>
+                </div>
+                <div class="top-card">
+                    <div class="rank">4️⃣</div>
+                    <div class="name">人脸姓名记忆卡</div>
+                    <div class="score">8.0/10</div>
+                    <div class="reason">解决真实痛点，职场刚需</div>
+                </div>
+                <div class="top-card">
+                    <div class="rank">5️⃣</div>
+                    <div class="name">超市折扣食谱</div>
+                    <div class="score">8.0/10</div>
+                    <div class="reason">高频使用，多种变现方式</div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="ideas-grid">
+            <div class="idea-card">
+                <div class="idea-header">
+                    <span class="idea-number">1</span>
+                    <span class="idea-score">8.5</span>
+                </div>
+                <h3 class="idea-title">时间胶囊 App</h3>
+                <p class="idea-desc">录制视频/语音给未来的自己，设定时间后解锁。记录人生重要时刻，给未来的自己一份惊喜。</p>
+                <div class="idea-meta">
+                    <span class="meta-tag user">👥 年轻人、自我提升者</span>
+                    <span class="meta-tag product">📱 移动App</span>
+                </div>
+                <div class="idea-reason"><strong>✅ 推荐理由：</strong>情感需求强，变现空间大（订阅制），技术实现简单</div>
+            </div>
+            
+            <div class="idea-card">
+                <div class="idea-header">
+                    <span class="idea-number">2</span>
+                    <span class="idea-score">8.0</span>
+                </div>
+                <h3 class="idea-title">超市折扣食谱推荐</h3>
+                <p class="idea-desc">根据附近超市促销商品自动推荐食谱，帮用户省钱又省心。</p>
+                <div class="idea-meta">
+                    <span class="meta-tag user">👥 家庭主妇、省钱达人</span>
+                    <span class="meta-tag product">📱 移动App + 小程序</span>
+                </div>
+                <div class="idea-reason"><strong>✅ 推荐理由：</strong>高频刚需，可接广告和联盟分成</div>
+            </div>
+            
+            <div class="idea-card">
+                <div class="idea-header">
+                    <span class="idea-number">3</span>
+                    <span class="idea-score">8.5</span>
+                </div>
+                <h3 class="idea-title">AI报价单SaaS</h3>
+                <p class="idea-desc">快速生成专业报价单，自动发邮件+智能跟进提醒，让自由职业者更专业。</p>
+                <div class="idea-meta">
+                    <span class="meta-tag user">👥 自由职业者、小企业</span>
+                    <span class="meta-tag product">💻 SaaS网站</span>
+                </div>
+                <div class="idea-reason"><strong>✅ 推荐理由：</strong>B2B付费意愿高，市场需求明确</div>
+            </div>
+            
+            <div class="idea-card">
+                <div class="idea-header">
+                    <span class="idea-number">4</span>
+                    <span class="idea-score">7.5</span>
+                </div>
+                <h3 class="idea-title">AI装修能耗优化</h3>
+                <p class="idea-desc">AI分析房屋/办公室布局，生成个性化能耗优化建议，帮助节能减排。</p>
+                <div class="idea-meta">
+                    <span class="meta-tag user">👥 房主、物业管理</span>
+                    <span class="meta-tag product">💻 SaaS + 移动App</span>
+                </div>
+                <div class="idea-reason"><strong>✅ 推荐理由：</strong>绿色环保趋势，政策支持</div>
+            </div>
+            
+            <div class="idea-card">
+                <div class="idea-header">
+                    <span class="idea-number">5</span>
+                    <span class="idea-score">7.0</span>
+                </div>
+                <h3 class="idea-title">共读匹配平台</h3>
+                <p class="idea-desc">匹配想读同一本书的人，约定进度一起读，互相督促交流。</p>
+                <div class="idea-meta">
+                    <span class="meta-tag user">👥 读书爱好者</span>
+                    <span class="meta-tag product">🌐 网站 + App</span>
+                </div>
+                <div class="idea-reason"><strong>✅ 推荐理由：</strong>社交+读书双重价值，用户粘性高</div>
+            </div>
+            
+            <div class="idea-card">
+                <div class="idea-header">
+                    <span class="idea-number">6</span>
+                    <span class="idea-score">7.0</span>
+                </div>
+                <h3 class="idea-title">酷站导航</h3>
+                <p class="idea-desc">分类展示有趣实用的网站，用户推荐+投票，发现互联网宝藏。</p>
+                <div class="idea-meta">
+                    <span class="meta-tag user">👥 互联网探索者、效率党</span>
+                    <span class="meta-tag product">🌐 网站</span>
+                </div>
+                <div class="idea-reason"><strong>✅ 推荐理由：</strong>内容驱动，SEO流量大</div>
+            </div>
+            
+            <div class="idea-card">
+                <div class="idea-header">
+                    <span class="idea-number">7</span>
+                    <span class="idea-score">7.5</span>
+                </div>
+                <h3 class="idea-title">附近匿名聊天</h3>
+                <p class="idea-desc">基于位置的匿名社交，和同一区域的人聊天，发现身边有趣的灵魂。</p>
+                <div class="idea-meta">
+                    <span class="meta-tag user">👥 大学生、城市年轻人</span>
+                    <span class="meta-tag product">📱 移动App</span>
+                </div>
+                <div class="idea-reason"><strong>✅ 推荐理由：</strong>社交需求强，但需注意内容安全</div>
+            </div>
+            
+            <div class="idea-card">
+                <div class="idea-header">
+                    <span class="idea-number">8</span>
+                    <span class="idea-score">8.0</span>
+                </div>
+                <h3 class="idea-title">人脸姓名记忆卡</h3>
+                <p class="idea-desc">上传照片生成闪卡，用间隔重复帮助记住人名，职场社交神器。</p>
+                <div class="idea-meta">
+                    <span class="meta-tag user">👥 老师、销售、管理者</span>
+                    <span class="meta-tag product">📱 移动App</span>
+                </div>
+                <div class="idea-reason"><strong>✅ 推荐理由：</strong>解决真实痛点，职场刚需</div>
+            </div>
+            
+            <div class="idea-card">
+                <div class="idea-header">
+                    <span class="idea-number">9</span>
+                    <span class="idea-score">7.5</span>
+                </div>
+                <h3 class="idea-title">在线工具箱</h3>
+                <p class="idea-desc">整合30+常用小工具，无广告无登录，开箱即用。</p>
+                <div class="idea-meta">
+                    <span class="meta-tag user">👥 开发者、设计师、普通用户</span>
+                    <span class="meta-tag product">🌐 网站</span>
+                </div>
+                <div class="idea-reason"><strong>✅ 推荐理由：</strong>流量型产品，可通过Pro版变现</div>
+            </div>
+            
+            <div class="idea-card">
+                <div class="idea-header">
+                    <span class="idea-number">10</span>
+                    <span class="idea-score">8.0</span>
+                </div>
+                <h3 class="idea-title">食谱去广告提取器</h3>
+                <p class="idea-desc">输入食谱网址，提取纯净食谱，去掉广告和人生故事废话。</p>
+                <div class="idea-meta">
+                    <span class="meta-tag user">👥 做饭爱好者</span>
+                    <span class="meta-tag product">🌐 网站 + 浏览器插件</span>
+                </div>
+                <div class="idea-reason"><strong>✅ 推荐理由：</strong>高频痛点，病毒传播潜力大</div>
+            </div>
+            
+            <div class="idea-card">
+                <div class="idea-header">
+                    <span class="idea-number">11</span>
+                    <span class="idea-score">8.0</span>
+                </div>
+                <h3 class="idea-title">AI贸易公司后台</h3>
+                <p class="idea-desc">AI自动化处理贸易公司日常事务：询盘、报价、跟单、物流追踪。</p>
+                <div class="idea-meta">
+                    <span class="meta-tag user">👥 小型贸易公司</span>
+                    <span class="meta-tag product">💻 SaaS</span>
+                </div>
+                <div class="idea-reason"><strong>✅ 推荐理由：</strong>B2B高客单价，垂直领域机会大</div>
+            </div>
+            
+            <div class="idea-card">
+                <div class="idea-header">
+                    <span class="idea-number">12</span>
+                    <span class="idea-score">7.0</span>
+                </div>
+                <h3 class="idea-title">数字书架</h3>
+                <p class="idea-desc">可视化展示你读过的书，生成精美书架图，分享到社交媒体。</p>
+                <div class="idea-meta">
+                    <span class="meta-tag user">👥 读书爱好者、博主</span>
+                    <span class="meta-tag product">🌐 网站</span>
+                </div>
+                <div class="idea-reason"><strong>✅ 推荐理由：</strong>社交分享需求，易传播</div>
+            </div>
+            
+            <div class="idea-card">
+                <div class="idea-header">
+                    <span class="idea-number">13</span>
+                    <span class="idea-score">7.5</span>
+                </div>
+                <h3 class="idea-title">Google文档转网站</h3>
+                <p class="idea-desc">一键把Google Doc发布为干净的网站，无需懂代码。</p>
+                <div class="idea-meta">
+                    <span class="meta-tag user">👥 内容创作者、小企业</span>
+                    <span class="meta-tag product">💻 SaaS</span>
+                </div>
+                <div class="idea-reason"><strong>✅ 推荐理由：</strong>技术简单，需求明确</div>
+            </div>
+            
+            <div class="idea-card">
+                <div class="idea-header">
+                    <span class="idea-number">14</span>
+                    <span class="idea-score">7.5</span>
+                </div>
+                <h3 class="idea-title">创业工具导航</h3>
+                <p class="idea-desc">整理创业各阶段所需工具，一站式入口，从0到1全覆盖。</p>
+                <div class="idea-meta">
+                    <span class="meta-tag user">👥 创业者、独立开发者</span>
+                    <span class="meta-tag product">🌐 网站</span>
+                </div>
+                <div class="idea-reason"><strong>✅ 推荐理由：</strong>联盟变现，SEO友好</div>
+            </div>
+            
+            <div class="idea-card">
+                <div class="idea-header">
+                    <span class="idea-number">15</span>
+                    <span class="idea-score">7.0</span>
+                </div>
+                <h3 class="idea-title">个人仪表盘</h3>
+                <p class="idea-desc">自定义widget的个人主页/起始页，打造专属数字空间。</p>
+                <div class="idea-meta">
+                    <span class="meta-tag user">👥 效率党、极客</span>
+                    <span class="meta-tag product">🌐 网站 + 浏览器扩展</span>
+                </div>
+                <div class="idea-reason"><strong>✅ 推荐理由：</strong>用户粘性高，Pro版付费</div>
+            </div>
+            
+            <div class="idea-card">
+                <div class="idea-header">
+                    <span class="idea-number">16</span>
+                    <span class="idea-score">7.0</span>
+                </div>
+                <h3 class="idea-title">网站技术栈检测器</h3>
+                <p class="idea-desc">输入网址，分析使用了什么技术/框架，竞品分析利器。</p>
+                <div class="idea-meta">
+                    <span class="meta-tag user">👥 开发者、竞品分析</span>
+                    <span class="meta-tag product">🌐 网站 + API</span>
+                </div>
+                <div class="idea-reason"><strong>✅ 推荐理由：</strong>开发者工具，API可变现</div>
+            </div>
+            
+            <div class="idea-card">
+                <div class="idea-header">
+                    <span class="idea-number">17</span>
+                    <span class="idea-score">8.5</span>
+                </div>
+                <h3 class="idea-title">AI建筑缺陷检测</h3>
+                <p class="idea-desc">AI识别建筑/制造业质量缺陷，拍照即检测，提升质检效率。</p>
+                <div class="idea-meta">
+                    <span class="meta-tag user">👥 建筑公司、制造商</span>
+                    <span class="meta-tag product">💻 SaaS + 移动App</span>
+                </div>
+                <div class="idea-reason"><strong>✅ 推荐理由：</strong>企业级高价值，有技术壁垒</div>
+            </div>
+            
+            <div class="idea-card">
+                <div class="idea-header">
+                    <span class="idea-number">18</span>
+                    <span class="idea-score">7.5</span>
+                </div>
+                <h3 class="idea-title">表情编辑器</h3>
+                <p class="idea-desc">AI编辑照片表情，把哭脸变笑脸，修复表情不佳的照片。</p>
+                <div class="idea-meta">
+                    <span class="meta-tag user">👥 摄影师、内容创作者</span>
+                    <span class="meta-tag product">🌐 网站 + App</span>
+                </div>
+                <div class="idea-reason"><strong>✅ 推荐理由：</strong>娱乐+实用，病毒传播潜力</div>
+            </div>
+            
+            <div class="idea-card">
+                <div class="idea-header">
+                    <span class="idea-number">19</span>
+                    <span class="idea-score">7.5</span>
+                </div>
+                <h3 class="idea-title">教师课表管理</h3>
+                <p class="idea-desc">专为中小学老师设计的课表+任务管理，简化教学日常。</p>
+                <div class="idea-meta">
+                    <span class="meta-tag user">👥 教师</span>
+                    <span class="meta-tag product">📱 移动App</span>
+                </div>
+                <div class="idea-reason"><strong>✅ 推荐理由：</strong>垂直市场，学校批量采购潜力</div>
+            </div>
+            
+            <div class="idea-card">
+                <div class="idea-header">
+                    <span class="idea-number">20</span>
+                    <span class="idea-score">7.0</span>
+                </div>
+                <h3 class="idea-title">10个创业点子周刊</h3>
+                <p class="idea-desc">每周发布10个经过验证的创业点子，含市场分析和可行性报告。</p>
+                <div class="idea-meta">
+                    <span class="meta-tag user">👥 创业者、投资人</span>
+                    <span class="meta-tag product">📧 Newsletter + 网站</span>
+                </div>
+                <div class="idea-reason"><strong>✅ 推荐理由：</strong>内容产品，订阅制变现</div>
+            </div>
+        </section>
+        
+        <footer>
+            <p>🤖 由 <strong>小贾</strong> 自动收集整理 · 数据来源 Reddit</p>
+            <p style="margin-top: 10px; font-size: 0.85rem;">每日早8点更新 · 发现好创意，创造好产品</p>
+        </footer>
+    </div>
+</body>
+</html>
