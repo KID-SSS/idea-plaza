@@ -5,434 +5,71 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>创意广场 - Reddit精选产品创意</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 50%, #16213e 100%);
-            min-height: 100vh;
-            color: #e8e8e8;
-            line-height: 1.6;
-        }
-        
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        
-        header {
-            text-align: center;
-            padding: 50px 0;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-            margin-bottom: 40px;
-        }
-        
-        h1 {
-            font-size: 3rem;
-            background: linear-gradient(90deg, #00d9ff, #00ff88, #ff6b6b);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 15px;
-            font-weight: 800;
-        }
-        
-        .subtitle {
-            color: #888;
-            font-size: 1.2rem;
-        }
-        
-        .date {
-            color: #00d9ff;
-            font-size: 0.95rem;
-            margin-top: 15px;
-            display: inline-block;
-            background: rgba(0,217,255,0.1);
-            padding: 8px 20px;
-            border-radius: 20px;
-        }
-        
-        /* 评分说明 */
-        .score-legend {
-            background: rgba(255,255,255,0.03);
-            border-radius: 16px;
-            padding: 25px;
-            margin-bottom: 40px;
-            border: 1px solid rgba(255,255,255,0.08);
-        }
-        
-        .score-legend h3 {
-            color: #00d9ff;
-            margin-bottom: 15px;
-            font-size: 1.1rem;
-        }
-        
-        .legend-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 15px;
-        }
-        
-        .legend-item {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 0.9rem;
-            color: #aaa;
-        }
-        
-        .legend-item .dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-        }
-        
-        .dot.market { background: #00ff88; }
-        .dot.tech { background: #00d9ff; }
-        .dot.profit { background: #ffd700; }
-        .dot.compete { background: #ff6b6b; }
-        .dot.growth { background: #a855f7; }
-        
-        /* Top 5 Section */
-        .top-section {
-            background: linear-gradient(135deg, rgba(0,217,255,0.1) 0%, rgba(0,255,136,0.05) 100%);
-            border-radius: 20px;
-            padding: 35px;
-            margin-bottom: 50px;
-            border: 1px solid rgba(0,217,255,0.2);
-        }
-        
-        .top-section h2 {
-            color: #fff;
-            margin-bottom: 25px;
-            font-size: 1.6rem;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .top-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 20px;
-        }
-        
-        .top-card {
-            background: rgba(0,0,0,0.3);
-            border-radius: 16px;
-            padding: 25px;
-            border: 1px solid rgba(255,255,255,0.1);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .top-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, #00d9ff, #00ff88);
-        }
-        
-        .top-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(0,217,255,0.15);
-            border-color: rgba(0,217,255,0.3);
-        }
-        
-        .top-card .rank {
-            font-size: 2.5rem;
-            margin-bottom: 12px;
-        }
-        
-        .top-card .name {
-            font-weight: 700;
-            color: #fff;
-            font-size: 1.15rem;
-            margin-bottom: 8px;
-        }
-        
-        .top-card .score {
-            color: #00ff88;
-            font-size: 1.4rem;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-        
-        .top-card .reason {
-            color: #999;
-            font-size: 0.85rem;
-            line-height: 1.5;
-        }
-        
-        /* Ideas Grid */
-        .ideas-section h2 {
-            color: #fff;
-            font-size: 1.6rem;
-            margin-bottom: 30px;
-            padding-left: 15px;
-            border-left: 4px solid #00ff88;
-        }
-        
-        .ideas-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
-            gap: 30px;
-        }
-        
-        .idea-card {
-            background: rgba(255,255,255,0.02);
-            border-radius: 20px;
-            padding: 30px;
-            border: 1px solid rgba(255,255,255,0.06);
-            transition: all 0.3s ease;
-            position: relative;
-        }
-        
-        .idea-card:hover {
-            background: rgba(255,255,255,0.04);
-            border-color: rgba(0,217,255,0.2);
-            transform: translateY(-5px);
-        }
-        
-        .idea-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 20px;
-        }
-        
-        .idea-number {
-            background: linear-gradient(135deg, #00d9ff, #00ff88);
-            color: #0a0a0f;
-            width: 40px;
-            height: 40px;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 800;
-            font-size: 1.1rem;
-        }
-        
-        .idea-score-badge {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-end;
-        }
-        
-        .idea-score {
-            background: rgba(0,255,136,0.15);
-            color: #00ff88;
-            padding: 6px 16px;
-            border-radius: 20px;
-            font-weight: bold;
-            font-size: 1.1rem;
-        }
-        
-        .idea-title {
-            font-size: 1.5rem;
-            color: #fff;
-            margin-bottom: 12px;
-            font-weight: 700;
-        }
-        
-        .idea-desc {
-            color: #aaa;
-            margin-bottom: 20px;
-            font-size: 1rem;
-            line-height: 1.7;
-        }
-        
-        /* Meta Tags */
-        .idea-meta {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-bottom: 25px;
-        }
-        
-        .meta-tag {
-            padding: 6px 14px;
-            border-radius: 8px;
-            font-size: 0.85rem;
-        }
-        
-        .meta-tag.user {
-            background: rgba(0,217,255,0.15);
-            color: #00d9ff;
-        }
-        
-        .meta-tag.product {
-            background: rgba(0,255,136,0.15);
-            color: #00ff88;
-        }
-        
-        .meta-tag.stage {
-            background: rgba(255,215,0,0.15);
-            color: #ffd700;
-        }
-        
-        /* 分析维度 */
-        .analysis-section {
-            background: rgba(0,0,0,0.2);
-            border-radius: 16px;
-            padding: 20px;
-            margin-bottom: 20px;
-        }
-        
-        .analysis-title {
-            color: #888;
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 15px;
-        }
-        
-        .score-bars {
-            display: grid;
-            gap: 12px;
-        }
-        
-        .score-bar {
-            display: grid;
-            grid-template-columns: 100px 1fr 40px;
-            align-items: center;
-            gap: 12px;
-        }
-        
-        .score-bar .label {
-            font-size: 0.85rem;
-            color: #aaa;
-        }
-        
-        .score-bar .bar-bg {
-            height: 8px;
-            background: rgba(255,255,255,0.1);
-            border-radius: 4px;
-            overflow: hidden;
-        }
-        
-        .score-bar .bar-fill {
-            height: 100%;
-            border-radius: 4px;
-            transition: width 0.5s ease;
-        }
-        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 50%, #16213e 100%); min-height: 100vh; color: #e8e8e8; line-height: 1.6; }
+        .container { max-width: 1400px; margin: 0 auto; padding: 20px; }
+        header { text-align: center; padding: 50px 0; border-bottom: 1px solid rgba(255,255,255,0.1); margin-bottom: 40px; }
+        h1 { font-size: 3rem; background: linear-gradient(90deg, #00d9ff, #00ff88, #ff6b6b); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 15px; font-weight: 800; }
+        .subtitle { color: #888; font-size: 1.2rem; }
+        .date { color: #00d9ff; font-size: 0.95rem; margin-top: 15px; display: inline-block; background: rgba(0,217,255,0.1); padding: 8px 20px; border-radius: 20px; }
+        .score-legend { background: rgba(255,255,255,0.03); border-radius: 16px; padding: 25px; margin-bottom: 40px; border: 1px solid rgba(255,255,255,0.08); }
+        .score-legend h3 { color: #00d9ff; margin-bottom: 15px; font-size: 1.1rem; }
+        .legend-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px; }
+        .legend-item { display: flex; align-items: center; gap: 10px; font-size: 0.9rem; color: #aaa; }
+        .legend-item .dot { width: 12px; height: 12px; border-radius: 50%; }
+        .dot.market { background: #00ff88; } .dot.tech { background: #00d9ff; } .dot.profit { background: #ffd700; } .dot.compete { background: #ff6b6b; } .dot.growth { background: #a855f7; }
+        .top-section { background: linear-gradient(135deg, rgba(0,217,255,0.1) 0%, rgba(0,255,136,0.05) 100%); border-radius: 20px; padding: 35px; margin-bottom: 50px; border: 1px solid rgba(0,217,255,0.2); }
+        .top-section h2 { color: #fff; margin-bottom: 25px; font-size: 1.6rem; }
+        .top-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
+        .top-card { background: rgba(0,0,0,0.3); border-radius: 16px; padding: 25px; border: 1px solid rgba(255,255,255,0.1); transition: all 0.3s ease; position: relative; overflow: hidden; }
+        .top-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, #00d9ff, #00ff88); }
+        .top-card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0,217,255,0.15); }
+        .top-card .rank { font-size: 2.5rem; margin-bottom: 12px; }
+        .top-card .name { font-weight: 700; color: #fff; font-size: 1.15rem; margin-bottom: 8px; }
+        .top-card .score { color: #00ff88; font-size: 1.4rem; font-weight: bold; margin-bottom: 10px; }
+        .top-card .reason { color: #999; font-size: 0.85rem; line-height: 1.5; }
+        .ideas-section h2 { color: #fff; font-size: 1.6rem; margin-bottom: 30px; padding-left: 15px; border-left: 4px solid #00ff88; }
+        .ideas-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 25px; }
+        .idea-card { background: rgba(255,255,255,0.02); border-radius: 20px; padding: 25px; border: 1px solid rgba(255,255,255,0.06); transition: all 0.3s ease; }
+        .idea-card:hover { background: rgba(255,255,255,0.04); border-color: rgba(0,217,255,0.2); transform: translateY(-5px); }
+        .idea-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 15px; }
+        .idea-number { background: linear-gradient(135deg, #00d9ff, #00ff88); color: #0a0a0f; width: 36px; height: 36px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1rem; }
+        .idea-score { background: rgba(0,255,136,0.15); color: #00ff88; padding: 5px 14px; border-radius: 20px; font-weight: bold; font-size: 1rem; }
+        .idea-title { font-size: 1.3rem; color: #fff; margin-bottom: 10px; font-weight: 700; }
+        .idea-desc { color: #aaa; margin-bottom: 15px; font-size: 0.9rem; line-height: 1.6; }
+        .idea-meta { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 15px; }
+        .meta-tag { padding: 5px 12px; border-radius: 8px; font-size: 0.75rem; }
+        .meta-tag.user { background: rgba(0,217,255,0.15); color: #00d9ff; }
+        .meta-tag.product { background: rgba(0,255,136,0.15); color: #00ff88; }
+        .meta-tag.source { background: rgba(255,107,107,0.15); color: #ff6b6b; }
+        .analysis-section { background: rgba(0,0,0,0.2); border-radius: 14px; padding: 15px; margin-bottom: 15px; }
+        .analysis-title { color: #888; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; }
+        .score-bars { display: grid; gap: 8px; }
+        .score-bar { display: grid; grid-template-columns: 80px 1fr 30px; align-items: center; gap: 8px; }
+        .score-bar .label { font-size: 0.75rem; color: #aaa; }
+        .score-bar .bar-bg { height: 6px; background: rgba(255,255,255,0.1); border-radius: 3px; overflow: hidden; }
+        .score-bar .bar-fill { height: 100%; border-radius: 3px; }
         .score-bar .bar-fill.market { background: linear-gradient(90deg, #00ff88, #00cc6a); }
         .score-bar .bar-fill.tech { background: linear-gradient(90deg, #00d9ff, #0099cc); }
         .score-bar .bar-fill.profit { background: linear-gradient(90deg, #ffd700, #ffaa00); }
         .score-bar .bar-fill.compete { background: linear-gradient(90deg, #ff6b6b, #ff4444); }
         .score-bar .bar-fill.growth { background: linear-gradient(90deg, #a855f7, #8b5cf6); }
-        
-        .score-bar .value {
-            font-size: 0.9rem;
-            color: #fff;
-            font-weight: 600;
-            text-align: right;
-        }
-        
-        /* 详细分析 */
-        .detail-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-            margin-bottom: 20px;
-        }
-        
-        .detail-box {
-            background: rgba(255,255,255,0.03);
-            border-radius: 12px;
-            padding: 15px;
-        }
-        
-        .detail-box h4 {
-            color: #00d9ff;
-            font-size: 0.85rem;
-            margin-bottom: 8px;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-        
-        .detail-box p {
-            color: #999;
-            font-size: 0.9rem;
-            line-height: 1.5;
-        }
-        
-        /* 推荐理由 */
-        .recommendation {
-            background: linear-gradient(135deg, rgba(0,255,136,0.1) 0%, rgba(0,217,255,0.05) 100%);
-            padding: 18px;
-            border-radius: 12px;
-            border-left: 4px solid #00ff88;
-        }
-        
-        .recommendation h4 {
-            color: #00ff88;
-            font-size: 0.9rem;
-            margin-bottom: 8px;
-        }
-        
-        .recommendation p {
-            color: #ccc;
-            font-size: 0.95rem;
-            line-height: 1.6;
-        }
-        
-        /* MVP建议 */
-        .mvp-suggestion {
-            background: rgba(168,85,247,0.1);
-            padding: 15px;
-            border-radius: 12px;
-            margin-top: 15px;
-            border: 1px solid rgba(168,85,247,0.2);
-        }
-        
-        .mvp-suggestion h4 {
-            color: #a855f7;
-            font-size: 0.85rem;
-            margin-bottom: 8px;
-        }
-        
-        .mvp-suggestion p {
-            color: #aaa;
-            font-size: 0.9rem;
-        }
-        
-        footer {
-            text-align: center;
-            padding: 50px 0;
-            margin-top: 60px;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            color: #666;
-        }
-        
-        footer p {
-            margin-bottom: 10px;
-        }
-        
-        footer a {
-            color: #00d9ff;
-            text-decoration: none;
-        }
-        
-        @media (max-width: 768px) {
-            h1 { font-size: 2rem; }
-            .ideas-grid { grid-template-columns: 1fr; }
-            .detail-grid { grid-template-columns: 1fr; }
-            .container { padding: 15px; }
-            .score-bar { grid-template-columns: 80px 1fr 35px; }
-        }
+        .score-bar .value { font-size: 0.8rem; color: #fff; font-weight: 600; text-align: right; }
+        .detail-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 12px; }
+        .detail-box { background: rgba(255,255,255,0.03); border-radius: 10px; padding: 10px; }
+        .detail-box h4 { color: #00d9ff; font-size: 0.75rem; margin-bottom: 5px; }
+        .detail-box p { color: #999; font-size: 0.8rem; line-height: 1.4; }
+        .recommendation { background: linear-gradient(135deg, rgba(0,255,136,0.1) 0%, rgba(0,217,255,0.05) 100%); padding: 12px; border-radius: 10px; border-left: 3px solid #00ff88; margin-bottom: 10px; }
+        .recommendation h4 { color: #00ff88; font-size: 0.8rem; margin-bottom: 5px; }
+        .recommendation p { color: #ccc; font-size: 0.85rem; line-height: 1.5; }
+        .mvp-suggestion { background: rgba(168,85,247,0.1); padding: 10px; border-radius: 10px; border: 1px solid rgba(168,85,247,0.2); }
+        .mvp-suggestion h4 { color: #a855f7; font-size: 0.75rem; margin-bottom: 4px; }
+        .mvp-suggestion p { color: #aaa; font-size: 0.8rem; }
+        .source-link { display: inline-block; margin-top: 10px; color: #00d9ff; text-decoration: none; font-size: 0.75rem; opacity: 0.7; }
+        .source-link:hover { opacity: 1; text-decoration: underline; }
+        footer { text-align: center; padding: 50px 0; margin-top: 60px; border-top: 1px solid rgba(255,255,255,0.1); color: #666; }
+        footer a { color: #00d9ff; text-decoration: none; }
+        @media (max-width: 768px) { h1 { font-size: 2rem; } .ideas-grid { grid-template-columns: 1fr; } .detail-grid { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
@@ -440,542 +77,652 @@
         <header>
             <h1>🚀 创意广场</h1>
             <p class="subtitle">Reddit精选产品创意 · 深度分析 · 每日更新</p>
-            <p class="date">📅 2026-02-08 · 第1期 · 收录20个创意</p>
+            <p class="date">📅 2026-02-08 · 周日 · 收录20个创意</p>
         </header>
         
-        <!-- 评分维度说明 -->
         <div class="score-legend">
             <h3>📊 评分维度说明</h3>
             <div class="legend-grid">
-                <div class="legend-item"><span class="dot market"></span> 市场需求 - 目标市场规模与用户痛点强度</div>
-                <div class="legend-item"><span class="dot tech"></span> 技术可行 - 开发难度与技术门槛</div>
-                <div class="legend-item"><span class="dot profit"></span> 变现潜力 - 商业模式清晰度与付费意愿</div>
-                <div class="legend-item"><span class="dot compete"></span> 竞争优势 - 市场竞争程度与差异化空间</div>
-                <div class="legend-item"><span class="dot growth"></span> 增长潜力 - 用户增长与规模化可能性</div>
+                <div class="legend-item"><span class="dot market"></span> 市场需求 - 市场规模与痛点</div>
+                <div class="legend-item"><span class="dot tech"></span> 技术可行 - 开发难度</div>
+                <div class="legend-item"><span class="dot profit"></span> 变现潜力 - 商业模式</div>
+                <div class="legend-item"><span class="dot compete"></span> 竞争优势 - 差异化空间</div>
+                <div class="legend-item"><span class="dot growth"></span> 增长潜力 - 规模化能力</div>
             </div>
         </div>
         
-        <!-- Top 5 推荐 -->
         <section class="top-section">
             <h2>🏆 今日 Top 5 强烈推荐</h2>
             <div class="top-grid">
-                <div class="top-card">
-                    <div class="rank">🥇</div>
-                    <div class="name">AI报价单SaaS</div>
-                    <div class="score">综合 8.6/10</div>
-                    <div class="reason">B2B刚需场景，付费意愿强，技术成熟，3个月可MVP上线</div>
-                </div>
-                <div class="top-card">
-                    <div class="rank">🥈</div>
-                    <div class="name">AI建筑缺陷检测</div>
-                    <div class="score">综合 8.5/10</div>
-                    <div class="reason">企业级高客单价，技术壁垒高，政策利好</div>
-                </div>
-                <div class="top-card">
-                    <div class="rank">🥉</div>
-                    <div class="name">时间胶囊App</div>
-                    <div class="score">综合 8.4/10</div>
-                    <div class="reason">情感需求强烈，订阅制变现，病毒传播潜力大</div>
-                </div>
-                <div class="top-card">
-                    <div class="rank">4️⃣</div>
-                    <div class="name">人脸姓名记忆卡</div>
-                    <div class="score">综合 8.2/10</div>
-                    <div class="reason">职场真实痛点，垂直市场，企业采购潜力</div>
-                </div>
-                <div class="top-card">
-                    <div class="rank">5️⃣</div>
-                    <div class="name">食谱去广告提取</div>
-                    <div class="score">综合 8.0/10</div>
-                    <div class="reason">高频使用场景，开发简单，SEO流量大</div>
-                </div>
+                <div class="top-card"><div class="rank">🥇</div><div class="name">全球公厕地图</div><div class="score">8.6/10</div><div class="reason">刚需场景，50万+数据已有，技术简单，旅行必备</div></div>
+                <div class="top-card"><div class="rank">🥈</div><div class="name">购物车计算器</div><div class="score">8.4/10</div><div class="reason">解决超市超支痛点，高频使用，可扩展多商超</div></div>
+                <div class="top-card"><div class="rank">🥉</div><div class="name">位置提醒App</div><div class="score">8.3/10</div><div class="reason">到达/离开地点自动提醒，健忘人群刚需</div></div>
+                <div class="top-card"><div class="rank">4️⃣</div><div class="name">轻量反馈组件</div><div class="score">8.2/10</div><div class="reason">网站反馈工具，开发者刚需，已验证首单</div></div>
+                <div class="top-card"><div class="rank">5️⃣</div><div class="name">色盲测试生成器</div><div class="score">8.0/10</div><div class="reason">医疗健康工具，SEO友好，可延伸视力测试</div></div>
             </div>
         </section>
         
-        <!-- 完整创意列表 -->
         <section class="ideas-section">
             <h2>📋 完整创意分析（20个）</h2>
             <div class="ideas-grid">
-                
-                <!-- 创意 1 -->
+                <!-- 1 -->
                 <div class="idea-card">
-                    <div class="idea-header">
-                        <span class="idea-number">1</span>
-                        <div class="idea-score-badge">
-                            <span class="idea-score">8.6</span>
-                        </div>
-                    </div>
-                    <h3 class="idea-title">AI报价单SaaS</h3>
-                    <p class="idea-desc">为自由职业者和小企业提供智能报价单生成工具，支持自动发送邮件、智能跟进提醒、客户管理等功能。</p>
+                    <div class="idea-header"><span class="idea-number">1</span><span class="idea-score">8.6</span></div>
+                    <h3 class="idea-title">全球公厕地图</h3>
+                    <p class="idea-desc">显示附近公共厕所位置，覆盖全球50万+地点，支持导航、评价、无障碍设施筛选。</p>
                     <div class="idea-meta">
-                        <span class="meta-tag user">👥 自由职业者/小企业</span>
-                        <span class="meta-tag product">💻 SaaS网站</span>
-                        <span class="meta-tag stage">🎯 MVP友好</span>
+                        <span class="meta-tag user">👥 旅行者/外出人群</span>
+                        <span class="meta-tag product">🌐 网站+App</span>
+                        <span class="meta-tag source">📍 r/SideProject</span>
                     </div>
                     <div class="analysis-section">
                         <div class="analysis-title">五维评分</div>
                         <div class="score-bars">
-                            <div class="score-bar">
-                                <span class="label">市场需求</span>
-                                <div class="bar-bg"><div class="bar-fill market" style="width: 90%"></div></div>
-                                <span class="value">9.0</span>
-                            </div>
-                            <div class="score-bar">
-                                <span class="label">技术可行</span>
-                                <div class="bar-bg"><div class="bar-fill tech" style="width: 85%"></div></div>
-                                <span class="value">8.5</span>
-                            </div>
-                            <div class="score-bar">
-                                <span class="label">变现潜力</span>
-                                <div class="bar-bg"><div class="bar-fill profit" style="width: 90%"></div></div>
-                                <span class="value">9.0</span>
-                            </div>
-                            <div class="score-bar">
-                                <span class="label">竞争优势</span>
-                                <div class="bar-bg"><div class="bar-fill compete" style="width: 75%"></div></div>
-                                <span class="value">7.5</span>
-                            </div>
-                            <div class="score-bar">
-                                <span class="label">增长潜力</span>
-                                <div class="bar-bg"><div class="bar-fill growth" style="width: 85%"></div></div>
-                                <span class="value">8.5</span>
-                            </div>
+                            <div class="score-bar"><span class="label">市场需求</span><div class="bar-bg"><div class="bar-fill market" style="width:90%"></div></div><span class="value">9.0</span></div>
+                            <div class="score-bar"><span class="label">技术可行</span><div class="bar-bg"><div class="bar-fill tech" style="width:95%"></div></div><span class="value">9.5</span></div>
+                            <div class="score-bar"><span class="label">变现潜力</span><div class="bar-bg"><div class="bar-fill profit" style="width:75%"></div></div><span class="value">7.5</span></div>
+                            <div class="score-bar"><span class="label">竞争优势</span><div class="bar-bg"><div class="bar-fill compete" style="width:80%"></div></div><span class="value">8.0</span></div>
+                            <div class="score-bar"><span class="label">增长潜力</span><div class="bar-bg"><div class="bar-fill growth" style="width:90%"></div></div><span class="value">9.0</span></div>
                         </div>
                     </div>
                     <div class="detail-grid">
-                        <div class="detail-box">
-                            <h4>🎯 目标用户</h4>
-                            <p>设计师、开发者、咨询顾问、摄影师等自由职业者；10人以下小型服务公司</p>
-                        </div>
-                        <div class="detail-box">
-                            <h4>💰 商业模式</h4>
-                            <p>免费版（5份/月）+ Pro版 $15/月 + 团队版 $49/月</p>
-                        </div>
-                        <div class="detail-box">
-                            <h4>⚔️ 竞品分析</h4>
-                            <p>Bonsai、HoneyBook 功能重，价格高；可主打轻量+AI智能</p>
-                        </div>
-                        <div class="detail-box">
-                            <h4>🚧 主要风险</h4>
-                            <p>获客成本较高，需要精准的内容营销和SEO策略</p>
-                        </div>
+                        <div class="detail-box"><h4>🎯 目标用户</h4><p>旅游者、外卖骑手、出租车司机、孕妇</p></div>
+                        <div class="detail-box"><h4>💰 商业模式</h4><p>广告+订阅$2.99/月+商家入驻</p></div>
+                        <div class="detail-box"><h4>⚔️ 竞品分析</h4><p>Flush、Toilet Finder体验差，可差异化</p></div>
+                        <div class="detail-box"><h4>🚧 主要风险</h4><p>数据维护成本，需UGC更新</p></div>
                     </div>
-                    <div class="recommendation">
-                        <h4>✅ 推荐理由</h4>
-                        <p>B2B产品付费意愿强，客户生命周期价值高。技术栈成熟（Next.js + Supabase），单人可在2-3个月内完成MVP。建议从设计师社群切入。</p>
-                    </div>
-                    <div class="mvp-suggestion">
-                        <h4>🛠️ MVP建议</h4>
-                        <p>核心功能：报价单模板 → PDF导出 → 邮件发送 → 状态追踪。预计开发周期：6-8周</p>
-                    </div>
+                    <div class="recommendation"><h4>✅ 推荐理由</h4><p>真实痛点人人会遇到，OpenStreetMap有现成数据，技术门槛低。</p></div>
+                    <div class="mvp-suggestion"><h4>🛠️ MVP</h4><p>地图显示→定位导航→基础筛选 | 3-4周</p></div>
+                    <a class="source-link" href="https://www.reddit.com/r/SideProject/comments/1izj0mg/i_created_a_website_that_shows_public_toilets/" target="_blank">🔗 Reddit原帖 →</a>
                 </div>
-                
-                <!-- 创意 2 -->
+
+                <!-- 2 -->
                 <div class="idea-card">
-                    <div class="idea-header">
-                        <span class="idea-number">2</span>
-                        <div class="idea-score-badge">
-                            <span class="idea-score">8.5</span>
-                        </div>
-                    </div>
-                    <h3 class="idea-title">AI建筑缺陷检测</h3>
-                    <p class="idea-desc">利用计算机视觉技术，通过手机拍照自动识别建筑物裂缝、渗水、结构问题等质量缺陷，生成专业检测报告。</p>
+                    <div class="idea-header"><span class="idea-number">2</span><span class="idea-score">8.4</span></div>
+                    <h3 class="idea-title">购物车实时计算器</h3>
+                    <p class="idea-desc">实时追踪线下购物车总价，扫码或手动输入，帮助控制预算避免结账惊吓。</p>
                     <div class="idea-meta">
-                        <span class="meta-tag user">👥 建筑公司/质检员</span>
-                        <span class="meta-tag product">💻 SaaS + App</span>
-                        <span class="meta-tag stage">🔬 技术驱动</span>
-                    </div>
-                    <div class="analysis-section">
-                        <div class="analysis-title">五维评分</div>
-                        <div class="score-bars">
-                            <div class="score-bar">
-                                <span class="label">市场需求</span>
-                                <div class="bar-bg"><div class="bar-fill market" style="width: 85%"></div></div>
-                                <span class="value">8.5</span>
-                            </div>
-                            <div class="score-bar">
-                                <span class="label">技术可行</span>
-                                <div class="bar-bg"><div class="bar-fill tech" style="width: 70%"></div></div>
-                                <span class="value">7.0</span>
-                            </div>
-                            <div class="score-bar">
-                                <span class="label">变现潜力</span>
-                                <div class="bar-bg"><div class="bar-fill profit" style="width: 95%"></div></div>
-                                <span class="value">9.5</span>
-                            </div>
-                            <div class="score-bar">
-                                <span class="label">竞争优势</span>
-                                <div class="bar-bg"><div class="bar-fill compete" style="width: 85%"></div></div>
-                                <span class="value">8.5</span>
-                            </div>
-                            <div class="score-bar">
-                                <span class="label">增长潜力</span>
-                                <div class="bar-bg"><div class="bar-fill growth" style="width: 90%"></div></div>
-                                <span class="value">9.0</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="detail-grid">
-                        <div class="detail-box">
-                            <h4>🎯 目标用户</h4>
-                            <p>建筑施工企业、房屋检测机构、物业管理公司、保险理赔部门</p>
-                        </div>
-                        <div class="detail-box">
-                            <h4>💰 商业模式</h4>
-                            <p>按检测次数收费 或 企业年费 $2000-10000/年</p>
-                        </div>
-                        <div class="detail-box">
-                            <h4>⚔️ 竞品分析</h4>
-                            <p>传统人工检测为主，AI方案少且贵，中小企业市场空白</p>
-                        </div>
-                        <div class="detail-box">
-                            <h4>🚧 主要风险</h4>
-                            <p>需要大量标注数据训练模型，早期准确率可能不够高</p>
-                        </div>
-                    </div>
-                    <div class="recommendation">
-                        <h4>✅ 推荐理由</h4>
-                        <p>企业级产品客单价高，一个大客户可养活整个项目。技术壁垒形成护城河，竞争对手难以快速复制。政策层面建筑安全监管趋严。</p>
-                    </div>
-                    <div class="mvp-suggestion">
-                        <h4>🛠️ MVP建议</h4>
-                        <p>先聚焦「裂缝检测」单一场景，使用预训练模型微调。找1-2家建筑公司做付费试点。预计周期：3-4个月</p>
-                    </div>
-                </div>
-                
-                <!-- 创意 3 -->
-                <div class="idea-card">
-                    <div class="idea-header">
-                        <span class="idea-number">3</span>
-                        <div class="idea-score-badge">
-                            <span class="idea-score">8.4</span>
-                        </div>
-                    </div>
-                    <h3 class="idea-title">时间胶囊App</h3>
-                    <p class="idea-desc">录制视频、语音或写信给未来的自己，设定解锁时间（1年后、5年后等），到期后收到来自过去的惊喜。</p>
-                    <div class="idea-meta">
-                        <span class="meta-tag user">👥 年轻人/学生</span>
+                        <span class="meta-tag user">👥 超市购物者</span>
                         <span class="meta-tag product">📱 移动App</span>
-                        <span class="meta-tag stage">🎯 MVP友好</span>
+                        <span class="meta-tag source">📍 r/SideProject</span>
                     </div>
                     <div class="analysis-section">
                         <div class="analysis-title">五维评分</div>
                         <div class="score-bars">
-                            <div class="score-bar">
-                                <span class="label">市场需求</span>
-                                <div class="bar-bg"><div class="bar-fill market" style="width: 85%"></div></div>
-                                <span class="value">8.5</span>
-                            </div>
-                            <div class="score-bar">
-                                <span class="label">技术可行</span>
-                                <div class="bar-bg"><div class="bar-fill tech" style="width: 95%"></div></div>
-                                <span class="value">9.5</span>
-                            </div>
-                            <div class="score-bar">
-                                <span class="label">变现潜力</span>
-                                <div class="bar-bg"><div class="bar-fill profit" style="width: 80%"></div></div>
-                                <span class="value">8.0</span>
-                            </div>
-                            <div class="score-bar">
-                                <span class="label">竞争优势</span>
-                                <div class="bar-bg"><div class="bar-fill compete" style="width: 75%"></div></div>
-                                <span class="value">7.5</span>
-                            </div>
-                            <div class="score-bar">
-                                <span class="label">增长潜力</span>
-                                <div class="bar-bg"><div class="bar-fill growth" style="width: 90%"></div></div>
-                                <span class="value">9.0</span>
-                            </div>
+                            <div class="score-bar"><span class="label">市场需求</span><div class="bar-bg"><div class="bar-fill market" style="width:85%"></div></div><span class="value">8.5</span></div>
+                            <div class="score-bar"><span class="label">技术可行</span><div class="bar-bg"><div class="bar-fill tech" style="width:90%"></div></div><span class="value">9.0</span></div>
+                            <div class="score-bar"><span class="label">变现潜力</span><div class="bar-bg"><div class="bar-fill profit" style="width:80%"></div></div><span class="value">8.0</span></div>
+                            <div class="score-bar"><span class="label">竞争优势</span><div class="bar-bg"><div class="bar-fill compete" style="width:85%"></div></div><span class="value">8.5</span></div>
+                            <div class="score-bar"><span class="label">增长潜力</span><div class="bar-bg"><div class="bar-fill growth" style="width:80%"></div></div><span class="value">8.0</span></div>
                         </div>
                     </div>
                     <div class="detail-grid">
-                        <div class="detail-box">
-                            <h4>🎯 目标用户</h4>
-                            <p>18-35岁年轻人、大学生、新婚夫妇、准父母、自我成长爱好者</p>
-                        </div>
-                        <div class="detail-box">
-">技术可行</span><div class="bar-bg"><div class="bar-fill tech" style="width: 85%"></div></div><span class="value">8.5</span></div>
-                            <div class="score-bar"><span class="label">变现潜力</span><div class="bar-bg"><div class="bar-fill profit" style="width: 75%"></div></div><span class="value">7.5</span></div>
-                            <div class="score-bar"><span class="label">竞争优势</span><div class="bar-bg"><div class="bar-fill compete" style="width: 60%"></div></div><span class="value">6.0</span></div>
-                            <div class="score-bar"><span class="label">增长潜力</span><div class="bar-bg"><div class="bar-fill growth" style="width: 80%"></div></div><span class="value">8.0</span></div>
-                        </div>
+                        <div class="detail-box"><h4>🎯 目标用户</h4><p>Costco/山姆会员、预算敏感家庭</p></div>
+                        <div class="detail-box"><h4>💰 商业模式</h4><p>免费版+Pro$4.99/月</p></div>
+                        <div class="detail-box"><h4>⚔️ 竞品分析</h4><p>购物清单App缺实时计价功能</p></div>
+                        <div class="detail-box"><h4>🚧 主要风险</h4><p>价格数据维护；习惯培养</p></div>
                     </div>
-                    <div class="recommendation">
-                        <h4>✅ 推荐理由</h4>
-                        <p>社交需求永恒，匿名降低社交压力。但内容审核成本高，需要严格的安全机制。</p>
-                    </div>
+                    <div class="recommendation"><h4>✅ 推荐理由</h4><p>解决"以为200结账500"痛点，Costco会员1.3亿+市场巨大。</p></div>
+                    <div class="mvp-suggestion"><h4>🛠️ MVP</h4><p>添加商品→实时总计→预算警告 | 4-5周</p></div>
+                    <a class="source-link" href="https://www.reddit.com/r/SideProject/comments/1k54xu9/i_built_an_app_that_tracks_your_cart_total_at/" target="_blank">🔗 Reddit原帖 →</a>
                 </div>
-                
+
+                <!-- 3 -->
                 <div class="idea-card">
-                    <div class="idea-header">
-                        <span class="idea-number">12</span>
-                        <div class="idea-score-badge">
-                            <span class="idea-score">7.3</span>
-                        </div>
-                    </div>
-                    <h3 class="idea-title">数字书架</h3>
-                    <p class="idea-desc">可视化展示你读过的书，生成精美3D书架图，支持分享到社交媒体，记录阅读历程。</p>
+                    <div class="idea-header"><span class="idea-number">3</span><span class="idea-score">8.3</span></div>
+                    <h3 class="idea-title">位置提醒App</h3>
+                    <p class="idea-desc">基于地理位置的提醒：到达/离开地点自动触发。"到超市提醒买牛奶"。</p>
                     <div class="idea-meta">
-                        <span class="meta-tag user">👥 读书博主/爱好者</span>
-                        <span class="meta-tag product">🌐 网站</span>
-                        <span class="meta-tag stage">🎨 设计驱动</span>
+                        <span class="meta-tag user">👥 健忘人群</span>
+                        <span class="meta-tag product">📱 移动App</span>
+                        <span class="meta-tag source">📍 r/AppIdeas</span>
                     </div>
                     <div class="analysis-section">
                         <div class="analysis-title">五维评分</div>
                         <div class="score-bars">
-                            <div class="score-bar"><span class="label">市场需求</span><div class="bar-bg"><div class="bar-fill market" style="width: 70%"></div></div><span class="value">7.0</span></div>
-                            <div class="score-bar"><span class="label">技术可行</span><div class="bar-bg"><div class="bar-fill tech" style="width: 85%"></div></div><span class="value">8.5</span></div>
-                            <div class="score-bar"><span class="label">变现潜力</span><div class="bar-bg"><div class="bar-fill profit" style="width: 60%"></div></div><span class="value">6.0</span></div>
-                            <div class="score-bar"><span class="label">竞争优势</span><div class="bar-bg"><div class="bar-fill compete" style="width: 80%"></div></div><span class="value">8.0</span></div>
-                            <div class="score-bar"><span class="label">增长潜力</span><div class="bar-bg"><div class="bar-fill growth" style="width: 75%"></div></div><span class="value">7.5</span></div>
+                            <div class="score-bar"><span class="label">市场需求</span><div class="bar-bg"><div class="bar-fill market" style="width:85%"></div></div><span class="value">8.5</span></div>
+                            <div class="score-bar"><span class="label">技术可行</span><div class="bar-bg"><div class="bar-fill tech" style="width:90%"></div></div><span class="value">9.0</span></div>
+                            <div class="score-bar"><span class="label">变现潜力</span><div class="bar-bg"><div class="bar-fill profit" style="width:75%"></div></div><span class="value">7.5</span></div>
+                            <div class="score-bar"><span class="label">竞争优势</span><div class="bar-bg"><div class="bar-fill compete" style="width:80%"></div></div><span class="value">8.0</span></div>
+                            <div class="score-bar"><span class="label">增长潜力</span><div class="bar-bg"><div class="bar-fill growth" style="width:85%"></div></div><span class="value">8.5</span></div>
                         </div>
                     </div>
-                    <div class="recommendation">
-                        <h4>✅ 推荐理由</h4>
-                        <p>满足展示欲和记录欲，社交分享带来自然传播。可接入豆瓣/Goodreads数据。</p>
+                    <div class="detail-grid">
+                        <div class="detail-box"><h4>🎯 目标用户</h4><p>健忘人群、通勤族、多任务忙人</p></div>
+                        <div class="detail-box"><h4>💰 商业模式</h4><p>免费版+Pro$3.99/月</p></div>
+                        <div class="detail-box"><h4>⚔️ 竞品分析</h4><p>iOS提醒功能藏得深，可专注体验</p></div>
+                        <div class="detail-box"><h4>🚧 主要风险</h4><p>电池消耗；系统后台限制</p></div>
                     </div>
+                    <div class="recommendation"><h4>✅ 推荐理由</h4><p>场景明确痛点真实，技术成熟API现成。</p></div>
+                    <div class="mvp-suggestion"><h4>🛠️ MVP</h4><p>添加地点→设置提醒→到达触发 | 4-6周</p></div>
+                    <a class="source-link" href="https://www.reddit.com/r/AppIdeas/comments/1qlkkli/i_built_a_locationbased_reminder_app_because_i/" target="_blank">🔗 Reddit原帖 →</a>
                 </div>
-                
+
+                <!-- 4 -->
                 <div class="idea-card">
-                    <div class="idea-header">
-                        <span class="idea-number">13</span>
-                        <div class="idea-score-badge">
-                            <span class="idea-score">7.2</span>
+                    <div class="idea-header"><span class="idea-number">4</span><span class="idea-score">8.2</span></div>
+                    <h3 class="idea-title">轻量反馈小组件</h3>
+                    <p class="idea-desc">一行代码嵌入的网站反馈收集工具，用户快速提交，开发者即时收到通知。</p>
+                    <div class="idea-meta">
+                        <span class="meta-tag user">👥 独立开发者</span>
+                        <span class="meta-tag product">💻 SaaS</span>
+                        <span class="meta-tag source">📍 r/Startup_Ideas</span>
+                    </div>
+                    <div class="analysis-section">
+                        <div class="analysis-title">五维评分</div>
+                        <div class="score-bars">
+                            <div class="score-bar"><span class="label">市场需求</span><div class="bar-bg"><div class="bar-fill market" style="width:85%"></div></div><span class="value">8.5</span></div>
+                            <div class="score-bar"><span class="label">技术可行</span><div class="bar-bg"><div class="bar-fill tech" style="width:95%"></div></div><span class="value">9.5</span></div>
+                            <div class="score-bar"><span class="label">变现潜力</span><div class="bar-bg"><div class="bar-fill profit" style="width:80%"></div></div><span class="value">8.0</span></div>
+                            <div class="score-bar"><span class="label">竞争优势</span><div class="bar-bg"><div class="bar-fill compete" style="width:70%"></div></div><span class="value">7.0</span></div>
+                            <div class="score-bar"><span class="label">增长潜力</span><div class="bar-bg"><div class="bar-fill growth" style="width:80%"></div></div><span class="value">8.0</span></div>
                         </div>
                     </div>
-                    <h3 class="idea-title">Google文档转网站</h3>
-                    <p class="idea-desc">一键把Google Doc发布为干净的网站，自动生成美观样式，支持自定义域名。</p>
+                    <div class="detail-grid">
+                        <div class="detail-box"><h4>🎯 目标用户</h4><p>独立开发者、初创公司、SaaS团队</p></div>
+                        <div class="detail-box"><h4>💰 商业模式</h4><p>免费100条/月+Pro$9/月</p></div>
+                        <div class="detail-box"><h4>⚔️ 竞品分析</h4><p>Canny功能重价格高，可主打轻量</p></div>
+                        <div class="detail-box"><h4>🚧 主要风险</h4><p>市场教育成本</p></div>
+                    </div>
+                    <div class="recommendation"><h4>✅ 推荐理由</h4><p>作者已验证首单变现，开发简单，独立开发者社群是天然用户池。</p></div>
+                    <div class="mvp-suggestion"><h4>🛠️ MVP</h4><p>JS嵌入→反馈表单→Slack通知 | 2-3周</p></div>
+                    <a class="source-link" href="https://www.reddit.com/r/Startup_Ideas/comments/1qjxlq9/made_my_first_money_online_from_the_smallest_side/" target="_blank">🔗 Reddit原帖 →</a>
+                </div>
+
+                <!-- 5 -->
+                <div class="idea-card">
+                    <div class="idea-header"><span class="idea-number">5</span><span class="idea-score">8.0</span></div>
+                    <h3 class="idea-title">色盲测试生成器</h3>
+                    <p class="idea-desc">Ishihara色盲测试图在线生成器，支持自定义数字/图案，可用于医疗筛查或趣味测试。</p>
+                    <div class="idea-meta">
+                        <span class="meta-tag user">👥 医疗机构/普通用户</span>
+                        <span class="meta-tag product">🌐 网站</span>
+                        <span class="meta-tag source">📍 r/InternetIsBeautiful</span>
+                    </div>
+                    <div class="analysis-section">
+                        <div class="analysis-title">五维评分</div>
+                        <div class="score-bars">
+                            <div class="score-bar"><span class="label">市场需求</span><div class="bar-bg"><div class="bar-fill market" style="width:80%"></div></div><span class="value">8.0</span></div>
+                            <div class="score-bar"><span class="label">技术可行</span><div class="bar-bg"><div class="bar-fill tech" style="width:90%"></div></div><span class="value">9.0</span></div>
+                            <div class="score-bar"><span class="label">变现潜力</span><div class="bar-bg"><div class="bar-fill profit" style="width:75%"></div></div><span class="value">7.5</span></div>
+                            <div class="score-bar"><span class="label">竞争优势</span><div class="bar-bg"><div class="bar-fill compete" style="width:80%"></div></div><span class="value">8.0</span></div>
+                            <div class="score-bar"><span class="label">增长潜力</span><div class="bar-bg"><div class="bar-fill growth" style="width:75%"></div></div><span class="value">7.5</span></div>
+                        </div>
+                    </div>
+                    <div class="detail-grid">
+                        <div class="detail-box"><h4>🎯 目标用户</h4><p>学校体检、企业招聘、设计师自测</p></div>
+                        <div class="detail-box"><h4>💰 商业模式</h4><p>广告+高级功能订阅+API授权</p></div>
+                        <div class="detail-box"><h4>⚔️ 竞品分析</h4><p>免费色盲测试站多但生成器少</p></div>
+                        <div class="detail-box"><h4>🚧 主要风险</h4><p>医疗合规问题需注意</p></div>
+                    </div>
+                    <div class="recommendation"><h4>✅ 推荐理由</h4><p>SEO友好的工具站，可延伸到视力测试、听力测试等健康工具矩阵。</p></div>
+                    <div class="mvp-suggestion"><h4>🛠️ MVP</h4><p>基础测试→结果分析→分享功能 | 3-4周</p></div>
+                    <a class="source-link" href="https://www.reddit.com/r/InternetIsBeautiful/comments/1qjblco/an_ishihara_colorblindness_test_generator/" target="_blank">🔗 Reddit原帖 →</a>
+                </div>
+
+                <!-- 6 -->
+                <div class="idea-card">
+                    <div class="idea-header"><span class="idea-number">6</span><span class="idea-score">7.9</span></div>
+                    <h3 class="idea-title">活动发现平台</h3>
+                    <p class="idea-desc">聚合本地活动信息（音乐会、展览、集市等），解决"周末去哪玩"的选择困难。</p>
+                    <div class="idea-meta">
+                        <span class="meta-tag user">👥 城市年轻人</span>
+                        <span class="meta-tag product">🌐 网站+App</span>
+                        <span class="meta-tag source">📍 r/Startup_Ideas</span>
+                    </div>
+                    <div class="analysis-section">
+                        <div class="analysis-title">五维评分</div>
+                        <div class="score-bars">
+                            <div class="score-bar"><span class="label">市场需求</span><div class="bar-bg"><div class="bar-fill market" style="width:85%"></div></div><span class="value">8.5</span></div>
+                            <div class="score-bar"><span class="label">技术可行</span><div class="bar-bg"><div class="bar-fill tech" style="width:80%"></div></div><span class="value">8.0</span></div>
+                            <div class="score-bar"><span class="label">变现潜力</span><div class="bar-bg"><div class="bar-fill profit" style="width:75%"></div></div><span class="value">7.5</span></div>
+                            <div class="score-bar"><span class="label">竞争优势</span><div class="bar-bg"><div class="bar-fill compete" style="width:70%"></div></div><span class="value">7.0</span></div>
+                            <div class="score-bar"><span class="label">增长潜力</span><div class="bar-bg"><div class="bar-fill growth" style="width:85%"></div></div><span class="value">8.5</span></div>
+                        </div>
+                    </div>
+                    <div class="detail-grid">
+                        <div class="detail-box"><h4>🎯 目标用户</h4><p>18-35岁城市年轻人、新来城市的人</p></div>
+                        <div class="detail-box"><h4>💰 商业模式</h4><p>活动推广费+票务分成+广告</p></div>
+                        <div class="detail-box"><h4>⚔️ 竞品分析</h4><p>大众点评/小红书覆盖但不专注活动</p></div>
+                        <div class="detail-box"><h4>🚧 主要风险</h4><p>数据采集成本高，需冷启动</p></div>
+                    </div>
+                    <div class="recommendation"><h4>✅ 推荐理由</h4><p>本地化服务有天然护城河，可从小城市切入验证再扩展。</p></div>
+                    <div class="mvp-suggestion"><h4>🛠️ MVP</h4><p>单城市→活动列表→筛选推荐 | 6-8周</p></div>
+                    <a class="source-link" href="https://www.reddit.com/r/Startup_Ideas/comments/1qjuk37/looking_for_honest_feedback_on_an_eventdiscovery/" target="_blank">🔗 Reddit原帖 →</a>
+                </div>
+
+                <!-- 7 -->
+                <div class="idea-card">
+                    <div class="idea-header"><span class="idea-number">7</span><span class="idea-score">7.8</span></div>
+                    <h3 class="idea-title">人际时区管理</h3>
+                    <p class="idea-desc">基于人而非城市的时区管理：绑定朋友而非地点，朋友搬家时只需更新一次。</p>
+                    <div class="idea-meta">
+                        <span class="meta-tag user">👥 远程工作者</span>
+                        <span class="meta-tag product">📱 App+插件</span>
+                        <span class="meta-tag source">📍 r/SomebodyMakeThis</span>
+                    </div>
+                    <div class="analysis-section">
+                        <div class="analysis-title">五维评分</div>
+                        <div class="score-bars">
+                            <div class="score-bar"><span class="label">市场需求</span><div class="bar-bg"><div class="bar-fill market" style="width:75%"></div></div><span class="value">7.5</span></div>
+                            <div class="score-bar"><span class="label">技术可行</span><div class="bar-bg"><div class="bar-fill tech" style="width:90%"></div></div><span class="value">9.0</span></div>
+                            <div class="score-bar"><span class="label">变现潜力</span><div class="bar-bg"><div class="bar-fill profit" style="width:70%"></div></div><span class="value">7.0</span></div>
+                            <div class="score-bar"><span class="label">竞争优势</span><div class="bar-bg"><div class="bar-fill compete" style="width:85%"></div></div><span class="value">8.5</span></div>
+                            <div class="score-bar"><span class="label">增长潜力</span><div class="bar-bg"><div class="bar-fill growth" style="width:75%"></div></div><span class="value">7.5</span></div>
+                        </div>
+                    </div>
+                    <div class="detail-grid">
+                        <div class="detail-box"><h4>🎯 目标用户</h4><p>远程工作者、数字游民、国际化团队</p></div>
+                        <div class="detail-box"><h4>💰 商业模式</h4><p>免费版+Pro$5/月（团队共享）</p></div>
+                        <div class="detail-box"><h4>⚔️ 竞品分析</h4><p>World Time Buddy等基于城市，差异化明显</p></div>
+                        <div class="detail-box"><h4>🚧 主要风险</h4><p>需要用户主动维护数据</p></div>
+                    </div>
+                    <div class="recommendation"><h4>✅ 推荐理由</h4><p>全球化远程工作趋势下的真实痛点，差异化角度新颖。</p></div>
+                    <div class="mvp-suggestion"><h4>🛠️ MVP</h4><p>添加联系人→设置时区→显示当地时间 | 3-4周</p></div>
+                    <a class="source-link" href="https://www.reddit.com/r/SomebodyMakeThis/comments/1qg4w6n/would_a_peoplebased_timezone_app_make_more_sense/" target="_blank">🔗 Reddit原帖 →</a>
+                </div>
+
+                <!-- 8 -->
+                <div class="idea-card">
+                    <div class="idea-header"><span class="idea-number">8</span><span class="idea-score">7.7</span></div>
+                    <h3 class="idea-title">戒瘾游戏化App</h3>
+                    <p class="idea-desc">用游戏化方式帮助戒除App上瘾：积分、成就、挑战，把戒瘾变成游戏。</p>
+                    <div class="idea-meta">
+                        <span class="meta-tag user">👥 手机重度用户</span>
+                        <span class="meta-tag product">📱 移动App</span>
+                        <span class="meta-tag source">📍 r/SomebodyMakeThis</span>
+                    </div>
+                    <div class="analysis-section">
+                        <div class="analysis-title">五维评分</div>
+                        <div class="score-bars">
+                            <div class="score-bar"><span class="label">市场需求</span><div class="bar-bg"><div class="bar-fill market" style="width:85%"></div></div><span class="value">8.5</span></div>
+                            <div class="score-bar"><span class="label">技术可行</span><div class="bar-bg"><div class="bar-fill tech" style="width:80%"></div></div><span class="value">8.0</span></div>
+                            <div class="score-bar"><span class="label">变现潜力</span><div class="bar-bg"><div class="bar-fill profit" style="width:75%"></div></div><span class="value">7.5</span></div>
+                            <div class="score-bar"><span class="label">竞争优势</span><div class="bar-bg"><div class="bar-fill compete" style="width:70%"></div></div><span class="value">7.0</span></div>
+                            <div class="score-bar"><span class="label">增长潜力</span><div class="bar-bg"><div class="bar-fill growth" style="width:75%"></div></div><span class="value">7.5</span></div>
+                        </div>
+                    </div>
+                    <div class="detail-grid">
+                        <div class="detail-box"><h4>🎯 目标用户</h4><p>学生、手机依赖者、家长监管</p></div>
+                        <div class="detail-box"><h4>💰 商业模式</h4><p>订阅制$4.99/月+家庭版</p></div>
+                        <div class="detail-box"><h4>⚔️ 竞品分析</h4><p>Forest、Opal等竞品多但游戏化不够</p></div>
+                        <div class="detail-box"><h4>🚧 主要风险</h4><p>用户动力持续性；系统权限获取</p></div>
+                    </div>
+                    <div class="recommendation"><h4>✅ 推荐理由</h4><p>屏幕成瘾是现代病，游戏化角度差异化，心理健康赛道热门。</p></div>
+                    <div class="mvp-suggestion"><h4>🛠️ MVP</h4><p>使用追踪→每日挑战→成就系统 | 6-8周</p></div>
+                    <a class="source-link" href="https://www.reddit.com/r/SomebodyMakeThis/comments/1qdvb5i/gamification_for_quitting_app_addiction/" target="_blank">🔗 Reddit原帖 →</a>
+                </div>
+                <!-- 9 -->
+                <div class="idea-card">
+                    <div class="idea-header"><span class="idea-number">9</span><span class="idea-score">7.6</span></div>
+                    <h3 class="idea-title">账单到期提醒</h3>
+                    <p class="idea-desc">集中管理所有账单到期日，自动提醒，月度总结，再也不忘交费。</p>
+                    <div class="idea-meta">
+                        <span class="meta-tag user">👥 个人/家庭</span>
+                        <span class="meta-tag product">📱 App</span>
+                        <span class="meta-tag source">📍 r/SomebodyMakeThis</span>
+                    </div>
+                    <div class="analysis-section">
+                        <div class="analysis-title">五维评分</div>
+                        <div class="score-bars">
+                            <div class="score-bar"><span class="label">市场需求</span><div class="bar-bg"><div class="bar-fill market" style="width:80%"></div></div><span class="value">8.0</span></div>
+                            <div class="score-bar"><span class="label">技术可行</span><div class="bar-bg"><div class="bar-fill tech" style="width:95%"></div></div><span class="value">9.5</span></div>
+                            <div class="score-bar"><span class="label">变现潜力</span><div class="bar-bg"><div class="bar-fill profit" style="width:70%"></div></div><span class="value">7.0</span></div>
+                            <div class="score-bar"><span class="label">竞争优势</span><div class="bar-bg"><div class="bar-fill compete" style="width:65%"></div></div><span class="value">6.5</span></div>
+                            <div class="score-bar"><span class="label">增长潜力</span><div class="bar-bg"><div class="bar-fill growth" style="width:75%"></div></div><span class="value">7.5</span></div>
+                        </div>
+                    </div>
+                    <div class="detail-grid">
+                        <div class="detail-box"><h4>🎯 目标用户</h4><p>年轻人、租房族、多账户管理者</p></div>
+                        <div class="detail-box"><h4>💰 商业模式</h4><p>免费版+Pro$2.99/月</p></div>
+                        <div class="detail-box"><h4>⚔️ 竞品分析</h4><p>记账App功能重，可主打简单提醒</p></div>
+                        <div class="detail-box"><h4>🚧 主要风险</h4><p>功能简单容易被替代</p></div>
+                    </div>
+                    <div class="recommendation"><h4>✅ 推荐理由</h4><p>刚需场景，开发简单，可作为练手项目或扩展到个人财务管理。</p></div>
+                    <div class="mvp-suggestion"><h4>🛠️ MVP</h4><p>添加账单→设置提醒→月度总结 | 2-3周</p></div>
+                    <a class="source-link" href="https://www.reddit.com/r/SomebodyMakeThis/comments/1qcib5x/final_year_project_idea_centralized_bill_due_date/" target="_blank">🔗 Reddit原帖 →</a>
+                </div>
+
+                <!-- 10 -->
+                <div class="idea-card">
+                    <div class="idea-header"><span class="idea-number">10</span><span class="idea-score">7.5</span></div>
+                    <h3 class="idea-title">AI寻宠模板</h3>
+                    <p class="idea-desc">AI驱动的宠物寻找工具：上传照片，AI分析特征，生成寻宠启事，匹配走失报告。</p>
+                    <div class="idea-meta">
+                        <span class="meta-tag user">👥 宠物主人</span>
+                        <span class="meta-tag product">🌐 网站+App</span>
+                        <span class="meta-tag source">📍 r/Startup_Ideas</span>
+                    </div>
+                    <div class="analysis-section">
+                        <div class="analysis-title">五维评分</div>
+                        <div class="score-bars">
+                            <div class="score-bar"><span class="label">市场需求</span><div class="bar-bg"><div class="bar-fill market" style="width:75%"></div></div><span class="value">7.5</span></div>
+                            <div class="score-bar"><span class="label">技术可行</span><div class="bar-bg"><div class="bar-fill tech" style="width:80%"></div></div><span class="value">8.0</span></div>
+                            <div class="score-bar"><span class="label">变现潜力</span><div class="bar-bg"><div class="bar-fill profit" style="width:70%"></div></div><span class="value">7.0</span></div>
+                            <div class="score-bar"><span class="label">竞争优势</span><div class="bar-bg"><div class="bar-fill compete" style="width:80%"></div></div><span class="value">8.0</span></div>
+                            <div class="score-bar"><span class="label">增长潜力</span><div class="bar-bg"><div class="bar-fill growth" style="width:70%"></div></div><span class="value">7.0</span></div>
+                        </div>
+                    </div>
+                    <div class="detail-grid">
+                        <div class="detail-box"><h4>🎯 目标用户</h4><p>宠物主人、动物收容所、社区</p></div>
+                        <div class="detail-box"><h4>💰 商业模式</h4><p>免费基础+高级推广付费</p></div>
+                        <div class="detail-box"><h4>⚔️ 竞品分析</h4><p>PawBoost等存在但AI功能弱</p></div>
+                        <div class="detail-box"><h4>🚧 主要风险</h4><p>市场相对小众；AI准确率挑战</p></div>
+                    </div>
+                    <div class="recommendation"><h4>✅ 推荐理由</h4><p>情感需求强（宠物丢失焦虑），用户愿意付费，AI可提供差异化。</p></div>
+                    <div class="mvp-suggestion"><h4>🛠️ MVP</h4><p>上传照片→生成启事→社区分享 | 4-5周</p></div>
+                    <a class="source-link" href="https://www.reddit.com/r/Startup_Ideas/comments/1qks6yb/built_an_ai_app_template_for_people_who_lost/" target="_blank">🔗 Reddit原帖 →</a>
+                </div>
+
+                <!-- 11 -->
+                <div class="idea-card">
+                    <div class="idea-header"><span class="idea-number">11</span><span class="idea-score">7.5</span></div>
+                    <h3 class="idea-title">TG记账机器人</h3>
+                    <p class="idea-desc">Telegram机器人帮你记账：发消息就能记录支出，自动分类，月度报表推送。</p>
+                    <div class="idea-meta">
+                        <span class="meta-tag user">👥 Telegram用户</span>
+                        <span class="meta-tag product">🤖 Bot</span>
+                        <span class="meta-tag source">📍 r/SideProject</span>
+                    </div>
+                    <div class="analysis-section">
+                        <div class="analysis-title">五维评分</div>
+                        <div class="score-bars">
+                            <div class="score-bar"><span class="label">市场需求</span><div class="bar-bg"><div class="bar-fill market" style="width:75%"></div></div><span class="value">7.5</span></div>
+                            <div class="score-bar"><span class="label">技术可行</span><div class="bar-bg"><div class="bar-fill tech" style="width:95%"></div></div><span class="value">9.5</span></div>
+                            <div class="score-bar"><span class="label">变现潜力</span><div class="bar-bg"><div class="bar-fill profit" style="width:65%"></div></div><span class="value">6.5</span></div>
+                            <div class="score-bar"><span class="label">竞争优势</span><div class="bar-bg"><div class="bar-fill compete" style="width:70%"></div></div><span class="value">7.0</span></div>
+                            <div class="score-bar"><span class="label">增长潜力</span><div class="bar-bg"><div class="bar-fill growth" style="width:75%"></div></div><span class="value">7.5</span></div>
+                        </div>
+                    </div>
+                    <div class="detail-grid">
+                        <div class="detail-box"><h4>🎯 目标用户</h4><p>Telegram重度用户、年轻人</p></div>
+                        <div class="detail-box"><h4>💰 商业模式</h4><p>免费版+Pro$3/月（高级分析）</p></div>
+                        <div class="detail-box"><h4>⚔️ 竞品分析</h4><p>记账App多但TG生态内少</p></div>
+                        <div class="detail-box"><h4>🚧 主要风险</h4><p>用户基数受限于TG用户</p></div>
+                    </div>
+                    <div class="recommendation"><h4>✅ 推荐理由</h4><p>零摩擦记账体验，TG用户忠诚度高，Bot开发成本低。</p></div>
+                    <div class="mvp-suggestion"><h4>🛠️ MVP</h4><p>文字记账→自动分类→月度报表 | 2-3周</p></div>
+                    <a class="source-link" href="https://www.reddit.com/r/SideProject/comments/185sin5/i_made_a_telegram_chatbot_to_help_people_to/" target="_blank">🔗 Reddit原帖 →</a>
+                </div>
+
+                <!-- 12 -->
+                <div class="idea-card">
+                    <div class="idea-header"><span class="idea-number">12</span><span class="idea-score">7.4</span></div>
+                    <h3 class="idea-title">冲浪旅行规划</h3>
+                    <p class="idea-desc">整合廉价机票、住宿、浪况预报，一键规划临时冲浪之旅。</p>
+                    <div class="idea-meta">
+                        <span class="meta-tag user">👥 冲浪爱好者</span>
+                        <span class="meta-tag product">🌐 网站</span>
+                        <span class="meta-tag source">📍 r/AppIdeas</span>
+                    </div>
+                    <div class="analysis-section">
+                        <div class="analysis-title">五维评分</div>
+                        <div class="score-bars">
+                            <div class="score-bar"><span class="label">市场需求</span><div class="bar-bg"><div class="bar-fill market" style="width:70%"></div></div><span class="value">7.0</span></div>
+                            <div class="score-bar"><span class="label">技术可行</span><div class="bar-bg"><div class="bar-fill tech" style="width:80%"></div></div><span class="value">8.0</span></div>
+                            <div class="score-bar"><span class="label">变现潜力</span><div class="bar-bg"><div class="bar-fill profit" style="width:75%"></div></div><span class="value">7.5</span></div>
+                            <div class="score-bar"><span class="label">竞争优势</span><div class="bar-bg"><div class="bar-fill compete" style="width:80%"></div></div><span class="value">8.0</span></div>
+                            <div class="score-bar"><span class="label">增长潜力</span><div class="bar-bg"><div class="bar-fill growth" style="width:70%"></div></div><span class="value">7.0</span></div>
+                        </div>
+                    </div>
+                    <div class="detail-grid">
+                        <div class="detail-box"><h4>🎯 目标用户</h4><p>冲浪爱好者、极限运动旅行者</p></div>
+                        <div class="detail-box"><h4>💰 商业模式</h4><p>联盟佣金+高级订阅</p></div>
+                        <div class="detail-box"><h4>⚔️ 竞品分析</h4><p>Surfline关注浪况，旅行规划是空白</p></div>
+                        <div class="detail-box"><h4>🚧 主要风险</h4><p>垂直市场较小</p></div>
+                    </div>
+                    <div class="recommendation"><h4>✅ 推荐理由</h4><p>垂直市场用户付费意愿强，可扩展到其他极限运动。</p></div>
+                    <div class="mvp-suggestion"><h4>🛠️ MVP</h4><p>浪况查询→机票搜索→行程组合 | 5-6周</p></div>
+                    <a class="source-link" href="https://www.reddit.com/r/AppIdeas/comments/1qj8jn7/last_minute_surf_planner_app/" target="_blank">🔗 Reddit原帖 →</a>
+                </div>
+
+                <!-- 13 -->
+                <div class="idea-card">
+                    <div class="idea-header"><span class="idea-number">13</span><span class="idea-score">7.3</span></div>
+                    <h3 class="idea-title">图表快速生成器</h3>
+                    <p class="idea-desc">最简单的图表制作工具：粘贴数据，选择样式，一键生成可分享的精美图表。</p>
                     <div class="idea-meta">
                         <span class="meta-tag user">👥 内容创作者</span>
+                        <span class="meta-tag product">🌐 网站</span>
+                        <span class="meta-tag source">📍 r/InternetIsBeautiful</span>
+                    </div>
+                    <div class="analysis-section">
+                        <div class="analysis-title">五维评分</div>
+                        <div class="score-bars">
+                            <div class="score-bar"><span class="label">市场需求</span><div class="bar-bg"><div class="bar-fill market" style="width:75%"></div></div><span class="value">7.5</span></div>
+                            <div class="score-bar"><span class="label">技术可行</span><div class="bar-bg"><div class="bar-fill tech" style="width:90%"></div></div><span class="value">9.0</span></div>
+                            <div class="score-bar"><span class="label">变现潜力</span><div class="bar-bg"><div class="bar-fill profit" style="width:70%"></div></div><span class="value">7.0</span></div>
+                            <div class="score-bar"><span class="label">竞争优势</span><div class="bar-bg"><div class="bar-fill compete" style="width:60%"></div></div><span class="value">6.0</span></div>
+                            <div class="score-bar"><span class="label">增长潜力</span><div class="bar-bg"><div class="bar-fill growth" style="width:70%"></div></div><span class="value">7.0</span></div>
+                        </div>
+                    </div>
+                    <div class="detail-grid">
+                        <div class="detail-box"><h4>🎯 目标用户</h4><p>博主、记者、学生、营销人员</p></div>
+                        <div class="detail-box"><h4>💰 商业模式</h4><p>免费版+Pro去水印$5/月</p></div>
+                        <div class="detail-box"><h4>⚔️ 竞品分析</h4><p>Canva功能重，可主打极简</p></div>
+                        <div class="detail-box"><h4>🚧 主要风险</h4><p>竞品多，需极致简化</p></div>
+                    </div>
+                    <div class="recommendation"><h4>✅ 推荐理由</h4><p>工具型产品SEO友好，极简差异化有空间。</p></div>
+                    <div class="mvp-suggestion"><h4>🛠️ MVP</h4><p>数据输入→模板选择→导出分享 | 3-4周</p></div>
+                    <a class="source-link" href="https://www.reddit.com/r/InternetIsBeautiful/comments/tsw8h2/i_made_a_tool_so_that_anyone_can_make/" target="_blank">🔗 Reddit原帖 →</a>
+                </div>
+
+                <!-- 14 -->
+                <div class="idea-card">
+                    <div class="idea-header"><span class="idea-number">14</span><span class="idea-score">7.3</span></div>
+                    <h3 class="idea-title">AI广告生成器</h3>
+                    <p class="idea-desc">AI一键生成Facebook/Google广告素材：文案、图片、多版本A/B测试。</p>
+                    <div class="idea-meta">
+                        <span class="meta-tag user">👥 电商/营销人</span>
                         <span class="meta-tag product">💻 SaaS</span>
-                        <span class="meta-tag stage">🔧 工具型</span>
+                        <span class="meta-tag source">📍 r/Startup_Ideas</span>
                     </div>
                     <div class="analysis-section">
                         <div class="analysis-title">五维评分</div>
                         <div class="score-bars">
-                            <div class="score-bar"><span class="label">市场需求</span><div class="bar-bg"><div class="bar-fill market" style="width: 70%"></div></div><span class="value">7.0</span></div>
-                            <div class="score-bar"><span class="label">技术可行</span><div class="bar-bg"><div class="bar-fill tech" style="width: 80%"></div></div><span class="value">8.0</span></div>
-                            <div class="score-bar"><span class="label">变现潜力</span><div class="bar-bg"><div class="bar-fill profit" style="width: 70%"></div></div><span class="value">7.0</span></div>
-                            <div class="score-bar"><span class="label">竞争优势</span><div class="bar-bg"><div class="bar-fill compete" style="width: 70%"></div></div><span class="value">7.0</span></div>
-                            <div class="score-bar"><span class="label">增长潜力</span><div class="bar-bg"><div class="bar-fill growth" style="width: 70%"></div></div><span class="value">7.0</span></div>
+                            <div class="score-bar"><span class="label">市场需求</span><div class="bar-bg"><div class="bar-fill market" style="width:80%"></div></div><span class="value">8.0</span></div>
+                            <div class="score-bar"><span class="label">技术可行</span><div class="bar-bg"><div class="bar-fill tech" style="width:80%"></div></div><span class="value">8.0</span></div>
+                            <div class="score-bar"><span class="label">变现潜力</span><div class="bar-bg"><div class="bar-fill profit" style="width:75%"></div></div><span class="value">7.5</span></div>
+                            <div class="score-bar"><span class="label">竞争优势</span><div class="bar-bg"><div class="bar-fill compete" style="width:55%"></div></div><span class="value">5.5</span></div>
+                            <div class="score-bar"><span class="label">增长潜力</span><div class="bar-bg"><div class="bar-fill growth" style="width:75%"></div></div><span class="value">7.5</span></div>
                         </div>
                     </div>
-                    <div class="recommendation">
-                        <h4>✅ 推荐理由</h4>
-                        <p>简化建站流程，对非技术用户友好。可与Notion转网站差异化竞争。</p>
+                    <div class="detail-grid">
+                        <div class="detail-box"><h4>🎯 目标用户</h4><p>电商卖家、小企业主、营销团队</p></div>
+                        <div class="detail-box"><h4>💰 商业模式</h4><p>订阅制$29-99/月</p></div>
+                        <div class="detail-box"><h4>⚔️ 竞品分析</h4><p>Jasper、Copy.ai等竞争激烈</p></div>
+                        <div class="detail-box"><h4>🚧 主要风险</h4><p>AI赛道红海；需差异化</p></div>
                     </div>
+                    <div class="recommendation"><h4>✅ 推荐理由</h4><p>B2B付费意愿强，但需找到细分切入点避开巨头。</p></div>
+                    <div class="mvp-suggestion"><h4>🛠️ MVP</h4><p>产品描述→AI文案→图片生成 | 4-6周</p></div>
+                    <a class="source-link" href="https://www.reddit.com/r/Startup_Ideas/comments/1ql5s7b/brainstorming_an_ai_ad_maker_does_this_solve_a/" target="_blank">🔗 Reddit原帖 →</a>
                 </div>
-                
+
+                <!-- 15 -->
                 <div class="idea-card">
-                    <div class="idea-header">
-                        <span class="idea-number">14</span>
-                        <div class="idea-score-badge">
-                            <span class="idea-score">7.2</span>
+                    <div class="idea-header"><span class="idea-number">15</span><span class="idea-score">7.2</span></div>
+                    <h3 class="idea-title">浏览器智能切换</h3>
+                    <p class="idea-desc">Windows多浏览器智能路由：根据链接自动选择打开的浏览器和配置文件。</p>
+                    <div class="idea-meta">
+                        <span class="meta-tag user">👥 多浏览器用户</span>
+                        <span class="meta-tag product">🖥️ 桌面工具</span>
+                        <span class="meta-tag source">📍 r/InternetIsBeautiful</span>
+                    </div>
+                    <div class="analysis-section">
+                        <div class="analysis-title">五维评分</div>
+                        <div class="score-bars">
+                            <div class="score-bar"><span class="label">市场需求</span><div class="bar-bg"><div class="bar-fill market" style="width:70%"></div></div><span class="value">7.0</span></div>
+                            <div class="score-bar"><span class="label">技术可行</span><div class="bar-bg"><div class="bar-fill tech" style="width:85%"></div></div><span class="value">8.5</span></div>
+                            <div class="score-bar"><span class="label">变现潜力</span><div class="bar-bg"><div class="bar-fill profit" style="width:65%"></div></div><span class="value">6.5</span></div>
+                            <div class="score-bar"><span class="label">竞争优势</span><div class="bar-bg"><div class="bar-fill compete" style="width:80%"></div></div><span class="value">8.0</span></div>
+                            <div class="score-bar"><span class="label">增长潜力</span><div class="bar-bg"><div class="bar-fill growth" style="width:65%"></div></div><span class="value">6.5</span></div>
                         </div>
                     </div>
-                    <h3 class="idea-title">创业工具导航</h3>
-                    <p class="idea-desc">整理创业各阶段所需工具（域名、建站、支付、营销、法务等），一站式入口+评测对比。</p>
+                    <div class="detail-grid">
+                        <div class="detail-box"><h4>🎯 目标用户</h4><p>开发者、多账户管理者</p></div>
+                        <div class="detail-box"><h4>💰 商业模式</h4><p>免费+捐赠/高级功能</p></div>
+                        <div class="detail-box"><h4>⚔️ 竞品分析</h4><p>Browser Tamer等存在但可做更好</p></div>
+                        <div class="detail-box"><h4>🚧 主要风险</h4><p>小众需求，变现困难</p></div>
+                    </div>
+                    <div class="recommendation"><h4>✅ 推荐理由</h4><p>开发者工具类产品口碑传播效果好，可开源获取用户。</p></div>
+                    <div class="mvp-suggestion"><h4>🛠️ MVP</h4><p>规则配置→链接拦截→浏览器分发 | 3-4周</p></div>
+                    <a class="source-link" href="https://www.reddit.com/r/InternetIsBeautiful/comments/1qxcrii/browser_tamer_windows_multibrowser_link/" target="_blank">🔗 Reddit原帖 →</a>
+                </div>
+
+                <!-- 16 -->
+                <div class="idea-card">
+                    <div class="idea-header"><span class="idea-number">16</span><span class="idea-score">7.2</span></div>
+                    <h3 class="idea-title">创始人匹配平台</h3>
+                    <p class="idea-desc">AI驱动的联合创始人匹配：不是被动等待，而是主动扫描找到理想合伙人。</p>
                     <div class="idea-meta">
-                        <span class="meta-tag user">👥 创业者/独立开发</span>
+                        <span class="meta-tag user">👥 创业者</span>
+                        <span class="meta-tag product">🌐 平台</span>
+                        <span class="meta-tag source">📍 r/Startup_Ideas</span>
+                    </div>
+                    <div class="analysis-section">
+                        <div class="analysis-title">五维评分</div>
+                        <div class="score-bars">
+                            <div class="score-bar"><span class="label">市场需求</span><div class="bar-bg"><div class="bar-fill market" style="width:80%"></div></div><span class="value">8.0</span></div>
+                            <div class="score-bar"><span class="label">技术可行</span><div class="bar-bg"><div class="bar-fill tech" style="width:75%"></div></div><span class="value">7.5</span></div>
+                            <div class="score-bar"><span class="label">变现潜力</span><div class="bar-bg"><div class="bar-fill profit" style="width:70%"></div></div><span class="value">7.0</span></div>
+                            <div class="score-bar"><span class="label">竞争优势</span><div class="bar-bg"><div class="bar-fill compete" style="width:65%"></div></div><span class="value">6.5</span></div>
+                            <div class="score-bar"><span class="label">增长潜力</span><div class="bar-bg"><div class="bar-fill growth" style="width:70%"></div></div><span class="value">7.0</span></div>
+                        </div>
+                    </div>
+                    <div class="detail-grid">
+                        <div class="detail-box"><h4>🎯 目标用户</h4><p>独立创业者、技术/商业人才</p></div>
+                        <div class="detail-box"><h4>💰 商业模式</h4><p>订阅制+成功匹配佣金</p></div>
+                        <div class="detail-box"><h4>⚔️ 竞品分析</h4><p>Y Combinator匹配、LinkedIn等</p></div>
+                        <div class="detail-box"><h4>🚧 主要风险</h4><p>双边市场冷启动难</p></div>
+                    </div>
+                    <div class="recommendation"><h4>✅ 推荐理由</h4><p>创业者真实痛点，成功匹配价值极高。</p></div>
+                    <div class="mvp-suggestion"><h4>🛠️ MVP</h4><p>个人档案→AI匹配→消息沟通 | 6-8周</p></div>
+                    <a class="source-link" href="https://www.reddit.com/r/Startup_Ideas/comments/1qh5lx1/ill_help_you_find_your_ideal_cofounder_free/" target="_blank">🔗 Reddit原帖 →</a>
+                </div>
+                <!-- 17 -->
+                <div class="idea-card">
+                    <div class="idea-header"><span class="idea-number">17</span><span class="idea-score">7.1</span></div>
+                    <h3 class="idea-title">猫咪健康追踪</h3>
+                    <p class="idea-desc">追踪猫咪呕吐、进食、排便等健康数据，发现异常及时预警，有趣的社交分享功能。</p>
+                    <div class="idea-meta">
+                        <span class="meta-tag user">👥 猫奴</span>
+                        <span class="meta-tag product">📱 App</span>
+                        <span class="meta-tag source">📍 r/SomebodyMakeThis</span>
+                    </div>
+                    <div class="analysis-section">
+                        <div class="analysis-title">五维评分</div>
+                        <div class="score-bars">
+                            <div class="score-bar"><span class="label">市场需求</span><div class="bar-bg"><div class="bar-fill market" style="width:70%"></div></div><span class="value">7.0</span></div>
+                            <div class="score-bar"><span class="label">技术可行</span><div class="bar-bg"><div class="bar-fill tech" style="width:90%"></div></div><span class="value">9.0</span></div>
+                            <div class="score-bar"><span class="label">变现潜力</span><div class="bar-bg"><div class="bar-fill profit" style="width:65%"></div></div><span class="value">6.5</span></div>
+                            <div class="score-bar"><span class="label">竞争优势</span><div class="bar-bg"><div class="bar-fill compete" style="width:70%"></div></div><span class="value">7.0</span></div>
+                            <div class="score-bar"><span class="label">增长潜力</span><div class="bar-bg"><div class="bar-fill growth" style="width:70%"></div></div><span class="value">7.0</span></div>
+                        </div>
+                    </div>
+                    <div class="detail-grid">
+                        <div class="detail-box"><h4>🎯 目标用户</h4><p>养猫人士、宠物健康关注者</p></div>
+                        <div class="detail-box"><h4>💰 商业模式</h4><p>订阅制+宠物产品联盟</p></div>
+                        <div class="detail-box"><h4>⚔️ 竞品分析</h4><p>宠物App多但专注健康追踪少</p></div>
+                        <div class="detail-box"><h4>🚧 主要风险</h4><p>用户记录习惯培养</p></div>
+                    </div>
+                    <div class="recommendation"><h4>✅ 推荐理由</h4><p>宠物经济火热，猫奴群体舍得花钱，社交分享带来传播。</p></div>
+                    <div class="mvp-suggestion"><h4>🛠️ MVP</h4><p>事件记录→趋势图表→分享功能 | 3-4周</p></div>
+                    <a class="source-link" href="https://www.reddit.com/r/SomebodyMakeThis/comments/1qjfhrl/app_to_track_when_my_cat_throws_up/" target="_blank">🔗 Reddit原帖 →</a>
+                </div>
+
+                <!-- 18 -->
+                <div class="idea-card">
+                    <div class="idea-header"><span class="idea-number">18</span><span class="idea-score">7.0</span></div>
+                    <h3 class="idea-title">科研地图导航</h3>
+                    <p class="idea-desc">可视化科研领域知识图谱：输入研究方向，看到相关领域、论文、学者的关系地图。</p>
+                    <div class="idea-meta">
+                        <span class="meta-tag user">👥 研究人员/学生</span>
                         <span class="meta-tag product">🌐 网站</span>
-                        <span class="meta-tag stage">💰 联盟变现</span>
+                        <span class="meta-tag source">📍 r/SomebodyMakeThis</span>
                     </div>
                     <div class="analysis-section">
                         <div class="analysis-title">五维评分</div>
                         <div class="score-bars">
-                            <div class="score-bar"><span class="label">市场需求</span><div class="bar-bg"><div class="bar-fill market" style="width: 75%"></div></div><span class="value">7.5</span></div>
-                            <div class="score-bar"><span class="label">技术可行</span><div class="bar-bg"><div class="bar-fill tech" style="width: 95%"></div></div><span class="value">9.5</span></div>
-                            <div class="score-bar"><span class="label">变现潜力</span><div class="bar-bg"><div class="bar-fill profit" style="width: 70%"></div></div><span class="value">7.0</span></div>
-                            <div class="score-bar"><span class="label">竞争优势</span><div class="bar-bg"><div class="bar-fill compete" style="width: 55%"></div></div><span class="value">5.5</span></div>
-                            <div class="score-bar"><span class="label">增长潜力</span><div class="bar-bg"><div class="bar-fill growth" style="width: 70%"></div></div><span class="value">7.0</span></div>
+                            <div class="score-bar"><span class="label">市场需求</span><div class="bar-bg"><div class="bar-fill market" style="width:75%"></div></div><span class="value">7.5</span></div>
+                            <div class="score-bar"><span class="label">技术可行</span><div class="bar-bg"><div class="bar-fill tech" style="width:65%"></div></div><span class="value">6.5</span></div>
+                            <div class="score-bar"><span class="label">变现潜力</span><div class="bar-bg"><div class="bar-fill profit" style="width:70%"></div></div><span class="value">7.0</span></div>
+                            <div class="score-bar"><span class="label">竞争优势</span><div class="bar-bg"><div class="bar-fill compete" style="width:75%"></div></div><span class="value">7.5</span></div>
+                            <div class="score-bar"><span class="label">增长潜力</span><div class="bar-bg"><div class="bar-fill growth" style="width:70%"></div></div><span class="value">7.0</span></div>
                         </div>
                     </div>
-                    <div class="recommendation">
-                        <h4>✅ 推荐理由</h4>
-                        <p>内容型产品，SEO友好。通过联盟链接变现，几乎零边际成本。竞争多但持续更新可建立优势。</p>
+                    <div class="detail-grid">
+                        <div class="detail-box"><h4>🎯 目标用户</h4><p>研究生、科研人员、学术机构</p></div>
+                        <div class="detail-box"><h4>💰 商业模式</h4><p>B2B机构订阅+个人Pro版</p></div>
+                        <div class="detail-box"><h4>⚔️ 竞品分析</h4><p>Connected Papers等，但可视化可做更好</p></div>
+                        <div class="detail-box"><h4>🚧 主要风险</h4><p>数据获取和处理复杂</p></div>
                     </div>
+                    <div class="recommendation"><h4>✅ 推荐理由</h4><p>学术市场稳定，机构采购能力强，AI可提升体验。</p></div>
+                    <div class="mvp-suggestion"><h4>🛠️ MVP</h4><p>关键词搜索→知识图谱→论文链接 | 8-10周</p></div>
+                    <a class="source-link" href="https://www.reddit.com/r/SomebodyMakeThis/comments/1p0en5t/google_map_for_science/" target="_blank">🔗 Reddit原帖 →</a>
                 </div>
-                
+
+                <!-- 19 -->
                 <div class="idea-card">
-                    <div class="idea-header">
-                        <span class="idea-number">15</span>
-                        <div class="idea-score-badge">
-                            <span class="idea-score">7.1</span>
-                        </div>
-                    </div>
-                    <h3 class="idea-title">个人仪表盘</h3>
-                    <p class="idea-desc">自定义Widget的个人主页/浏览器起始页，整合天气、待办、书签、日历等常用信息。</p>
+                    <div class="idea-header"><span class="idea-number">19</span><span class="idea-score">6.9</span></div>
+                    <h3 class="idea-title">付费墙绕过聚合</h3>
+                    <p class="idea-desc">聚合多种付费墙绕过方案的导航站，帮助用户免费阅读新闻文章。</p>
                     <div class="idea-meta">
-                        <span class="meta-tag user">👥 效率党/极客</span>
-                        <span class="meta-tag product">🌐 网站+插件</span>
-                        <span class="meta-tag stage">🔧 工具型</span>
-                    </div>
-                    <div class="analysis-section">
-                        <div class="analysis-title">五维评分</div>
-                        <div class="score-bars">
-                            <div class="score-bar"><span class="label">市场需求</span><div class="bar-bg"><div class="bar-fill market" style="width: 70%"></div></div><span class="value">7.0</span></div>
-                            <div class="score-bar"><span class="label">技术可行</span><div class="bar-bg"><div class="bar-fill tech" style="width: 85%"></div></div><span class="value">8.5</span></div>
-                            <div class="score-bar"><span class="label">变现潜力</span><div class="bar-bg"><div class="bar-fill profit" style="width: 65%"></div></div><span class="value">6.5</span></div>
-                            <div class="score-bar"><span class="label">竞争优势</span><div class="bar-bg"><div class="bar-fill compete" style="width: 60%"></div></div><span class="value">6.0</span></div>
-                            <div class="score-bar"><span class="label">增长潜力</span><div class="bar-bg"><div class="bar-fill growth" style="width: 70%"></div></div><span class="value">7.0</span></div>
-                        </div>
-                    </div>
-                    <div class="recommendation">
-                        <h4>✅ 推荐理由</h4>
-                        <p>用户粘性极高（每天打开浏览器都用），可通过高级主题和Widget付费。竞品多需差异化。</p>
-                    </div>
-                </div>
-                
-                <div class="idea-card">
-                    <div class="idea-header">
-                        <span class="idea-number">16</span>
-                        <div class="idea-score-badge">
-                            <span class="idea-score">7.0</span>
-                        </div>
-                    </div>
-                    <h3 class="idea-title">网站技术栈检测器</h3>
-                    <p class="idea-desc">输入网址，分析网站使用的技术栈（框架、CMS、分析工具、CDN等），竞品分析利器。</p>
-                    <div class="idea-meta">
-                        <span class="meta-tag user">👥 开发者/营销人员</span>
-                        <span class="meta-tag product">🌐 网站+API</span>
-                        <span class="meta-tag stage">🔧 工具型</span>
-                    </div>
-                    <div class="analysis-section">
-                        <div class="analysis-title">五维评分</div>
-                        <div class="score-bars">
-                            <div class="score-bar"><span class="label">市场需求</span><div class="bar-bg"><div class="bar-fill market" style="width: 70%"></div></div><span class="value">7.0</span></div>
-                            <div class="score-bar"><span class="label">技术可行</span><div class="bar-bg"><div class="bar-fill tech" style="width: 80%"></div></div><span class="value">8.0</span></div>
-                            <div class="score-bar"><span class="label">变现潜力</span><div class="bar-bg"><div class="bar-fill profit" style="width: 65%"></div></div><span class="value">6.5</span></div>
-                            <div class="score-bar"><span class="label">竞争优势</span><div class="bar-bg"><div class="bar-fill compete" style="width: 55%"></div></div><span class="value">5.5</span></div>
-                            <div class="score-bar"><span class="label">增长潜力</span><div class="bar-bg"><div class="bar-fill growth" style="width: 70%"></div></div><span class="value">7.0</span></div>
-                        </div>
-                    </div>
-                    <div class="recommendation">
-                        <h4>✅ 推荐理由</h4>
-                        <p>开发者刚需工具，BuiltWith/Wappalyzer有市场但可做差异化（更快、更准、免费额度更多）。</p>
-                    </div>
-                </div>
-                
-                <div class="idea-card">
-                    <div class="idea-header">
-                        <span class="idea-number">17</span>
-                        <div class="idea-score-badge">
-                            <span class="idea-score">7.0</span>
-                        </div>
-                    </div>
-                    <h3 class="idea-title">表情编辑器</h3>
-                    <p class="idea-desc">AI编辑照片中的面部表情，把哭脸变笑脸，修复表情不自然的照片，社交媒体神器。</p>
-                    <div class="idea-meta">
-                        <span class="meta-tag user">👥 摄影师/普通用户</span>
-                        <span class="meta-tag product">🌐 网站+App</span>
-                        <span class="meta-tag stage">🎨 娱乐型</span>
-                    </div>
-                    <div class="analysis-section">
-                        <div class="analysis-title">五维评分</div>
-                        <div class="score-bars">
-                            <div class="score-bar"><span class="label">市场需求</span><div class="bar-bg"><div class="bar-fill market" style="width: 75%"></div></div><span class="value">7.5</span></div>
-                            <div class="score-bar"><span class="label">技术可行</span><div class="bar-bg"><div class="bar-fill tech" style="width: 75%"></div></div><span class="value">7.5</span></div>
-                            <div class="score-bar"><span class="label">变现潜力</span><div class="bar-bg"><div class="bar-fill profit" style="width: 70%"></div></div><span class="value">7.0</span></div>
-                            <div class="score-bar"><span class="label">竞争优势</span><div class="bar-bg"><div class="bar-fill compete" style="width: 60%"></div></div><span class="value">6.0</span></div>
-                            <div class="score-bar"><span class="label">增长潜力</span><div class="bar-bg"><div class="bar-fill growth" style="width: 70%"></div></div><span class="value">7.0</span></div>
-                        </div>
-                    </div>
-                    <div class="recommendation">
-                        <h4>✅ 推荐理由</h4>
-                        <p>娱乐性强，容易病毒传播。可结合AI换脸、美颜等功能做综合图片编辑工具。</p>
-                    </div>
-                </div>
-                
-                <div class="idea-card">
-                    <div class="idea-header">
-                        <span class="idea-number">18</span>
-                        <div class="idea-score-badge">
-                            <span class="idea-score">6.9</span>
-                        </div>
-                    </div>
-                    <h3 class="idea-title">教师课表管理</h3>
-                    <p class="idea-desc">专为中小学教师设计的课表+任务管理App，整合课程表、作业批改进度、家长沟通记录。</p>
-                    <div class="idea-meta">
-                        <span class="meta-tag user">👥 中小学教师</span>
-                        <span class="meta-tag product">📱 移动App</span>
-                        <span class="meta-tag stage">🏫 垂直市场</span>
-                    </div>
-                    <div class="analysis-section">
-                        <div class="analysis-title">五维评分</div>
-                        <div class="score-bars">
-                            <div class="score-bar"><span class="label">市场需求</span><div class="bar-bg"><div class="bar-fill market" style="width: 75%"></div></div><span class="value">7.5</span></div>
-                            <div class="score-bar"><span class="label">技术可行</span><div class="bar-bg"><div class="bar-fill tech" style="width: 90%"></div></div><span class="value">9.0</span></div>
-                            <div class="score-bar"><span class="label">变现潜力</span><div class="bar-bg"><div class="bar-fill profit" style="width: 60%"></div></div><span class="value">6.0</span></div>
-                            <div class="score-bar"><span class="label">竞争优势</span><div class="bar-bg"><div class="bar-fill compete" style="width: 65%"></div></div><span class="value">6.5</span></div>
-                            <div class="score-bar"><span class="label">增长潜力</span><div class="bar-bg"><div class="bar-fill growth" style="width: 65%"></div></div><span class="value">6.5</span></div>
-                        </div>
-                    </div>
-                    <div class="recommendation">
-                        <h4>✅ 推荐理由</h4>
-                        <p>垂直市场用户集中，可通过学校/教育局批量推广。教育信息化政策利好。</p>
-                    </div>
-                </div>
-                
-                <div class="idea-card">
-                    <div class="idea-header">
-                        <span class="idea-number">19</span>
-                        <div class="idea-score-badge">
-                            <span class="idea-score">6.8</span>
-                        </div>
-                    </div>
-                    <h3 class="idea-title">酷站导航</h3>
-                    <p class="idea-desc">分类展示有趣实用的网站，用户推荐+投票，每日/每周精选，发现互联网宝藏。</p>
-                    <div class="idea-meta">
-                        <span class="meta-tag user">👥 互联网探索者</span>
+                        <span class="meta-tag user">👥 新闻阅读者</span>
                         <span class="meta-tag product">🌐 网站</span>
-                        <span class="meta-tag stage">📰 内容型</span>
+                        <span class="meta-tag source">📍 r/InternetIsBeautiful</span>
                     </div>
                     <div class="analysis-section">
                         <div class="analysis-title">五维评分</div>
                         <div class="score-bars">
-                            <div class="score-bar"><span class="label">市场需求</span><div class="bar-bg"><div class="bar-fill market" style="width: 65%"></div></div><span class="value">6.5</span></div>
-                            <div class="score-bar"><span class="label">技术可行</span><div class="bar-bg"><div class="bar-fill tech" style="width: 95%"></div></div><span class="value">9.5</span></div>
-                            <div class="score-bar"><span class="label">变现潜力</span><div class="bar-bg"><div class="bar-fill profit" style="width: 60%"></div></div><span class="value">6.0</span></div>
-                            <div class="score-bar"><span class="label">竞争优势</span><div class="bar-bg"><div class="bar-fill compete" style="width: 55%"></div></div><span class="value">5.5</span></div>
-                            <div class="score-bar"><span class="label">增长潜力</span><div class="bar-bg"><div class="bar-fill growth" style="width: 65%"></div></div><span class="value">6.5</span></div>
+                            <div class="score-bar"><span class="label">市场需求</span><div class="bar-bg"><div class="bar-fill market" style="width:80%"></div></div><span class="value">8.0</span></div>
+                            <div class="score-bar"><span class="label">技术可行</span><div class="bar-bg"><div class="bar-fill tech" style="width:90%"></div></div><span class="value">9.0</span></div>
+                            <div class="score-bar"><span class="label">变现潜力</span><div class="bar-bg"><div class="bar-fill profit" style="width:50%"></div></div><span class="value">5.0</span></div>
+                            <div class="score-bar"><span class="label">竞争优势</span><div class="bar-bg"><div class="bar-fill compete" style="width:60%"></div></div><span class="value">6.0</span></div>
+                            <div class="score-bar"><span class="label">增长潜力</span><div class="bar-bg"><div class="bar-fill growth" style="width:65%"></div></div><span class="value">6.5</span></div>
                         </div>
                     </div>
-                    <div class="recommendation">
-                        <h4>✅ 推荐理由</h4>
-                        <p>内容驱动，SEO流量稳定。Product Hunt中国版概念。需要持续运营保持新鲜感。</p>
+                    <div class="detail-grid">
+                        <div class="detail-box"><h4>🎯 目标用户</h4><p>新闻重度阅读者、研究人员</p></div>
+                        <div class="detail-box"><h4>💰 商业模式</h4><p>广告为主（变现困难）</p></div>
+                        <div class="detail-box"><h4>⚔️ 竞品分析</h4><p>12ft.io等多个方案存在</p></div>
+                        <div class="detail-box"><h4>🚧 主要风险</h4><p>法律风险；媒体封堵</p></div>
                     </div>
+                    <div class="recommendation"><h4>✅ 推荐理由</h4><p>需求真实但灰色地带，不建议作为主业，可作为流量项目。</p></div>
+                    <div class="mvp-suggestion"><h4>🛠️ MVP</h4><p>方案列表→使用指南→反馈收集 | 1-2周</p></div>
+                    <a class="source-link" href="https://www.reddit.com/r/InternetIsBeautiful/comments/1ca51i2/paywall_reader_read_without_paywalls_for_free/" target="_blank">🔗 Reddit原帖 →</a>
                 </div>
-                
+
+                <!-- 20 -->
                 <div class="idea-card">
-                    <div class="idea-header">
-                        <span class="idea-number">20</span>
-                        <div class="idea-score-badge">
-                            <span class="idea-score">6.7</span>
-                        </div>
-                    </div>
-                    <h3 class="idea-title">10个创业点子周刊</h3>
-                    <p class="idea-desc">每周发布10个经过验证的创业点子，附带市场分析、竞品研究、可行性报告。</p>
+                    <div class="idea-header"><span class="idea-number">20</span><span class="idea-score">6.8</span></div>
+                    <h3 class="idea-title">超级碗方格游戏</h3>
+                    <p class="idea-desc">简化超级碗方格游戏（Super Bowl Squares）的在线工具，替代传统Google Sheet。</p>
                     <div class="idea-meta">
-                        <span class="meta-tag user">👥 创业者/投资人</span>
-                        <span class="meta-tag product">📧 Newsletter</span>
-                        <span class="meta-tag stage">📰 内容型</span>
+                        <span class="meta-tag user">👥 美式足球粉丝</span>
+                        <span class="meta-tag product">🌐 网站</span>
+                        <span class="meta-tag source">📍 r/AppIdeas</span>
                     </div>
                     <div class="analysis-section">
                         <div class="analysis-title">五维评分</div>
                         <div class="score-bars">
-                            <div class="score-bar"><span class="label">市场需求</span><div class="bar-bg"><div class="bar-fill market" style="width: 70%"></div></div><span class="value">7.0</span></div>
-                            <div class="score-bar"><span class="label">技术可行</span><div class="bar-bg"><div class="bar-fill tech" style="width: 95%"></div></div><span class="value">9.5</span></div>
-                            <div class="score-bar"><span class="label">变现潜力</span><div class="bar-bg"><div class="bar-fill profit" style="width: 60%"></div></div><span class="value">6.0</span></div>
-                            <div class="score-bar"><span class="label">竞争优势</span><div class="bar-bg"><div class="bar-fill compete" style="width: 50%"></div></div><span class="value">5.0</span></div>
-                            <div class="score-bar"><span class="label">增长潜力</span><div class="bar-bg"><div class="bar-fill growth" style="width: 60%"></div></div><span class="value">6.0</span></div>
+                            <div class="score-bar"><span class="label">市场需求</span><div class="bar-bg"><div class="bar-fill market" style="width:65%"></div></div><span class="value">6.5</span></div>
+                            <div class="score-bar"><span class="label">技术可行</span><div class="bar-bg"><div class="bar-fill tech" style="width:95%"></div></div><span class="value">9.5</span></div>
+                            <div class="score-bar"><span class="label">变现潜力</span><div class="bar-bg"><div class="bar-fill profit" style="width:60%"></div></div><span class="value">6.0</span></div>
+                            <div class="score-bar"><span class="label">竞争优势</span><div class="bar-bg"><div class="bar-fill compete" style="width:70%"></div></div><span class="value">7.0</span></div>
+                            <div class="score-bar"><span class="label">增长潜力</span><div class="bar-bg"><div class="bar-fill growth" style="width:55%"></div></div><span class="value">5.5</span></div>
                         </div>
                     </div>
-                    <div class="recommendation">
-                        <h4>✅ 推荐理由</h4>
-                        <p>零成本启动，订阅制变现。建立个人品牌，可延伸到咨询、社群等高价值服务。</p>
+                    <div class="detail-grid">
+                        <div class="detail-box"><h4>🎯 目标用户</h4><p>NFL球迷、派对组织者</p></div>
+                        <div class="detail-box"><h4>💰 商业模式</h4><p>免费+高级功能付费</p></div>
+                        <div class="detail-box"><h4>⚔️ 竞品分析</h4><p>现有工具体验一般</p></div>
+                        <div class="detail-box"><h4>🚧 主要风险</h4><p>季节性强，仅超级碗期间有需求</p></div>
                     </div>
+                    <div class="recommendation"><h4>✅ 推荐理由</h4><p>开发简单，可作为练手项目或组合到更大的体育博彩工具集。</p></div>
+                    <div class="mvp-suggestion"><h4>🛠️ MVP</h4><p>创建游戏→分享链接→自动计分 | 2-3周</p></div>
+                    <a class="source-link" href="https://www.reddit.com/r/AppIdeas/comments/1ql7hej/a_simple_super_bowl_squares_site/" target="_blank">🔗 Reddit原帖 →</a>
                 </div>
-                
+
             </div>
         </section>
         
