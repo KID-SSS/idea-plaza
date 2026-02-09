@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>创意广场 - Reddit精选产品创意</title>
+    <title>全部创意 - 创意广场</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 50%, #16213e 100%); min-height: 100vh; color: #e8e8e8; line-height: 1.6; }
@@ -24,7 +24,7 @@
         .top h2 { color: #fff; margin-bottom: 25px; font-size: 1.6rem; }
         .top-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
         .tc { background: rgba(0,0,0,0.3); border-radius: 16px; padding: 25px; border: 1px solid rgba(255,255,255,0.1); transition: all 0.3s; position: relative; overflow: hidden; }
-        .tc::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, #00d9ff, #00ff88); }
+        .tc::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, #00d9ff, #00ff88); }
         .tc:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0,217,255,0.15); }
         .tc .r { font-size: 2.5rem; margin-bottom: 12px; }
         .tc .n { font-weight: 700; color: #fff; font-size: 1.1rem; margin-bottom: 8px; }
@@ -79,13 +79,13 @@
 <body>
 <div class="container">
 <header>
-<h1>🚀 创意广场</h1>
-<p class="subtitle">Reddit精选产品创意 · 深度分析 · 每日更新</p>
-<p class="date">📅 2026-02-09 · 周一 · 收录12个创意 · 🔥 优先展示可部署项目</p>
-<div class="nav-links" style="margin-top: 20px;">
-<a href="/all.html" style="color: #00ff88; text-decoration: none; margin: 0 15px; padding: 8px 16px; border: 1px solid rgba(0,255,136,0.3); border-radius: 20px; font-size: 0.9rem;">📚 全部创意</a>
-<a href="/archive/" style="color: #00d9ff; text-decoration: none; margin: 0 15px; padding: 8px 16px; border: 1px solid rgba(0,217,255,0.3); border-radius: 20px; font-size: 0.9rem;">🗂️ 历史归档</a>
-</div>
+<h1>📚 全部创意</h1>
+<p class="subtitle">累积收录所有历史创意（去重）</p>
+<p class="date">📅 累计 24 个创意 · 持续更新中</p>
+            <div class="nav-links" style="margin-top: 20px;">
+                <a href="/" style="color: #00ff88; text-decoration: none; margin: 0 15px; padding: 8px 16px; border: 1px solid rgba(0,255,136,0.3); border-radius: 20px; font-size: 0.9rem;">🏠 返回首页</a>
+                <a href="/archive/" style="color: #00d9ff; text-decoration: none; margin: 0 15px; padding: 8px 16px; border: 1px solid rgba(0,217,255,0.3); border-radius: 20px; font-size: 0.9rem;">🗂️ 历史归档</a>
+            </div>
 </header>
 
 <div class="legend">
@@ -103,19 +103,268 @@
 <section class="top">
 <h2>🏆 今日 Top 5</h2>
 <div class="top-grid">
-<div class="tc"><div class="r">🥇</div><div class="n">API文档生成器<span class="badge d">⚡</span></div><div class="s">9.3</div><div class="re">OpenAPI→在线文档，纯前端渲染</div></div>
-<div class="tc"><div class="r">🥈</div><div class="n">Git命令生成器<span class="badge d">⚡</span></div><div class="s">9.1</div><div class="re">自然语言→Git命令，新手救星</div></div>
-<div class="tc"><div class="r">🥉</div><div class="n">Favicon生成器<span class="badge d">⚡</span></div><div class="s">8.9</div><div class="re">一键生成全套图标，纯Canvas</div></div>
-<div class="tc"><div class="r">4️⃣</div><div class="n">CSS动画库预览<span class="badge d">⚡</span></div><div class="s">8.7</div><div class="re">可视化动画效果，一键复制代码</div></div>
-<div class="tc"><div class="r">5️⃣</div><div class="n">SQL格式化工具<span class="badge d">⚡</span></div><div class="s">8.6</div><div class="re">在线美化SQL，支持多种方言</div></div>
+<div class="tc"><div class="r">🥇</div><div class="n">Markdown简历生成器<span class="badge d">⚡</span></div><div class="s">9.2</div><div class="re">纯前端，Markdown转PDF，开发者刚需</div></div>
+<div class="tc"><div class="r">🥈</div><div class="n">JSON可视化工具<span class="badge d">⚡</span></div><div class="s">9.0</div><div class="re">静态站点，API调试必备，SEO流量大</div></div>
+<div class="tc"><div class="r">🥉</div><div class="n">网站配色生成器<span class="badge d">⚡</span></div><div class="s">8.8</div><div class="re">纯CSS/JS，设计师工具，导出Tailwind</div></div>
+<div class="tc"><div class="r">4️⃣</div><div class="n">Cron表达式生成器<span class="badge d">⚡</span></div><div class="s">8.6</div><div class="re">开发者工具，高搜索量，纯前端</div></div>
+<div class="tc"><div class="r">5️⃣</div><div class="n">OG Image预览器<span class="badge d">⚡</span></div><div class="s">8.5</div><div class="re">社交分享调试，SEO必备</div></div>
 </div>
 </section>
 
 <section class="sec">
-<h2>📋 完整创意分析（12个）</h2>
+<h2>📋 完整创意分析（24个）</h2>
 <div class="grid">
+
 <div class="card dp">
-<div class="hd"><span class="num">1</span><span class="sc">9.3</span></div>
+<div class="hd"><span class="num">1</span><span class="sc">9.2</span></div>
+<h3 class="ti">Markdown 简历生成器 <span class="badge d">⚡ 可直接部署</span></h3>
+<p class="ds">用 Markdown 写简历，实时预览，一键导出 PDF。支持多种专业模板，程序员友好。</p>
+<div class="tags"><span class="tag u">👥 程序员/求职者</span><span class="tag pr">🌐 静态网站</span><span class="tag dp">🚀 Vercel</span></div>
+<div class="an"><div class="an-ti">五维评分</div><div class="bars">
+<div class="bar"><span class="l">市场需求</span><div class="bg"><div class="f m" style="width:90%"></div></div><span class="v">9.0</span></div>
+<div class="bar"><span class="l">技术可行</span><div class="bg"><div class="f t" style="width:98%"></div></div><span class="v">9.8</span></div>
+<div class="bar"><span class="l">变现潜力</span><div class="bg"><div class="f p" style="width:85%"></div></div><span class="v">8.5</span></div>
+<div class="bar"><span class="l">竞争优势</span><div class="bg"><div class="f c" style="width:90%"></div></div><span class="v">9.0</span></div>
+<div class="bar"><span class="l">增长潜力</span><div class="bg"><div class="f g" style="width:95%"></div></div><span class="v">9.5</span></div>
+</div></div>
+<div class="dg">
+<div class="db"><h4>🎯 目标用户</h4><p>程序员、应届生、技术岗求职者</p></div>
+<div class="db"><h4>💰 商业模式</h4><p>免费基础版+高级模板$9.99</p></div>
+</div>
+<div class="rec"><h4>✅ 推荐理由</h4><p>程序员天然喜欢Markdown，GitHub社区传播快，"markdown resume"搜索量大</p></div>
+<div class="mvp"><h4>🛠️ MVP</h4><p>编辑器→实时预览→PDF导出 | 2周</p></div>
+<div class="dep"><h4>⚡ 部署方案</h4><p>React + html2pdf.js，零后端，Vercel一键部署</p></div>
+</div>
+
+<div class="card dp">
+<div class="hd"><span class="num">2</span><span class="sc">9.0</span></div>
+<h3 class="ti">JSON 可视化工具 <span class="badge d">⚡ 可直接部署</span></h3>
+<p class="ds">在线 JSON 格式化、树状可视化、路径查找、差异对比。API 开发调试必备。</p>
+<div class="tags"><span class="tag u">👥 开发者</span><span class="tag pr">🌐 静态网站</span><span class="tag dp">🚀 Vercel</span></div>
+<div class="an"><div class="an-ti">五维评分</div><div class="bars">
+<div class="bar"><span class="l">市场需求</span><div class="bg"><div class="f m" style="width:95%"></div></div><span class="v">9.5</span></div>
+<div class="bar"><span class="l">技术可行</span><div class="bg"><div class="f t" style="width:98%"></div></div><span class="v">9.8</span></div>
+<div class="bar"><span class="l">变现潜力</span><div class="bg"><div class="f p" style="width:80%"></div></div><span class="v">8.0</span></div>
+<div class="bar"><span class="l">竞争优势</span><div class="bg"><div class="f c" style="width:85%"></div></div><span class="v">8.5</span></div>
+<div class="bar"><span class="l">增长潜力</span><div class="bg"><div class="f g" style="width:90%"></div></div><span class="v">9.0</span></div>
+</div></div>
+<div class="dg">
+<div class="db"><h4>🎯 目标用户</h4><p>后端/前端开发、API测试工程师</p></div>
+<div class="db"><h4>💰 商业模式</h4><p>广告+高级功能$4.99/月</p></div>
+</div>
+<div class="rec"><h4>✅ 推荐理由</h4><p>"json formatter"月搜索量100万+，SEO做好流量巨大</p></div>
+<div class="mvp"><h4>🛠️ MVP</h4><p>格式化→树状图→复制导出 | 1-2周</p></div>
+<div class="dep"><h4>⚡ 部署方案</h4><p>纯JS + Monaco Editor，零后端依赖</p></div>
+</div>
+
+<div class="card dp">
+<div class="hd"><span class="num">3</span><span class="sc">8.8</span></div>
+<h3 class="ti">网站配色方案生成器 <span class="badge d">⚡ 可直接部署</span></h3>
+<p class="ds">一键生成网站配色方案，实时预览，导出 CSS/Tailwind 变量。</p>
+<div class="tags"><span class="tag u">👥 设计师/前端</span><span class="tag pr">🌐 静态网站</span><span class="tag dp">🚀 Vercel</span></div>
+<div class="an"><div class="an-ti">五维评分</div><div class="bars">
+<div class="bar"><span class="l">市场需求</span><div class="bg"><div class="f m" style="width:88%"></div></div><span class="v">8.8</span></div>
+<div class="bar"><span class="l">技术可行</span><div class="bg"><div class="f t" style="width:95%"></div></div><span class="v">9.5</span></div>
+<div class="bar"><span class="l">变现潜力</span><div class="bg"><div class="f p" style="width:82%"></div></div><span class="v">8.2</span></div>
+<div class="bar"><span class="l">竞争优势</span><div class="bg"><div class="f c" style="width:85%"></div></div><span class="v">8.5</span></div>
+<div class="bar"><span class="l">增长潜力</span><div class="bg"><div class="f g" style="width:90%"></div></div><span class="v">9.0</span></div>
+</div></div>
+<div class="dg">
+<div class="db"><h4>🎯 目标用户</h4><p>UI设计师、独立开发者</p></div>
+<div class="db"><h4>💰 商业模式</h4><p>免费版+高级配色库$19</p></div>
+</div>
+<div class="rec"><h4>✅ 推荐理由</h4><p>Tailwind生态火热，提供变量导出是差异化亮点</p></div>
+<div class="mvp"><h4>🛠️ MVP</h4><p>随机配色→预览→导出代码 | 2-3周</p></div>
+<div class="dep"><h4>⚡ 部署方案</h4><p>React + CSS变量，纯前端</p></div>
+</div>
+
+<div class="card dp">
+<div class="hd"><span class="num">4</span><span class="sc">8.6</span></div>
+<h3 class="ti">Cron 表达式生成器 <span class="badge d">⚡ 可直接部署</span></h3>
+<p class="ds">可视化生成 Cron 表达式，显示未来执行时间，避免写错定时任务。</p>
+<div class="tags"><span class="tag u">👥 后端/运维</span><span class="tag pr">🌐 静态网站</span><span class="tag dp">🚀 Cloudflare</span></div>
+<div class="an"><div class="an-ti">五维评分</div><div class="bars">
+<div class="bar"><span class="l">市场需求</span><div class="bg"><div class="f m" style="width:90%"></div></div><span class="v">9.0</span></div>
+<div class="bar"><span class="l">技术可行</span><div class="bg"><div class="f t" style="width:95%"></div></div><span class="v">9.5</span></div>
+<div class="bar"><span class="l">变现潜力</span><div class="bg"><div class="f p" style="width:75%"></div></div><span class="v">7.5</span></div>
+<div class="bar"><span class="l">竞争优势</span><div class="bg"><div class="f c" style="width:80%"></div></div><span class="v">8.0</span></div>
+<div class="bar"><span class="l">增长潜力</span><div class="bg"><div class="f g" style="width:85%"></div></div><span class="v">8.5</span></div>
+</div></div>
+<div class="dg">
+<div class="db"><h4>🎯 目标用户</h4><p>DevOps、系统管理员</p></div>
+<div class="db"><h4>💰 商业模式</h4><p>广告收入，流量工具站</p></div>
+</div>
+<div class="rec"><h4>✅ 推荐理由</h4><p>crontab.guru流量大但体验一般，可做更好的UI</p></div>
+<div class="mvp"><h4>🛠️ MVP</h4><p>可视化选择→生成表达式→预览时间 | 1-2周</p></div>
+<div class="dep"><h4>⚡ 部署方案</h4><p>纯JS + croner库解析，零后端</p></div>
+</div>
+
+<div class="card dp">
+<div class="hd"><span class="num">5</span><span class="sc">8.5</span></div>
+<h3 class="ti">OG Image 预览工具 <span class="badge d">⚡ 可直接部署</span></h3>
+<p class="ds">输入URL预览社交分享卡片效果，检查og:image/title/description是否正确。</p>
+<div class="tags"><span class="tag u">👥 SEO/营销</span><span class="tag pr">🌐 静态网站</span><span class="tag dp">🚀 Vercel</span></div>
+<div class="an"><div class="an-ti">五维评分</div><div class="bars">
+<div class="bar"><span class="l">市场需求</span><div class="bg"><div class="f m" style="width:85%"></div></div><span class="v">8.5</span></div>
+<div class="bar"><span class="l">技术可行</span><div class="bg"><div class="f t" style="width:90%"></div></div><span class="v">9.0</span></div>
+<div class="bar"><span class="l">变现潜力</span><div class="bg"><div class="f p" style="width:80%"></div></div><span class="v">8.0</span></div>
+<div class="bar"><span class="l">竞争优势</span><div class="bg"><div class="f c" style="width:82%"></div></div><span class="v">8.2</span></div>
+<div class="bar"><span class="l">增长潜力</span><div class="bg"><div class="f g" style="width:88%"></div></div><span class="v">8.8</span></div>
+</div></div>
+<div class="dg">
+<div class="db"><h4>🎯 目标用户</h4><p>SEO从业者、内容营销、开发者</p></div>
+<div class="db"><h4>💰 商业模式</h4><p>免费+批量检测Pro$9/月</p></div>
+</div>
+<div class="rec"><h4>✅ 推荐理由</h4><p>每个网站都需要，SEO工具矩阵的好起点</p></div>
+<div class="mvp"><h4>🛠️ MVP</h4><p>输入URL→解析meta→预览卡片 | 1周</p></div>
+<div class="dep"><h4>⚡ 部署方案</h4><p>Vercel Edge Function代理获取meta，规避CORS</p></div>
+</div>
+
+<div class="card dp">
+<div class="hd"><span class="num">6</span><span class="sc">8.4</span></div>
+<h3 class="ti">SVG 图标搜索引擎 <span class="badge d">⚡ 可直接部署</span></h3>
+<p class="ds">聚合多个开源图标库，统一搜索界面，一键复制SVG代码或下载。</p>
+<div class="tags"><span class="tag u">👥 设计师/开发者</span><span class="tag pr">🌐 静态网站</span><span class="tag dp">🚀 Cloudflare</span></div>
+<div class="an"><div class="an-ti">五维评分</div><div class="bars">
+<div class="bar"><span class="l">市场需求</span><div class="bg"><div class="f m" style="width:88%"></div></div><span class="v">8.8</span></div>
+<div class="bar"><span class="l">技术可行</span><div class="bg"><div class="f t" style="width:92%"></div></div><span class="v">9.2</span></div>
+<div class="bar"><span class="l">变现潜力</span><div class="bg"><div class="f p" style="width:78%"></div></div><span class="v">7.8</span></div>
+<div class="bar"><span class="l">竞争优势</span><div class="bg"><div class="f c" style="width:80%"></div></div><span class="v">8.0</span></div>
+<div class="bar"><span class="l">增长潜力</span><div class="bg"><div class="f g" style="width:85%"></div></div><span class="v">8.5</span></div>
+</div></div>
+<div class="dg">
+<div class="db"><h4>🎯 目标用户</h4><p>前端开发、UI设计师</p></div>
+<div class="db"><h4>💰 商业模式</h4><p>广告+付费图标包</p></div>
+</div>
+<div class="rec"><h4>✅ 推荐理由</h4><p>整合Heroicons/Lucide/Feather等，比单独访问更方便</p></div>
+<div class="mvp"><h4>🛠️ MVP</h4><p>图标索引→搜索→复制代码 | 2周</p></div>
+<div class="dep"><h4>⚡ 部署方案</h4><p>预构建JSON索引，纯静态搜索</p></div>
+</div>
+
+<div class="card dp">
+<div class="hd"><span class="num">7</span><span class="sc">8.3</span></div>
+<h3 class="ti">正则表达式测试器 <span class="badge d">⚡ 可直接部署</span></h3>
+<p class="ds">在线测试正则表达式，实时高亮匹配结果，支持多种语言风格解释。</p>
+<div class="tags"><span class="tag u">👥 开发者</span><span class="tag pr">🌐 静态网站</span><span class="tag dp">🚀 Vercel</span></div>
+<div class="an"><div class="an-ti">五维评分</div><div class="bars">
+<div class="bar"><span class="l">市场需求</span><div class="bg"><div class="f m" style="width:90%"></div></div><span class="v">9.0</span></div>
+<div class="bar"><span class="l">技术可行</span><div class="bg"><div class="f t" style="width:95%"></div></div><span class="v">9.5</span></div>
+<div class="bar"><span class="l">变现潜力</span><div class="bg"><div class="f p" style="width:72%"></div></div><span class="v">7.2</span></div>
+<div class="bar"><span class="l">竞争优势</span><div class="bg"><div class="f c" style="width:75%"></div></div><span class="v">7.5</span></div>
+<div class="bar"><span class="l">增长潜力</span><div class="bg"><div class="f g" style="width:82%"></div></div><span class="v">8.2</span></div>
+</div></div>
+<div class="dg">
+<div class="db"><h4>🎯 目标用户</h4><p>所有开发者</p></div>
+<div class="db"><h4>💰 商业模式</h4><p>广告为主，regex101竞品</p></div>
+</div>
+<div class="rec"><h4>✅ 推荐理由</h4><p>regex101流量巨大，可做更好的中文版或特色功能</p></div>
+<div class="mvp"><h4>🛠️ MVP</h4><p>输入框→匹配高亮→解释说明 | 1周</p></div>
+<div class="dep"><h4>⚡ 部署方案</h4><p>纯JS正则引擎，零后端</p></div>
+</div>
+
+<div class="card dp">
+<div class="hd"><span class="num">8</span><span class="sc">8.2</span></div>
+<h3 class="ti">Privacy Policy 生成器 <span class="badge d">⚡ 可直接部署</span></h3>
+<p class="ds">填写表单自动生成隐私政策/服务条款，支持GDPR/CCPA合规模板。</p>
+<div class="tags"><span class="tag u">👥 独立开发者/创业者</span><span class="tag pr">🌐 静态网站</span><span class="tag dp">🚀 Vercel</span></div>
+<div class="an"><div class="an-ti">五维评分</div><div class="bars">
+<div class="bar"><span class="l">市场需求</span><div class="bg"><div class="f m" style="width:85%"></div></div><span class="v">8.5</span></div>
+<div class="bar"><span class="l">技术可行</span><div class="bg"><div class="f t" style="width:95%"></div></div><span class="v">9.5</span></div>
+<div class="bar"><span class="l">变现潜力</span><div class="bg"><div class="f p" style="width:80%"></div></div><span class="v">8.0</span></div>
+<div class="bar"><span class="l">竞争优势</span><div class="bg"><div class="f c" style="width:75%"></div></div><span class="v">7.5</span></div>
+<div class="bar"><span class="l">增长潜力</span><div class="bg"><div class="f g" style="width:80%"></div></div><span class="v">8.0</span></div>
+</div></div>
+<div class="dg">
+<div class="db"><h4>🎯 目标用户</h4><p>App开发者、网站站长</p></div>
+<div class="db"><h4>💰 商业模式</h4><p>免费基础版+高级模板$29</p></div>
+</div>
+<div class="rec"><h4>✅ 推荐理由</h4><p>每个上架App都需要，需求稳定，模板复用性强</p></div>
+<div class="mvp"><h4>🛠️ MVP</h4><p>选择类型→填表单→生成文档 | 2周</p></div>
+<div class="dep"><h4>⚡ 部署方案</h4><p>Markdown模板+变量替换，纯前端</p></div>
+</div>
+
+<div class="card">
+<div class="hd"><span class="num">9</span><span class="sc">8.0</span></div>
+<h3 class="ti">AI 写作助手 Chrome 插件</h3>
+<p class="ds">浏览器插件，选中文字一键改写、翻译、总结，接入GPT API。</p>
+<div class="tags"><span class="tag u">👥 写作者/营销</span><span class="tag pr">🔌 浏览器插件</span></div>
+<div class="an"><div class="an-ti">五维评分</div><div class="bars">
+<div class="bar"><span class="l">市场需求</span><div class="bg"><div class="f m" style="width:88%"></div></div><span class="v">8.8</span></div>
+<div class="bar"><span class="l">技术可行</span><div class="bg"><div class="f t" style="width:85%"></div></div><span class="v">8.5</span></div>
+<div class="bar"><span class="l">变现潜力</span><div class="bg"><div class="f p" style="width:82%"></div></div><span class="v">8.2</span></div>
+<div class="bar"><span class="l">竞争优势</span><div class="bg"><div class="f c" style="width:72%"></div></div><span class="v">7.2</span></div>
+<div class="bar"><span class="l">增长潜力</span><div class="bg"><div class="f g" style="width:78%"></div></div><span class="v">7.8</span></div>
+</div></div>
+<div class="dg">
+<div class="db"><h4>🎯 目标用户</h4><p>内容创作者、学生、职场人</p></div>
+<div class="db"><h4>💰 商业模式</h4><p>免费额度+订阅$9.99/月</p></div>
+</div>
+<div class="rec"><h4>✅ 推荐理由</h4><p>AI工具刚需，插件形式使用门槛低</p></div>
+<div class="mvp"><h4>🛠️ MVP</h4><p>选中文字→右键菜单→AI处理 | 3周</p></div>
+</div>
+
+<div class="card">
+<div class="hd"><span class="num">10</span><span class="sc">7.8</span></div>
+<h3 class="ti">习惯追踪 Dashboard</h3>
+<p class="ds">简洁的习惯打卡面板，GitHub式热力图展示，支持多习惯追踪。</p>
+<div class="tags"><span class="tag u">👥 自我提升人群</span><span class="tag pr">🌐 Web App</span></div>
+<div class="an"><div class="an-ti">五维评分</div><div class="bars">
+<div class="bar"><span class="l">市场需求</span><div class="bg"><div class="f m" style="width:82%"></div></div><span class="v">8.2</span></div>
+<div class="bar"><span class="l">技术可行</span><div class="bg"><div class="f t" style="width:88%"></div></div><span class="v">8.8</span></div>
+<div class="bar"><span class="l">变现潜力</span><div class="bg"><div class="f p" style="width:75%"></div></div><span class="v">7.5</span></div>
+<div class="bar"><span class="l">竞争优势</span><div class="bg"><div class="f c" style="width:70%"></div></div><span class="v">7.0</span></div>
+<div class="bar"><span class="l">增长潜力</span><div class="bg"><div class="f g" style="width:78%"></div></div><span class="v">7.8</span></div>
+</div></div>
+<div class="dg">
+<div class="db"><h4>🎯 目标用户</h4><p>想养成好习惯的人</p></div>
+<div class="db"><h4>💰 商业模式</h4><p>免费版+Pro$4.99/月</p></div>
+</div>
+<div class="rec"><h4>✅ 推荐理由</h4><p>市场验证过，关键是做出差异化的简洁体验</p></div>
+<div class="mvp"><h4>🛠️ MVP</h4><p>添加习惯→每日打卡→热力图 | 3-4周</p></div>
+</div>
+
+<div class="card">
+<div class="hd"><span class="num">11</span><span class="sc">7.6</span></div>
+<h3 class="ti">代码片段管理器</h3>
+<p class="ds">个人代码片段收藏夹，支持标签分类、语法高亮、快速搜索复制。</p>
+<div class="tags"><span class="tag u">👥 开发者</span><span class="tag pr">💻 桌面App/Web</span></div>
+<div class="an"><div class="an-ti">五维评分</div><div class="bars">
+<div class="bar"><span class="l">市场需求</span><div class="bg"><div class="f m" style="width:80%"></div></div><span class="v">8.0</span></div>
+<div class="bar"><span class="l">技术可行</span><div class="bg"><div class="f t" style="width:90%"></div></div><span class="v">9.0</span></div>
+<div class="bar"><span class="l">变现潜力</span><div class="bg"><div class="f p" style="width:72%"></div></div><span class="v">7.2</span></div>
+<div class="bar"><span class="l">竞争优势</span><div class="bg"><div class="f c" style="width:68%"></div></div><span class="v">6.8</span></div>
+<div class="bar"><span class="l">增长潜力</span><div class="bg"><div class="f g" style="width:75%"></div></div><span class="v">7.5</span></div>
+</div></div>
+<div class="dg">
+<div class="db"><h4>🎯 目标用户</h4><p>日常写代码的开发者</p></div>
+<div class="db"><h4>💰 商业模式</h4><p>一次性购买$19或订阅</p></div>
+</div>
+<div class="rec"><h4>✅ 推荐理由</h4><p>开发者日常痛点，可结合AI智能补全</p></div>
+<div class="mvp"><h4>🛠️ MVP</h4><p>添加片段→标签→搜索 | 3周</p></div>
+</div>
+
+<div class="card">
+<div class="hd"><span class="num">12</span><span class="sc">7.5</span></div>
+<h3 class="ti">网站性能监控 Dashboard</h3>
+<p class="ds">监控网站加载速度、可用性，发送告警通知，可视化性能趋势。</p>
+<div class="tags"><span class="tag u">👥 站长/开发者</span><span class="tag pr">💻 SaaS</span></div>
+<div class="an"><div class="an-ti">五维评分</div><div class="bars">
+<div class="bar"><span class="l">市场需求</span><div class="bg"><div class="f m" style="width:85%"></div></div><span class="v">8.5</span></div>
+<div class="bar"><span class="l">技术可行</span><div class="bg"><div class="f t" style="width:75%"></div></div><span class="v">7.5</span></div>
+<div class="bar"><span class="l">变现潜力</span><div class="bg"><div class="f p" style="width:78%"></div></div><span class="v">7.8</span></div>
+<div class="bar"><span class="l">竞争优势</span><div class="bg"><div class="f c" style="width:68%"></div></div><span class="v">6.8</span></div>
+<div class="bar"><span class="l">增长潜力</span><div class="bg"><div class="f g" style="width:75%"></div></div><span class="v">7.5</span></div>
+</div></div>
+<div class="dg">
+<div class="db"><h4>🎯 目标用户</h4><p>网站运营者、独立开发者</p></div>
+<div class="db"><h4>💰 商业模式</h4><p>免费5个监控点+Pro$9/月</p></div>
+</div>
+<div class="rec"><h4>✅ 推荐理由</h4><p>UptimeRobot等竞品价格高，可做轻量低价版</p></div>
+<div class="mvp"><h4>🛠️ MVP</h4><p>添加URL→定时检测→邮件告警 | 4-5周</p></div>
+</div>
+
+<div class="card dp">
+<div class="hd"><span class="num">13</span><span class="sc">9.3</span></div>
 <h3 class="ti">API 文档生成器 <span class="badge d">⚡ 可直接部署</span></h3>
 <p class="ds">上传 OpenAPI/Swagger JSON，自动生成美观的在线 API 文档，支持在线测试接口。</p>
 <div class="tags"><span class="tag u">👥 后端开发者</span><span class="tag pr">🌐 静态网站</span><span class="tag dp">🚀 Vercel</span></div>
@@ -136,7 +385,7 @@
 </div>
 
 <div class="card dp">
-<div class="hd"><span class="num">2</span><span class="sc">9.1</span></div>
+<div class="hd"><span class="num">14</span><span class="sc">9.1</span></div>
 <h3 class="ti">Git 命令生成器 <span class="badge d">⚡ 可直接部署</span></h3>
 <p class="ds">用自然语言描述需求，生成对应的 Git 命令。例如"撤销上次提交"→ git reset HEAD~1。</p>
 <div class="tags"><span class="tag u">👥 开发者新手</span><span class="tag pr">🌐 静态网站</span><span class="tag dp">🚀 Vercel</span></div>
@@ -157,7 +406,7 @@
 </div>
 
 <div class="card dp">
-<div class="hd"><span class="num">3</span><span class="sc">8.9</span></div>
+<div class="hd"><span class="num">15</span><span class="sc">8.9</span></div>
 <h3 class="ti">Favicon 全套生成器 <span class="badge d">⚡ 可直接部署</span></h3>
 <p class="ds">上传图片，一键生成 favicon.ico、apple-touch-icon、manifest 等全套图标文件。</p>
 <div class="tags"><span class="tag u">👥 Web开发者</span><span class="tag pr">🌐 静态网站</span><span class="tag dp">🚀 Cloudflare</span></div>
@@ -178,7 +427,7 @@
 </div>
 
 <div class="card dp">
-<div class="hd"><span class="num">4</span><span class="sc">8.7</span></div>
+<div class="hd"><span class="num">16</span><span class="sc">8.7</span></div>
 <h3 class="ti">CSS 动画库预览器 <span class="badge d">⚡ 可直接部署</span></h3>
 <p class="ds">可视化展示各种 CSS 动画效果，点击即可复制代码，支持自定义参数调整。</p>
 <div class="tags"><span class="tag u">👥 前端开发</span><span class="tag pr">🌐 静态网站</span><span class="tag dp">🚀 Vercel</span></div>
@@ -199,7 +448,7 @@
 </div>
 
 <div class="card dp">
-<div class="hd"><span class="num">5</span><span class="sc">8.6</span></div>
+<div class="hd"><span class="num">17</span><span class="sc">8.6</span></div>
 <h3 class="ti">SQL 格式化工具 <span class="badge d">⚡ 可直接部署</span></h3>
 <p class="ds">在线美化 SQL 语句，支持 MySQL/PostgreSQL/SQLite 等多种方言，可自定义缩进风格。</p>
 <div class="tags"><span class="tag u">👥 数据开发</span><span class="tag pr">🌐 静态网站</span><span class="tag dp">🚀 Vercel</span></div>
@@ -220,7 +469,7 @@
 </div>
 
 <div class="card dp">
-<div class="hd"><span class="num">6</span><span class="sc">8.5</span></div>
+<div class="hd"><span class="num">18</span><span class="sc">8.5</span></div>
 <h3 class="ti">Base64 编解码工具箱 <span class="badge d">⚡ 可直接部署</span></h3>
 <p class="ds">Base64 编码/解码，支持文本、图片、文件，带图片预览功能。</p>
 <div class="tags"><span class="tag u">👥 开发者</span><span class="tag pr">🌐 静态网站</span><span class="tag dp">🚀 Cloudflare</span></div>
@@ -241,7 +490,7 @@
 </div>
 
 <div class="card dp">
-<div class="hd"><span class="num">7</span><span class="sc">8.4</span></div>
+<div class="hd"><span class="num">19</span><span class="sc">8.4</span></div>
 <h3 class="ti">Webhook 调试工具 <span class="badge d">⚡ 可直接部署</span></h3>
 <p class="ds">生成临时 URL 接收 Webhook 请求，实时显示请求内容，方便调试第三方回调。</p>
 <div class="tags"><span class="tag u">👥 后端开发</span><span class="tag pr">🌐 静态网站</span><span class="tag dp">🚀 Vercel</span></div>
@@ -262,7 +511,7 @@
 </div>
 
 <div class="card dp">
-<div class="hd"><span class="num">8</span><span class="sc">8.3</span></div>
+<div class="hd"><span class="num">20</span><span class="sc">8.3</span></div>
 <h3 class="ti">Tailwind CSS 组件库 <span class="badge d">⚡ 可直接部署</span></h3>
 <p class="ds">开箱即用的 Tailwind 组件，复制粘贴即可使用，涵盖常见 UI 模式。</p>
 <div class="tags"><span class="tag u">👥 前端开发</span><span class="tag pr">🌐 静态网站</span><span class="tag dp">🚀 Vercel</span></div>
@@ -283,7 +532,7 @@
 </div>
 
 <div class="card dp">
-<div class="hd"><span class="num">9</span><span class="sc">8.2</span></div>
+<div class="hd"><span class="num">21</span><span class="sc">8.2</span></div>
 <h3 class="ti">DNS 查询工具 <span class="badge d">⚡ 可直接部署</span></h3>
 <p class="ds">在线查询域名 DNS 记录（A/AAAA/MX/TXT等），支持多地区对比查询。</p>
 <div class="tags"><span class="tag u">👥 运维/站长</span><span class="tag pr">🌐 静态网站</span><span class="tag dp">🚀 Cloudflare</span></div>
@@ -304,7 +553,7 @@
 </div>
 
 <div class="card dp">
-<div class="hd"><span class="num">10</span><span class="sc">8.0</span></div>
+<div class="hd"><span class="num">22</span><span class="sc">8.0</span></div>
 <h3 class="ti">Notion 模板市场 <span class="badge d">⚡ 可直接部署</span></h3>
 <p class="ds">精选 Notion 模板集合，分类展示，一键复制到自己的 Notion。</p>
 <div class="tags"><span class="tag u">👥 效率工具用户</span><span class="tag pr">🌐 静态网站</span><span class="tag dp">🚀 Vercel</span></div>
@@ -325,7 +574,7 @@
 </div>
 
 <div class="card dp">
-<div class="hd"><span class="num">11</span><span class="sc">7.8</span></div>
+<div class="hd"><span class="num">23</span><span class="sc">7.8</span></div>
 <h3 class="ti">YouTube 缩略图下载器 <span class="badge d">⚡ 可直接部署</span></h3>
 <p class="ds">输入 YouTube 视频链接，一键下载各尺寸缩略图。</p>
 <div class="tags"><span class="tag u">👥 内容创作者</span><span class="tag pr">🌐 静态网站</span><span class="tag dp">🚀 Vercel</span></div>
@@ -346,7 +595,7 @@
 </div>
 
 <div class="card dp">
-<div class="hd"><span class="num">12</span><span class="sc">7.6</span></div>
+<div class="hd"><span class="num">24</span><span class="sc">7.6</span></div>
 <h3 class="ti">开发者薪资计算器 <span class="badge d">⚡ 可直接部署</span></h3>
 <p class="ds">根据地区、经验、技术栈估算开发者薪资范围，帮助求职定价。</p>
 <div class="tags"><span class="tag u">👥 求职者</span><span class="tag pr">🌐 静态网站</span><span class="tag dp">🚀 Vercel</span></div>
