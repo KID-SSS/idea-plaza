@@ -24,7 +24,7 @@
         .top h2 { color: #fff; margin-bottom: 25px; font-size: 1.6rem; }
         .top-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
         .tc { background: rgba(0,0,0,0.3); border-radius: 16px; padding: 25px; border: 1px solid rgba(255,255,255,0.1); transition: all 0.3s; position: relative; overflow: hidden; }
-        .tc::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, #00d9ff, #00ff88); }
+        .tc::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, #00d9ff, #00ff88); }
         .tc:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0,217,255,0.15); }
         .tc .r { font-size: 2.5rem; margin-bottom: 12px; }
         .tc .n { font-weight: 700; color: #fff; font-size: 1.1rem; margin-bottom: 8px; }
@@ -68,9 +68,12 @@
         .mvp { background: rgba(168,85,247,0.1); padding: 10px; border-radius: 10px; border: 1px solid rgba(168,85,247,0.2); margin-bottom: 10px; }
         .mvp h4 { color: #a855f7; font-size: 0.75rem; margin-bottom: 4px; }
         .mvp p { color: #aaa; font-size: 0.8rem; }
-        .dep { background: linear-gradient(90deg, rgba(0,255,136,0.1), rgba(0,217,255,0.1)); padding: 10px; border-radius: 10px; border: 1px dashed rgba(0,255,136,0.3); }
+        .dep { background: linear-gradient(90deg, rgba(0,255,136,0.1), rgba(0,217,255,0.1)); padding: 10px; border-radius: 10px; border: 1px dashed rgba(0,255,136,0.3); margin-bottom: 10px; }
         .dep h4 { color: #00ff88; font-size: 0.75rem; margin-bottom: 4px; }
         .dep p { color: #aaa; font-size: 0.8rem; }
+        .src { margin-top: 10px; padding-top: 10px; border-top: 1px solid rgba(255,255,255,0.05); }
+        .src a { color: #666; font-size: 0.7rem; text-decoration: none; }
+        .src a:hover { color: #00d9ff; }
         footer { text-align: center; padding: 50px 0; margin-top: 60px; border-top: 1px solid rgba(255,255,255,0.1); color: #666; }
         footer a { color: #00d9ff; text-decoration: none; }
         @media (max-width: 768px) { h1 { font-size: 2rem; } .grid { grid-template-columns: 1fr; } .dg { grid-template-columns: 1fr; } }
@@ -81,11 +84,11 @@
 <header>
 <h1>🚀 创意广场</h1>
 <p class="subtitle">Reddit精选产品创意 · 深度分析 · 每日更新</p>
-<p class="date">📅 2026-02-09 · 周一 · 收录12个创意 · 🔥 优先展示可部署项目</p>
+<p class="date">📅 2026-02-10 · 周二 · 收录10个创意 · 🔥 优先展示可部署项目</p>
 <div class="nav-links" style="margin-top: 20px;">
-<a href="/" style="color: #fff; text-decoration: none; margin: 0 15px; padding: 8px 16px; border: 1px solid rgba(255,255,255,0.3); border-radius: 20px; font-size: 0.9rem;">🏠 广场中心</a>
-<a href="/all-ideas.html" style="color: #00ff88; text-decoration: none; margin: 0 15px; padding: 8px 16px; border: 1px solid rgba(0,255,136,0.3); border-radius: 20px; font-size: 0.9rem;">📚 全部创意</a>
-<a href="/archive/ideas/" style="color: #00d9ff; text-decoration: none; margin: 0 15px; padding: 8px 16px; border: 1px solid rgba(0,217,255,0.3); border-radius: 20px; font-size: 0.9rem;">🗂️ 历史归档</a>
+<a href="/" style="color: #fff; text-decoration: none; margin: 0 10px; padding: 6px 14px; border: 1px solid rgba(255,255,255,0.3); border-radius: 20px; font-size: 0.85rem;">🏠 广场中心</a>
+<a href="/all-ideas.html" style="color: #00ff88; text-decoration: none; margin: 0 15px; padding: 8px 16px; border: 1px solid rgba(0,255,136,0.3); border-radius: 20px; font-size: 0.9rem;">📚 全部专业创意</a>
+<a href="/archive/ideas/" style="color: #00d9ff; text-decoration: none; margin: 0 15px; padding: 8px 16px; border: 1px solid rgba(0,217,255,0.3); border-radius: 20px; font-size: 0.9rem;">🗂️ 专业创意归档</a>
 </div>
 </header>
 
@@ -104,275 +107,240 @@
 <section class="top">
 <h2>🏆 今日 Top 5</h2>
 <div class="top-grid">
-<div class="tc"><div class="r">🥇</div><div class="n">API文档生成器<span class="badge d">⚡</span></div><div class="s">9.3</div><div class="re">OpenAPI→在线文档，纯前端渲染</div></div>
-<div class="tc"><div class="r">🥈</div><div class="n">Git命令生成器<span class="badge d">⚡</span></div><div class="s">9.1</div><div class="re">自然语言→Git命令，新手救星</div></div>
-<div class="tc"><div class="r">🥉</div><div class="n">Favicon生成器<span class="badge d">⚡</span></div><div class="s">8.9</div><div class="re">一键生成全套图标，纯Canvas</div></div>
-<div class="tc"><div class="r">4️⃣</div><div class="n">CSS动画库预览<span class="badge d">⚡</span></div><div class="s">8.7</div><div class="re">可视化动画效果，一键复制代码</div></div>
-<div class="tc"><div class="r">5️⃣</div><div class="n">SQL格式化工具<span class="badge d">⚡</span></div><div class="s">8.6</div><div class="re">在线美化SQL，支持多种方言</div></div>
+<div class="tc"><div class="r">🥇</div><div class="n">一句话网站生成器<span class="badge d">⚡</span></div><div class="s">9.2</div><div class="re">输入一句描述，AI即时生成完整网站</div></div>
+<div class="tc"><div class="r">🥈</div><div class="n">创业点子毒舌评估器<span class="badge d">⚡</span></div><div class="s">9.0</div><div class="re">AI残酷评估你的创业想法</div></div>
+<div class="tc"><div class="r">🥉</div><div class="n">AI Pitch Deck 生成器</div><div class="s">8.8</div><div class="re">自然语言生成演示文稿</div></div>
+<div class="tc"><div class="r">4️⃣</div><div class="n">离线隐私AI日记<span class="badge d">⚡</span></div><div class="s">8.6</div><div class="re">本地AI，数据不离开设备</div></div>
+<div class="tc"><div class="r">5️⃣</div><div class="n">加密证据记录器<span class="badge d">⚡</span></div><div class="s">8.5</div><div class="re">SHA-256哈希证据保全</div></div>
 </div>
 </section>
 
 <section class="sec">
-<h2>📋 完整创意分析（12个）</h2>
+<h2>📋 完整创意分析（10个）</h2>
 <div class="grid">
+
 <div class="card dp">
-<div class="hd"><span class="num">1</span><span class="sc">9.3</span></div>
-<h3 class="ti">API 文档生成器 <span class="badge d">⚡ 可直接部署</span></h3>
-<p class="ds">上传 OpenAPI/Swagger JSON，自动生成美观的在线 API 文档，支持在线测试接口。</p>
-<div class="tags"><span class="tag u">👥 后端开发者</span><span class="tag pr">🌐 静态网站</span><span class="tag dp">🚀 Vercel</span></div>
+<div class="hd"><span class="num">1</span><span class="sc">9.2</span></div>
+<h3 class="ti">一句话网站生成器 <span class="badge d">⚡ 可直接部署</span></h3>
+<p class="ds">输入一句话描述你的想法，AI即时生成一个完整的网站。无需注册，秒出结果。</p>
+<div class="tags"><span class="tag u">👥 创业者/独立开发者</span><span class="tag pr">🌐 AI+静态生成</span><span class="tag dp">🚀 Vercel</span></div>
 <div class="an"><div class="an-ti">五维评分</div><div class="bars">
-<div class="bar"><span class="l">市场需求</span><div class="bg"><div class="f m" style="width:95%"></div></div><span class="v">9.5</span></div>
-<div class="bar"><span class="l">技术可行</span><div class="bg"><div class="f t" style="width:92%"></div></div><span class="v">9.2</span></div>
-<div class="bar"><span class="l">变现潜力</span><div class="bg"><div class="f p" style="width:88%"></div></div><span class="v">8.8</span></div>
-<div class="bar"><span class="l">竞争优势</span><div class="bg"><div class="f c" style="width:92%"></div></div><span class="v">9.2</span></div>
+<div class="bar"><span class="l">市场需求</span><div class="bg"><div class="f m" style="width:92%"></div></div><span class="v">9.2</span></div>
+<div class="bar"><span class="l">技术可行</span><div class="bg"><div class="f t" style="width:85%"></div></div><span class="v">8.5</span></div>
+<div class="bar"><span class="l">变现潜力</span><div class="bg"><div class="f p" style="width:90%"></div></div><span class="v">9.0</span></div>
+<div class="bar"><span class="l">竞争优势</span><div class="bg"><div class="f c" style="width:88%"></div></div><span class="v">8.8</span></div>
 <div class="bar"><span class="l">增长潜力</span><div class="bg"><div class="f g" style="width:95%"></div></div><span class="v">9.5</span></div>
 </div></div>
 <div class="dg">
-<div class="db"><h4>🎯 目标用户</h4><p>API开发者、技术文档工程师</p></div>
-<div class="db"><h4>💰 商业模式</h4><p>免费基础版+团队版$19/月</p></div>
+<div class="db"><h4>🎯 目标用户</h4><p>非技术创业者、快速验证想法者、小微企业主</p></div>
+<div class="db"><h4>💰 商业模式</h4><p>免费生成+自定义域名$9/月+高级模板$29</p></div>
 </div>
-<div class="rec"><h4>✅ 推荐理由</h4><p>Swagger UI功能强但丑，市场需要更美观的方案</p></div>
-<div class="mvp"><h4>🛠️ MVP</h4><p>上传JSON→解析→渲染文档 | 2-3周</p></div>
-<div class="dep"><h4>⚡ 部署方案</h4><p>React + swagger-parser，纯前端解析渲染</p></div>
-</div>
-
-<div class="card dp">
-<div class="hd"><span class="num">2</span><span class="sc">9.1</span></div>
-<h3 class="ti">Git 命令生成器 <span class="badge d">⚡ 可直接部署</span></h3>
-<p class="ds">用自然语言描述需求，生成对应的 Git 命令。例如"撤销上次提交"→ git reset HEAD~1。</p>
-<div class="tags"><span class="tag u">👥 开发者新手</span><span class="tag pr">🌐 静态网站</span><span class="tag dp">🚀 Vercel</span></div>
-<div class="an"><div class="an-ti">五维评分</div><div class="bars">
-<div class="bar"><span class="l">市场需求</span><div class="bg"><div class="f m" style="width:92%"></div></div><span class="v">9.2</span></div>
-<div class="bar"><span class="l">技术可行</span><div class="bg"><div class="f t" style="width:95%"></div></div><span class="v">9.5</span></div>
-<div class="bar"><span class="l">变现潜力</span><div class="bg"><div class="f p" style="width:82%"></div></div><span class="v">8.2</span></div>
-<div class="bar"><span class="l">竞争优势</span><div class="bg"><div class="f c" style="width:90%"></div></div><span class="v">9.0</span></div>
-<div class="bar"><span class="l">增长潜力</span><div class="bg"><div class="f g" style="width:92%"></div></div><span class="v">9.2</span></div>
-</div></div>
-<div class="dg">
-<div class="db"><h4>🎯 目标用户</h4><p>Git新手、偶尔用Git的人</p></div>
-<div class="db"><h4>💰 商业模式</h4><p>广告收入+高级功能</p></div>
-</div>
-<div class="rec"><h4>✅ 推荐理由</h4><p>"git undo commit"等搜索量巨大，预置场景覆盖80%需求</p></div>
-<div class="mvp"><h4>🛠️ MVP</h4><p>搜索框→匹配场景→显示命令 | 1周</p></div>
-<div class="dep"><h4>⚡ 部署方案</h4><p>预置JSON场景库+模糊搜索，零后端</p></div>
+<div class="rec"><h4>✅ 推荐理由</h4><p>极简体验是核心卖点，一句话到网站的魔法感。AI建站赛道火热，差异化在"零门槛"</p></div>
+<div class="mvp"><h4>🛠️ MVP</h4><p>输入框→AI生成HTML→预览→一键部署 | 3-4周</p></div>
+<div class="dep"><h4>⚡ 部署方案</h4><p>Next.js + OpenAI API + Vercel，静态导出后零运维</p></div>
+<div class="src"><a href="https://www.reddit.com/r/SaaS/comments/1r06g93/">📎 来源：r/SaaS</a></div>
 </div>
 
 <div class="card dp">
-<div class="hd"><span class="num">3</span><span class="sc">8.9</span></div>
-<h3 class="ti">Favicon 全套生成器 <span class="badge d">⚡ 可直接部署</span></h3>
-<p class="ds">上传图片，一键生成 favicon.ico、apple-touch-icon、manifest 等全套图标文件。</p>
-<div class="tags"><span class="tag u">👥 Web开发者</span><span class="tag pr">🌐 静态网站</span><span class="tag dp">🚀 Cloudflare</span></div>
+<div class="hd"><span class="num">2</span><span class="sc">9.0</span></div>
+<h3 class="ti">创业点子毒舌评估器 <span class="badge d">⚡ 可直接部署</span></h3>
+<p class="ds">朋友只会鼓励你，市场会默默让你失败。AI会残酷评估你的创业想法，帮你发现致命问题。</p>
+<div class="tags"><span class="tag u">👥 创业者/产品经理</span><span class="tag pr">🌐 AI工具</span><span class="tag dp">🚀 Vercel</span></div>
 <div class="an"><div class="an-ti">五维评分</div><div class="bars">
 <div class="bar"><span class="l">市场需求</span><div class="bg"><div class="f m" style="width:90%"></div></div><span class="v">9.0</span></div>
 <div class="bar"><span class="l">技术可行</span><div class="bg"><div class="f t" style="width:95%"></div></div><span class="v">9.5</span></div>
-<div class="bar"><span class="l">变现潜力</span><div class="bg"><div class="f p" style="width:80%"></div></div><span class="v">8.0</span></div>
-<div class="bar"><span class="l">竞争优势</span><div class="bg"><div class="f c" style="width:85%"></div></div><span class="v">8.5</span></div>
+<div class="bar"><span class="l">变现潜力</span><div class="bg"><div class="f p" style="width:85%"></div></div><span class="v">8.5</span></div>
+<div class="bar"><span class="l">竞争优势</span><div class="bg"><div class="f c" style="width:90%"></div></div><span class="v">9.0</span></div>
 <div class="bar"><span class="l">增长潜力</span><div class="bg"><div class="f g" style="width:88%"></div></div><span class="v">8.8</span></div>
 </div></div>
 <div class="dg">
-<div class="db"><h4>🎯 目标用户</h4><p>独立开发者、网站建设者</p></div>
-<div class="db"><h4>💰 商业模式</h4><p>免费+高级功能$4.99一次性</p></div>
+<div class="db"><h4>🎯 目标用户</h4><p>独立开发者、想创业的程序员、产品经理</p></div>
+<div class="db"><h4>💰 商业模式</h4><p>免费3次/天+无限使用$4.99/月</p></div>
 </div>
-<div class="rec"><h4>✅ 推荐理由</h4><p>每个网站都需要，"favicon generator"月搜索量50万+</p></div>
-<div class="mvp"><h4>🛠️ MVP</h4><p>上传图片→Canvas裁剪→打包下载 | 1-2周</p></div>
-<div class="dep"><h4>⚡ 部署方案</h4><p>Canvas API处理图片，JSZip打包，零后端</p></div>
+<div class="rec"><h4>✅ 推荐理由</h4><p>"毒舌"定位有传播性，创意验证是刚需。市场上缺乏"说实话"的工具</p></div>
+<div class="mvp"><h4>🛠️ MVP</h4><p>输入创意→AI分析→输出报告+评分 | 2周</p></div>
+<div class="dep"><h4>⚡ 部署方案</h4><p>React + OpenAI API，Vercel Edge Function处理</p></div>
+<div class="src"><a href="https://www.reddit.com/r/SaaS/comments/1qzw9v4/">📎 来源：r/SaaS</a></div>
 </div>
 
-<div class="card dp">
-<div class="hd"><span class="num">4</span><span class="sc">8.7</span></div>
-<h3 class="ti">CSS 动画库预览器 <span class="badge d">⚡ 可直接部署</span></h3>
-<p class="ds">可视化展示各种 CSS 动画效果，点击即可复制代码，支持自定义参数调整。</p>
-<div class="tags"><span class="tag u">👥 前端开发</span><span class="tag pr">🌐 静态网站</span><span class="tag dp">🚀 Vercel</span></div>
+<div class="card">
+<div class="hd"><span class="num">3</span><span class="sc">8.8</span></div>
+<h3 class="ti">AI Pitch Deck 生成器</h3>
+<p class="ds">用自然语言描述需求，AI自动生成演示文稿视觉效果。如"帮我做Q1-Q4产品发布路线图"。</p>
+<div class="tags"><span class="tag u">👥 创业者/投资人</span><span class="tag pr">💻 SaaS</span></div>
 <div class="an"><div class="an-ti">五维评分</div><div class="bars">
 <div class="bar"><span class="l">市场需求</span><div class="bg"><div class="f m" style="width:88%"></div></div><span class="v">8.8</span></div>
-<div class="bar"><span class="l">技术可行</span><div class="bg"><div class="f t" style="width:98%"></div></div><span class="v">9.8</span></div>
-<div class="bar"><span class="l">变现潜力</span><div class="bg"><div class="f p" style="width:78%"></div></div><span class="v">7.8</span></div>
+<div class="bar"><span class="l">技术可行</span><div class="bg"><div class="f t" style="width:80%"></div></div><span class="v">8.0</span></div>
+<div class="bar"><span class="l">变现潜力</span><div class="bg"><div class="f p" style="width:92%"></div></div><span class="v">9.2</span></div>
 <div class="bar"><span class="l">竞争优势</span><div class="bg"><div class="f c" style="width:82%"></div></div><span class="v">8.2</span></div>
 <div class="bar"><span class="l">增长潜力</span><div class="bg"><div class="f g" style="width:88%"></div></div><span class="v">8.8</span></div>
 </div></div>
 <div class="dg">
-<div class="db"><h4>🎯 目标用户</h4><p>前端开发者、UI设计师</p></div>
-<div class="db"><h4>💰 商业模式</h4><p>广告+高级动画包$9</p></div>
+<div class="db"><h4>🎯 目标用户</h4><p>融资中的创业者、商务人员、咨询顾问</p></div>
+<div class="db"><h4>💰 商业模式</h4><p>免费基础版+Pro $19/月（无限+高级模板）</p></div>
 </div>
-<div class="rec"><h4>✅ 推荐理由</h4><p>Animate.css等库需要看文档，可视化预览体验更好</p></div>
-<div class="mvp"><h4>🛠️ MVP</h4><p>动画列表→点击预览→复制代码 | 2周</p></div>
-<div class="dep"><h4>⚡ 部署方案</h4><p>纯CSS/JS，动画代码内联</p></div>
+<div class="rec"><h4>✅ 推荐理由</h4><p>Pitch Deck是融资必需品，传统制作耗时2-3天，AI可压缩到10分钟</p></div>
+<div class="mvp"><h4>🛠️ MVP</h4><p>输入描述→选择模板→AI填充内容→导出PPT | 5-6周</p></div>
+<div class="src"><a href="https://www.reddit.com/r/SideProject/comments/1qzt2fz/">📎 来源：r/SideProject</a></div>
 </div>
 
 <div class="card dp">
-<div class="hd"><span class="num">5</span><span class="sc">8.6</span></div>
-<h3 class="ti">SQL 格式化工具 <span class="badge d">⚡ 可直接部署</span></h3>
-<p class="ds">在线美化 SQL 语句，支持 MySQL/PostgreSQL/SQLite 等多种方言，可自定义缩进风格。</p>
-<div class="tags"><span class="tag u">👥 数据开发</span><span class="tag pr">🌐 静态网站</span><span class="tag dp">🚀 Vercel</span></div>
+<div class="hd"><span class="num">4</span><span class="sc">8.6</span></div>
+<h3 class="ti">离线隐私 AI 日记 <span class="badge d">⚡ 可直接部署</span></h3>
+<p class="ds">完全本地运行的AI日记：日记、语音笔记、AI总结全部在设备上完成，无数据外传。</p>
+<div class="tags"><span class="tag u">👥 隐私敏感用户</span><span class="tag pr">🌐 PWA</span><span class="tag dp">🚀 PWA</span></div>
 <div class="an"><div class="an-ti">五维评分</div><div class="bars">
-<div class="bar"><span class="l">市场需求</span><div class="bg"><div class="f m" style="width:90%"></div></div><span class="v">9.0</span></div>
-<div class="bar"><span class="l">技术可行</span><div class="bg"><div class="f t" style="width:92%"></div></div><span class="v">9.2</span></div>
-<div class="bar"><span class="l">变现潜力</span><div class="bg"><div class="f p" style="width:75%"></div></div><span class="v">7.5</span></div>
-<div class="bar"><span class="l">竞争优势</span><div class="bg"><div class="f c" style="width:80%"></div></div><span class="v">8.0</span></div>
+<div class="bar"><span class="l">市场需求</span><div class="bg"><div class="f m" style="width:86%"></div></div><span class="v">8.6</span></div>
+<div class="bar"><span class="l">技术可行</span><div class="bg"><div class="f t" style="width:82%"></div></div><span class="v">8.2</span></div>
+<div class="bar"><span class="l">变现潜力</span><div class="bg"><div class="f p" style="width:80%"></div></div><span class="v">8.0</span></div>
+<div class="bar"><span class="l">竞争优势</span><div class="bg"><div class="f c" style="width:92%"></div></div><span class="v">9.2</span></div>
 <div class="bar"><span class="l">增长潜力</span><div class="bg"><div class="f g" style="width:85%"></div></div><span class="v">8.5</span></div>
 </div></div>
 <div class="dg">
-<div class="db"><h4>🎯 目标用户</h4><p>DBA、数据分析师、后端开发</p></div>
-<div class="db"><h4>💰 商业模式</h4><p>广告为主，流量工具</p></div>
+<div class="db"><h4>🎯 目标用户</h4><p>隐私意识强、写日记习惯者、心理健康关注者</p></div>
+<div class="db"><h4>💰 商业模式</h4><p>一次性购买$9.99（无订阅，符合隐私定位）</p></div>
 </div>
-<div class="rec"><h4>✅ 推荐理由</h4><p>"sql formatter"搜索量大，现有工具UI普遍老旧</p></div>
-<div class="mvp"><h4>🛠️ MVP</h4><p>输入SQL→格式化→复制 | 1周</p></div>
-<div class="dep"><h4>⚡ 部署方案</h4><p>sql-formatter库，纯前端处理</p></div>
+<div class="rec"><h4>✅ 推荐理由</h4><p>隐私焦虑日益严重，"数据不离开设备"是强差异化卖点，WebLLM技术成熟</p></div>
+<div class="mvp"><h4>🛠️ MVP</h4><p>本地写日记→WebLLM总结→IndexedDB存储 | 4周</p></div>
+<div class="dep"><h4>⚡ 部署方案</h4><p>PWA + WebLLM + IndexedDB，静态托管即可</p></div>
+<div class="src"><a href="https://www.reddit.com/r/SideProject/comments/1qzvlnr/">📎 来源：r/SideProject</a></div>
 </div>
 
 <div class="card dp">
-<div class="hd"><span class="num">6</span><span class="sc">8.5</span></div>
-<h3 class="ti">Base64 编解码工具箱 <span class="badge d">⚡ 可直接部署</span></h3>
-<p class="ds">Base64 编码/解码，支持文本、图片、文件，带图片预览功能。</p>
-<div class="tags"><span class="tag u">👥 开发者</span><span class="tag pr">🌐 静态网站</span><span class="tag dp">🚀 Cloudflare</span></div>
+<div class="hd"><span class="num">5</span><span class="sc">8.5</span></div>
+<h3 class="ti">加密证据记录器 <span class="badge d">⚡ 可直接部署</span></h3>
+<p class="ds">使用SHA-256哈希的加密证据记录工具。保证记录完整性，可用于法律纠纷、版权证明。</p>
+<div class="tags"><span class="tag u">👥 法律/版权从业者</span><span class="tag pr">🌐 静态网站</span><span class="tag dp">🚀 Vercel</span></div>
 <div class="an"><div class="an-ti">五维评分</div><div class="bars">
-<div class="bar"><span class="l">市场需求</span><div class="bg"><div class="f m" style="width:92%"></div></div><span class="v">9.2</span></div>
+<div class="bar"><span class="l">市场需求</span><div class="bg"><div class="f m" style="width:85%"></div></div><span class="v">8.5</span></div>
+<div class="bar"><span class="l">技术可行</span><div class="bg"><div class="f t" style="width:95%"></div></div><span class="v">9.5</span></div>
+<div class="bar"><span class="l">变现潜力</span><div class="bg"><div class="f p" style="width:82%"></div></div><span class="v">8.2</span></div>
+<div class="bar"><span class="l">竞争优势</span><div class="bg"><div class="f c" style="width:85%"></div></div><span class="v">8.5</span></div>
+<div class="bar"><span class="l">增长潜力</span><div class="bg"><div class="f g" style="width:80%"></div></div><span class="v">8.0</span></div>
+</div></div>
+<div class="dg">
+<div class="db"><h4>🎯 目标用户</h4><p>创作者、律师、企业法务、知识产权保护者</p></div>
+<div class="db"><h4>💰 商业模式</h4><p>免费基础版+企业版$29/月（批量+API）</p></div>
+</div>
+<div class="rec"><h4>✅ 推荐理由</h4><p>法律证据保全是刚需，加密哈希提供可验证完整性。知识产权纠纷日益增多</p></div>
+<div class="mvp"><h4>🛠️ MVP</h4><p>上传文件→生成SHA-256→时间戳存储→导出证明 | 2周</p></div>
+<div class="dep"><h4>⚡ 部署方案</h4><p>纯前端 Web Crypto API，Vercel静态部署</p></div>
+<div class="src"><a href="https://www.reddit.com/r/SideProject/comments/1r0858f/">📎 来源：r/SideProject</a></div>
+</div>
+
+<div class="card dp">
+<div class="hd"><span class="num">6</span><span class="sc">8.4</span></div>
+<h3 class="ti">创意验证框架 <span class="badge d">⚡ 可直接部署</span></h3>
+<p class="ds">免费创意验证框架，帮你在不花钱的情况下发现、验证和改进创业想法。</p>
+<div class="tags"><span class="tag u">👥 创业者/产品经理</span><span class="tag pr">🌐 静态网站</span><span class="tag dp">🚀 Vercel</span></div>
+<div class="an"><div class="an-ti">五维评分</div><div class="bars">
+<div class="bar"><span class="l">市场需求</span><div class="bg"><div class="f m" style="width:84%"></div></div><span class="v">8.4</span></div>
 <div class="bar"><span class="l">技术可行</span><div class="bg"><div class="f t" style="width:98%"></div></div><span class="v">9.8</span></div>
+<div class="bar"><span class="l">变现潜力</span><div class="bg"><div class="f p" style="width:75%"></div></div><span class="v">7.5</span></div>
+<div class="bar"><span class="l">竞争优势</span><div class="bg"><div class="f c" style="width:82%"></div></div><span class="v">8.2</span></div>
+<div class="bar"><span class="l">增长潜力</span><div class="bg"><div class="f g" style="width:85%"></div></div><span class="v">8.5</span></div>
+</div></div>
+<div class="dg">
+<div class="db"><h4>🎯 目标用户</h4><p>第一次创业者、独立开发者、产品新手</p></div>
+<div class="db"><h4>💰 商业模式</h4><p>免费内容引流+付费课程$49+咨询服务</p></div>
+</div>
+<div class="rec"><h4>✅ 推荐理由</h4><p>系统化的验证方法论有市场，可以配合工具落地执行，内容+工具双飞轮</p></div>
+<div class="mvp"><h4>🛠️ MVP</h4><p>文章系列→互动工具→案例库 | 2周</p></div>
+<div class="dep"><h4>⚡ 部署方案</h4><p>静态博客 + React交互组件，Vercel部署</p></div>
+<div class="src"><a href="https://www.reddit.com/r/SaaS/comments/1r08sh0/">📎 来源：r/SaaS</a></div>
+</div>
+
+<div class="card">
+<div class="hd"><span class="num">7</span><span class="sc">8.3</span></div>
+<h3 class="ti">团队旅行规划平台</h3>
+<p class="ds">解决和朋友规划旅行时的Google Sheet混乱问题，统一管理行程、投票、费用分摊。</p>
+<div class="tags"><span class="tag u">👥 旅行爱好者</span><span class="tag pr">💻 SaaS</span></div>
+<div class="an"><div class="an-ti">五维评分</div><div class="bars">
+<div class="bar"><span class="l">市场需求</span><div class="bg"><div class="f m" style="width:88%"></div></div><span class="v">8.8</span></div>
+<div class="bar"><span class="l">技术可行</span><div class="bg"><div class="f t" style="width:82%"></div></div><span class="v">8.2</span></div>
+<div class="bar"><span class="l">变现潜力</span><div class="bg"><div class="f p" style="width:80%"></div></div><span class="v">8.0</span></div>
+<div class="bar"><span class="l">竞争优势</span><div class="bg"><div class="f c" style="width:78%"></div></div><span class="v">7.8</span></div>
+<div class="bar"><span class="l">增长潜力</span><div class="bg"><div class="f g" style="width:85%"></div></div><span class="v">8.5</span></div>
+</div></div>
+<div class="dg">
+<div class="db"><h4>🎯 目标用户</h4><p>年轻群体、朋友团旅行、公司团建组织者</p></div>
+<div class="db"><h4>💰 商业模式</h4><p>免费基础版+Pro $5.99/月（日历同步+高级功能）</p></div>
+</div>
+<div class="rec"><h4>✅ 推荐理由</h4><p>团队旅行协调是高频痛点，现有工具体验差。社交传播属性强</p></div>
+<div class="mvp"><h4>🛠️ MVP</h4><p>创建行程→邀请成员→投票决策→费用AA | 4周</p></div>
+<div class="src"><a href="https://www.reddit.com/r/SideProject/comments/1r0b8qj/">📎 来源：r/SideProject</a></div>
+</div>
+
+<div class="card dp">
+<div class="hd"><span class="num">8</span><span class="sc">8.2</span></div>
+<h3 class="ti">WebRTC 信令服务器 <span class="badge d">⚡ 可直接部署</span></h3>
+<p class="ds">轻量级WebSocket/WebRTC信令服务器，用于学习和构建实时应用架构。</p>
+<div class="tags"><span class="tag u">👥 开发者</span><span class="tag pr">🌐 开源工具</span><span class="tag dp">🚀 Cloudflare</span></div>
+<div class="an"><div class="an-ti">五维评分</div><div class="bars">
+<div class="bar"><span class="l">市场需求</span><div class="bg"><div class="f m" style="width:80%"></div></div><span class="v">8.0</span></div>
+<div class="bar"><span class="l">技术可行</span><div class="bg"><div class="f t" style="width:90%"></div></div><span class="v">9.0</span></div>
 <div class="bar"><span class="l">变现潜力</span><div class="bg"><div class="f p" style="width:70%"></div></div><span class="v">7.0</span></div>
 <div class="bar"><span class="l">竞争优势</span><div class="bg"><div class="f c" style="width:75%"></div></div><span class="v">7.5</span></div>
 <div class="bar"><span class="l">增长潜力</span><div class="bg"><div class="f g" style="width:82%"></div></div><span class="v">8.2</span></div>
 </div></div>
 <div class="dg">
-<div class="db"><h4>🎯 目标用户</h4><p>全栈开发者、前端工程师</p></div>
-<div class="db"><h4>💰 商业模式</h4><p>广告收入</p></div>
+<div class="db"><h4>🎯 目标用户</h4><p>学习WebRTC的开发者、实时应用构建者</p></div>
+<div class="db"><h4>💰 商业模式</h4><p>开源引流+托管服务$9/月+企业支持</p></div>
 </div>
-<div class="rec"><h4>✅ 推荐理由</h4><p>高频刚需工具，可做成工具矩阵入口</p></div>
-<div class="mvp"><h4>🛠️ MVP</h4><p>编码解码→图片预览→批量处理 | 1周</p></div>
-<div class="dep"><h4>⚡ 部署方案</h4><p>原生JS API，零依赖</p></div>
+<div class="rec"><h4>✅ 推荐理由</h4><p>实时通信需求增长，开发者需要轻量学习工具。开源可建立技术影响力</p></div>
+<div class="mvp"><h4>🛠️ MVP</h4><p>信令服务→demo页面→一键部署模板 | 2周</p></div>
+<div class="dep"><h4>⚡ 部署方案</h4><p>Cloudflare Workers + Durable Objects，全球边缘</p></div>
+<div class="src"><a href="https://www.reddit.com/r/SideProject/comments/1r00jg3/">📎 来源：r/SideProject</a></div>
 </div>
 
-<div class="card dp">
-<div class="hd"><span class="num">7</span><span class="sc">8.4</span></div>
-<h3 class="ti">Webhook 调试工具 <span class="badge d">⚡ 可直接部署</span></h3>
-<p class="ds">生成临时 URL 接收 Webhook 请求，实时显示请求内容，方便调试第三方回调。</p>
-<div class="tags"><span class="tag u">👥 后端开发</span><span class="tag pr">🌐 静态网站</span><span class="tag dp">🚀 Vercel</span></div>
+<div class="card">
+<div class="hd"><span class="num">9</span><span class="sc">8.0</span></div>
+<h3 class="ti">轮班工作者饮食规划</h3>
+<p class="ds">为夜班、轮班工作者生成批量烹饪时间表和实用零食建议，保持健康饮食。</p>
+<div class="tags"><span class="tag u">👥 轮班工作者</span><span class="tag pr">💻 工具App</span></div>
 <div class="an"><div class="an-ti">五维评分</div><div class="bars">
-<div class="bar"><span class="l">市场需求</span><div class="bg"><div class="f m" style="width:88%"></div></div><span class="v">8.8</span></div>
-<div class="bar"><span class="l">技术可行</span><div class="bg"><div class="f t" style="width:85%"></div></div><span class="v">8.5</span></div>
-<div class="bar"><span class="l">变现潜力</span><div class="bg"><div class="f p" style="width:82%"></div></div><span class="v">8.2</span></div>
+<div class="bar"><span class="l">市场需求</span><div class="bg"><div class="f m" style="width:82%"></div></div><span class="v">8.2</span></div>
+<div class="bar"><span class="l">技术可行</span><div class="bg"><div class="f t" style="width:90%"></div></div><span class="v">9.0</span></div>
+<div class="bar"><span class="l">变现潜力</span><div class="bg"><div class="f p" style="width:75%"></div></div><span class="v">7.5</span></div>
 <div class="bar"><span class="l">竞争优势</span><div class="bg"><div class="f c" style="width:85%"></div></div><span class="v">8.5</span></div>
-<div class="bar"><span class="l">增长潜力</span><div class="bg"><div class="f g" style="width:88%"></div></div><span class="v">8.8</span></div>
+<div class="bar"><span class="l">增长潜力</span><div class="bg"><div class="f g" style="width:78%"></div></div><span class="v">7.8</span></div>
 </div></div>
 <div class="dg">
-<div class="db"><h4>🎯 目标用户</h4><p>集成开发者、API调试人员</p></div>
-<div class="db"><h4>💰 商业模式</h4><p>免费+Pro$9/月</p></div>
+<div class="db"><h4>🎯 目标用户</h4><p>护士、工厂工人、客服、安保等轮班岗位</p></div>
+<div class="db"><h4>💰 商业模式</h4><p>免费基础+Pro $3.99/月（个性化+购物清单）</p></div>
 </div>
-<div class="rec"><h4>✅ 推荐理由</h4><p>RequestBin等工具限制多，可做更好的免费版</p></div>
-<div class="mvp"><h4>🛠️ MVP</h4><p>生成URL→接收请求→展示详情 | 2周</p></div>
-<div class="dep"><h4>⚡ 部署方案</h4><p>Vercel Edge Function接收，前端轮询展示</p></div>
-</div>
-
-<div class="card dp">
-<div class="hd"><span class="num">8</span><span class="sc">8.3</span></div>
-<h3 class="ti">Tailwind CSS 组件库 <span class="badge d">⚡ 可直接部署</span></h3>
-<p class="ds">开箱即用的 Tailwind 组件，复制粘贴即可使用，涵盖常见 UI 模式。</p>
-<div class="tags"><span class="tag u">👥 前端开发</span><span class="tag pr">🌐 静态网站</span><span class="tag dp">🚀 Vercel</span></div>
-<div class="an"><div class="an-ti">五维评分</div><div class="bars">
-<div class="bar"><span class="l">市场需求</span><div class="bg"><div class="f m" style="width:90%"></div></div><span class="v">9.0</span></div>
-<div class="bar"><span class="l">技术可行</span><div class="bg"><div class="f t" style="width:95%"></div></div><span class="v">9.5</span></div>
-<div class="bar"><span class="l">变现潜力</span><div class="bg"><div class="f p" style="width:85%"></div></div><span class="v">8.5</span></div>
-<div class="bar"><span class="l">竞争优势</span><div class="bg"><div class="f c" style="width:78%"></div></div><span class="v">7.8</span></div>
-<div class="bar"><span class="l">增长潜力</span><div class="bg"><div class="f g" style="width:88%"></div></div><span class="v">8.8</span></div>
-</div></div>
-<div class="dg">
-<div class="db"><h4>🎯 目标用户</h4><p>Tailwind用户、快速建站者</p></div>
-<div class="db"><h4>💰 商业模式</h4><p>免费基础+高级组件$29</p></div>
-</div>
-<div class="rec"><h4>✅ 推荐理由</h4><p>Tailwind生态火爆，优质组件库需求大</p></div>
-<div class="mvp"><h4>🛠️ MVP</h4><p>组件展示→代码预览→一键复制 | 3周</p></div>
-<div class="dep"><h4>⚡ 部署方案</h4><p>纯HTML+Tailwind，静态站点</p></div>
+<div class="rec"><h4>✅ 推荐理由</h4><p>细分市场但用户粘性高，轮班人群健康意识增强，竞品少</p></div>
+<div class="mvp"><h4>🛠️ MVP</h4><p>输入班表→生成食谱→购物清单 | 3周</p></div>
+<div class="src"><a href="https://www.reddit.com/r/AppIdeas/comments/1r01h4d/">📎 来源：r/AppIdeas</a></div>
 </div>
 
-<div class="card dp">
-<div class="hd"><span class="num">9</span><span class="sc">8.2</span></div>
-<h3 class="ti">DNS 查询工具 <span class="badge d">⚡ 可直接部署</span></h3>
-<p class="ds">在线查询域名 DNS 记录（A/AAAA/MX/TXT等），支持多地区对比查询。</p>
-<div class="tags"><span class="tag u">👥 运维/站长</span><span class="tag pr">🌐 静态网站</span><span class="tag dp">🚀 Cloudflare</span></div>
+<div class="card">
+<div class="hd"><span class="num">10</span><span class="sc">7.8</span></div>
+<h3 class="ti">AI 面试模拟器</h3>
+<p class="ds">AI驱动的面试模拟，根据简历和职位生成问题，实时反馈答案质量和改进建议。</p>
+<div class="tags"><span class="tag u">👥 求职者</span><span class="tag pr">💻 AI SaaS</span></div>
 <div class="an"><div class="an-ti">五维评分</div><div class="bars">
-<div class="bar"><span class="l">市场需求</span><div class="bg"><div class="f m" style="width:88%"></div></div><span class="v">8.8</span></div>
+<div class="bar"><span class="l">市场需求</span><div class="bg"><div class="f m" style="width:85%"></div></div><span class="v">8.5</span></div>
 <div class="bar"><span class="l">技术可行</span><div class="bg"><div class="f t" style="width:88%"></div></div><span class="v">8.8</span></div>
-<div class="bar"><span class="l">变现潜力</span><div class="bg"><div class="f p" style="width:72%"></div></div><span class="v">7.2</span></div>
-<div class="bar"><span class="l">竞争优势</span><div class="bg"><div class="f c" style="width:78%"></div></div><span class="v">7.8</span></div>
+<div class="bar"><span class="l">变现潜力</span><div class="bg"><div class="f p" style="width:82%"></div></div><span class="v">8.2</span></div>
+<div class="bar"><span class="l">竞争优势</span><div class="bg"><div class="f c" style="width:70%"></div></div><span class="v">7.0</span></div>
 <div class="bar"><span class="l">增长潜力</span><div class="bg"><div class="f g" style="width:80%"></div></div><span class="v">8.0</span></div>
 </div></div>
 <div class="dg">
-<div class="db"><h4>🎯 目标用户</h4><p>域名管理员、DevOps工程师</p></div>
-<div class="db"><h4>💰 商业模式</h4><p>广告为主</p></div>
+<div class="db"><h4>🎯 目标用户</h4><p>应届生、转行者、跳槽准备者</p></div>
+<div class="db"><h4>💰 商业模式</h4><p>免费3次模拟+Pro $9.99/月（无限+详细报告）</p></div>
 </div>
-<div class="rec"><h4>✅ 推荐理由</h4><p>DNS调试刚需，现有工具体验一般</p></div>
-<div class="mvp"><h4>🛠️ MVP</h4><p>输入域名→查询记录→多地对比 | 2周</p></div>
-<div class="dep"><h4>⚡ 部署方案</h4><p>Cloudflare Workers做DNS查询代理</p></div>
-</div>
-
-<div class="card dp">
-<div class="hd"><span class="num">10</span><span class="sc">8.0</span></div>
-<h3 class="ti">Notion 模板市场 <span class="badge d">⚡ 可直接部署</span></h3>
-<p class="ds">精选 Notion 模板集合，分类展示，一键复制到自己的 Notion。</p>
-<div class="tags"><span class="tag u">👥 效率工具用户</span><span class="tag pr">🌐 静态网站</span><span class="tag dp">🚀 Vercel</span></div>
-<div class="an"><div class="an-ti">五维评分</div><div class="bars">
-<div class="bar"><span class="l">市场需求</span><div class="bg"><div class="f m" style="width:85%"></div></div><span class="v">8.5</span></div>
-<div class="bar"><span class="l">技术可行</span><div class="bg"><div class="f t" style="width:90%"></div></div><span class="v">9.0</span></div>
-<div class="bar"><span class="l">变现潜力</span><div class="bg"><div class="f p" style="width:82%"></div></div><span class="v">8.2</span></div>
-<div class="bar"><span class="l">竞争优势</span><div class="bg"><div class="f c" style="width:75%"></div></div><span class="v">7.5</span></div>
-<div class="bar"><span class="l">增长潜力</span><div class="bg"><div class="f g" style="width:85%"></div></div><span class="v">8.5</span></div>
-</div></div>
-<div class="dg">
-<div class="db"><h4>🎯 目标用户</h4><p>Notion重度用户、知识工作者</p></div>
-<div class="db"><h4>💰 商业模式</h4><p>免费展示+付费模板分成</p></div>
-</div>
-<div class="rec"><h4>✅ 推荐理由</h4><p>Notion用户基数大，模板需求旺盛</p></div>
-<div class="mvp"><h4>🛠️ MVP</h4><p>模板展示→预览→跳转Notion | 2周</p></div>
-<div class="dep"><h4>⚡ 部署方案</h4><p>静态页面+Notion API链接</p></div>
-</div>
-
-<div class="card dp">
-<div class="hd"><span class="num">11</span><span class="sc">7.8</span></div>
-<h3 class="ti">YouTube 缩略图下载器 <span class="badge d">⚡ 可直接部署</span></h3>
-<p class="ds">输入 YouTube 视频链接，一键下载各尺寸缩略图。</p>
-<div class="tags"><span class="tag u">👥 内容创作者</span><span class="tag pr">🌐 静态网站</span><span class="tag dp">🚀 Vercel</span></div>
-<div class="an"><div class="an-ti">五维评分</div><div class="bars">
-<div class="bar"><span class="l">市场需求</span><div class="bg"><div class="f m" style="width:82%"></div></div><span class="v">8.2</span></div>
-<div class="bar"><span class="l">技术可行</span><div class="bg"><div class="f t" style="width:95%"></div></div><span class="v">9.5</span></div>
-<div class="bar"><span class="l">变现潜力</span><div class="bg"><div class="f p" style="width:70%"></div></div><span class="v">7.0</span></div>
-<div class="bar"><span class="l">竞争优势</span><div class="bg"><div class="f c" style="width:72%"></div></div><span class="v">7.2</span></div>
-<div class="bar"><span class="l">增长潜力</span><div class="bg"><div class="f g" style="width:78%"></div></div><span class="v">7.8</span></div>
-</div></div>
-<div class="dg">
-<div class="db"><h4>🎯 目标用户</h4><p>YouTuber、社媒运营</p></div>
-<div class="db"><h4>💰 商业模式</h4><p>广告收入</p></div>
-</div>
-<div class="rec"><h4>✅ 推荐理由</h4><p>YouTube缩略图URL有固定规则，纯前端可实现</p></div>
-<div class="mvp"><h4>🛠️ MVP</h4><p>输入URL→解析ID→下载图片 | 3天</p></div>
-<div class="dep"><h4>⚡ 部署方案</h4><p>URL解析+图片代理，纯前端</p></div>
-</div>
-
-<div class="card dp">
-<div class="hd"><span class="num">12</span><span class="sc">7.6</span></div>
-<h3 class="ti">开发者薪资计算器 <span class="badge d">⚡ 可直接部署</span></h3>
-<p class="ds">根据地区、经验、技术栈估算开发者薪资范围，帮助求职定价。</p>
-<div class="tags"><span class="tag u">👥 求职者</span><span class="tag pr">🌐 静态网站</span><span class="tag dp">🚀 Vercel</span></div>
-<div class="an"><div class="an-ti">五维评分</div><div class="bars">
-<div class="bar"><span class="l">市场需求</span><div class="bg"><div class="f m" style="width:80%"></div></div><span class="v">8.0</span></div>
-<div class="bar"><span class="l">技术可行</span><div class="bg"><div class="f t" style="width:92%"></div></div><span class="v">9.2</span></div>
-<div class="bar"><span class="l">变现潜力</span><div class="bg"><div class="f p" style="width:75%"></div></div><span class="v">7.5</span></div>
-<div class="bar"><span class="l">竞争优势</span><div class="bg"><div class="f c" style="width:70%"></div></div><span class="v">7.0</span></div>
-<div class="bar"><span class="l">增长潜力</span><div class="bg"><div class="f g" style="width:78%"></div></div><span class="v">7.8</span></div>
-</div></div>
-<div class="dg">
-<div class="db"><h4>🎯 目标用户</h4><p>开发者求职者、HR</p></div>
-<div class="db"><h4>💰 商业模式</h4><p>广告+数据报告</p></div>
-</div>
-<div class="rec"><h4>✅ 推荐理由</h4><p>求职季刚需，可积累数据做行业报告</p></div>
-<div class="mvp"><h4>🛠️ MVP</h4><p>选择条件→计算薪资→显示范围 | 2周</p></div>
-<div class="dep"><h4>⚡ 部署方案</h4><p>预置薪资数据JSON，纯前端计算</p></div>
+<div class="rec"><h4>✅ 推荐理由</h4><p>求职焦虑是刚需，AI可以24小时练习。但赛道竞争激烈，需差异化</p></div>
+<div class="mvp"><h4>🛠️ MVP</h4><p>上传简历→选职位→AI提问→评分反馈 | 3周</p></div>
+<div class="src"><a href="https://www.reddit.com/r/SaaS/comments/1r09a2b/">📎 来源：r/SaaS</a></div>
 </div>
 
 </div>
 </section>
 
 <footer>
-<p>💡 创意广场 · 每日更新 · 数据来源 Reddit</p>
-<p style="margin-top:10px;">⚡ 可直接部署 = 纯前端/静态站点，可部署到 Vercel/Cloudflare Pages</p>
+<p>💡 数据来源 Reddit · <a href="/">广场中心</a> · 每日更新</p>
+<p style="margin-top: 10px; font-size: 0.8rem;">🤖 由 AI 智能分析生成</p>
 </footer>
 </div>
 </body>

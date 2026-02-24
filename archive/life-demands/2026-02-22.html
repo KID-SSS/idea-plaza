@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>日常需求发现 - 日常需求广场</title>
+<style>*{margin:0;padding:0;box-sizing:border-box}body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:linear-gradient(135deg,#0a0a0f,#1a1a2e 50%,#16213e);min-height:100vh;color:#e8e8e8;line-height:1.6}.container{max-width:1400px;margin:0 auto;padding:20px}header{text-align:center;padding:50px 0;border-bottom:1px solid rgba(255,255,255,0.1);margin-bottom:40px}h1{font-size:3rem;background:linear-gradient(90deg,#ff8c00,#4ecdc4,#ff8c00);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:15px;font-weight:800}.subtitle{color:#888;font-size:1.2rem}.date{color:#ff8c00;font-size:0.95rem;margin-top:15px;display:inline-block;background:rgba(255,140,0,0.1);padding:8px 20px;border-radius:20px}.nav-links{margin-top:20px}.nav-links a{color:#4ecdc4;text-decoration:none;margin:0 15px;padding:8px 16px;border:1px solid rgba(78,205,196,0.3);border-radius:20px;font-size:0.9rem}.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;margin-bottom:40px}.stat-card{background:rgba(255,255,255,0.02);border-radius:16px;padding:25px;border:1px solid rgba(255,255,255,0.06);text-align:center}.stat-card .number{font-size:2.5rem;font-weight:800;background:linear-gradient(90deg,#ff8c00,#4ecdc4);-webkit-background-clip:text;-webkit-text-fill-color:transparent}.stat-card .label{color:#888;font-size:0.9rem;margin-top:8px}.sec{margin-bottom:50px}.sec h2{color:#fff;font-size:1.6rem;margin-bottom:30px;padding-left:15px;border-left:4px solid #ff8c00}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(380px,1fr));gap:25px}.card{background:rgba(255,255,255,0.02);border-radius:20px;padding:25px;border:1px solid rgba(255,255,255,0.06);transition:all 0.3s}.card:hover{transform:translateY(-5px)}.card.web{border-color:rgba(78,205,196,0.3);background:rgba(78,205,196,0.02)}.hd{display:flex;justify-content:space-between;margin-bottom:15px}.num{background:linear-gradient(135deg,#ff8c00,#4ecdc4);color:#0a0a0f;width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-weight:800}.sc{background:rgba(255,140,0,0.15);color:#ff8c00;padding:5px 14px;border-radius:20px;font-weight:bold}.ti{font-size:1.25rem;color:#fff;margin-bottom:10px;font-weight:700}.ti a{color:#fff;text-decoration:none}.ds{color:#aaa;margin-bottom:15px;font-size:0.9rem}.source{color:#666;font-size:0.8rem;margin-bottom:15px}.source a{color:#4ecdc4}.tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:15px}.tag{padding:5px 12px;border-radius:8px;font-size:0.75rem}.tag.pain{background:rgba(255,140,0,0.15);color:#ff8c00}.tag.freq{background:rgba(78,205,196,0.15);color:#4ecdc4}.tag.audience{background:rgba(255,107,107,0.15);color:#ff6b6b}.tag.category{background:rgba(255,140,0,0.1);color:#ffb347;border:1px solid rgba(255,140,0,0.2)}.tag.web{background:linear-gradient(90deg,rgba(78,205,196,0.2),rgba(0,217,255,0.2));color:#4ecdc4}.an{background:rgba(0,0,0,0.2);border-radius:14px;padding:15px;margin-bottom:15px}.an-ti{color:#888;font-size:0.75rem;margin-bottom:12px}.bars{display:grid;gap:8px}.bar{display:grid;grid-template-columns:80px 1fr 30px;gap:8px}.bar .l{font-size:0.75rem;color:#aaa}.bar .bg{height:6px;background:rgba(255,255,255,0.1);border-radius:3px}.bar .f{height:100%;border-radius:3px}.bar .f.pain{background:#ff8c00}.bar .f.freq{background:#4ecdc4}.bar .f.audience{background:#ff6b6b}.bar .f.diff{background:#00d9ff}.bar .v{font-size:0.8rem;color:#fff;font-weight:600;text-align:right}.insight{background:rgba(255,140,0,0.1);padding:12px;border-radius:10px;border-left:3px solid #ff8c00;margin-bottom:10px}.insight h4{color:#ff8c00;font-size:0.8rem;margin-bottom:5px}.insight p{color:#ccc;font-size:0.85rem}footer{text-align:center;padding:50px 0;margin-top:60px;border-top:1px solid rgba(255,255,255,0.1);color:#666}footer a{color:#4ecdc4}@media(max-width:768px){h1{font-size:2rem}.grid{grid-template-columns:1fr}}.badge{display:inline-block;padding:4px 10px;border-radius:6px;font-size:0.7rem;font-weight:600;margin-left:8px}.badge.web{background:linear-gradient(90deg,#4ecdc4,#00d9ff);color:#0a0a0f}.badge.app{background:linear-gradient(90deg,#ff8c00,#ffd700);color:#0a0a0f}.badge.both{background:linear-gradient(90deg,#a855f7,#4ecdc4);color:#fff}</style>
+</head>
+<body>
+<div class="container">
+<header>
+<h1>🏠 日常需求发现</h1>
+<p class="subtitle">来自真实生活的需求 · 每日更新</p>
+<p class="date">📅 2026-02-22 · 周日 · 今日发现 12 个日常需求</p>
+<div class="nav-links">
+<a href="/">🏠 广场中心</a>
+<a href="/all-life-demands.html">📋 全部日常需求</a>
+<a href="/archive/life-demands/">🗂️ 日常需求归档</a>
+</div>
+</header>
+
+<div class="stats">
+<div class="stat-card"><div class="number">12</div><div class="label">今日需求</div></div>
+<div class="stat-card"><div class="number">5</div><div class="label">可Web实现</div></div>
+<div class="stat-card"><div class="number">7.8</div><div class="label">平均痛点</div></div>
+<div class="stat-card"><div class="number">6</div><div class="label">涉及分类</div></div>
+</div>
+
+<section class="sec">
+<h2>📋 日常需求详情（12个）</h2>
+<div class="grid">
+<div class="card">
+<div class="hd"><span class="num">1</span><span class="sc">8.7</span></div>
+<h3 class="ti">智能情绪管理助手 - 成人版「情绪急救箱」<span class="badge app">📱 原生APP</span></h3>
+<p class="ds">很多家长到了晚上会感到情绪完全失控（dysregulated），需要一个能感知情绪状态、提供即时冷静技巧和自我调节方法的工具，不是心理咨询，而是日常情绪急救。</p>
+<div class="source">来源: <a href="https://www.reddit.com/r/Parenting/comments/1rarpyl/does_anyone_else_feel_completely_dysregulated_by/">r/Parenting</a></div>
+<div class="tags"><span class="tag category">💝 情感</span><span class="tag pain">🔥 痛点: 9/10</span><span class="tag freq">🔄 频次: 8/10</span><span class="tag audience">👥 受众: 9/10</span></div>
+<div class="an"><div class="an-ti">四维评分</div><div class="bars">
+<div class="bar"><span class="l">痛点强度</span><div class="bg"><div class="f pain" style="width:90%"></div></div><span class="v">9</span></div>
+<div class="bar"><span class="l">需求频次</span><div class="bg"><div class="f freq" style="width:80%"></div></div><span class="v">8</span></div>
+<div class="bar"><span class="l">受众规模</span><div class="bg"><div class="f audience" style="width:90%"></div></div><span class="v">9</span></div>
+<div class="bar"><span class="l">实现难度</span><div class="bg"><div class="f diff" style="width:60%"></div></div><span class="v">6</span></div>
+</div></div>
+<div class="insight"><h4>💡 需求洞察</h4><p>情绪管理市场巨大但现有产品多为冥想类，缺少「即时急救」定位。家长群体尤其需要快速可操作的方案，而非30分钟冥想课程。</p></div>
+</div>
+<div class="card">
+<div class="hd"><span class="num">2</span><span class="sc">8.7</span></div>
+<h3 class="ti">儿童屏幕时间智能管控 - 不做「坏人」的方式<span class="badge app">📱 原生APP</span></h3>
+<p class="ds">家长设置屏幕时间限制后，孩子视其为惩罚，亲子关系紧张。需要一种更温和的方式管理屏幕时间：自动渐进式提醒、完成任务解锁时间、让孩子自主管理而非被限制。</p>
+<div class="source">来源: <a href="https://www.reddit.com/r/parentalcontrols/comments/1raytp7/how_to_not_be_the_bad_guy/">r/parentalcontrols</a></div>
+<div class="tags"><span class="tag category">👶 育儿</span><span class="tag pain">🔥 痛点: 9/10</span><span class="tag freq">🔄 频次: 9/10</span><span class="tag audience">👥 受众: 8/10</span></div>
+<div class="an"><div class="an-ti">四维评分</div><div class="bars">
+<div class="bar"><span class="l">痛点强度</span><div class="bg"><div class="f pain" style="width:90%"></div></div><span class="v">9</span></div>
+<div class="bar"><span class="l">需求频次</span><div class="bg"><div class="f freq" style="width:90%"></div></div><span class="v">9</span></div>
+<div class="bar"><span class="l">受众规模</span><div class="bg"><div class="f audience" style="width:80%"></div></div><span class="v">8</span></div>
+<div class="bar"><span class="l">实现难度</span><div class="bg"><div class="f diff" style="width:70%"></div></div><span class="v">7</span></div>
+</div></div>
+<div class="insight"><h4>💡 需求洞察</h4><p>现有家长控制工具（Apple Screen Time、Qustodio）都是「限制型」设计，孩子总在想办法绕过。换成「激励型」设计（完成家务/运动解锁时间）会是全新赛道。</p></div>
+</div>
+<div class="card">
+<div class="hd"><span class="num">3</span><span class="sc">8.3</span></div>
+<h3 class="ti">家庭共享购物清单 - 智能识别低价和库存<span class="badge app">📱 原生APP</span></h3>
+<p class="ds">家庭成员需要共享购物清单app，能自动比价、记住常买物品、标记哪些店更便宜。现有app功能太简单，缺少智能推荐和多人协作。</p>
+<div class="source">来源: <a href="https://www.reddit.com/r/Frugal/comments/1rawjyj/question_does_anyone_use_an_app_for_groceries/">r/Frugal</a></div>
+<div class="tags"><span class="tag category">🛒 购物</span><span class="tag pain">🔥 痛点: 7/10</span><span class="tag freq">🔄 频次: 9/10</span><span class="tag audience">👥 受众: 9/10</span></div>
+<div class="an"><div class="an-ti">四维评分</div><div class="bars">
+<div class="bar"><span class="l">痛点强度</span><div class="bg"><div class="f pain" style="width:70%"></div></div><span class="v">7</span></div>
+<div class="bar"><span class="l">需求频次</span><div class="bg"><div class="f freq" style="width:90%"></div></div><span class="v">9</span></div>
+<div class="bar"><span class="l">受众规模</span><div class="bg"><div class="f audience" style="width:90%"></div></div><span class="v">9</span></div>
+<div class="bar"><span class="l">实现难度</span><div class="bg"><div class="f diff" style="width:50%"></div></div><span class="v">5</span></div>
+</div></div>
+<div class="insight"><h4>💡 需求洞察</h4><p>家庭购物是高频刚需，现有工具（AnyList等）仅做清单，缺少比价和智能推荐。结合本地超市价格数据可形成壁垒。</p></div>
+</div>
+<div class="card">
+<div class="hd"><span class="num">4</span><span class="sc">8.3</span></div>
+<h3 class="ti">老人用药提醒+健康监测简化版<span class="badge app">📱 原生APP</span></h3>
+<p class="ds">老人需要简单到极致的用药提醒工具。现有App对老人来说太复杂。需要大字体、语音提醒、子女远程监控是否按时吃药、异常自动通知。</p>
+<div class="source">来源: <a href="https://www.reddit.com/r/AgingParents/comments/1rankqr/i_need_help/">r/AgingParents</a></div>
+<div class="tags"><span class="tag category">👴 老人关怀</span><span class="tag pain">🔥 痛点: 9/10</span><span class="tag freq">🔄 频次: 9/10</span><span class="tag audience">👥 受众: 7/10</span></div>
+<div class="an"><div class="an-ti">四维评分</div><div class="bars">
+<div class="bar"><span class="l">痛点强度</span><div class="bg"><div class="f pain" style="width:90%"></div></div><span class="v">9</span></div>
+<div class="bar"><span class="l">需求频次</span><div class="bg"><div class="f freq" style="width:90%"></div></div><span class="v">9</span></div>
+<div class="bar"><span class="l">受众规模</span><div class="bg"><div class="f audience" style="width:70%"></div></div><span class="v">7</span></div>
+<div class="bar"><span class="l">实现难度</span><div class="bg"><div class="f diff" style="width:50%"></div></div><span class="v">5</span></div>
+</div></div>
+<div class="insight"><h4>💡 需求洞察</h4><p>老人漏服药物是重大健康风险。关键痛点不是技术而是「极简交互」——老人只需看到提醒、按一个按钮确认。子女端才需要完整功能。双端设计是核心。</p></div>
+</div>
+<div class="card">
+<div class="hd"><span class="num">5</span><span class="sc">8.0</span></div>
+<h3 class="ti">「聪明大人」- AI生活助理sidekick<span class="badge app">📱 原生APP</span></h3>
+<p class="ds">用户希望有一个能读懂情绪、提醒待办事项、帮助处理生活焦虑的智能助手。不是Siri/Alexa式的语音助手，而是一个理解你生活节奏的AI伙伴。</p>
+<div class="source">来源: <a href="https://www.reddit.com/r/AskReddit/comments/1raj2q3/what_app_do_you_wish_existed_but_doesnt_and_why/">r/AskReddit</a></div>
+<div class="tags"><span class="tag category">💝 情感</span><span class="tag pain">🔥 痛点: 7/10</span><span class="tag freq">🔄 频次: 8/10</span><span class="tag audience">👥 受众: 9/10</span></div>
+<div class="an"><div class="an-ti">四维评分</div><div class="bars">
+<div class="bar"><span class="l">痛点强度</span><div class="bg"><div class="f pain" style="width:70%"></div></div><span class="v">7</span></div>
+<div class="bar"><span class="l">需求频次</span><div class="bg"><div class="f freq" style="width:80%"></div></div><span class="v">8</span></div>
+<div class="bar"><span class="l">受众规模</span><div class="bg"><div class="f audience" style="width:90%"></div></div><span class="v">9</span></div>
+<div class="bar"><span class="l">实现难度</span><div class="bg"><div class="f diff" style="width:80%"></div></div><span class="v">8</span></div>
+</div></div>
+<div class="insight"><h4>💡 需求洞察</h4><p>LLM时代的新机会。现有语音助手是工具型的，用户要的是伴侣型。关键是情绪感知+生活节奏学习。壁垒在于长期记忆和个性化。</p></div>
+</div>
+<div class="card">
+<div class="hd"><span class="num">6</span><span class="sc">8.0</span></div>
+<h3 class="ti">家庭食材管理+菜谱推荐<span class="badge app">📱 原生APP</span></h3>
+<p class="ds">冰箱里有什么食材就推荐什么菜谱，减少食材浪费。能追踪过期日期、自动生成购物清单补缺、根据家庭成员口味偏好推荐。</p>
+<div class="source">来源: <a href="https://www.reddit.com/r/Frugal/comments/1rb0jes/whats_a_frugal_win_that_surprised_you_with_how/">r/Frugal</a></div>
+<div class="tags"><span class="tag category">🧹 家务</span><span class="tag pain">🔥 痛点: 7/10</span><span class="tag freq">🔄 频次: 9/10</span><span class="tag audience">👥 受众: 8/10</span></div>
+<div class="an"><div class="an-ti">四维评分</div><div class="bars">
+<div class="bar"><span class="l">痛点强度</span><div class="bg"><div class="f pain" style="width:70%"></div></div><span class="v">7</span></div>
+<div class="bar"><span class="l">需求频次</span><div class="bg"><div class="f freq" style="width:90%"></div></div><span class="v">9</span></div>
+<div class="bar"><span class="l">受众规模</span><div class="bg"><div class="f audience" style="width:80%"></div></div><span class="v">8</span></div>
+<div class="bar"><span class="l">实现难度</span><div class="bg"><div class="f diff" style="width:50%"></div></div><span class="v">5</span></div>
+</div></div>
+<div class="insight"><h4>💡 需求洞察</h4><p>食材浪费+不知道做什么菜是全球家庭痛点。AI图像识别可拍照识别冰箱食材，结合LLM生成菜谱。高频使用场景，容易养成习惯。</p></div>
+</div>
+<div class="card web">
+<div class="hd"><span class="num">7</span><span class="sc">7.7</span></div>
+<h3 class="ti">远程照护老人协调平台<span class="badge web">🌐 Web网站</span></h3>
+<p class="ds">照护老人的成年子女需要一个协调平台：共享老人医疗信息、分配照护任务、记录用药情况、与医疗机构对接。很多人单独承担照护压力，缺乏家庭成员协作工具。</p>
+<div class="source">来源: <a href="https://www.reddit.com/r/AgingParents/comments/1rb5y8r/caregivers_what_support_do_you_wish_you_had_but/">r/AgingParents</a></div>
+<div class="tags"><span class="tag category">👴 老人关怀</span><span class="tag pain">🔥 痛点: 9/10</span><span class="tag freq">🔄 频次: 7/10</span><span class="tag audience">👥 受众: 7/10</span><span class="tag web">⚡ 可Web实现</span></div>
+<div class="an"><div class="an-ti">四维评分</div><div class="bars">
+<div class="bar"><span class="l">痛点强度</span><div class="bg"><div class="f pain" style="width:90%"></div></div><span class="v">9</span></div>
+<div class="bar"><span class="l">需求频次</span><div class="bg"><div class="f freq" style="width:70%"></div></div><span class="v">7</span></div>
+<div class="bar"><span class="l">受众规模</span><div class="bg"><div class="f audience" style="width:70%"></div></div><span class="v">7</span></div>
+<div class="bar"><span class="l">实现难度</span><div class="bg"><div class="f diff" style="width:60%"></div></div><span class="v">6</span></div>
+</div></div>
+<div class="insight"><h4>💡 需求洞察</h4><p>老龄化社会最大痛点之一。现有产品要么太专业（护理机构用），要么太简单（共享日历）。需要一个专为「远程子女照护者」设计的中间层产品。</p></div>
+</div>
+<div class="card web">
+<div class="hd"><span class="num">8</span><span class="sc">7.7</span></div>
+<h3 class="ti">幼儿教育内容质量评分器<span class="badge web">🌐 Web网站</span></h3>
+<p class="ds">家长在给孩子选择App和视频时完全不知道质量如何。需要一个工具能评估儿童内容的教育价值、广告含量、隐私安全性，给出可信评分。Khan Academy Kids被反复推荐说明好内容稀缺。</p>
+<div class="source">来源: <a href="https://www.reddit.com/r/Parenting/comments/1raqm8y/kid_apps/">r/Parenting</a></div>
+<div class="tags"><span class="tag category">👶 育儿</span><span class="tag pain">🔥 痛点: 7/10</span><span class="tag freq">🔄 频次: 8/10</span><span class="tag audience">👥 受众: 8/10</span><span class="tag web">⚡ 可Web实现</span></div>
+<div class="an"><div class="an-ti">四维评分</div><div class="bars">
+<div class="bar"><span class="l">痛点强度</span><div class="bg"><div class="f pain" style="width:70%"></div></div><span class="v">7</span></div>
+<div class="bar"><span class="l">需求频次</span><div class="bg"><div class="f freq" style="width:80%"></div></div><span class="v">8</span></div>
+<div class="bar"><span class="l">受众规模</span><div class="bg"><div class="f audience" style="width:80%"></div></div><span class="v">8</span></div>
+<div class="bar"><span class="l">实现难度</span><div class="bg"><div class="f diff" style="width:50%"></div></div><span class="v">5</span></div>
+</div></div>
+<div class="insight"><h4>💡 需求洞察</h4><p>儿童数字内容市场鱼龙混杂，家长缺乏可信的评测来源。做一个「儿童App大众点评」，通过家长评分+专家评测形成信任。可延伸到儿童内容电商。</p></div>
+</div>
+<div class="card web">
+<div class="hd"><span class="num">9</span><span class="sc">7.7</span></div>
+<h3 class="ti">防冲动消费拦截器<span class="badge web">🌐 Web网站</span></h3>
+<p class="ds">用户在网购时经常冲动消费，事后后悔。需要一个浏览器插件/App，在点击购买前弹出冷静提醒：显示该物品的「每次使用成本」、30天内是否买过类似物品、月度预算剩余等。</p>
+<div class="source">来源: <a href="https://www.reddit.com/r/Frugal/comments/1raplp3/using_logic_to_avoid_impulse_buys/">r/Frugal</a></div>
+<div class="tags"><span class="tag category">🛒 购物</span><span class="tag pain">🔥 痛点: 7/10</span><span class="tag freq">🔄 频次: 8/10</span><span class="tag audience">👥 受众: 8/10</span><span class="tag web">⚡ 可Web实现</span></div>
+<div class="an"><div class="an-ti">四维评分</div><div class="bars">
+<div class="bar"><span class="l">痛点强度</span><div class="bg"><div class="f pain" style="width:70%"></div></div><span class="v">7</span></div>
+<div class="bar"><span class="l">需求频次</span><div class="bg"><div class="f freq" style="width:80%"></div></div><span class="v">8</span></div>
+<div class="bar"><span class="l">受众规模</span><div class="bg"><div class="f audience" style="width:80%"></div></div><span class="v">8</span></div>
+<div class="bar"><span class="l">实现难度</span><div class="bg"><div class="f diff" style="width:40%"></div></div><span class="v">4</span></div>
+</div></div>
+<div class="insight"><h4>💡 需求洞察</h4><p>冲动消费是全球性问题。现有记账App是事后记录，缺少「事前拦截」。浏览器插件形态开发成本低，可快速验证。与记账App联动是自然延伸。</p></div>
+</div>
+<div class="card web">
+<div class="hd"><span class="num">10</span><span class="sc">7.3</span></div>
+<h3 class="ti">本地低价/免费活动发现器<span class="badge web">🌐 Web网站</span></h3>
+<p class="ds">家庭和个人需要找到身边免费或低价的娱乐活动（社区活动、公园、免费课程、志愿者机会等），但信息分散在各种网站。需要一个聚合本地免费活动信息的平台。</p>
+<div class="source">来源: <a href="https://www.reddit.com/r/Frugal/comments/1rakn6u/need_freedirt_cheap_entertainment_ideas/">r/Frugal</a></div>
+<div class="tags"><span class="tag category">🚗 出行</span><span class="tag pain">🔥 痛点: 6/10</span><span class="tag freq">🔄 频次: 7/10</span><span class="tag audience">👥 受众: 9/10</span><span class="tag web">⚡ 可Web实现</span></div>
+<div class="an"><div class="an-ti">四维评分</div><div class="bars">
+<div class="bar"><span class="l">痛点强度</span><div class="bg"><div class="f pain" style="width:60%"></div></div><span class="v">6</span></div>
+<div class="bar"><span class="l">需求频次</span><div class="bg"><div class="f freq" style="width:70%"></div></div><span class="v">7</span></div>
+<div class="bar"><span class="l">受众规模</span><div class="bg"><div class="f audience" style="width:90%"></div></div><span class="v">9</span></div>
+<div class="bar"><span class="l">实现难度</span><div class="bg"><div class="f diff" style="width:50%"></div></div><span class="v">5</span></div>
+</div></div>
+<div class="insight"><h4>💡 需求洞察</h4><p>信息聚合型产品，开发成本低但运营成本高（需持续更新）。可从一个城市做起验证模式。与本地商家合作推广是自然变现路径。社区UGC可降低内容成本。</p></div>
+</div>
+<div class="card web">
+<div class="hd"><span class="num">11</span><span class="sc">7.0</span></div>
+<h3 class="ti">照护者情感支持社区 - 匿名发泄和互助<span class="badge web">🌐 Web网站</span></h3>
+<p class="ds">照护老人/病人的人普遍存在严重的情绪倦怠，需要一个安全的匿名社区来发泄、互助和获取信息。现有Reddit社区功能有限，需要专业化的照护者支持平台。</p>
+<div class="source">来源: <a href="https://www.reddit.com/r/CaregiverSupport/comments/1raobdj/i_dont_want_to_do_this_anymore/">r/CaregiverSupport</a></div>
+<div class="tags"><span class="tag category">👴 老人关怀</span><span class="tag pain">🔥 痛点: 8/10</span><span class="tag freq">🔄 频次: 7/10</span><span class="tag audience">👥 受众: 6/10</span><span class="tag web">⚡ 可Web实现</span></div>
+<div class="an"><div class="an-ti">四维评分</div><div class="bars">
+<div class="bar"><span class="l">痛点强度</span><div class="bg"><div class="f pain" style="width:80%"></div></div><span class="v">8</span></div>
+<div class="bar"><span class="l">需求频次</span><div class="bg"><div class="f freq" style="width:70%"></div></div><span class="v">7</span></div>
+<div class="bar"><span class="l">受众规模</span><div class="bg"><div class="f audience" style="width:60%"></div></div><span class="v">6</span></div>
+<div class="bar"><span class="l">实现难度</span><div class="bg"><div class="f diff" style="width:40%"></div></div><span class="v">4</span></div>
+</div></div>
+<div class="insight"><h4>💡 需求洞察</h4><p>照护者倦怠是一个被严重忽视的心理健康问题。匹配同类经历的照护者互助，比通用心理咨询更有效。可通过社区+内容+工具三位一体变现。</p></div>
+</div>
+<div class="card">
+<div class="hd"><span class="num">12</span><span class="sc">7.0</span></div>
+<h3 class="ti">亲子关系模式觉察工具<span class="badge app">📱 原生APP</span></h3>
+<p class="ds">很多家长发现自己不知不觉重复了父母的教育模式（包括负面模式）。需要一个工具帮助觉察这些模式：记录亲子冲突场景、AI分析行为模式、提供替代反应建议。</p>
+<div class="source">来源: <a href="https://www.reddit.com/r/Parenting/comments/1rb3vhn/i_didnt_realize_how_much_i_was_repeating_my_mom/">r/Parenting</a></div>
+<div class="tags"><span class="tag category">👶 育儿</span><span class="tag pain">🔥 痛点: 8/10</span><span class="tag freq">🔄 频次: 6/10</span><span class="tag audience">👥 受众: 7/10</span></div>
+<div class="an"><div class="an-ti">四维评分</div><div class="bars">
+<div class="bar"><span class="l">痛点强度</span><div class="bg"><div class="f pain" style="width:80%"></div></div><span class="v">8</span></div>
+<div class="bar"><span class="l">需求频次</span><div class="bg"><div class="f freq" style="width:60%"></div></div><span class="v">6</span></div>
+<div class="bar"><span class="l">受众规模</span><div class="bg"><div class="f audience" style="width:70%"></div></div><span class="v">7</span></div>
+<div class="bar"><span class="l">实现难度</span><div class="bg"><div class="f diff" style="width:70%"></div></div><span class="v">7</span></div>
+</div></div>
+<div class="insight"><h4>💡 需求洞察</h4><p>代际创伤传递是心理学热门话题。将专业心理学工具简化为日常可用的App，帮家长「打断循环」。内容+工具模式，可结合育儿课程变现。</p></div>
+</div>
+</div>
+</section>
+
+<footer>
+<p>🏠 日常需求广场 · 每日更新 · 数据来源 Reddit</p>
+<p style="margin-top:10px">从真实生活需求中发现身边的创业机会</p>
+</footer>
+</div>
+</body>
+</html>

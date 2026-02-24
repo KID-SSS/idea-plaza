@@ -3,190 +3,232 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>用户需求发现 - 需求广场</title>
-<style>
-*{margin:0;padding:0;box-sizing:border-box}body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:linear-gradient(135deg,#0a0a0f,#1a1a2e 50%,#16213e);min-height:100vh;color:#e8e8e8;line-height:1.6}.container{max-width:1400px;margin:0 auto;padding:20px}header{text-align:center;padding:50px 0;border-bottom:1px solid rgba(255,255,255,0.1);margin-bottom:40px}h1{font-size:3rem;background:linear-gradient(90deg,#ff6b6b,#ffd700,#00ff88);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:15px;font-weight:800}.subtitle{color:#888;font-size:1.2rem}.date{color:#ffd700;font-size:0.95rem;margin-top:15px;display:inline-block;background:rgba(255,215,0,0.1);padding:8px 20px;border-radius:20px}.nav-links{margin-top:20px}.nav-links a{color:#00d9ff;text-decoration:none;margin:0 15px;padding:8px 16px;border:1px solid rgba(0,217,255,0.3);border-radius:20px;font-size:0.9rem}.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;margin-bottom:40px}.stat-card{background:rgba(255,255,255,0.02);border-radius:16px;padding:25px;border:1px solid rgba(255,255,255,0.06);text-align:center}.stat-card .number{font-size:2.5rem;font-weight:800;background:linear-gradient(90deg,#ffd700,#ff6b6b);-webkit-background-clip:text;-webkit-text-fill-color:transparent}.stat-card .label{color:#888;font-size:0.9rem;margin-top:8px}.sec{margin-bottom:50px}.sec h2{color:#fff;font-size:1.6rem;margin-bottom:30px;padding-left:15px;border-left:4px solid #ffd700}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(380px,1fr));gap:25px}.card{background:rgba(255,255,255,0.02);border-radius:20px;padding:25px;border:1px solid rgba(255,255,255,0.06);transition:all 0.3s}.card:hover{transform:translateY(-5px)}.card.frontend{border-color:rgba(0,255,136,0.3);background:rgba(0,255,136,0.02)}.hd{display:flex;justify-content:space-between;margin-bottom:15px}.num{background:linear-gradient(135deg,#ffd700,#ff6b6b);color:#0a0a0f;width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-weight:800}.sc{background:rgba(255,215,0,0.15);color:#ffd700;padding:5px 14px;border-radius:20px;font-weight:bold}.ti{font-size:1.25rem;color:#fff;margin-bottom:10px;font-weight:700}.ti a{color:#fff;text-decoration:none}.ds{color:#aaa;margin-bottom:15px;font-size:0.9rem}.source{color:#666;font-size:0.8rem;margin-bottom:15px}.source a{color:#00d9ff}.tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:15px}.tag{padding:5px 12px;border-radius:8px;font-size:0.75rem}.tag.pain{background:rgba(255,107,107,0.15);color:#ff6b6b}.tag.market{background:rgba(0,255,136,0.15);color:#00ff88}.tag.frontend{background:linear-gradient(90deg,rgba(0,255,136,0.2),rgba(0,217,255,0.2));color:#00ff88}.an{background:rgba(0,0,0,0.2);border-radius:14px;padding:15px;margin-bottom:15px}.an-ti{color:#888;font-size:0.75rem;margin-bottom:12px}.bars{display:grid;gap:8px}.bar{display:grid;grid-template-columns:80px 1fr 30px;gap:8px}.bar .l{font-size:0.75rem;color:#aaa}.bar .bg{height:6px;background:rgba(255,255,255,0.1);border-radius:3px}.bar .f{height:100%;border-radius:3px}.bar .f.pain{background:#ff6b6b}.bar .f.market{background:#00ff88}.bar .f.diff{background:#00d9ff}.bar .f.money{background:#ffd700}.bar .v{font-size:0.8rem;color:#fff;font-weight:600;text-align:right}.insight{background:rgba(255,215,0,0.1);padding:12px;border-radius:10px;border-left:3px solid #ffd700;margin-bottom:10px}.insight h4{color:#ffd700;font-size:0.8rem;margin-bottom:5px}.insight p{color:#ccc;font-size:0.85rem}.competitors{background:rgba(168,85,247,0.1);padding:10px;border-radius:10px;border:1px solid rgba(168,85,247,0.2)}.competitors h4{color:#a855f7;font-size:0.75rem;margin-bottom:4px}.competitors p{color:#aaa;font-size:0.8rem}footer{text-align:center;padding:50px 0;margin-top:60px;border-top:1px solid rgba(255,255,255,0.1);color:#666}footer a{color:#00d9ff}@media(max-width:768px){h1{font-size:2rem}.grid{grid-template-columns:1fr}}.badge{display:inline-block;padding:4px 10px;border-radius:6px;font-size:0.7rem;font-weight:600;margin-left:8px}.badge.frontend{background:linear-gradient(90deg,#00ff88,#00d9ff);color:#0a0a0f}
-</style>
+<title>专业需求发现 - 专业需求广场</title>
+<style>*{margin:0;padding:0;box-sizing:border-box}body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:linear-gradient(135deg,#0a0a0f,#1a1a2e 50%,#16213e);min-height:100vh;color:#e8e8e8;line-height:1.6}.container{max-width:1400px;margin:0 auto;padding:20px}header{text-align:center;padding:50px 0;border-bottom:1px solid rgba(255,255,255,0.1);margin-bottom:40px}h1{font-size:3rem;background:linear-gradient(90deg,#ff6b6b,#ffd700,#00ff88);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:15px;font-weight:800}.subtitle{color:#888;font-size:1.2rem}.date{color:#ffd700;font-size:0.95rem;margin-top:15px;display:inline-block;background:rgba(255,215,0,0.1);padding:8px 20px;border-radius:20px}.nav-links{margin-top:20px}.nav-links a{color:#00d9ff;text-decoration:none;margin:0 15px;padding:8px 16px;border:1px solid rgba(0,217,255,0.3);border-radius:20px;font-size:0.9rem}.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;margin-bottom:40px}.stat-card{background:rgba(255,255,255,0.02);border-radius:16px;padding:25px;border:1px solid rgba(255,255,255,0.06);text-align:center}.stat-card .number{font-size:2.5rem;font-weight:800;background:linear-gradient(90deg,#ffd700,#ff6b6b);-webkit-background-clip:text;-webkit-text-fill-color:transparent}.stat-card .label{color:#888;font-size:0.9rem;margin-top:8px}.sec{margin-bottom:50px}.sec h2{color:#fff;font-size:1.6rem;margin-bottom:30px;padding-left:15px;border-left:4px solid #ffd700}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(380px,1fr));gap:25px}.card{background:rgba(255,255,255,0.02);border-radius:20px;padding:25px;border:1px solid rgba(255,255,255,0.06);transition:all 0.3s}.card:hover{transform:translateY(-5px)}.card.frontend{border-color:rgba(0,255,136,0.3);background:rgba(0,255,136,0.02)}.hd{display:flex;justify-content:space-between;margin-bottom:15px}.num{background:linear-gradient(135deg,#ffd700,#ff6b6b);color:#0a0a0f;width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-weight:800}.sc{background:rgba(255,215,0,0.15);color:#ffd700;padding:5px 14px;border-radius:20px;font-weight:bold}.ti{font-size:1.25rem;color:#fff;margin-bottom:10px;font-weight:700}.ti a{color:#fff;text-decoration:none}.ds{color:#aaa;margin-bottom:15px;font-size:0.9rem}.source{color:#666;font-size:0.8rem;margin-bottom:15px}.source a{color:#00d9ff}.tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:15px}.tag{padding:5px 12px;border-radius:8px;font-size:0.75rem}.tag.pain{background:rgba(255,107,107,0.15);color:#ff6b6b}.tag.market{background:rgba(0,255,136,0.15);color:#00ff88}.tag.frontend{background:linear-gradient(90deg,rgba(0,255,136,0.2),rgba(0,217,255,0.2));color:#00ff88}.an{background:rgba(0,0,0,0.2);border-radius:14px;padding:15px;margin-bottom:15px}.an-ti{color:#888;font-size:0.75rem;margin-bottom:12px}.bars{display:grid;gap:8px}.bar{display:grid;grid-template-columns:80px 1fr 30px;gap:8px}.bar .l{font-size:0.75rem;color:#aaa}.bar .bg{height:6px;background:rgba(255,255,255,0.1);border-radius:3px}.bar .f{height:100%;border-radius:3px}.bar .f.pain{background:#ff6b6b}.bar .f.market{background:#00ff88}.bar .f.diff{background:#00d9ff}.bar .f.money{background:#ffd700}.bar .v{font-size:0.8rem;color:#fff;font-weight:600;text-align:right}.insight{background:rgba(255,215,0,0.1);padding:12px;border-radius:10px;border-left:3px solid #ffd700;margin-bottom:10px}.insight h4{color:#ffd700;font-size:0.8rem;margin-bottom:5px}.insight p{color:#ccc;font-size:0.85rem}.competitors{background:rgba(168,85,247,0.1);padding:10px;border-radius:10px;border:1px solid rgba(168,85,247,0.2)}.competitors h4{color:#a855f7;font-size:0.75rem;margin-bottom:4px}.competitors p{color:#aaa;font-size:0.8rem}footer{text-align:center;padding:50px 0;margin-top:60px;border-top:1px solid rgba(255,255,255,0.1);color:#666}footer a{color:#00d9ff}@media(max-width:768px){h1{font-size:2rem}.grid{grid-template-columns:1fr}}.badge{display:inline-block;padding:4px 10px;border-radius:6px;font-size:0.7rem;font-weight:600;margin-left:8px}.badge.frontend{background:linear-gradient(90deg,#00ff88,#00d9ff);color:#0a0a0f}.badge.app{background:linear-gradient(90deg,#ff6b6b,#ffd700);color:#0a0a0f}.badge.both{background:linear-gradient(90deg,#a855f7,#00d9ff);color:#fff}</style>
 </head>
 <body>
 <div class="container">
 <header>
-<h1>🎯 用户需求发现</h1>
+<h1>🎯 专业需求发现</h1>
 <p class="subtitle">从Reddit挖掘真实用户痛点 · 发现创业机会</p>
-<p class="date">📅 2026-02-10 · 周二 · 今日发现 9 个需求</p>
+<p class="date">📅 2026-02-24 · 周二 · 今日发现 13 个需求</p>
 <div class="nav-links">
 <a href="/">🏠 广场中心</a>
-<a href="/all-demands.html">📋 全部需求</a>
-<a href="/archive/demands/">🗂️ 需求归档</a>
+<a href="/all-demands.html">📋 全部专业需求</a>
+<a href="/archive/demands/">🗂️ 专业需求归档</a>
 </div>
 </header>
 
 <div class="stats">
-<div class="stat-card"><div class="number">9</div><div class="label">今日新增需求</div></div>
-<div class="stat-card"><div class="number">5</div><div class="label">⚡ 纯前端可实现</div></div>
-<div class="stat-card"><div class="number">8.0</div><div class="label">平均痛点强度</div></div>
-<div class="stat-card"><div class="number">7.6</div><div class="label">平均变现潜力</div></div>
+<div class="stat-card"><div class="number">13</div><div class="label">今日需求</div></div>
+<div class="stat-card"><div class="number">8</div><div class="label">可Web实现</div></div>
+<div class="stat-card"><div class="number">7.6</div><div class="label">平均痛点</div></div>
 </div>
+
 <section class="sec">
-<h2>⚡ 高优先级 - 纯前端可实现</h2>
+<h2>📋 需求详情（13个）</h2>
 <div class="grid">
-
 <div class="card frontend">
-<div class="hd"><div class="num">1</div><div class="sc">8.8</div></div>
-<h3 class="ti"><a href="https://www.reddit.com/r/AppIdeas/comments/1r02hgz/turn_app_screenshots_into_a_promo_video/" target="_blank">App截图转宣传视频工具</a> <span class="badge frontend">🌐 Web</span></h3>
-<p class="ds">将App Store截图自动转换成宣传视频，只需几次点击即可生成专业的营销视频。底层使用Remotion，包含可视化编辑器。</p>
-<p class="source">来源: <a href="https://www.reddit.com/r/AppIdeas/" target="_blank">r/AppIdeas</a></p>
-<div class="tags"><span class="tag frontend">🌐 Web</span><span class="tag pain">高痛点</span><span class="tag market">大市场</span></div>
-<div class="an"><div class="an-ti">需求分析</div><div class="bars">
+<div class="hd"><span class="num">1</span><span class="sc">8.7</span></div>
+<h3 class="ti">小团队轻量 LMS — 告别企业级定价陷阱<span class="badge frontend">🌐 Web网站</span></h3>
+<p class="ds">12人小公司唯一的培训负责人吐槽：所有 LMS（学习管理系统）都按大企业定价，最低也要数百美元/月。他只需要简单的课程发布、进度追踪和测验功能。</p>
+<div class="source">来源: <a href="https://www.reddit.com/r/Entrepreneur/comments/1rcgtse/solo_ld_at_a_small_company_why_are_all_lms/">r/Entrepreneur</a></div>
+<div class="tags"><span class="tag pain">🔥 痛点: 9/10</span><span class="tag market">📈 市场: 8/10</span><span class="tag frontend">⚡ 可前端实现</span></div>
+<div class="an"><div class="an-ti">四维评分</div><div class="bars">
 <div class="bar"><span class="l">痛点强度</span><div class="bg"><div class="f pain" style="width:90%"></div></div><span class="v">9</span></div>
-<div class="bar"><span class="l">市场规模</span><div class="bg"><div class="f market" style="width:85%"></div></div><span class="v">8.5</span></div>
-<div class="bar"><span class="l">实现难度</span><div class="bg"><div class="f diff" style="width:50%"></div></div><span class="v">5</span></div>
-<div class="bar"><span class="l">变现潜力</span><div class="bg"><div class="f money" style="width:85%"></div></div><span class="v">8.5</span></div>
-</div></div>
-<div class="insight"><h4>💡 产品洞察</h4><p>使用 Remotion/FFmpeg.wasm 纯前端生成视频。提供多种动画模板。支持导出多种尺寸。</p></div>
-<div class="competitors"><h4>🏷️ 竞品</h4><p>Rotato、AppLaunchpad需付费订阅且复杂。简单一键生成工具有市场空间。</p></div>
-</div>
-
-<div class="card frontend">
-<div class="hd"><div class="num">2</div><div class="sc">8.5</div></div>
-<h3 class="ti"><a href="https://www.reddit.com/r/Entrepreneur/comments/1r0bray/i_built_an_app_that_turns_screenshots_into_tasks/" target="_blank">截图转任务清单工具</a> <span class="badge frontend">🌐 Web</span></h3>
-<p class="ds">用户经常截图保存待办事项但容易遗忘。这个工具可以识别截图内容，自动提取任务并创建待办清单。</p>
-<p class="source">来源: <a href="https://www.reddit.com/r/Entrepreneur/" target="_blank">r/Entrepreneur</a></p>
-<div class="tags"><span class="tag frontend">🌐 Web</span><span class="tag pain">高痛点</span><span class="tag market">大市场</span></div>
-<div class="an"><div class="an-ti">需求分析</div><div class="bars">
-<div class="bar"><span class="l">痛点强度</span><div class="bg"><div class="f pain" style="width:85%"></div></div><span class="v">8.5</span></div>
-<div class="bar"><span class="l">市场规模</span><div class="bg"><div class="f market" style="width:90%"></div></div><span class="v">9</span></div>
-<div class="bar"><span class="l">实现难度</span><div class="bg"><div class="f diff" style="width:45%"></div></div><span class="v">4.5</span></div>
-<div class="bar"><span class="l">变现潜力</span><div class="bg"><div class="f money" style="width:80%"></div></div><span class="v">8</span></div>
-</div></div>
-<div class="insight"><h4>💡 产品洞察</h4><p>结合OCR和AI提取任务。PWA支持离线使用。可做成浏览器扩展一键截图识别。</p></div>
-<div class="competitors"><h4>🏷️ 竞品</h4><p>Google Keep有OCR但不智能提取任务。专门的截图转任务工具是空白。</p></div>
-</div>
-
-<div class="card frontend">
-<div class="hd"><div class="num">3</div><div class="sc">8.2</div></div>
-<h3 class="ti"><a href="https://www.reddit.com/r/AppIdeas/comments/1r01ej6/teleprompter_idea_keep_your_eyes_fixed_instead_of/" target="_blank">智能定点提词器</a> <span class="badge frontend">🌐 Web</span></h3>
-<p class="ds">传统提词器文字滚动导致眼神飘忽。新概念：文字出现在摄像头附近的固定位置，眼神始终看向镜头。</p>
-<p class="source">来源: <a href="https://www.reddit.com/r/AppIdeas/" target="_blank">r/AppIdeas</a></p>
-<div class="tags"><span class="tag frontend">🌐 Web</span><span class="tag pain">中高痛点</span></div>
-<div class="an"><div class="an-ti">需求分析</div><div class="bars">
-<div class="bar"><span class="l">痛点强度</span><div class="bg"><div class="f pain" style="width:80%"></div></div><span class="v">8</span></div>
-<div class="bar"><span class="l">市场规模</span><div class="bg"><div class="f market" style="width:75%"></div></div><span class="v">7.5</span></div>
-<div class="bar"><span class="l">实现难度</span><div class="bg"><div class="f diff" style="width:30%"></div></div><span class="v">3</span></div>
-<div class="bar"><span class="l">变现潜力</span><div class="bg"><div class="f money" style="width:75%"></div></div><span class="v">7.5</span></div>
-</div></div>
-<div class="insight"><h4>💡 产品洞察</h4><p>纯前端Canvas实现。关键是逐词/逐句出现在固定位置。可结合语音识别自动翻页。</p></div>
-<div class="competitors"><h4>🏷️ 竞品</h4><p>PromptSmart、BigVu是滚动式。定点式是全新概念，差异化明显。</p></div>
-</div>
-
-<div class="card frontend">
-<div class="hd"><div class="num">4</div><div class="sc">7.8</div></div>
-<h3 class="ti"><a href="https://www.reddit.com/r/smallbusiness/comments/1r0h1tk/how_do_you_handle_the_data_cleaningreformatting/" target="_blank">小企业数据清洗工具</a> <span class="badge frontend">🌐 Web</span></h3>
-<p class="ds">小企业主经常要处理各种格式混乱的数据，手动清洗耗时且易出错。需要简单的可视化数据清洗工具。</p>
-<p class="source">来源: <a href="https://www.reddit.com/r/smallbusiness/" target="_blank">r/smallbusiness</a></p>
-<div class="tags"><span class="tag frontend">🌐 Web</span><span class="tag pain">高痛点</span></div>
-<div class="an"><div class="an-ti">需求分析</div><div class="bars">
-<div class="bar"><span class="l">痛点强度</span><div class="bg"><div class="f pain" style="width:85%"></div></div><span class="v">8.5</span></div>
 <div class="bar"><span class="l">市场规模</span><div class="bg"><div class="f market" style="width:80%"></div></div><span class="v">8</span></div>
-<div class="bar"><span class="l">实现难度</span><div class="bg"><div class="f diff" style="width:40%"></div></div><span class="v">4</span></div>
-<div class="bar"><span class="l">变现潜力</span><div class="bg"><div class="f money" style="width:75%"></div></div><span class="v">7.5</span></div>
-</div></div>
-<div class="insight"><h4>💡 产品洞察</h4><p>使用SheetJS处理Excel/CSV。提供常用清洗模板。数据本地处理保护隐私。</p></div>
-<div class="competitors"><h4>🏷️ 竞品</h4><p>OpenRefine功能强但复杂。简单可视化的清洗工具有需求。</p></div>
-</div>
-
-<div class="card frontend">
-<div class="hd"><div class="num">5</div><div class="sc">7.5</div></div>
-<h3 class="ti"><a href="https://www.reddit.com/r/smallbusiness/comments/1r0dto9/ill_review_your_social_media_profile_for_free/" target="_blank">社交媒体发帖时间优化器</a> <span class="badge frontend">🌐 Web</span></h3>
-<p class="ds">天天发帖但互动寥寥？工具分析最佳发帖时间，结合行业数据给出优化建议，提升内容曝光率。</p>
-<p class="source">来源: <a href="https://www.reddit.com/r/smallbusiness/" target="_blank">r/smallbusiness</a></p>
-<div class="tags"><span class="tag frontend">🌐 Web</span><span class="tag market">大市场</span></div>
-<div class="an"><div class="an-ti">需求分析</div><div class="bars">
-<div class="bar"><span class="l">痛点强度</span><div class="bg"><div class="f pain" style="width:75%"></div></div><span class="v">7.5</span></div>
-<div class="bar"><span class="l">市场规模</span><div class="bg"><div class="f market" style="width:90%"></div></div><span class="v">9</span></div>
-<div class="bar"><span class="l">实现难度</span><div class="bg"><div class="f diff" style="width:35%"></div></div><span class="v">3.5</span></div>
-<div class="bar"><span class="l">变现潜力</span><div class="bg"><div class="f money" style="width:70%"></div></div><span class="v">7</span></div>
-</div></div>
-<div class="insight"><h4>💡 产品洞察</h4><p>内置各平台最佳发帖时间数据库。用户输入目标受众生成个性化时间表。</p></div>
-<div class="competitors"><h4>🏷️ 竞品</h4><p>Later、Buffer有分析功能但需订阅。独立的免费时间优化工具有市场。</p></div>
-</div>
-
-</div>
-</section>
-<section class="sec">
-<h2>🔧 中优先级 - 需要后端支持</h2>
-<div class="grid">
-
-<div class="card">
-<div class="hd"><div class="num">6</div><div class="sc">8.0</div></div>
-<h3 class="ti"><a href="https://www.reddit.com/r/Entrepreneur/comments/1r01lmo/a_fullstack_developer_close_to_giving_up_on_his/" target="_blank">独立开发者营销指南SaaS</a></h3>
-<p class="ds">全栈开发者能做出产品却不会营销。需要一站式的营销学习平台，系统化指导技术人做营销。</p>
-<p class="source">来源: <a href="https://www.reddit.com/r/Entrepreneur/" target="_blank">r/Entrepreneur</a></p>
-<div class="tags"><span class="tag pain">高痛点</span><span class="tag market">开发者市场</span></div>
-<div class="an"><div class="an-ti">需求分析</div><div class="bars">
-<div class="bar"><span class="l">痛点强度</span><div class="bg"><div class="f pain" style="width:90%"></div></div><span class="v">9</span></div>
-<div class="bar"><span class="l">市场规模</span><div class="bg"><div class="f market" style="width:70%"></div></div><span class="v">7</span></div>
-<div class="bar"><span class="l">实现难度</span><div class="bg"><div class="f diff" style="width:55%"></div></div><span class="v">5.5</span></div>
-<div class="bar"><span class="l">变现潜力</span><div class="bg"><div class="f money" style="width:80%"></div></div><span class="v">8</span></div>
-</div></div>
-<div class="insight"><h4>💡 产品洞察</h4><p>课程+工具包组合。提供营销模板、邮件序列、定价计算器等实用工具。</p></div>
-<div class="competitors"><h4>🏷️ 竞品</h4><p>Indie Hackers社区为主。系统化的营销课程+工具包是空白。</p></div>
-</div>
-
-<div class="card">
-<div class="hd"><div class="num">7</div><div class="sc">7.6</div></div>
-<h3 class="ti"><a href="https://www.reddit.com/r/Entrepreneur/comments/1qzz979/how_to_boost_laptop_sales_in_a_retail_store/" target="_blank">零售店销售提升助手</a></h3>
-<p class="ds">实体零售店销售下滑，店主不知道如何吸引客流和提升转化。需要针对本地零售的营销策略工具。</p>
-<p class="source">来源: <a href="https://www.reddit.com/r/Entrepreneur/" target="_blank">r/Entrepreneur</a></p>
-<div class="tags"><span class="tag market">本地商业</span></div>
-<div class="an"><div class="an-ti">需求分析</div><div class="bars">
-<div class="bar"><span class="l">痛点强度</span><div class="bg"><div class="f pain" style="width:80%"></div></div><span class="v">8</span></div>
-<div class="bar"><span class="l">市场规模</span><div class="bg"><div class="f market" style="width:75%"></div></div><span class="v">7.5</span></div>
 <div class="bar"><span class="l">实现难度</span><div class="bg"><div class="f diff" style="width:50%"></div></div><span class="v">5</span></div>
-<div class="bar"><span class="l">变现潜力</span><div class="bg"><div class="f money" style="width:70%"></div></div><span class="v">7</span></div>
+<div class="bar"><span class="l">变现潜力</span><div class="bg"><div class="f money" style="width:90%"></div></div><span class="v">9</span></div>
 </div></div>
-<div class="insight"><h4>💡 产品洞察</h4><p>提供本地SEO优化、促销活动模板、客户关系管理等一体化方案。</p></div>
-<div class="competitors"><h4>🏷️ 竞品</h4><p>大多工具面向线上。针对实体店的简易数字化工具有空间。</p></div>
+<div class="insight"><h4>💡 商业洞察</h4><p>中小企业培训是被忽视的蓝海。大厂 LMS 服务臃肿且昂贵，一款按人头/按用量计费的轻量方案（$5-10/人/月）可以切入。先做 Web，自助式获客。</p></div>
+<div class="competitors"><h4>🏷️ 竞品情况</h4><p>TalentLMS、Trainual、Lessonly（均偏贵且功能过重）</p></div>
 </div>
-
-<div class="card">
-<div class="hd"><div class="num">8</div><div class="sc">7.3</div></div>
-<h3 class="ti"><a href="https://www.reddit.com/r/Entrepreneur/comments/1r0kdj0/validated_demand_for_a_wellness_studio_but/" target="_blank">健康工作室数字化转型</a></h3>
-<p class="ds">健康/健身工作室想要远程工作的灵活性，但又需要线下业务收入。需要线上线下结合的运营方案。</p>
-<p class="source">来源: <a href="https://www.reddit.com/r/Entrepreneur/" target="_blank">r/Entrepreneur</a></p>
-<div class="tags"><span class="tag market">健康行业</span></div>
-<div class="an"><div class="an-ti">需求分析</div><div class="bars">
-<div class="bar"><span class="l">痛点强度</span><div class="bg"><div class="f pain" style="width:75%"></div></div><span class="v">7.5</span></div>
-<div class="bar"><span class="l">市场规模</span><div class="bg"><div class="f market" style="width:70%"></div></div><span class="v">7</span></div>
+<div class="card frontend">
+<div class="hd"><span class="num">2</span><span class="sc">8.7</span></div>
+<h3 class="ti">订阅业务数据分析痛点 — 流失预测与收入归因工具<span class="badge frontend">🌐 Web网站</span></h3>
+<p class="ds">自由职业者发现订阅制企业普遍面临数据挑战：无法准确预测客户流失、难以做收入归因分析、缺少直观的 MRR/ARR 仪表盘。现有方案要么太贵要么不够专注。</p>
+<div class="source">来源: <a href="https://www.reddit.com/r/Entrepreneur/comments/1rchjd5/what_data_challenges_in_subscription_businesses/">r/Entrepreneur</a></div>
+<div class="tags"><span class="tag pain">🔥 痛点: 8/10</span><span class="tag market">📈 市场: 9/10</span><span class="tag frontend">⚡ 可前端实现</span></div>
+<div class="an"><div class="an-ti">四维评分</div><div class="bars">
+<div class="bar"><span class="l">痛点强度</span><div class="bg"><div class="f pain" style="width:80%"></div></div><span class="v">8</span></div>
+<div class="bar"><span class="l">市场规模</span><div class="bg"><div class="f market" style="width:90%"></div></div><span class="v">9</span></div>
 <div class="bar"><span class="l">实现难度</span><div class="bg"><div class="f diff" style="width:60%"></div></div><span class="v">6</span></div>
-<div class="bar"><span class="l">变现潜力</span><div class="bg"><div class="f money" style="width:75%"></div></div><span class="v">7.5</span></div>
+<div class="bar"><span class="l">变现潜力</span><div class="bg"><div class="f money" style="width:90%"></div></div><span class="v">9</span></div>
 </div></div>
-<div class="insight"><h4>💡 产品洞察</h4><p>结合预约系统、在线课程、会员管理。提供混合运营模式的最佳实践。</p></div>
-<div class="competitors"><h4>🏷️ 竞品</h4><p>Mindbody、Vagaro功能全但贵。轻量级的混合运营工具有需求。</p></div>
+<div class="insight"><h4>💡 商业洞察</h4><p>SaaS 和订阅经济爆发式增长，但中小订阅企业缺乏 Baremetrics 级别的分析能力。一款自助式、价格亲民的订阅分析仪表盘有明确的 PMF。</p></div>
+<div class="competitors"><h4>🏷️ 竞品情况</h4><p>Baremetrics（$108/月起）、ChartMogul（$100/月起）、ProfitWell（被收购后变贵）</p></div>
 </div>
-
 <div class="card">
-<div class="hd"><div class="num">9</div><div class="sc">6.8</div></div>
-<h3 class="ti"><a href="https://www.reddit.com/r/SomebodyMakeThis/comments/1r0hgv6/popsoda_in_containers_with_soluble_powder_that/" target="_blank">即溶饮料粉概念验证</a></h3>
-<p class="ds">环保饮料概念：不含水的即溶粉末饮料，用户自行加水冲泡。减少运输成本和塑料包装。</p>
-<p class="source">来源: <a href="https://www.reddit.com/r/SomebodyMakeThis/" target="_blank">r/SomebodyMakeThis</a></p>
-<div class="tags"><span class="tag market">环保概念</span></div>
-<div class="an"><div class="an-ti">需求分析</div><div class="bars">
-<div class="bar"><span class="l">痛点强度</span><div class="bg"><div class="f pain" style="width:60%"></div></div><span class="v">6</span></div>
+<div class="hd"><span class="num">3</span><span class="sc">8.3</span></div>
+<h3 class="ti">情境感知提醒 App — 基于蓝牙/GPS/WiFi 而非时间触发<span class="badge app">📱 原生APP</span></h3>
+<p class="ds">用户希望待办提醒不再基于固定时间，而是根据场景自动触发：连接车载蓝牙时提醒加油、到家后提醒取快递、进入超市时弹出购物清单。现有提醒工具都只支持时间维度。</p>
+<div class="source">来源: <a href="https://www.reddit.com/r/AppIdeas/comments/1rcarrs/im_building_a_todo_app_that_reminds_you_based_on/">r/AppIdeas</a></div>
+<div class="tags"><span class="tag pain">🔥 痛点: 9/10</span><span class="tag market">📈 市场: 8/10</span></div>
+<div class="an"><div class="an-ti">四维评分</div><div class="bars">
+<div class="bar"><span class="l">痛点强度</span><div class="bg"><div class="f pain" style="width:90%"></div></div><span class="v">9</span></div>
 <div class="bar"><span class="l">市场规模</span><div class="bg"><div class="f market" style="width:80%"></div></div><span class="v">8</span></div>
 <div class="bar"><span class="l">实现难度</span><div class="bg"><div class="f diff" style="width:70%"></div></div><span class="v">7</span></div>
-<div class="bar"><span class="l">变现潜力</span><div class="bg"><div class="f money" style="width:65%"></div></div><span class="v">6.5</span></div>
+<div class="bar"><span class="l">变现潜力</span><div class="bg"><div class="f money" style="width:80%"></div></div><span class="v">8</span></div>
 </div></div>
-<div class="insight"><h4>💡 产品洞察</h4><p>环保趋势下有市场。可先做MVP验证口感接受度。DTC模式直接触达用户。</p></div>
-<div class="competitors"><h4>🏷️ 竞品</h4><p>Liquid Death走无糖水路线。即溶粉末饮料市场相对空白。</p></div>
+<div class="insight"><h4>💡 商业洞察</h4><p>情境计算是移动端下一个增长点。苹果 Shortcuts 和 IFTTT 虽能部分实现但门槛高，一款开箱即用的情境提醒 App 有很大空间。可通过订阅制变现。</p></div>
+<div class="competitors"><h4>🏷️ 竞品情况</h4><p>IFTTT（复杂）、苹果 Reminders（仅支持地点）、Tasker（Android 极客向）</p></div>
 </div>
-
+<div class="card">
+<div class="hd"><span class="num">4</span><span class="sc">8.0</span></div>
+<h3 class="ti">远程/外勤员工可视化管理平台 — 不侵犯隐私的生产力追踪<span class="badge frontend">🌐 Web网站</span></h3>
+<p class="ds">小企业主管理混合办公团队（办公室 + 外勤）时，完全看不到每日生产力情况。需要轻量的任务进度追踪、GPS 打卡、日报自动化，但不想用侵入式监控软件。</p>
+<div class="source">来源: <a href="https://www.reddit.com/r/smallbusiness/comments/1rca4kp/how_do_you_monitor_remote_or_field_employees/">r/smallbusiness</a></div>
+<div class="tags"><span class="tag pain">🔥 痛点: 8/10</span><span class="tag market">📈 市场: 8/10</span></div>
+<div class="an"><div class="an-ti">四维评分</div><div class="bars">
+<div class="bar"><span class="l">痛点强度</span><div class="bg"><div class="f pain" style="width:80%"></div></div><span class="v">8</span></div>
+<div class="bar"><span class="l">市场规模</span><div class="bg"><div class="f market" style="width:80%"></div></div><span class="v">8</span></div>
+<div class="bar"><span class="l">实现难度</span><div class="bg"><div class="f diff" style="width:60%"></div></div><span class="v">6</span></div>
+<div class="bar"><span class="l">变现潜力</span><div class="bg"><div class="f money" style="width:80%"></div></div><span class="v">8</span></div>
+</div></div>
+<div class="insight"><h4>💡 商业洞察</h4><p>远程管理需求因混合办公模式持续增长。关键差异化在于「透明但不监控」——员工可见自己的数据、经理看汇总视图。可先做 Web 仪表盘 + 移动打卡。</p></div>
+<div class="competitors"><h4>🏷️ 竞品情况</h4><p>Hubstaff、Time Doctor（太侵入）、Monday.com（太通用）</p></div>
+</div>
+<div class="card frontend">
+<div class="hd"><span class="num">5</span><span class="sc">8.0</span></div>
+<h3 class="ti">自动化订单追踪通知 — 消灭「我的快递到哪了？」邮件<span class="badge frontend">🌐 Web网站</span></h3>
+<p class="ds">电商小卖家每天被大量「我的订单在哪里？」邮件淹没。需要自动抓取物流状态、主动推送更新给客户、异常件自动预警的工具，与 Shopify/WooCommerce 集成。</p>
+<div class="source">来源: <a href="https://www.reddit.com/r/smallbusiness/comments/1rcqd5q/how_i_stopped_repetitive_where_is_my_order_emails/">r/smallbusiness</a></div>
+<div class="tags"><span class="tag pain">🔥 痛点: 8/10</span><span class="tag market">📈 市场: 8/10</span><span class="tag frontend">⚡ 可前端实现</span></div>
+<div class="an"><div class="an-ti">四维评分</div><div class="bars">
+<div class="bar"><span class="l">痛点强度</span><div class="bg"><div class="f pain" style="width:80%"></div></div><span class="v">8</span></div>
+<div class="bar"><span class="l">市场规模</span><div class="bg"><div class="f market" style="width:80%"></div></div><span class="v">8</span></div>
+<div class="bar"><span class="l">实现难度</span><div class="bg"><div class="f diff" style="width:50%"></div></div><span class="v">5</span></div>
+<div class="bar"><span class="l">变现潜力</span><div class="bg"><div class="f money" style="width:80%"></div></div><span class="v">8</span></div>
+</div></div>
+<div class="insight"><h4>💡 商业洞察</h4><p>WISMO（Where Is My Order）占电商客服量的 30-50%。一款针对中小卖家的自动追踪+通知工具，按订单量计费，ROI 非常直观。</p></div>
+<div class="competitors"><h4>🏷️ 竞品情况</h4><p>AfterShip（偏贵）、Parcel Panel（功能有限）、Route（退出中国市场）</p></div>
+</div>
+<div class="card frontend">
+<div class="hd"><span class="num">6</span><span class="sc">8.0</span></div>
+<h3 class="ti">小企业 AI 落地咨询/工具平台 — 帮不懂技术的店主用上 AI<span class="badge frontend">🌐 Web网站</span></h3>
+<p class="ds">多个本地小店主和小品牌表示想用 AI 但完全不知道从哪开始。不需要复杂的 AI 基础设施，只需要简单的客服自动回复、社交媒体内容生成、库存预测等即插即用方案。</p>
+<div class="source">来源: <a href="https://www.reddit.com/r/smallbusiness/comments/1rcixv2/struggling_with_ai_need_help/">r/smallbusiness</a></div>
+<div class="tags"><span class="tag pain">🔥 痛点: 7/10</span><span class="tag market">📈 市场: 9/10</span><span class="tag frontend">⚡ 可前端实现</span></div>
+<div class="an"><div class="an-ti">四维评分</div><div class="bars">
+<div class="bar"><span class="l">痛点强度</span><div class="bg"><div class="f pain" style="width:70%"></div></div><span class="v">7</span></div>
+<div class="bar"><span class="l">市场规模</span><div class="bg"><div class="f market" style="width:90%"></div></div><span class="v">9</span></div>
+<div class="bar"><span class="l">实现难度</span><div class="bg"><div class="f diff" style="width:50%"></div></div><span class="v">5</span></div>
+<div class="bar"><span class="l">变现潜力</span><div class="bg"><div class="f money" style="width:80%"></div></div><span class="v">8</span></div>
+</div></div>
+<div class="insight"><h4>💡 商业洞察</h4><p>AI 工具泛滥但小企业不知道选哪个、怎么用。一个垂直化的「AI 工具推荐 + 一键配置」平台，按行业提供模板（餐饮、零售、美容），巨大市场空间。</p></div>
+<div class="competitors"><h4>🏷️ 竞品情况</h4><p>通用 AI 工具（ChatGPT、Jasper）门槛仍高；缺少针对小企业的打包方案</p></div>
+</div>
+<div class="card frontend">
+<div class="hd"><span class="num">7</span><span class="sc">7.7</span></div>
+<h3 class="ti">Colab 替代方案 — 快速稳定的云端 GPU 开发环境<span class="badge frontend">🌐 Web网站</span></h3>
+<p class="ds">用户痛批 Google Colab 在跑 CUDA 和 AI 模型时极度缓慢且不稳定。需要更快的启动速度、稳定的 GPU 连接、更好的依赖管理，以及合理的定价。</p>
+<div class="source">来源: <a href="https://www.reddit.com/r/SomebodyMakeThis/comments/1rc3xsj/colab_is_a_shockingly_bad_product/">r/SomebodyMakeThis</a></div>
+<div class="tags"><span class="tag pain">🔥 痛点: 8/10</span><span class="tag market">📈 市场: 7/10</span><span class="tag frontend">⚡ 可前端实现</span></div>
+<div class="an"><div class="an-ti">四维评分</div><div class="bars">
+<div class="bar"><span class="l">痛点强度</span><div class="bg"><div class="f pain" style="width:80%"></div></div><span class="v">8</span></div>
+<div class="bar"><span class="l">市场规模</span><div class="bg"><div class="f market" style="width:70%"></div></div><span class="v">7</span></div>
+<div class="bar"><span class="l">实现难度</span><div class="bg"><div class="f diff" style="width:80%"></div></div><span class="v">8</span></div>
+<div class="bar"><span class="l">变现潜力</span><div class="bg"><div class="f money" style="width:80%"></div></div><span class="v">8</span></div>
+</div></div>
+<div class="insight"><h4>💡 商业洞察</h4><p>AI 开发者对 Colab 的不满普遍存在。但这是重资产赛道，需要 GPU 集群。可以做轻量切入：优化的 Notebook 界面 + 接入第三方 GPU（Lambda、Vast.ai），赚中间层差价。</p></div>
+<div class="competitors"><h4>🏷️ 竞品情况</h4><p>Google Colab Pro、Paperspace Gradient、Lightning AI、Kaggle Notebooks</p></div>
+</div>
+<div class="card frontend">
+<div class="hd"><span class="num">8</span><span class="sc">7.3</span></div>
+<h3 class="ti">创意验证平台 — 花4小时调研取代4个月无效开发<span class="badge frontend">🌐 Web网站</span></h3>
+<p class="ds">创业者分享：在动手写代码之前，先花几小时在 Reddit/Quora/论坛挖掘用户原话描述痛点，效果远好于发问卷。需要一个工具自动抓取、分类和分析这些用户声音。</p>
+<div class="source">来源: <a href="https://www.reddit.com/r/Entrepreneur/comments/1rcbpc1/before_you_build_anything_spend_4_hours_here/">r/Entrepreneur</a></div>
+<div class="tags"><span class="tag pain">🔥 痛点: 7/10</span><span class="tag market">📈 市场: 8/10</span><span class="tag frontend">⚡ 可前端实现</span></div>
+<div class="an"><div class="an-ti">四维评分</div><div class="bars">
+<div class="bar"><span class="l">痛点强度</span><div class="bg"><div class="f pain" style="width:70%"></div></div><span class="v">7</span></div>
+<div class="bar"><span class="l">市场规模</span><div class="bg"><div class="f market" style="width:80%"></div></div><span class="v">8</span></div>
+<div class="bar"><span class="l">实现难度</span><div class="bg"><div class="f diff" style="width:60%"></div></div><span class="v">6</span></div>
+<div class="bar"><span class="l">变现潜力</span><div class="bg"><div class="f money" style="width:70%"></div></div><span class="v">7</span></div>
+</div></div>
+<div class="insight"><h4>💡 商业洞察</h4><p>验证需求（Validation）是创业第一步，但手动搜索 Reddit 效率低。一款自动抓取社交平台痛点帖子、AI 归类并生成报告的工具，创业者和产品经理都会买单。</p></div>
+<div class="competitors"><h4>🏷️ 竞品情况</h4><p>GummySearch（Reddit 分析，$50/月）、SparkToro（受众研究，偏贵）</p></div>
+</div>
+<div class="card frontend">
+<div class="hd"><span class="num">9</span><span class="sc">7.3</span></div>
+<h3 class="ti">小企业短视频广告编辑平台 — 找到靠谱视频编辑的市场<span class="badge frontend">🌐 Web网站</span></h3>
+<p class="ds">小企业主抱怨很难找到性价比高的视频编辑来制作广告素材。Fiverr 上质量参差不齐，专业工作室又太贵。需要一个专注广告短视频的编辑匹配平台，有作品集审核和标准化交付流程。</p>
+<div class="source">来源: <a href="https://www.reddit.com/r/smallbusiness/comments/1rcaltf/how_do_you_guys_find_video_editors_for_your_ads/">r/smallbusiness</a></div>
+<div class="tags"><span class="tag pain">🔥 痛点: 7/10</span><span class="tag market">📈 市场: 8/10</span><span class="tag frontend">⚡ 可前端实现</span></div>
+<div class="an"><div class="an-ti">四维评分</div><div class="bars">
+<div class="bar"><span class="l">痛点强度</span><div class="bg"><div class="f pain" style="width:70%"></div></div><span class="v">7</span></div>
+<div class="bar"><span class="l">市场规模</span><div class="bg"><div class="f market" style="width:80%"></div></div><span class="v">8</span></div>
+<div class="bar"><span class="l">实现难度</span><div class="bg"><div class="f diff" style="width:60%"></div></div><span class="v">6</span></div>
+<div class="bar"><span class="l">变现潜力</span><div class="bg"><div class="f money" style="width:70%"></div></div><span class="v">7</span></div>
+</div></div>
+<div class="insight"><h4>💡 商业洞察</h4><p>短视频广告是增长最快的营销形式，但中小企业制作成本高。一个垂直化的「广告视频编辑市场」（非通用自由职业平台），可以按项目抽佣 15-20%。</p></div>
+<div class="competitors"><h4>🏷️ 竞品情况</h4><p>Fiverr/Upwork（太通用）、Penji（设计为主）</p></div>
+</div>
+<div class="card">
+<div class="hd"><span class="num">10</span><span class="sc">7.0</span></div>
+<h3 class="ti">游戏化学习闪卡 — 宠物养成 × 知识复习<span class="badge app">📱 原生APP</span></h3>
+<p class="ds">将 Tamagotchi（电子宠物）机制融入闪卡学习：坚持复习→宠物成长获得能量；偷懒→宠物饿肚子。利用社交压力和情感绑定解决学习坚持难题。</p>
+<div class="source">来源: <a href="https://www.reddit.com/r/AppIdeas/comments/1rcf01x/how_good_or_bad_of_an_idea_is_this/">r/AppIdeas</a></div>
+<div class="tags"><span class="tag pain">🔥 痛点: 7/10</span><span class="tag market">📈 市场: 7/10</span></div>
+<div class="an"><div class="an-ti">四维评分</div><div class="bars">
+<div class="bar"><span class="l">痛点强度</span><div class="bg"><div class="f pain" style="width:70%"></div></div><span class="v">7</span></div>
+<div class="bar"><span class="l">市场规模</span><div class="bg"><div class="f market" style="width:70%"></div></div><span class="v">7</span></div>
+<div class="bar"><span class="l">实现难度</span><div class="bg"><div class="f diff" style="width:50%"></div></div><span class="v">5</span></div>
+<div class="bar"><span class="l">变现潜力</span><div class="bg"><div class="f money" style="width:70%"></div></div><span class="v">7</span></div>
+</div></div>
+<div class="insight"><h4>💡 商业洞察</h4><p>Duolingo 的成功证明游戏化学习有效。闪卡+养成是一个精准的切入点，比 Anki 更有趣、比 Duolingo 更通用。可做免费+订阅（解锁更多宠物/自定义内容）。</p></div>
+<div class="competitors"><h4>🏷️ 竞品情况</h4><p>Anki（功能强但无趣）、Quizlet（缺少激励机制）、Duolingo（仅限语言）</p></div>
+</div>
+<div class="card frontend">
+<div class="hd"><span class="num">11</span><span class="sc">7.0</span></div>
+<h3 class="ti">问卷回收率优化工具 — 帮创业者高效获取用户反馈<span class="badge frontend">🌐 Web网站</span></h3>
+<p class="ds">创业者做需求验证时通过问卷收集反馈，但回收率极低。需要一个工具能智能分发问卷到目标人群、提供激励机制（抽奖/积分）、优化问题设计以提高完成率。</p>
+<div class="source">来源: <a href="https://www.reddit.com/r/Entrepreneur/comments/1rca4tm/what_are_the_best_ways_to_get_people_to_fill_out/">r/Entrepreneur</a></div>
+<div class="tags"><span class="tag pain">🔥 痛点: 7/10</span><span class="tag market">📈 市场: 7/10</span><span class="tag frontend">⚡ 可前端实现</span></div>
+<div class="an"><div class="an-ti">四维评分</div><div class="bars">
+<div class="bar"><span class="l">痛点强度</span><div class="bg"><div class="f pain" style="width:70%"></div></div><span class="v">7</span></div>
+<div class="bar"><span class="l">市场规模</span><div class="bg"><div class="f market" style="width:70%"></div></div><span class="v">7</span></div>
+<div class="bar"><span class="l">实现难度</span><div class="bg"><div class="f diff" style="width:50%"></div></div><span class="v">5</span></div>
+<div class="bar"><span class="l">变现潜力</span><div class="bg"><div class="f money" style="width:70%"></div></div><span class="v">7</span></div>
+</div></div>
+<div class="insight"><h4>💡 商业洞察</h4><p>问卷工具多（Typeform、SurveyMonkey），但「分发+回收率优化」是真正痛点。可以做一个带内置面板（respondent panel）的轻量问卷工具，按回收量计费。</p></div>
+<div class="competitors"><h4>🏷️ 竞品情况</h4><p>Typeform、SurveyMonkey（缺少分发）、UserTesting（太贵）</p></div>
+</div>
+<div class="card">
+<div class="hd"><span class="num">12</span><span class="sc">6.7</span></div>
+<h3 class="ti">摄影器材保险登记 App — 序列号/收据/估值一站管理<span class="badge app">📱 原生APP</span></h3>
+<p class="ds">摄影师发现如果相机包被盗，根本拿不出完整的器材序列号和购买凭证。需要一个 App 来扫描/记录器材序列号、拍照存档收据、自动估算当前市场价，方便保险理赔。</p>
+<div class="source">来源: <a href="https://www.reddit.com/r/AppIdeas/comments/1rc8btk/photographers_how_do_you_track_gear_serial/">r/AppIdeas</a></div>
+<div class="tags"><span class="tag pain">🔥 痛点: 7/10</span><span class="tag market">📈 市场: 6/10</span></div>
+<div class="an"><div class="an-ti">四维评分</div><div class="bars">
+<div class="bar"><span class="l">痛点强度</span><div class="bg"><div class="f pain" style="width:70%"></div></div><span class="v">7</span></div>
+<div class="bar"><span class="l">市场规模</span><div class="bg"><div class="f market" style="width:60%"></div></div><span class="v">6</span></div>
+<div class="bar"><span class="l">实现难度</span><div class="bg"><div class="f diff" style="width:40%"></div></div><span class="v">4</span></div>
+<div class="bar"><span class="l">变现潜力</span><div class="bg"><div class="f money" style="width:70%"></div></div><span class="v">7</span></div>
+</div></div>
+<div class="insight"><h4>💡 商业洞察</h4><p>不仅限于摄影师，所有高价值设备用户（音乐人、视频创作者、IT）都有此需求。可以做通用的「贵重物品保险清单」App，OCR 自动识别序列号是亮点功能。</p></div>
+<div class="competitors"><h4>🏷️ 竞品情况</h4><p>Sortly（通用库存管理）、Lenstag（仅镜头，已过时）</p></div>
+</div>
+<div class="card">
+<div class="hd"><span class="num">13</span><span class="sc">6.7</span></div>
+<h3 class="ti">ADHD 友好的健身 App — 专为注意力障碍人群设计<span class="badge app">📱 原生APP</span></h3>
+<p class="ds">用户想做一款自重健身 App，专门为 ADHD 人群优化：更短的组间休息、视觉/声音双重提示防走神、随机化训练计划保持新鲜感、成就系统提供即时多巴胺反馈。</p>
+<div class="source">来源: <a href="https://www.reddit.com/r/AppIdeas/comments/1rcqb59/calisthenics_app_with_features_for_adhd_people/">r/AppIdeas</a></div>
+<div class="tags"><span class="tag pain">🔥 痛点: 7/10</span><span class="tag market">📈 市场: 6/10</span></div>
+<div class="an"><div class="an-ti">四维评分</div><div class="bars">
+<div class="bar"><span class="l">痛点强度</span><div class="bg"><div class="f pain" style="width:70%"></div></div><span class="v">7</span></div>
+<div class="bar"><span class="l">市场规模</span><div class="bg"><div class="f market" style="width:60%"></div></div><span class="v">6</span></div>
+<div class="bar"><span class="l">实现难度</span><div class="bg"><div class="f diff" style="width:50%"></div></div><span class="v">5</span></div>
+<div class="bar"><span class="l">变现潜力</span><div class="bg"><div class="f money" style="width:70%"></div></div><span class="v">7</span></div>
+</div></div>
+<div class="insight"><h4>💡 商业洞察</h4><p>ADHD 人群全球约 5%，健身坚持率远低于普通人。垂直切入「ADHD + 健身」是一个精准的蓝海。可以先做自重训练，再扩展到器械和有氧。</p></div>
+<div class="competitors"><h4>🏷️ 竞品情况</h4><p>通用健身 App（Nike Training、FitBod）均未针对 ADHD 优化</p></div>
+</div>
 </div>
 </section>
 
 <footer>
-<p>数据来源：Reddit · 更新时间：2026-02-10</p>
-<p>需求广场 © 2026 · <a href="/">返回广场中心</a></p>
+<p>🎯 专业需求广场 · 每日更新 · 数据来源 Reddit</p>
+<p style="margin-top:10px">从真实用户需求中发现创业机会</p>
 </footer>
 </div>
 </body>

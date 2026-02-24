@@ -1,0 +1,161 @@
+{
+  "date": "2026-02-24",
+  "demands": [
+    {
+      "title": "情境感知提醒 App — 基于蓝牙/GPS/WiFi 而非时间触发",
+      "desc": "用户希望待办提醒不再基于固定时间，而是根据场景自动触发：连接车载蓝牙时提醒加油、到家后提醒取快递、进入超市时弹出购物清单。现有提醒工具都只支持时间维度。",
+      "form": "📱 原生APP",
+      "pain_score": 9,
+      "market_score": 8,
+      "difficulty": 7,
+      "monetization": 8,
+      "insight": "情境计算是移动端下一个增长点。苹果 Shortcuts 和 IFTTT 虽能部分实现但门槛高，一款开箱即用的情境提醒 App 有很大空间。可通过订阅制变现。",
+      "competitors": "IFTTT（复杂）、苹果 Reminders（仅支持地点）、Tasker（Android 极客向）",
+      "source": "https://www.reddit.com/r/AppIdeas/comments/1rcarrs/im_building_a_todo_app_that_reminds_you_based_on/"
+    },
+    {
+      "title": "小团队轻量 LMS — 告别企业级定价陷阱",
+      "desc": "12人小公司唯一的培训负责人吐槽：所有 LMS（学习管理系统）都按大企业定价，最低也要数百美元/月。他只需要简单的课程发布、进度追踪和测验功能。",
+      "form": "🌐 Web网站",
+      "pain_score": 9,
+      "market_score": 8,
+      "difficulty": 5,
+      "monetization": 9,
+      "insight": "中小企业培训是被忽视的蓝海。大厂 LMS 服务臃肿且昂贵，一款按人头/按用量计费的轻量方案（$5-10/人/月）可以切入。先做 Web，自助式获客。",
+      "competitors": "TalentLMS、Trainual、Lessonly（均偏贵且功能过重）",
+      "source": "https://www.reddit.com/r/Entrepreneur/comments/1rcgtse/solo_ld_at_a_small_company_why_are_all_lms/"
+    },
+    {
+      "title": "订阅业务数据分析痛点 — 流失预测与收入归因工具",
+      "desc": "自由职业者发现订阅制企业普遍面临数据挑战：无法准确预测客户流失、难以做收入归因分析、缺少直观的 MRR/ARR 仪表盘。现有方案要么太贵要么不够专注。",
+      "form": "🌐 Web网站",
+      "pain_score": 8,
+      "market_score": 9,
+      "difficulty": 6,
+      "monetization": 9,
+      "insight": "SaaS 和订阅经济爆发式增长，但中小订阅企业缺乏 Baremetrics 级别的分析能力。一款自助式、价格亲民的订阅分析仪表盘有明确的 PMF。",
+      "competitors": "Baremetrics（$108/月起）、ChartMogul（$100/月起）、ProfitWell（被收购后变贵）",
+      "source": "https://www.reddit.com/r/Entrepreneur/comments/1rchjd5/what_data_challenges_in_subscription_businesses/"
+    },
+    {
+      "title": "远程/外勤员工可视化管理平台 — 不侵犯隐私的生产力追踪",
+      "desc": "小企业主管理混合办公团队（办公室 + 外勤）时，完全看不到每日生产力情况。需要轻量的任务进度追踪、GPS 打卡、日报自动化，但不想用侵入式监控软件。",
+      "form": "🌐📱 两者皆可",
+      "pain_score": 8,
+      "market_score": 8,
+      "difficulty": 6,
+      "monetization": 8,
+      "insight": "远程管理需求因混合办公模式持续增长。关键差异化在于「透明但不监控」——员工可见自己的数据、经理看汇总视图。可先做 Web 仪表盘 + 移动打卡。",
+      "competitors": "Hubstaff、Time Doctor（太侵入）、Monday.com（太通用）",
+      "source": "https://www.reddit.com/r/smallbusiness/comments/1rca4kp/how_do_you_monitor_remote_or_field_employees/"
+    },
+    {
+      "title": "自动化订单追踪通知 — 消灭「我的快递到哪了？」邮件",
+      "desc": "电商小卖家每天被大量「我的订单在哪里？」邮件淹没。需要自动抓取物流状态、主动推送更新给客户、异常件自动预警的工具，与 Shopify/WooCommerce 集成。",
+      "form": "🌐 Web网站",
+      "pain_score": 8,
+      "market_score": 8,
+      "difficulty": 5,
+      "monetization": 8,
+      "insight": "WISMO（Where Is My Order）占电商客服量的 30-50%。一款针对中小卖家的自动追踪+通知工具，按订单量计费，ROI 非常直观。",
+      "competitors": "AfterShip（偏贵）、Parcel Panel（功能有限）、Route（退出中国市场）",
+      "source": "https://www.reddit.com/r/smallbusiness/comments/1rcqd5q/how_i_stopped_repetitive_where_is_my_order_emails/"
+    },
+    {
+      "title": "Colab 替代方案 — 快速稳定的云端 GPU 开发环境",
+      "desc": "用户痛批 Google Colab 在跑 CUDA 和 AI 模型时极度缓慢且不稳定。需要更快的启动速度、稳定的 GPU 连接、更好的依赖管理，以及合理的定价。",
+      "form": "🌐 Web网站",
+      "pain_score": 8,
+      "market_score": 7,
+      "difficulty": 8,
+      "monetization": 8,
+      "insight": "AI 开发者对 Colab 的不满普遍存在。但这是重资产赛道，需要 GPU 集群。可以做轻量切入：优化的 Notebook 界面 + 接入第三方 GPU（Lambda、Vast.ai），赚中间层差价。",
+      "competitors": "Google Colab Pro、Paperspace Gradient、Lightning AI、Kaggle Notebooks",
+      "source": "https://www.reddit.com/r/SomebodyMakeThis/comments/1rc3xsj/colab_is_a_shockingly_bad_product/"
+    },
+    {
+      "title": "摄影器材保险登记 App — 序列号/收据/估值一站管理",
+      "desc": "摄影师发现如果相机包被盗，根本拿不出完整的器材序列号和购买凭证。需要一个 App 来扫描/记录器材序列号、拍照存档收据、自动估算当前市场价，方便保险理赔。",
+      "form": "📱 原生APP",
+      "pain_score": 7,
+      "market_score": 6,
+      "difficulty": 4,
+      "monetization": 7,
+      "insight": "不仅限于摄影师，所有高价值设备用户（音乐人、视频创作者、IT）都有此需求。可以做通用的「贵重物品保险清单」App，OCR 自动识别序列号是亮点功能。",
+      "competitors": "Sortly（通用库存管理）、Lenstag（仅镜头，已过时）",
+      "source": "https://www.reddit.com/r/AppIdeas/comments/1rc8btk/photographers_how_do_you_track_gear_serial/"
+    },
+    {
+      "title": "小企业 AI 落地咨询/工具平台 — 帮不懂技术的店主用上 AI",
+      "desc": "多个本地小店主和小品牌表示想用 AI 但完全不知道从哪开始。不需要复杂的 AI 基础设施，只需要简单的客服自动回复、社交媒体内容生成、库存预测等即插即用方案。",
+      "form": "🌐 Web网站",
+      "pain_score": 7,
+      "market_score": 9,
+      "difficulty": 5,
+      "monetization": 8,
+      "insight": "AI 工具泛滥但小企业不知道选哪个、怎么用。一个垂直化的「AI 工具推荐 + 一键配置」平台，按行业提供模板（餐饮、零售、美容），巨大市场空间。",
+      "competitors": "通用 AI 工具（ChatGPT、Jasper）门槛仍高；缺少针对小企业的打包方案",
+      "source": "https://www.reddit.com/r/smallbusiness/comments/1rcixv2/struggling_with_ai_need_help/"
+    },
+    {
+      "title": "创意验证平台 — 花4小时调研取代4个月无效开发",
+      "desc": "创业者分享：在动手写代码之前，先花几小时在 Reddit/Quora/论坛挖掘用户原话描述痛点，效果远好于发问卷。需要一个工具自动抓取、分类和分析这些用户声音。",
+      "form": "🌐 Web网站",
+      "pain_score": 7,
+      "market_score": 8,
+      "difficulty": 6,
+      "monetization": 7,
+      "insight": "验证需求（Validation）是创业第一步，但手动搜索 Reddit 效率低。一款自动抓取社交平台痛点帖子、AI 归类并生成报告的工具，创业者和产品经理都会买单。",
+      "competitors": "GummySearch（Reddit 分析，$50/月）、SparkToro（受众研究，偏贵）",
+      "source": "https://www.reddit.com/r/Entrepreneur/comments/1rcbpc1/before_you_build_anything_spend_4_hours_here/"
+    },
+    {
+      "title": "游戏化学习闪卡 — 宠物养成 × 知识复习",
+      "desc": "将 Tamagotchi（电子宠物）机制融入闪卡学习：坚持复习→宠物成长获得能量；偷懒→宠物饿肚子。利用社交压力和情感绑定解决学习坚持难题。",
+      "form": "📱 原生APP",
+      "pain_score": 7,
+      "market_score": 7,
+      "difficulty": 5,
+      "monetization": 7,
+      "insight": "Duolingo 的成功证明游戏化学习有效。闪卡+养成是一个精准的切入点，比 Anki 更有趣、比 Duolingo 更通用。可做免费+订阅（解锁更多宠物/自定义内容）。",
+      "competitors": "Anki（功能强但无趣）、Quizlet（缺少激励机制）、Duolingo（仅限语言）",
+      "source": "https://www.reddit.com/r/AppIdeas/comments/1rcf01x/how_good_or_bad_of_an_idea_is_this/"
+    },
+    {
+      "title": "问卷回收率优化工具 — 帮创业者高效获取用户反馈",
+      "desc": "创业者做需求验证时通过问卷收集反馈，但回收率极低。需要一个工具能智能分发问卷到目标人群、提供激励机制（抽奖/积分）、优化问题设计以提高完成率。",
+      "form": "🌐 Web网站",
+      "pain_score": 7,
+      "market_score": 7,
+      "difficulty": 5,
+      "monetization": 7,
+      "insight": "问卷工具多（Typeform、SurveyMonkey），但「分发+回收率优化」是真正痛点。可以做一个带内置面板（respondent panel）的轻量问卷工具，按回收量计费。",
+      "competitors": "Typeform、SurveyMonkey（缺少分发）、UserTesting（太贵）",
+      "source": "https://www.reddit.com/r/Entrepreneur/comments/1rca4tm/what_are_the_best_ways_to_get_people_to_fill_out/"
+    },
+    {
+      "title": "ADHD 友好的健身 App — 专为注意力障碍人群设计",
+      "desc": "用户想做一款自重健身 App，专门为 ADHD 人群优化：更短的组间休息、视觉/声音双重提示防走神、随机化训练计划保持新鲜感、成就系统提供即时多巴胺反馈。",
+      "form": "📱 原生APP",
+      "pain_score": 7,
+      "market_score": 6,
+      "difficulty": 5,
+      "monetization": 7,
+      "insight": "ADHD 人群全球约 5%，健身坚持率远低于普通人。垂直切入「ADHD + 健身」是一个精准的蓝海。可以先做自重训练，再扩展到器械和有氧。",
+      "competitors": "通用健身 App（Nike Training、FitBod）均未针对 ADHD 优化",
+      "source": "https://www.reddit.com/r/AppIdeas/comments/1rcqb59/calisthenics_app_with_features_for_adhd_people/"
+    },
+    {
+      "title": "小企业短视频广告编辑平台 — 找到靠谱视频编辑的市场",
+      "desc": "小企业主抱怨很难找到性价比高的视频编辑来制作广告素材。Fiverr 上质量参差不齐，专业工作室又太贵。需要一个专注广告短视频的编辑匹配平台，有作品集审核和标准化交付流程。",
+      "form": "🌐 Web网站",
+      "pain_score": 7,
+      "market_score": 8,
+      "difficulty": 6,
+      "monetization": 7,
+      "insight": "短视频广告是增长最快的营销形式，但中小企业制作成本高。一个垂直化的「广告视频编辑市场」（非通用自由职业平台），可以按项目抽佣 15-20%。",
+      "competitors": "Fiverr/Upwork（太通用）、Penji（设计为主）",
+      "source": "https://www.reddit.com/r/smallbusiness/comments/1rcaltf/how_do_you_guys_find_video_editors_for_your_ads/"
+    }
+  ]
+}

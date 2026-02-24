@@ -1,0 +1,161 @@
+{
+  "date": "2026-02-24",
+  "life_demands": [
+    {
+      "title": "新手父母家务互助匹配平台",
+      "desc": "有宝宝的新手父母难以兼顾家务和育儿，希望与其他父母组队互助打扫，但缺乏便捷的匹配和协调工具",
+      "category": "育儿",
+      "pain_score": 9,
+      "freq": 8,
+      "audience": 8,
+      "difficulty": 4,
+      "form": "🌐 Web网站",
+      "insight": "新手父母时间碎片化严重，互助模式可降低成本，平台可提供匹配、排班和信任评价功能",
+      "source": "https://www.reddit.com/r/lifehacks/comments/1rcd7bg/if_you_have_a_baby_and_cant_afford_cleaners_team/"
+    },
+    {
+      "title": "儿童行为追踪与正向激励工具",
+      "desc": "家长苦恼于孩子在家和学校的行为问题，传统说教无效，需要可视化的行为追踪和奖励系统来建立好习惯",
+      "category": "育儿",
+      "pain_score": 8,
+      "freq": 9,
+      "audience": 8,
+      "difficulty": 3,
+      "form": "📱 小程序/App",
+      "insight": "行为图表化+游戏化激励对儿童特别有效，家长和老师可同步查看，市场刚需",
+      "source": "https://www.reddit.com/r/Parenting/comments/1rcnmp8/behaviorroutine_chart/"
+    },
+    {
+      "title": "儿童情绪管理互动引导工具",
+      "desc": "3-6岁孩子情绪波动大，家长不知道如何正确引导孩子表达和管理情绪，需要简单易用的引导方案",
+      "category": "育儿",
+      "pain_score": 8,
+      "freq": 8,
+      "audience": 9,
+      "difficulty": 4,
+      "form": "📱 小程序/App",
+      "insight": "情绪管理是儿童发展关键课题，家长普遍缺乏专业方法，互动式工具可降低学习门槛",
+      "source": "https://www.reddit.com/r/Parenting/comments/1rcngwe/what_are_we_doing_about_emotions_and_big_feelings/"
+    },
+    {
+      "title": "Amazon价格历史追踪替代方案",
+      "desc": "Keepa限制免费查询后，消费者急需替代工具来追踪商品价格走势、识别虚假折扣、找到最佳购买时机",
+      "category": "购物",
+      "pain_score": 8,
+      "freq": 9,
+      "audience": 9,
+      "difficulty": 5,
+      "form": "🔌 浏览器插件",
+      "insight": "价格追踪是省钱刚需，Keepa限制后出现市场空白，简洁免费的替代品有巨大用户基础",
+      "source": "https://www.reddit.com/r/Frugal/comments/1rcpe2p/has_anyone_found_a_good_alternative_to_keepa_now/"
+    },
+    {
+      "title": "低预算月度生活开支规划器",
+      "desc": "月收入有限的人需要精细管理每一笔开支（800美元/月），缺乏针对低收入群体的实用预算分配和优化工具",
+      "category": "其他",
+      "pain_score": 9,
+      "freq": 9,
+      "audience": 8,
+      "difficulty": 3,
+      "form": "🌐 Web网站",
+      "insight": "低收入群体对每分钱都很敏感，工具需要极简直观，给出具体的省钱建议而非泛泛而谈",
+      "source": "https://www.reddit.com/r/Frugal/comments/1rcaaub/what_would_you_do_with_800mo_for_daily_living/"
+    },
+    {
+      "title": "车险比价与砍价助手",
+      "desc": "车主普遍感觉车险被宰，但逐家比价耗时费力，需要一键比价和自动谈判建议的工具",
+      "category": "出行",
+      "pain_score": 8,
+      "freq": 7,
+      "audience": 9,
+      "difficulty": 5,
+      "form": "🌐 Web网站",
+      "insight": "车险是高频刚需消费，信息不对称严重，帮用户省几百美元的工具有强烈付费意愿",
+      "source": "https://www.reddit.com/r/Frugal/comments/1rci6h6/frugal_question_how_do_you_avoid_getting_ripped/"
+    },
+    {
+      "title": "旅行中的低成本健康饮食指南",
+      "desc": "出差/旅行时很难找到便宜又健康的饮食选择，需要基于位置的低成本健康餐推荐和自备餐方案",
+      "category": "健康",
+      "pain_score": 7,
+      "freq": 7,
+      "audience": 8,
+      "difficulty": 4,
+      "form": "📱 小程序/App",
+      "insight": "旅行饮食痛点普遍存在，结合地图推荐附近的平价健康餐厅和超市，实用性极强",
+      "source": "https://www.reddit.com/r/Frugal/comments/1rc9uja/help_healthy_meals_for_minimal_cost_while/"
+    },
+    {
+      "title": "痴呆症老人陪伴活动推荐器",
+      "desc": "照护痴呆症老人的家属缺乏适合的互动活动方案，需要根据老人状态推荐简单温和的陪伴活动",
+      "category": "老人关怀",
+      "pain_score": 9,
+      "freq": 8,
+      "audience": 7,
+      "difficulty": 3,
+      "form": "📱 小程序/App",
+      "insight": "全球痴呆症患者数千万，家属照护压力巨大，有针对性的活动建议可大幅提升生活质量",
+      "source": "https://www.reddit.com/r/CaregiverSupport/comments/1rcbiwm/gentle_activities_that_have_helped_with_dementia/"
+    },
+    {
+      "title": "家庭记忆数字化保存工具",
+      "desc": "老人去世后才意识到珍贵记忆没有留存，需要简单的工具帮助记录和保存家人的故事、声音和照片",
+      "category": "老人关怀",
+      "pain_score": 9,
+      "freq": 6,
+      "audience": 8,
+      "difficulty": 4,
+      "form": "📱 小程序/App",
+      "insight": "失去亲人后的遗憾是最深的痛点，工具化降低记录门槛，可结合AI语音转文字和自动整理",
+      "source": "https://www.reddit.com/r/AgingParents/comments/1rcxqlo/i_lost_both_my_grandparents_last_year_it_made_me/"
+    },
+    {
+      "title": "老年父母远程技术支持平台",
+      "desc": "老年父母遇到电视、网络、手机等技术问题总找子女帮忙，子女远程难以指导，需要可视化远程协助工具",
+      "category": "老人关怀",
+      "pain_score": 8,
+      "freq": 9,
+      "audience": 9,
+      "difficulty": 5,
+      "form": "📱 小程序/App",
+      "insight": "几乎每个有老年父母的家庭都有这个痛点，远程屏幕共享+大字体操作指引是刚需",
+      "source": "https://www.reddit.com/r/AgingParents/comments/1rctfec/aitah_for_telling_my_mom_she_needs_to_call_the/"
+    },
+    {
+      "title": "照护者身心健康自助系统",
+      "desc": "长期照护家人的护理者身心俱疲、濒临崩溃，需要情绪疏导、休息提醒和专业资源对接的综合支持系统",
+      "category": "健康",
+      "pain_score": 10,
+      "freq": 8,
+      "audience": 7,
+      "difficulty": 4,
+      "form": "🌐 Web网站",
+      "insight": "照护者倦怠是严重的社会问题，很多人独自承受，一个低门槛的支持平台可以挽救生命",
+      "source": "https://www.reddit.com/r/CaregiverSupport/comments/1rcdkag/update_ventingim_exhausted_and_feel_like_ending/"
+    },
+    {
+      "title": "蔬果新鲜度检测与保存建议",
+      "desc": "买回来的洋葱、水果等经常内部已腐烂但外表正常，消费者需要判断新鲜度和延长保鲜期的实用方法",
+      "category": "家务",
+      "pain_score": 7,
+      "freq": 9,
+      "audience": 9,
+      "difficulty": 3,
+      "form": "📱 小程序/App",
+      "insight": "食物浪费是全球痛点，通过拍照识别+保存建议可帮用户减少浪费，省钱又环保",
+      "source": "https://www.reddit.com/r/mildlyinfuriating/comments/1rc57bx/why_are_like_13_of_the_onions_i_buy_now_rotten_at/"
+    },
+    {
+      "title": "老年人与成年子女同住适应指南",
+      "desc": "老年父母因经济或健康原因需要搬来同住，双方都焦虑如何相处，需要实用的共同生活规划和界限设定指南",
+      "category": "老人关怀",
+      "pain_score": 8,
+      "freq": 7,
+      "audience": 8,
+      "difficulty": 3,
+      "form": "🌐 Web网站",
+      "insight": "多代同住趋势增长，但缺乏系统化指南，涵盖空间规划、经济分摊、隐私界限等实操内容",
+      "source": "https://www.reddit.com/r/AgingParents/comments/1rcl5q2/my_73yo_dad_may_need_to_move_in_with_us_and_im/"
+    }
+  ]
+}

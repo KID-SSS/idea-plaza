@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>全部用户需求 - 创意广场</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 50%, #16213e 100%); min-height: 100vh; color: #e8e8e8; line-height: 1.6; }
+        .container { max-width: 1400px; margin: 0 auto; padding: 20px; }
+        header { text-align: center; padding: 50px 0; border-bottom: 1px solid rgba(255,255,255,0.1); margin-bottom: 40px; }
+        h1 { font-size: 3rem; background: linear-gradient(90deg, #ff6b6b, #ffd700, #00ff88); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 15px; font-weight: 800; }
+        .subtitle { color: #888; font-size: 1.2rem; }
+        .date { color: #ffd700; font-size: 0.95rem; margin-top: 15px; display: inline-block; background: rgba(255,215,0,0.1); padding: 8px 20px; border-radius: 20px; }
+        .nav-links { margin-top: 20px; }
+        .nav-links a { color: #00d9ff; text-decoration: none; margin: 0 15px; padding: 8px 16px; border: 1px solid rgba(0,217,255,0.3); border-radius: 20px; font-size: 0.9rem; }
+        .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-bottom: 40px; }
+        .stat-card { background: rgba(255,255,255,0.02); border-radius: 16px; padding: 25px; border: 1px solid rgba(255,255,255,0.06); text-align: center; }
+        .stat-card .number { font-size: 2.5rem; font-weight: 800; background: linear-gradient(90deg, #ffd700, #ff6b6b); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .stat-card .label { color: #888; font-size: 0.9rem; margin-top: 8px; }
+        .sec { margin-bottom: 50px; }
+        .sec h2 { color: #fff; font-size: 1.6rem; margin-bottom: 30px; padding-left: 15px; border-left: 4px solid #ffd700; }
+        table { width: 100%; border-collapse: collapse; background: rgba(255,255,255,0.02); border-radius: 16px; overflow: hidden; }
+        th, td { padding: 15px; text-align: left; border-bottom: 1px solid rgba(255,255,255,0.06); }
+        th { background: rgba(255,215,0,0.1); color: #ffd700; font-weight: 600; }
+        tr:hover { background: rgba(255,255,255,0.03); }
+        td a { color: #00d9ff; text-decoration: none; }
+        .tag { display: inline-block; padding: 3px 8px; border-radius: 6px; font-size: 0.7rem; }
+        .tag.frontend { background: rgba(0,255,136,0.15); color: #00ff88; }
+        .tag.backend { background: rgba(255,107,107,0.15); color: #ff6b6b; }
+        .tag.app { background: rgba(255,215,0,0.15); color: #ffd700; }
+        .score { background: rgba(255,215,0,0.15); color: #ffd700; padding: 3px 10px; border-radius: 10px; font-weight: bold; font-size: 0.85rem; }
+        footer { text-align: center; padding: 50px 0; margin-top: 60px; border-top: 1px solid rgba(255,255,255,0.1); color: #666; }
+        footer a { color: #00d9ff; }
+        @media (max-width: 768px) { h1 { font-size: 2rem; } table { font-size: 0.85rem; } th, td { padding: 10px; } }
+    </style>
+</head>
+<body>
+<div class="container">
+<header>
+<h1>📋 全部用户需求</h1>
+<p class="subtitle">累计收录的所有 Reddit 用户需求</p>
+<p class="date">📅 最后更新：2026-02-16 · 累计 12 个需求</p>
+<div class="nav-links">
+<a href="/">🏠 广场中心</a>
+<a href="/demands.html">🎯 今日需求</a>
+<a href="/archive/demands/">🗂️ 需求归档</a>
+</div>
+</header>
+
+<div class="stats">
+<div class="stat-card"><div class="number">64</div><div class="label">累计需求总数</div></div>
+<div class="stat-card"><div class="number">30</div><div class="label">⚡ 纯前端可实现</div></div>
+<div class="stat-card"><div class="number">34</div><div class="label">🔧 需后端/原生</div></div>
+<div class="stat-card"><div class="number">7</div><div class="label">📅 收录天数</div></div>
+</div>
+
+<section class="sec">
+<h2>📊 需求列表</h2>
+<table>
+<thead>
+<tr><th>#</th><th>需求名称</th><th>类型</th><th>痛点</th><th>市场</th><th>变现</th><th>综合评分</th><th>来源</th><th>日期</th></tr>
+</thead>
+<tbody>
+<tr><td>64</td><td><a href="https://www.reddit.com/r/SomebodyMakeThis/comments/1r59vfg/a_deadsimple_renters_digital_vault_app_for/" target="_blank">租客数字保险箱</a></td><td><span class="tag frontend">⚡前端</span></td><td>9.2</td><td>9</td><td>8.5</td><td><span class="score">8.8</span></td><td>r/SomebodyMakeThis</td><td>2026-02-16</td></tr>
+<tr><td>63</td><td><a href="https://www.reddit.com/r/smallbusiness/comments/1r5ddak/small_service_business_owners_how_do_you_handle/" target="_blank">漏接电话智能跟进系统</a></td><td><span class="tag backend">🔧后端</span></td><td>9.5</td><td>8.8</td><td>9</td><td><span class="score">8.7</span></td><td>r/smallbusiness</td><td>2026-02-16</td></tr>
+<tr><td>62</td><td><a href="https://www.reddit.com/r/SomebodyMakeThis/comments/1r54pyf/chrome_extension_that_lets_you_rightclick_any/" target="_blank">右键即查翻译搜索扩展</a></td><td><span class="tag frontend">⚡前端</span></td><td>8.5</td><td>9</td><td>8</td><td><span class="score">8.5</span></td><td>r/SomebodyMakeThis</td><td>2026-02-16</td></tr>
+<tr><td>61</td><td><a href="https://www.reddit.com/r/SomebodyMakeThis/comments/1r5d1wu/just_built_an_mp3_qa_app_would_love_feedback/" target="_blank">音频内容AI问答助手</a></td><td><span class="tag backend">🔧后端</span></td><td>8.5</td><td>8.8</td><td>8.5</td><td><span class="score">8.5</span></td><td>r/SomebodyMakeThis</td><td>2026-02-16</td></tr>
+<tr><td>60</td><td><a href="https://www.reddit.com/r/AppIdeas/comments/1r5f9so/save_hours_of_scrolling_i_made_a_free_tool_that/" target="_blank">跨平台商品比价搜索引擎</a></td><td><span class="tag frontend">⚡前端</span></td><td>8.5</td><td>9.2</td><td>8.5</td><td><span class="score">8.3</span></td><td>r/AppIdeas</td><td>2026-02-16</td></tr>
+<tr><td>59</td><td><a href="https://www.reddit.com/r/Entrepreneur/comments/1r53137/looking_for_a_salesfocused_partner_for_a_clinic/" target="_blank">诊所收入回收SaaS</a></td><td><span class="tag backend">🔧后端</span></td><td>8.8</td><td>8</td><td>9</td><td><span class="score">8.3</span></td><td>r/Entrepreneur</td><td>2026-02-16</td></tr>
+<tr><td>58</td><td><a href="https://www.reddit.com/r/SomebodyMakeThis/comments/1r515to/realtime_ai_fps_caster_for_valorant/" target="_blank">AI实时FPS游戏解说员</a></td><td><span class="tag backend">🔧后端</span></td><td>7.8</td><td>8.5</td><td>8.2</td><td><span class="score">8.0</span></td><td>r/SomebodyMakeThis</td><td>2026-02-16</td></tr>
+<tr><td>57</td><td><a href="https://www.reddit.com/r/smallbusiness/comments/1r5ig3x/wfm_for_small_support_team/" target="_blank">小团队排班管理工具</a></td><td><span class="tag frontend">⚡前端</span></td><td>8</td><td>8.2</td><td>7.5</td><td><span class="score">7.8</span></td><td>r/smallbusiness</td><td>2026-02-16</td></tr>
+<tr><td>56</td><td><a href="https://www.reddit.com/r/SomebodyMakeThis/comments/1r3gjmb/assigned_voice_names/" target="_blank">声音指纹识别系统</a></td><td><span class="tag backend">🔧后端</span></td><td>7</td><td>7.5</td><td>8.5</td><td><span class="score">7.8</span></td><td>r/SomebodyMakeThis</td><td>2026-02-14</td></tr>
+<tr><td>55</td><td><a href="https://www.reddit.com/r/smallbusiness/comments/1r3cvbv/i_built_a_free_selfhosted_app_to_track_all_your/" target="_blank">保险单统一管理App</a></td><td><span class="tag app">📱原生</span></td><td>8.5</td><td>8</td><td>8</td><td><span class="score">8.3</span></td><td>r/smallbusiness</td><td>2026-02-14</td></tr>
+<tr><td>54</td><td><a href="https://www.reddit.com/r/AppIdeas/comments/1r3x69w/just_launched_aipowered_soft_skills_trainer/" target="_blank">AI软技能训练App</a></td><td><span class="tag app">📱原生</span></td><td>8.8</td><td>9</td><td>8.5</td><td><span class="score">8.6</span></td><td>r/AppIdeas</td><td>2026-02-14</td></tr>
+<tr><td>53</td><td><a href="https://www.reddit.com/r/SomebodyMakeThis/comments/1r3dpdy/what_is_a_small_daily_annoyance_you_face_that_you/" target="_blank">日常小烦恼解决方案库</a></td><td><span class="tag frontend">⚡前端</span></td><td>8</td><td>8</td><td>8</td><td><span class="score">8.0</span></td><td>r/SomebodyMakeThis</td><td>2026-02-14</td></tr>
+<tr><td>52</td><td><a href="https://www.reddit.com/r/smallbusiness/comments/1r3n628/i_have_a_genuine_pricing_question/" target="_blank">产品定价策略助手</a></td><td><span class="tag frontend">⚡前端</span></td><td>8.5</td><td>8.5</td><td>7.5</td><td><span class="score">8.2</span></td><td>r/smallbusiness</td><td>2026-02-14</td></tr>
+<tr><td>51</td><td><a href="https://www.reddit.com/r/smallbusiness/comments/1r3szs0/how_messy_are_your_books/" target="_blank">小企业账目整理助手</a></td><td><span class="tag frontend">⚡前端</span></td><td>8.8</td><td>9</td><td>8</td><td><span class="score">8.5</span></td><td>r/smallbusiness</td><td>2026-02-14</td></tr>
+<tr><td>50</td><td><a href="https://www.reddit.com/r/AppIdeas/comments/1r3i7qn/tiktok_but_for_developers/" target="_blank">TikTok式开发者学习平台</a></td><td><span class="tag frontend">⚡前端</span></td><td>9</td><td>8.5</td><td>8.5</td><td><span class="score">8.8</span></td><td>r/AppIdeas</td><td>2026-02-14</td></tr>
+<tr><td>49</td><td><a href="https://www.reddit.com/r/SomebodyMakeThis/comments/1r2j8g1/this_looks_like_a_great_opportunity/" target="_blank">视频片段溯源索引工具</a></td><td><span class="tag backend">🔧后端</span></td><td>8.5</td><td>8</td><td>8.5</td><td><span class="score">8.0</span></td><td>r/SomebodyMakeThis</td><td>2026-02-13</td></tr>
+<tr><td>48</td><td><a href="https://www.reddit.com/r/SomebodyMakeThis/comments/1r2iu66/an_ai_tool_that_can_monitor_cctv_cameras_for/" target="_blank">AI监控摄像头智能分析</a></td><td><span class="tag backend">🔧后端</span></td><td>9.5</td><td>8.5</td><td>9</td><td><span class="score">8.5</span></td><td>r/SomebodyMakeThis</td><td>2026-02-13</td></tr>
+<tr><td>47</td><td><a href="https://www.reddit.com/r/SomebodyMakeThis/comments/1r2z9e9/planning_to_open_physiotherapy_clinic/" target="_blank">理疗诊所患者管理系统</a></td><td><span class="tag app">📱原生</span></td><td>8.5</td><td>7.5</td><td>8.5</td><td><span class="score">8.2</span></td><td>r/SomebodyMakeThis</td><td>2026-02-13</td></tr>
+<tr><td>46</td><td><a href="https://www.reddit.com/r/SomebodyMakeThis/comments/1r2tghd/an_ai_app_that_lets_you_try_on_clothes_just_by/" target="_blank">AI虚拟试衣镜</a></td><td><span class="tag app">📱原生</span></td><td>8.5</td><td>9.5</td><td>9</td><td><span class="score">8.7</span></td><td>r/SomebodyMakeThis</td><td>2026-02-13</td></tr>
+<tr><td>45</td><td><a href="https://www.reddit.com/r/smallbusiness/comments/1r2pisz/do_any_of_you_actually_look_at_your_google/" target="_blank">简化版Analytics仪表盘</a></td><td><span class="tag frontend">⚡前端</span></td><td>8.5</td><td>9</td><td>7.5</td><td><span class="score">8.3</span></td><td>r/smallbusiness</td><td>2026-02-13</td></tr>
+<tr><td>44</td><td><a href="https://www.reddit.com/r/smallbusiness/comments/1r2ptsw/is_anyone_elses_architecture_firm_website_feeling/" target="_blank">专业服务网站自动更新器</a></td><td><span class="tag frontend">⚡前端</span></td><td>8.5</td><td>7.5</td><td>9</td><td><span class="score">8.5</span></td><td>r/smallbusiness</td><td>2026-02-13</td></tr>
+<tr><td>43</td><td><a href="https://www.reddit.com/r/smallbusiness/comments/1r2o299/scope_creep_do_you_have_a_system_or_are_you_just/" target="_blank">项目范围蔓延管理器</a></td><td><span class="tag frontend">⚡前端</span></td><td>9</td><td>8.5</td><td>8.5</td><td><span class="score">8.8</span></td><td>r/smallbusiness</td><td>2026-02-13</td></tr>
+<tr><td>42</td><td><a href="https://www.reddit.com/r/SomebodyMakeThis/comments/1r2f75h/built_a_bloat_free_crm/" target="_blank">轻量无臃肿CRM工具</a></td><td><span class="tag frontend">⚡前端</span></td><td>9.5</td><td>9</td><td>8.5</td><td><span class="score">9.0</span></td><td>r/SomebodyMakeThis</td><td>2026-02-13</td></tr>
+<tr><td>41</td><td><a href="https://www.reddit.com/r/smallbusiness/comments/1r1py1f/how_do_you_handle_scaling_operations_without/" target="_blank">小企业规模化运营指南</a></td><td><span class="tag backend">🔧后端</span></td><td>8.5</td><td>8</td><td>8</td><td><span class="score">8.0</span></td><td>r/smallbusiness</td><td>2026-02-12</td></tr>
+<tr><td>40</td><td><a href="https://www.reddit.com/r/Entrepreneur/comments/1r1lyrm/built_an_academic_collaboration_tool_struggling/" target="_blank">学术协作与需求验证平台</a></td><td><span class="tag backend">🔧后端</span></td><td>9</td><td>7.5</td><td>8.5</td><td><span class="score">8.4</span></td><td>r/Entrepreneur</td><td>2026-02-12</td></tr>
+<tr><td>39</td><td><a href="https://www.reddit.com/r/AppIdeas/comments/1r1p3qs/online_sport_minigames_against_friends_idea/" target="_blank">朋友间体育小游戏对战</a></td><td><span class="tag app">📱原生</span></td><td>7.5</td><td>8.5</td><td>8</td><td><span class="score">7.9</span></td><td>r/AppIdeas</td><td>2026-02-12</td></tr>
+<tr><td>38</td><td><a href="https://www.reddit.com/r/AppIdeas/comments/1r25rqb/ngl_for_voice_notes/" target="_blank">匿名语音留言App</a></td><td><span class="tag app">📱原生</span></td><td>8</td><td>8.5</td><td>8</td><td><span class="score">8.3</span></td><td>r/AppIdeas</td><td>2026-02-12</td></tr>
+<tr><td>37</td><td><a href="https://www.reddit.com/r/SomebodyMakeThis/comments/1r22udt/glove_that_acts_like_a_mousestylis/" target="_blank">手势输入智能手套</a></td><td><span class="tag app">📱原生</span></td><td>8.5</td><td>8</td><td>9</td><td><span class="score">8.6</span></td><td>r/SomebodyMakeThis</td><td>2026-02-12</td></tr>
+<tr><td>36</td><td><a href="https://www.reddit.com/r/AppIdeas/comments/1r24dog/if_you_could_have_an_ai_app_that_does_one/" target="_blank">AI单任务专精工具生成器</a></td><td><span class="tag frontend">⚡前端</span></td><td>8</td><td>8</td><td>7.5</td><td><span class="score">7.8</span></td><td>r/AppIdeas</td><td>2026-02-12</td></tr>
+<tr><td>35</td><td><a href="https://www.reddit.com/r/Entrepreneur/comments/1r21tma/made_a_tool_i_use_daily_is_that_enough_to_charge/" target="_blank">个人工具产品化验证器</a></td><td><span class="tag frontend">⚡前端</span></td><td>8.5</td><td>7.5</td><td>8.5</td><td><span class="score">8.2</span></td><td>r/Entrepreneur</td><td>2026-02-12</td></tr>
+<tr><td>34</td><td><a href="https://www.reddit.com/r/smallbusiness/comments/1r24p9o/quick_q_are_you_still_using_multiple_tools_to_run/" target="_blank">线索跟进整合仪表盘</a></td><td><span class="tag frontend">⚡前端</span></td><td>9</td><td>8.5</td><td>8</td><td><span class="score">8.5</span></td><td>r/smallbusiness</td><td>2026-02-12</td></tr>
+<tr><td>33</td><td><a href="https://www.reddit.com/r/SomebodyMakeThis/comments/1r1n9lt/would_you_use_a_travel_tool_that_gives_you_the/" target="_blank">旅行准备一键清单</a></td><td><span class="tag frontend">⚡前端</span></td><td>9</td><td>8.5</td><td>8.5</td><td><span class="score">8.8</span></td><td>r/SomebodyMakeThis</td><td>2026-02-12</td></tr>
+<tr><td>32</td><td><a href="https://www.reddit.com/r/AppIdeas/comments/1r1rhtv/gimmick_or_useful_listen_to_articles_in_reading/" target="_blank">文章智能阅读助手</a></td><td><span class="tag frontend">⚡前端</span></td><td>9.5</td><td>9</td><td>8.5</td><td><span class="score">9.2</span></td><td>r/AppIdeas</td><td>2026-02-12</td></tr>
+<tr><td>31</td><td><a href="https://www.reddit.com/r/smallbusiness/comments/1r1fgnk/ai_tool_for_anomalys_detection/" target="_blank">小企业AI异常检测工具</a></td><td><span class="tag backend">🔧后端</span></td><td>7.5</td><td>8</td><td>7.5</td><td><span class="score">7.5</span></td><td>r/smallbusiness</td><td>2026-02-11</td></tr>
+<tr><td>30</td><td><a href="https://www.reddit.com/r/Entrepreneur/comments/1r0x0f5/shipped_a_b2b_saas_for_small_law_firms_need/" target="_blank">小型律所管理SaaS</a></td><td><span class="tag backend">🔧后端</span></td><td>8</td><td>7</td><td>8.5</td><td><span class="score">7.8</span></td><td>r/Entrepreneur</td><td>2026-02-11</td></tr>
+<tr><td>29</td><td><a href="https://www.reddit.com/r/Entrepreneur/comments/1r12ny2/looking_for_ai_tools_that_can_learn_from_existing/" target="_blank">AI客服知识库学习工具</a></td><td><span class="tag backend">🔧后端</span></td><td>8.5</td><td>8</td><td>8.5</td><td><span class="score">8.0</span></td><td>r/Entrepreneur</td><td>2026-02-11</td></tr>
+<tr><td>28</td><td><a href="https://www.reddit.com/r/Entrepreneur/comments/1r1eb17/need_honest_opinions_from_restaurant_owners_would/" target="_blank">餐厅AI点餐助手</a></td><td><span class="tag backend">🔧后端</span></td><td>8.5</td><td>8.5</td><td>9</td><td><span class="score">8.5</span></td><td>r/Entrepreneur</td><td>2026-02-11</td></tr>
+<tr><td>27</td><td><a href="https://www.reddit.com/r/AppIdeas/comments/1r11z18/peer_to_peer_parking_app/" target="_blank">P2P停车位共享App</a></td><td><span class="tag app">📱原生</span></td><td>9</td><td>8</td><td>8</td><td><span class="score">8.3</span></td><td>r/AppIdeas</td><td>2026-02-11</td></tr>
+<tr><td>26</td><td><a href="https://www.reddit.com/r/AppIdeas/comments/1r1882u/made_a_little_interval_running_app_for_watch/" target="_blank">Apple Watch间歇跑训练App</a></td><td><span class="tag app">📱原生</span></td><td>8.5</td><td>8.5</td><td>9</td><td><span class="score">8.8</span></td><td>r/AppIdeas</td><td>2026-02-11</td></tr>
+<tr><td>25</td><td><a href="https://www.reddit.com/r/smallbusiness/comments/1r0tz79/we_were_struggling_with_manual_timesheets/" target="_blank">简易工时表生成器</a></td><td><span class="tag frontend">⚡前端</span></td><td>8.5</td><td>8</td><td>7.5</td><td><span class="score">7.8</span></td><td>r/smallbusiness</td><td>2026-02-11</td></tr>
+<tr><td>24</td><td><a href="https://www.reddit.com/r/AppIdeas/comments/1r11k8a/ai_vibe_coding_tools_are_great_until_you_watch/" target="_blank">AI编程工具费用追踪器</a></td><td><span class="tag frontend">⚡前端</span></td><td>8.5</td><td>7.5</td><td>8</td><td><span class="score">8.2</span></td><td>r/AppIdeas</td><td>2026-02-11</td></tr>
+<tr><td>23</td><td><a href="https://www.reddit.com/r/AppIdeas/comments/1r17kj8/need_feedback_audio_journaling/" target="_blank">语音日记转文字工具</a></td><td><span class="tag frontend">⚡前端</span></td><td>8.5</td><td>8</td><td>8.5</td><td><span class="score">8.5</span></td><td>r/AppIdeas</td><td>2026-02-11</td></tr>
+<tr><td>22</td><td><a href="https://www.reddit.com/r/SomebodyMakeThis/comments/1r0o8hs/adhd_focused_app/" target="_blank">ADHD极简专注App</a></td><td><span class="tag frontend">⚡前端</span></td><td>9.5</td><td>9</td><td>8.5</td><td><span class="score">9.0</span></td><td>r/SomebodyMakeThis</td><td>2026-02-11</td></tr>
+<tr><td>21</td><td><a href="https://www.reddit.com/r/SomebodyMakeThis/comments/1r0hgv6/popsoda_in_containers_with_soluble_powder_that/" target="_blank">即溶饮料粉概念验证</a></td><td><span class="tag backend">🔧后端</span></td><td>6</td><td>8</td><td>6.5</td><td><span class="score">6.8</span></td><td>r/SomebodyMakeThis</td><td>2026-02-10</td></tr>
+<tr><td>20</td><td><a href="https://www.reddit.com/r/Entrepreneur/comments/1r0kdj0/validated_demand_for_a_wellness_studio_but/" target="_blank">健康工作室数字化转型</a></td><td><span class="tag backend">🔧后端</span></td><td>7.5</td><td>7</td><td>7.5</td><td><span class="score">7.3</span></td><td>r/Entrepreneur</td><td>2026-02-10</td></tr>
+<tr><td>19</td><td><a href="https://www.reddit.com/r/Entrepreneur/comments/1qzz979/how_to_boost_laptop_sales_in_a_retail_store/" target="_blank">零售店销售提升助手</a></td><td><span class="tag backend">🔧后端</span></td><td>8</td><td>7.5</td><td>7</td><td><span class="score">7.6</span></td><td>r/Entrepreneur</td><td>2026-02-10</td></tr>
+<tr><td>18</td><td><a href="https://www.reddit.com/r/Entrepreneur/comments/1r01lmo/a_fullstack_developer_close_to_giving_up_on_his/" target="_blank">独立开发者营销指南SaaS</a></td><td><span class="tag backend">🔧后端</span></td><td>9</td><td>7</td><td>8</td><td><span class="score">8.0</span></td><td>r/Entrepreneur</td><td>2026-02-10</td></tr>
+<tr><td>17</td><td><a href="https://www.reddit.com/r/smallbusiness/comments/1r0dto9/ill_review_your_social_media_profile_for_free/" target="_blank">社交媒体发帖时间优化器</a></td><td><span class="tag frontend">⚡前端</span></td><td>7.5</td><td>9</td><td>7</td><td><span class="score">7.5</span></td><td>r/smallbusiness</td><td>2026-02-10</td></tr>
+<tr><td>16</td><td><a href="https://www.reddit.com/r/smallbusiness/comments/1r0h1tk/how_do_you_handle_the_data_cleaningreformatting/" target="_blank">小企业数据清洗工具</a></td><td><span class="tag frontend">⚡前端</span></td><td>8.5</td><td>8</td><td>7.5</td><td><span class="score">7.8</span></td><td>r/smallbusiness</td><td>2026-02-10</td></tr>
+<tr><td>15</td><td><a href="https://www.reddit.com/r/AppIdeas/comments/1r01ej6/teleprompter_idea_keep_your_eyes_fixed_instead_of/" target="_blank">智能定点提词器</a></td><td><span class="tag frontend">⚡前端</span></td><td>8</td><td>7.5</td><td>7.5</td><td><span class="score">8.2</span></td><td>r/AppIdeas</td><td>2026-02-10</td></tr>
+<tr><td>14</td><td><a href="https://www.reddit.com/r/Entrepreneur/comments/1r0bray/i_built_an_app_that_turns

@@ -1,0 +1,261 @@
+#!/usr/bin/env python3
+"""
+从 JSON 数据文件生成 ideas.html 页面
+用法: python3 build_ideas.py ideas_data.json
+AI 只需输出 JSON，本脚本负责渲染 HTML
+"""
+import json
+import sys
+import os
+from datetime import datetime
+
+os.chdir(os.path.dirname(os.path.abspath(__file__)))
+
+# CSS (共用样式，内联)
+CSS = """*{margin:0;padding:0;box-sizing:border-box}body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:linear-gradient(135deg,#0a0a0f 0%,#1a1a2e 50%,#16213e 100%);min-height:100vh;color:#e8e8e8;line-height:1.6}.container{max-width:1400px;margin:0 auto;padding:20px}header{text-align:center;padding:50px 0;border-bottom:1px solid rgba(255,255,255,0.1);margin-bottom:40px}h1{font-size:3rem;background:linear-gradient(90deg,#00d9ff,#00ff88,#ff6b6b);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:15px;font-weight:800}.subtitle{color:#888;font-size:1.2rem}.date{color:#00d9ff;font-size:0.95rem;margin-top:15px;display:inline-block;background:rgba(0,217,255,0.1);padding:8px 20px;border-radius:20px}.legend{background:rgba(255,255,255,0.03);border-radius:16px;padding:25px;margin-bottom:40px;border:1px solid rgba(255,255,255,0.08)}.legend h3{color:#00d9ff;margin-bottom:15px;font-size:1.1rem}.legend-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:15px}.legend-item{display:flex;align-items:center;gap:10px;font-size:0.9rem;color:#aaa}.legend-item .dot{width:12px;height:12px;border-radius:50%}.dot.m{background:#00ff88}.dot.t{background:#00d9ff}.dot.p{background:#ffd700}.dot.c{background:#ff6b6b}.dot.g{background:#a855f7}.badge{display:inline-block;padding:4px 10px;border-radius:6px;font-size:0.7rem;font-weight:600;margin-left:8px}.badge.d{background:linear-gradient(90deg,#00ff88,#00d9ff);color:#0a0a0f}.top{background:linear-gradient(135deg,rgba(0,217,255,0.1) 0%,rgba(0,255,136,0.05) 100%);border-radius:20px;padding:35px;margin-bottom:50px;border:1px solid rgba(0,217,255,0.2)}.top h2{color:#fff;margin-bottom:25px;font-size:1.6rem}.top-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}.tc{background:rgba(0,0,0,0.3);border-radius:16px;padding:25px;border:1px solid rgba(255,255,255,0.1);transition:all 0.3s;position:relative;overflow:hidden}.tc::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#00d9ff,#00ff88)}.tc:hover{transform:translateY(-8px);box-shadow:0 20px 40px rgba(0,217,255,0.15)}.tc .r{font-size:2.5rem;margin-bottom:12px}.tc .n{font-weight:700;color:#fff;font-size:1.1rem;margin-bottom:8px}.tc .s{color:#00ff88;font-size:1.4rem;font-weight:bold;margin-bottom:10px}.tc .re{color:#999;font-size:0.85rem;line-height:1.5}.sec h2{color:#fff;font-size:1.6rem;margin-bottom:30px;padding-left:15px;border-left:4px solid #00ff88}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(380px,1fr));gap:25px}.card{background:rgba(255,255,255,0.02);border-radius:20px;padding:25px;border:1px solid rgba(255,255,255,0.06);transition:all 0.3s}.card:hover{background:rgba(255,255,255,0.04);border-color:rgba(0,217,255,0.2);transform:translateY(-5px)}.card.dp{border-color:rgba(0,255,136,0.3);background:rgba(0,255,136,0.02)}.hd{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:15px}.num{background:linear-gradient(135deg,#00d9ff,#00ff88);color:#0a0a0f;width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-weight:800}.sc{background:rgba(0,255,136,0.15);color:#00ff88;padding:5px 14px;border-radius:20px;font-weight:bold}.ti{font-size:1.25rem;color:#fff;margin-bottom:10px;font-weight:700}.ds{color:#aaa;margin-bottom:15px;font-size:0.9rem;line-height:1.6}.tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:15px}.tag{padding:5px 12px;border-radius:8px;font-size:0.75rem}.tag.u{background:rgba(0,217,255,0.15);color:#00d9ff}.tag.pr{background:rgba(0,255,136,0.15);color:#00ff88}.tag.dp{background:linear-gradient(90deg,rgba(0,255,136,0.2),rgba(0,217,255,0.2));color:#00ff88;border:1px solid rgba(0,255,136,0.3)}.an{background:rgba(0,0,0,0.2);border-radius:14px;padding:15px;margin-bottom:15px}.an-ti{color:#888;font-size:0.75rem;text-transform:uppercase;letter-spacing:1px;margin-bottom:12px}.bars{display:grid;gap:8px}.bar{display:grid;grid-template-columns:80px 1fr 30px;align-items:center;gap:8px}.bar .l{font-size:0.75rem;color:#aaa}.bar .bg{height:6px;background:rgba(255,255,255,0.1);border-radius:3px;overflow:hidden}.bar .f{height:100%;border-radius:3px}.bar .f.m{background:linear-gradient(90deg,#00ff88,#00cc6a)}.bar .f.t{background:linear-gradient(90deg,#00d9ff,#0099cc)}.bar .f.p{background:linear-gradient(90deg,#ffd700,#ffaa00)}.bar .f.c{background:linear-gradient(90deg,#ff6b6b,#ff4444)}.bar .f.g{background:linear-gradient(90deg,#a855f7,#8b5cf6)}.bar .v{font-size:0.8rem;color:#fff;font-weight:600;text-align:right}.dg{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px}.db{background:rgba(255,255,255,0.03);border-radius:10px;padding:10px}.db h4{color:#00d9ff;font-size:0.75rem;margin-bottom:5px}.db p{color:#999;font-size:0.8rem;line-height:1.4}.rec{background:linear-gradient(135deg,rgba(0,255,136,0.1) 0%,rgba(0,217,255,0.05) 100%);padding:12px;border-radius:10px;border-left:3px solid #00ff88;margin-bottom:10px}.rec h4{color:#00ff88;font-size:0.8rem;margin-bottom:5px}.rec p{color:#ccc;font-size:0.85rem;line-height:1.5}.mvp{background:rgba(168,85,247,0.1);padding:10px;border-radius:10px;border:1px solid rgba(168,85,247,0.2);margin-bottom:10px}.mvp h4{color:#a855f7;font-size:0.75rem;margin-bottom:4px}.mvp p{color:#aaa;font-size:0.8rem}.dep{background:linear-gradient(90deg,rgba(0,255,136,0.1),rgba(0,217,255,0.1));padding:10px;border-radius:10px;border:1px dashed rgba(0,255,136,0.3);margin-bottom:10px}.dep h4{color:#00ff88;font-size:0.75rem;margin-bottom:4px}.dep p{color:#aaa;font-size:0.8rem}.src{margin-top:10px;padding-top:10px;border-top:1px solid rgba(255,255,255,0.05)}.src a{color:#666;font-size:0.7rem;text-decoration:none}.src a:hover{color:#00d9ff}footer{text-align:center;padding:50px 0;margin-top:60px;border-top:1px solid rgba(255,255,255,0.1);color:#666}footer a{color:#00d9ff;text-decoration:none}@media(max-width:768px){h1{font-size:2rem}.grid{grid-template-columns:1fr}.dg{grid-template-columns:1fr}}"""
+
+
+def gen_card(idea, idx):
+    """生成单个创意卡片 HTML"""
+    deploy = idea.get("deployable", False)
+    dp_class = ' dp' if deploy else ''
+    badge = ' <span class="badge d">⚡ 可直接部署</span>' if deploy else ''
+
+    # Tags
+    tags_html = f'<span class="tag u">👥 {idea["users"]}</span>'
+    if idea.get("type"):
+        tags_html += f'<span class="tag pr">🌐 {idea["type"]}</span>'
+    if idea.get("platform"):
+        tags_html += f'<span class="tag dp">🚀 {idea["platform"]}</span>'
+
+    # Score bars
+    sc = idea["scores"]
+    dims = [("市场需求", "m"), ("技术可行", "t"), ("变现潜力", "p"), ("竞争优势", "c"), ("增长潜力", "g")]
+    bars = ""
+    for label, key in dims:
+        v = sc.get(key, 0)
+        bars += f'<div class="bar"><span class="l">{label}</span><div class="bg"><div class="f {key}" style="width:{v*10}%"></div></div><span class="v">{v}</span></div>\n'
+
+    # Deploy section
+    dep_html = ""
+    if idea.get("deploy"):
+        dep_html = f'<div class="dep"><h4>⚡ 部署方案</h4><p>{idea["deploy"]}</p></div>'
+
+    # Source subreddit
+    src = idea.get("source", "")
+    src_label = "Reddit"
+    for sub in ["SaaS", "SideProject", "Entrepreneur", "SomebodyMakeThis", "AppIdeas"]:
+        if sub.lower() in src.lower():
+            src_label = f"r/{sub}"
+            break
+
+    return f'''<div class="card{dp_class}">
+<div class="hd"><span class="num">{idx}</span><span class="sc">{idea["score"]}</span></div>
+<h3 class="ti">{idea["title"]}{badge}</h3>
+<p class="ds">{idea["desc"]}</p>
+<div class="tags">{tags_html}</div>
+<div class="an"><div class="an-ti">五维评分</div><div class="bars">
+{bars}</div></div>
+<div class="dg">
+<div class="db"><h4>🎯 目标用户</h4><p>{idea.get("target","")}</p></div>
+<div class="db"><h4>💰 商业模式</h4><p>{idea.get("business","")}</p></div>
+</div>
+<div class="rec"><h4>✅ 推荐理由</h4><p>{idea.get("reason","")}</p></div>
+<div class="mvp"><h4>🛠️ MVP</h4><p>{idea.get("mvp","")}</p></div>
+{dep_html}
+<div class="src"><a href="{src}">📎 来源：{src_label}</a></div>
+</div>'''
+
+
+def build_ideas_html(data, output_path="ideas.html"):
+    """从 JSON 数据生成 ideas.html"""
+    ideas = data.get("ideas", [])
+    date_str = data.get("date", datetime.now().strftime("%Y-%m-%d"))
+    weekday_map = {0:"周一",1:"周二",2:"周三",3:"周四",4:"周五",5:"周六",6:"周日"}
+    try:
+        dt = datetime.strptime(date_str, "%Y-%m-%d")
+        weekday = weekday_map[dt.weekday()]
+    except:
+        weekday = ""
+
+    count = len(ideas)
+
+    # Sort by score desc
+    ideas.sort(key=lambda x: float(x.get("score", 0)), reverse=True)
+
+    # Top 5
+    ranks = ['🥇', '🥈', '🥉', '4️⃣', '5️⃣']
+    top5_html = ""
+    for i, idea in enumerate(ideas[:5]):
+        badge = '<span class="badge d">⚡</span>' if idea.get("deployable") else ''
+        short_desc = idea["desc"][:30] + "..." if len(idea["desc"]) > 30 else idea["desc"]
+        top5_html += f'<div class="tc"><div class="r">{ranks[i]}</div><div class="n">{idea["title"]}{badge}</div><div class="s">{idea["score"]}</div><div class="re">{short_desc}</div></div>\n'
+
+    # All cards
+    cards_html = "\n".join(gen_card(idea, i+1) for i, idea in enumerate(ideas))
+
+    html = f'''<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>创意广场 - Reddit精选产品创意</title>
+<style>{CSS}</style>
+</head>
+<body>
+<div class="container">
+<header>
+<h1>🚀 创意广场</h1>
+<p class="subtitle">Reddit精选产品创意 · 深度分析 · 每日更新</p>
+<p class="date">📅 {date_str} · {weekday} · 收录{count}个创意 · 🔥 优先展示可部署项目</p>
+<div style="margin-top:20px">
+<a href="/" style="color:#fff;text-decoration:none;margin:0 10px;padding:6px 14px;border:1px solid rgba(255,255,255,0.3);border-radius:20px;font-size:0.85rem">🏠 广场中心</a>
+<a href="/all-ideas.html" style="color:#00ff88;text-decoration:none;margin:0 15px;padding:8px 16px;border:1px solid rgba(0,255,136,0.3);border-radius:20px;font-size:0.9rem">📚 全部创意</a>
+<a href="/archive/ideas/" style="color:#00d9ff;text-decoration:none;margin:0 15px;padding:8px 16px;border:1px solid rgba(0,217,255,0.3);border-radius:20px;font-size:0.9rem">🗂️ 历史归档</a>
+</div>
+</header>
+
+<div class="legend">
+<h3>📊 评分说明</h3>
+<div class="legend-grid">
+<div class="legend-item"><span class="dot m"></span> 市场需求</div>
+<div class="legend-item"><span class="dot t"></span> 技术可行</div>
+<div class="legend-item"><span class="dot p"></span> 变现潜力</div>
+<div class="legend-item"><span class="dot c"></span> 竞争优势</div>
+<div class="legend-item"><span class="dot g"></span> 增长潜力</div>
+</div>
+<p style="margin-top:15px;font-size:0.85rem;color:#888"><span class="badge d">⚡ 可直接部署</span> 标记的项目可部署到 Vercel/Cloudflare，无需后端</p>
+</div>
+
+<section class="top">
+<h2>🏆 今日 Top 5</h2>
+<div class="top-grid">
+{top5_html}
+</div>
+</section>
+
+<section class="sec">
+<h2>📋 完整创意分析（{count}个）</h2>
+<div class="grid">
+{cards_html}
+</div>
+</section>
+
+<footer>
+<p>💡 创意广场 · 每日更新 · 数据来源 Reddit</p>
+<p style="margin-top:10px">⚡ 可直接部署 = 纯前端/静态站点，可部署到 Vercel/Cloudflare Pages</p>
+</footer>
+</div>
+</body>
+</html>'''
+
+    with open(output_path, 'w', encoding='utf-8') as f:
+        f.write(html)
+    print(f"✅ Generated {output_path} ({len(html)} bytes, {count} ideas)")
+    return count
+
+
+def append_to_all_ideas(data, all_ideas_path="all-ideas.html"):
+    """将新创意追加到 all-ideas.html（去重）"""
+    ideas = data.get("ideas", [])
+    date_str = data.get("date", datetime.now().strftime("%Y-%m-%d"))
+
+    # 读取现有 all-ideas.html 内容检查去重
+    existing_titles = set()
+    existing_content = ""
+    if os.path.exists(all_ideas_path):
+        with open(all_ideas_path, 'r', encoding='utf-8') as f:
+            existing_content = f.read()
+        # 提取已有标题
+        import re
+        for m in re.finditer(r'class="ti"[^>]*>([^<]+)', existing_content):
+            existing_titles.add(m.group(1).strip().replace('<span class="badge d">⚡ 可直接部署</span>', '').strip())
+
+    # 过滤新创意
+    new_ideas = [i for i in ideas if i["title"].strip() not in existing_titles]
+    if not new_ideas:
+        print(f"ℹ️  No new ideas to add to {all_ideas_path} (all duplicates)")
+        # 返回现有累计数
+        import re
+        m = re.search(r'累计\s*(\d+)\s*个创意', existing_content)
+        return int(m.group(1)) if m else 0
+
+    # 生成新卡片 HTML
+    # 找现有最大编号
+    import re
+    nums = [int(x) for x in re.findall(r'class="num"[^>]*>(\d+)<', existing_content)]
+    start_num = max(nums) + 1 if nums else 1
+
+    new_cards = "\n".join(gen_card(idea, start_num + i) for i, idea in enumerate(new_ideas))
+
+    if existing_content:
+        # 插入新卡片到 grid 末尾（在 </div></section><footer 之前）
+        insert_marker = '</div>\n</section>\n\n<footer'
+        if insert_marker not in existing_content:
+            # 尝试其他格式
+            insert_marker = '</div>\n</section>'
+            parts = existing_content.rsplit(insert_marker, 1)
+            if len(parts) == 2:
+                existing_content = parts[0] + new_cards + "\n" + insert_marker + parts[1]
+        else:
+            existing_content = existing_content.replace(insert_marker, new_cards + "\n" + insert_marker, 1)
+
+        # 更新累计数字
+        total = len(nums) + len(new_ideas)
+        existing_content = re.sub(
+            r'累计\s*\d+\s*个创意',
+            f'累计 {total} 个创意',
+            existing_content
+        )
+        # 也更新标题里的数字
+        existing_content = re.sub(
+            r'收录\s*\d+\s*个创意',
+            f'收录 {total} 个创意',
+            existing_content
+        )
+
+        with open(all_ideas_path, 'w', encoding='utf-8') as f:
+            f.write(existing_content)
+        print(f"✅ Appended {len(new_ideas)} new ideas to {all_ideas_path} (total: {total})")
+        return total
+    else:
+        # 不存在，从头创建
+        data_copy = dict(data)
+        data_copy["ideas"] = new_ideas
+        count = build_ideas_html(data_copy, all_ideas_path)
+        return count
+
+
+if __name__ == "__main__":
+    if len(sys.argv) < 2:
+        print("用法: python3 build_ideas.py <ideas_data.json>")
+        print("")
+        print("JSON 格式:")
+        print(json.dumps({
+            "date": "2026-02-16",
+            "ideas": [{
+                "title": "创意名称",
+                "desc": "一句话描述",
+                "score": 8.5,
+                "deployable": True,
+                "users": "目标用户群",
+                "type": "Web工具",
+                "platform": "Vercel",
+                "target": "详细目标用户",
+                "business": "商业模式",
+                "reason": "推荐理由",
+                "mvp": "MVP路径 | 时间",
+                "deploy": "部署方案（可选）",
+                "source": "https://reddit.com/...",
+                "scores": {"m": 8.5, "t": 9.0, "p": 8.0, "c": 8.5, "g": 8.0}
+            }]
+        }, ensure_ascii=False, indent=2))
+        sys.exit(1)
+
+    json_path = sys.argv[1]
+    with open(json_path, 'r', encoding='utf-8') as f:
+        data = json.load(f)
+
+    build_ideas_html(data)
+    total = append_to_all_ideas(data)
+    print(f"📊 累计创意: {total}")

@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>广场中心 - 部署文档</title>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif; background:linear-gradient(135deg,#0a0a0f,#1a1a2e 50%,#16213e); min-height:100vh; color:#e0e0e0; line-height:1.8; }
+.container { max-width:900px; margin:0 auto; padding:40px 20px; }
+h1 { font-size:2.5rem; background:linear-gradient(90deg,#00d9ff,#00ff88,#ffd700); -webkit-background-clip:text; -webkit-text-fill-color:transparent; margin:30px 0 15px; font-weight:800; }
+h2 { font-size:1.6rem; color:#00ff88; margin:40px 0 15px; padding-left:15px; border-left:4px solid #00d9ff; }
+h3 { font-size:1.2rem; color:#00d9ff; margin:25px 0 10px; }
+p { margin:8px 0; color:#ccc; }
+strong { color:#fff; }
+hr { border:none; border-top:1px solid rgba(255,255,255,0.1); margin:30px 0; }
+blockquote { background:rgba(0,217,255,0.08); border-left:3px solid #00d9ff; padding:12px 20px; border-radius:0 10px 10px 0; margin:15px 0; color:#aaa; }
+table { width:100%; border-collapse:collapse; margin:15px 0; background:rgba(255,255,255,0.02); border-radius:12px; overflow:hidden; }
+th { background:rgba(0,217,255,0.15); color:#00d9ff; padding:12px 15px; text-align:left; font-size:0.9rem; }
+td { padding:10px 15px; border-top:1px solid rgba(255,255,255,0.06); color:#bbb; font-size:0.9rem; }
+tr:hover td { background:rgba(255,255,255,0.03); }
+pre { background:rgba(0,0,0,0.4); border-radius:12px; padding:20px; margin:15px 0; overflow-x:auto; border:1px solid rgba(255,255,255,0.08); }
+code { font-family:'Fira Code',Consolas,monospace; font-size:0.85rem; color:#00ff88; }
+code.inline { background:rgba(0,255,136,0.1); padding:2px 8px; border-radius:4px; }
+ul,ol { margin:10px 0 10px 25px; }
+li { margin:5px 0; color:#bbb; }
+a { color:#00d9ff; text-decoration:none; }
+a:hover { text-decoration:underline; }
+.nav { text-align:center; margin:30px 0; }
+.nav a { display:inline-block; padding:10px 20px; background:rgba(0,217,255,0.1); border:1px solid rgba(0,217,255,0.3); border-radius:20px; margin:5px; color:#00d9ff; }
+.nav a:hover { background:rgba(0,217,255,0.2); text-decoration:none; }
+</style>
+</head>
+<body>
+<div class="container">
+<div class="nav">
+<a href="/">🏠 广场中心</a>
+<a href="/ideas.html">🚀 专业创意</a>
+<a href="/demands.html">🎯 专业需求</a>
+<a href="/life-ideas.html">💡 日常创意</a>
+<a href="/life-demands.html">🏠 日常需求</a>
+</div>
+<h1>广场中心（idea-plaza）完整部署文档</h1>
+<blockquote>一份文档复刻整个项目。复制到新设备后按步骤执行即可。</blockquote>
+<hr>
+<h2>一、项目概览</h2>
+<p><strong>线上地址：</strong> https://idea-plaza.vercel.app</p>
+<p><strong>功能：</strong> 每天自动从 Reddit 抓取创意和需求，分析评分后生成网页，部署到 Vercel。</p>
+<p><strong>4 个广场模块：</strong></p>
+<table><tr><th>模块</th><th>页面</th><th>定位</th><th>数据来源</th></tr>
+<tr><td>🚀 专业创意广场</td><td>ideas.html</td><td>SaaS/技术/产品创意</td><td>r/Entrepreneur, r/SideProject, r/SaaS</td></tr>
+<tr><td>🎯 专业需求广场</td><td>demands.html</td><td>B端/开发者真实痛点</td><td>r/SomebodyMakeThis, r/AppIdeas, r/smallbusiness</td></tr>
+<tr><td>💡 日常创意广场</td><td>life-ideas.html</td><td>普通人生活创意</td><td>r/LifeHacks, r/Parenting, r/AskReddit</td></tr>
+<tr><td>🏠 日常需求广场</td><td>life-demands.html</td><td>普通人日常痛点</td><td>r/LifeHacks, r/Frugal, r/AgingParents</td></tr>
+<hr>
+<h2>二、项目结构</h2>
+<pre><code>idea-plaza/
+├── index.html                  # 广场中心首页（4宫格入口）
+├── ideas.html                  # 今日专业创意
+├── demands.html                # 今日专业需求
+├── life-ideas.html             # 今日日常创意
+├── life-demands.html           # 今日日常需求
+├── all-ideas.html              # 累计专业创意
+├── all-demands.html            # 累计专业需求
+├── all-life-ideas.html         # 累计日常创意
+├── all-life-demands.html       # 累计日常需求
+├── build_ideas.py              # 专业创意+日常创意 HTML 生成器（双模式）
+├── build_demands.py            # 专业需求 HTML 生成器
+├── build_life_demands.py       # 日常需求 HTML 生成器
+├── update-stats.py             # 首页统计数字更新脚本
+├── vercel.json                 # Vercel 部署配置
+├── ideas_data.json             # 今日专业创意数据（AI 生成）
+├── demands_data.json           # 今日专业需求数据（AI 生成）
+├── life_ideas_data.json        # 今日日常创意数据（AI 生成）
+├── life_demands_data.json      # 今日日常需求数据（AI 生成）
+├── all_ideas_data.json         # 累计专业创意 JSON 数据库
+├── all_demands_data.json       # 累计专业需求 JSON 数据库
+├── all_life_ideas_data.json    # 累计日常创意 JSON 数据库
+├── all_life_demands_data.json  # 累计日常需求 JSON 数据库
+└── archive/                    # 每日归档
+    ├── ideas/                  # 专业创意归档
+    ├── demands/                # 专业需求归档
+    ├── life-ideas/             # 日常创意归档
+    └── life-demands/           # 日常需求归档</code></pre>
+<hr>
+<h2>三、核心工作流（每个广场相同）</h2>
+<pre><code>Serper API 搜索 Reddit
+        ↓
+AI 分析筛选 10-15 条
+        ↓
+写入 JSON 数据文件（xxx_data.json）
+        ↓
+Python 脚本生成 HTML（build_xxx.py）
+  - 生成今日页面（xxx.html）
+  - 追加到累计页面（all-xxx.html，自动去重）
+        ↓
+update-stats.py 更新首页统计数字
+        ↓
+vercel --prod --yes 部署
+        ↓
+通知 BOSS（QQBot）</code></pre>
+<hr>
+<h2>四、构建脚本用法</h2>
+<h3>专业创意（双模式）</h3>
+<pre><code># 专业创意（默认）
+python3 build_ideas.py ideas_data.json
+
+# 日常创意
+python3 build_ideas.py life_ideas_data.json life</code></pre>
+<h3>专业需求</h3>
+<pre><code>python3 build_demands.py demands_data.json</code></pre>
+<h3>日常需求</h3>
+<pre><code>python3 build_life_demands.py life_demands_data.json</code></pre>
+<h3>更新首页统计</h3>
+<pre><code>python3 update-stats.py</code></pre>
+<hr>
+<h2>五、JSON 数据格式</h2>
+<h3>创意（专业/日常通用）</h3>
+<pre><code>{
+  "date": "2026-02-22",
+  "ideas": [
+    {
+      "title": "创意名称",
+      "desc": "一句话描述",
+      "score": 8.5,
+      "deployable": true,
+      "users": "目标用户群",
+      "type": "Web工具/SaaS/PWA等",
+      "platform": "Vercel/Cloudflare/null",
+      "target": "详细目标用户",
+      "business": "商业模式",
+      "reason": "推荐理由",
+      "mvp": "MVP路径 | 时间",
+      "deploy": "部署方案（可选，null则不显示）",
+      "source": "https://reddit.com/...",
+      "scores": {"m": 8.5, "t": 9.0, "p": 8.0, "c": 8.5, "g": 8.0}
+    }
+  ]
+}</code></pre>
+<h3>专业需求</h3>
+<pre><code>{
+  "date": "2026-02-22",
+  "demands": [
+    {
+      "title": "需求标题",
+      "desc": "需求描述",
+      "form": "🌐 Web网站",
+      "pain_score": 8,
+      "market_score": 7,
+      "difficulty": 5,
+      "monetization": 8,
+      "insight": "商业洞察",
+      "competitors": "竞品情况",
+      "source": "https://reddit.com/..."
+    }
+  ]
+}</code></pre>
+<h3>日常需求</h3>
+<pre><code>{
+  "date": "2026-02-22",
+  "life_demands": [
+    {
+      "title": "需求标题",
+      "desc": "需求描述",
+      "category": "育儿/健康/家务/出行/宠物/学习/情感/购物/老人关怀/其他",
+      "pain_score": 8,
+      "freq": 9,
+      "audience": 7,
+      "difficulty": 5,
+      "form": "🌐 Web网站",
+      "insight": "为什么这个需求值得做",
+      "source": "https://reddit.com/..."
+    }
+  ]
+}</code></pre>
+<hr>
+<h2>六、依赖与环境</h2>
+<pre><code># 系统要求
+- Python 3.8+（标准库即可，无第三方依赖）
+- Node.js（用于 Vercel CLI）
+- Vercel CLI: npm i -g vercel
+
+# API Keys（需替换为你自己的）
+SERPER_API_KEY=f94aa43a02ef40e2fb90120e27207a04f15042ef
+VERCEL_TOKEN=s7PMWlklhbTM7vnnpPbOIXBB
+
+# 部署命令
+cd idea-plaza && VERCEL_TOKEN=你的token vercel --prod --yes</code></pre>
+<hr>
+<h2>七、Cron 定时任务（OpenClaw）</h2>
+<p>每天自动执行 4 个任务，间隔 30 分钟避免并发：</p>
+<table><tr><th>任务名</th><th>Cron 表达式</th><th>时间</th></tr>
+<tr><td>专业创意广场-每日更新</td><td>`0 8 * * *`</td><td>每天 08:00</td></tr>
+<tr><td>专业需求广场-每日更新</td><td>`30 8 * * *`</td><td>每天 08:30</td></tr>
+<tr><td>日常创意广场-每日更新</td><td>`0 9 * * *`</td><td>每天 09:00</td></tr>
+<tr><td>日常需求广场-每日更新</td><td>`30 9 * * *`</td><td>每天 09:30</td></tr>
+<h3>每个 Cron 任务的执行步骤（7步）</h3>
+<p>1. <strong>归档</strong>：把昨天的页面 cp 到 <code class="inline">archive/xxx/YYYY-MM-DD.html</code></p>
+<p>2. <strong>抓取</strong>：用 Serper API 搜索 Reddit 子版块（过去24小时）</p>
+<p>3. <strong>分析</strong>：AI 筛选 10-15 条，写入 JSON 数据文件</p>
+<p>4. <strong>生成</strong>：运行 Python 脚本生成 HTML（今日页 + 累计页）</p>
+<p>5. <strong>统计</strong>：运行 <code class="inline">update-stats.py</code> 更新首页数字</p>
+<p>6. <strong>部署</strong>：<code class="inline">vercel --prod --yes</code></p>
+<p>7. <strong>通知</strong>：通过 QQBot 发送结果给 BOSS</p>
+<h3>Cron 任务配置参数</h3>
+<pre><code>{
+  "sessionTarget": "isolated",
+  "payload": {
+    "kind": "agentTurn",
+    "model": "claude-opus-4-6",
+    "channel": "qqbot",
+    "deliver": true,
+    "to": "你的QQBot_openid"
+  },
+  "isolation": {
+    "postToMainPrefix": "Cron",
+    "postToMainMode": "summary",
+    "postToMainMaxChars": 8000
+  }
+}</code></pre>
+<hr>
+<h2>八、Reddit 数据源</h2>
+<h3>专业创意</h3>
+<p>- <code class="inline">r/Entrepreneur</code> — idea OR project OR startup</p>
+<p>- <code class="inline">r/SideProject</code> — 全部</p>
+<p>- <code class="inline">r/SaaS</code> — idea OR built</p>
+<h3>专业需求</h3>
+<p>- <code class="inline">r/SomebodyMakeThis</code> — 全部</p>
+<p>- <code class="inline">r/AppIdeas</code> — 全部</p>
+<p>- <code class="inline">r/Entrepreneur</code> — "looking for" OR "need" OR "wish there was"</p>
+<p>- <code class="inline">r/smallbusiness</code> — "struggling with" OR "anyone know a tool"</p>
+<h3>日常创意</h3>
+<p>- <code class="inline">r/LifeHacks</code> — tool OR app OR wish</p>
+<p>- <code class="inline">r/Parenting</code> — app OR tool OR help OR struggling</p>
+<p>- <code class="inline">r/AskReddit</code> — "wish there was" OR "why isn't there"</p>
+<p>- <code class="inline">r/mildlyinfuriating</code> — app OR tool OR fix</p>
+<p>- <code class="inline">r/AgingParents</code> + <code class="inline">r/CaregiverSupport</code> — tool OR app</p>
+<h3>日常需求</h3>
+<p>- <code class="inline">r/LifeHacks</code> — "wish" OR "need" OR "looking for"</p>
+<p>- <code class="inline">r/Parenting</code> — "struggling" OR "help" OR "need a tool"</p>
+<p>- <code class="inline">r/Frugal</code> — "looking for" OR "alternative" OR "cheaper"</p>
+<p>- <code class="inline">r/AgingParents</code> + <code class="inline">r/CaregiverSupport</code> — "need" OR "help" OR "tool"</p>
+<p>- <code class="inline">r/mildlyinfuriating</code> — "why" OR "annoying" OR "fix"</p>
+<hr>
+<h2>九、从零复刻步骤</h2>
+<h3>1. 克隆项目</h3>
+<pre><code>git clone &lt;你的仓库地址&gt; idea-plaza
+cd idea-plaza</code></pre>
+<h3>2. 配置 Vercel</h3>
+<pre><code>npm i -g vercel
+vercel login
+vercel link  # 关联项目</code></pre>
+<h3>3. 配置 API Keys</h3>
+<p>替换以下两个 key：</p>
+<p>- <code class="inline">SERPER_API_KEY</code> — 在 https://serper.dev 注册获取</p>
+<p>- <code class="inline">VERCEL_TOKEN</code> — 在 Vercel 后台 Settings → Tokens 创建</p>
+<h3>4. 首次部署</h3>
+<pre><code>VERCEL_TOKEN=你的token vercel --prod --yes</code></pre>
+<h3>5. 配置 OpenClaw Cron 任务</h3>
+<p>在 OpenClaw 中创建 4 个 cron 任务（参考第七节的配置），注意替换：</p>
+<p>- <code class="inline">SERPER_API_KEY</code> 为你的 key</p>
+<p>- <code class="inline">VERCEL_TOKEN</code> 为你的 token</p>
+<p>- <code class="inline">to</code> 为你的 QQBot openid</p>
+<p>- 项目路径 <code class="inline">/home/clawdbot/workspace/idea-plaza</code> 改为你的实际路径</p>
+<h3>6. 验证</h3>
+<p>访问 https://你的域名.vercel.app 确认 4 个广场正常显示。</p>
+<hr>
+<h2>十、注意事项</h2>
+<p>1. <strong>Serper API 免费额度</strong>：每月 2500 次搜索，4 个任务每天约 20 次，一个月约 600 次，够用</p>
+<p>2. <strong>Vercel 免费额度</strong>：每月 100 次部署，每天 4 次约 120 次/月，接近上限，可考虑合并部署</p>
+<p>3. <strong>去重逻辑</strong>：累计页面（all-xxx.html）通过标题去重，不会重复添加</p>
+<p>4. <strong>归档</strong>：每天自动把前一天的页面存入 archive 目录</p>
+<p>5. <strong>首页统计</strong>：update-stats.py 通过正则匹配更新首页数字，修改首页 HTML 结构时注意保持 stat-label 文本一致</p>
+<div class="nav" style="margin-top:60px">
+<a href="/">← 返回广场中心</a>
+</div>
+</div>
+</body>
+</html>

@@ -17,7 +17,7 @@
             justify-content: center;
         }
         .container { 
-            max-width: 900px; 
+            max-width: 1200px; 
             margin: 0 auto; 
             padding: 40px 20px;
             text-align: center;
@@ -31,21 +31,21 @@
             margin-bottom: 20px; 
             font-weight: 800; 
         }
-        .subtitle { 
-            color: #888; 
-            font-size: 1.4rem; 
+        .subtitle {
+            color: #888;
+            font-size: 1.4rem;
             margin-bottom: 60px;
         }
         .plaza-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 30px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
             margin-bottom: 60px;
         }
         .plaza-card {
             background: rgba(255,255,255,0.02);
             border-radius: 24px;
-            padding: 50px 40px;
+            padding: 40px 30px;
             border: 2px solid rgba(255,255,255,0.08);
             transition: all 0.4s ease;
             cursor: pointer;
@@ -68,6 +68,12 @@
         .plaza-card.demands::before {
             background: linear-gradient(90deg, #ffd700, #ff6b6b);
         }
+        .plaza-card.life::before {
+            background: linear-gradient(90deg, #ff8c00, #4ecdc4);
+        }
+        .plaza-card.life-ideas::before {
+            background: linear-gradient(90deg, #f093fb, #f5576c);
+        }
         .plaza-card:hover {
             transform: translateY(-12px);
             border-color: rgba(255,255,255,0.2);
@@ -80,15 +86,23 @@
             background: rgba(255,215,0,0.08);
             box-shadow: 0 25px 50px rgba(255,215,0,0.2);
         }
+        .plaza-card.life:hover {
+            background: rgba(255,140,0,0.08);
+            box-shadow: 0 25px 50px rgba(255,140,0,0.2);
+        }
+        .plaza-card.life-ideas:hover {
+            background: rgba(240,147,251,0.08);
+            box-shadow: 0 25px 50px rgba(240,147,251,0.2);
+        }
         .plaza-icon {
-            font-size: 5rem;
-            margin-bottom: 25px;
+            font-size: 4rem;
+            margin-bottom: 20px;
             display: block;
         }
         .plaza-title {
-            font-size: 2rem;
+            font-size: 1.8rem;
             font-weight: 700;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
         }
         .plaza-card.ideas .plaza-title {
             color: #00ff88;
@@ -96,9 +110,15 @@
         .plaza-card.demands .plaza-title {
             color: #ffd700;
         }
+        .plaza-card.life .plaza-title {
+            color: #ff8c00;
+        }
+        .plaza-card.life-ideas .plaza-title {
+            color: #f093fb;
+        }
         .plaza-desc {
             color: #999;
-            font-size: 1rem;
+            font-size: 0.95rem;
             line-height: 1.6;
         }
         .plaza-stats {
@@ -113,7 +133,7 @@
             text-align: center;
         }
         .stat-num {
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             font-weight: 800;
         }
         .plaza-card.ideas .stat-num {
@@ -122,8 +142,14 @@
         .plaza-card.demands .stat-num {
             color: #ff6b6b;
         }
+        .plaza-card.life .stat-num {
+            color: #ff8c00;
+        }
+        .plaza-card.life-ideas .stat-num {
+            color: #f093fb;
+        }
         .stat-label {
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             color: #666;
         }
         footer {
@@ -137,6 +163,9 @@
         footer a:hover {
             text-decoration: underline;
         }
+        @media (max-width: 1024px) {
+            .plaza-grid { grid-template-columns: repeat(2, 1fr); }
+        }
         @media (max-width: 768px) {
             h1 { font-size: 2.5rem; }
             .plaza-grid { grid-template-columns: 1fr; }
@@ -149,20 +178,20 @@
 <body>
 <div class="container">
     <h1>🏛️ 广场中心</h1>
-    <p class="subtitle">Reddit 精选创意与真实用户需求 · 每日更新</p>
+    <p class="subtitle">Reddit 精选专业创意与日常需求 · 每日更新</p>
     
     <div class="plaza-grid">
         <a href="/ideas.html" class="plaza-card ideas">
             <span class="plaza-icon">🚀</span>
-            <h2 class="plaza-title">创意广场</h2>
-            <p class="plaza-desc">精选产品创意，深度分析，助你找到下一个项目灵感</p>
+            <h2 class="plaza-title">专业创意广场</h2>
+            <p class="plaza-desc">精选 SaaS/技术/产品创意，面向创业者与开发者</p>
             <div class="plaza-stats">
                 <div class="stat">
-                    <div class="stat-num">10</div>
+                    <div class="stat-num">13</div>
                     <div class="stat-label">今日创意</div>
                 </div>
                 <div class="stat">
-                    <div class="stat-num">34</div>
+                    <div class="stat-num">210</div>
                     <div class="stat-label">累计收录</div>
                 </div>
             </div>
@@ -170,21 +199,53 @@
         
         <a href="/demands.html" class="plaza-card demands">
             <span class="plaza-icon">🎯</span>
-            <h2 class="plaza-title">需求广场</h2>
-            <p class="plaza-desc">挖掘真实用户痛点，发现创业机会，解决真问题</p>
+            <h2 class="plaza-title">专业需求广场</h2>
+            <p class="plaza-desc">挖掘 SaaS/工具/B端真实痛点，面向创业者与开发者</p>
             <div class="plaza-stats">
                 <div class="stat">
-                    <div class="stat-num">9</div>
+                    <div class="stat-num">13</div>
                     <div class="stat-label">今日需求</div>
                 </div>
                 <div class="stat">
-                    <div class="stat-num">21</div>
+                    <div class="stat-num">174</div>
+                    <div class="stat-label">累计收录</div>
+                </div>
+            </div>
+        </a>
+        
+        <a href="/life-ideas.html" class="plaza-card life-ideas">
+            <span class="plaza-icon">💡</span>
+            <h2 class="plaza-title">日常创意广场</h2>
+            <p class="plaza-desc">来自真实生活的创意灵感，发现身边的商机</p>
+            <div class="plaza-stats">
+                <div class="stat">
+                    <div class="stat-num">12</div>
+                    <div class="stat-label">今日日常创意</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-num">22</div>
+                    <div class="stat-label">累计收录</div>
+                </div>
+            </div>
+        </a>
+        
+        <a href="/life-demands.html" class="plaza-card life">
+            <span class="plaza-icon">🏠</span>
+            <h2 class="plaza-title">日常需求广场</h2>
+            <p class="plaza-desc">来自真实生活的需求，发现身边的创业机会</p>
+            <div class="plaza-stats">
+                <div class="stat">
+                    <div class="stat-num">13</div>
+                    <div class="stat-label">今日日常需求</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-num">39</div>
                     <div class="stat-label">累计收录</div>
                 </div>
             </div>
         </a>
     </div>
-    
+
     <footer>
         <p>💡 数据来源 Reddit · 每日自动更新</p>
     </footer>
