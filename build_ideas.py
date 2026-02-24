@@ -147,8 +147,8 @@ def build_ideas_html(data, output_path=None, mode="professional"):
 <p class="date">📅 {date_str} · {weekday} · 收录{count}个创意 · 🔥 优先展示可部署项目</p>
 <div style="margin-top:20px">
 <a href="/" style="color:#fff;text-decoration:none;margin:0 10px;padding:6px 14px;border:1px solid rgba(255,255,255,0.3);border-radius:20px;font-size:0.85rem">🏠 广场中心</a>
-<a href="/all-ideas.html" style="color:#00ff88;text-decoration:none;margin:0 15px;padding:8px 16px;border:1px solid rgba(0,255,136,0.3);border-radius:20px;font-size:0.9rem">📚 全部专业创意</a>
-<a href="/archive/ideas/" style="color:#00d9ff;text-decoration:none;margin:0 15px;padding:8px 16px;border:1px solid rgba(0,217,255,0.3);border-radius:20px;font-size:0.9rem">🗂️ 专业创意归档</a>
+<a href="/{"all-life-ideas" if mode == "life" else "all-ideas"}.html" style="color:#00ff88;text-decoration:none;margin:0 15px;padding:8px 16px;border:1px solid rgba(0,255,136,0.3);border-radius:20px;font-size:0.9rem">📚 全部{"日常" if mode == "life" else "专业"}创意</a>
+<a href="/archive/{"life-ideas" if mode == "life" else "ideas"}/" style="color:#00d9ff;text-decoration:none;margin:0 15px;padding:8px 16px;border:1px solid rgba(0,217,255,0.3);border-radius:20px;font-size:0.9rem">🗂️ {"日常" if mode == "life" else "专业"}创意归档</a>
 </div>
 </header>
 
@@ -179,7 +179,7 @@ def build_ideas_html(data, output_path=None, mode="professional"):
 </section>
 
 <footer>
-<p>💡 专业创意广场 · 每日更新 · 数据来源 Reddit</p>
+<p>💡 {"日常" if mode == "life" else "专业"}创意广场 · 每日更新 · 数据来源 Reddit</p>
 <p style="margin-top:10px">⚡ 可直接部署 = 纯前端/静态站点，可部署到 Vercel/Cloudflare Pages</p>
 </footer>
 </div>
@@ -233,12 +233,12 @@ def append_to_all_ideas(data, json_db_path="all_ideas_data.json", html_path="all
         print(f"✅ Added {len(added)} new ideas to {json_db_path} (total: {total})")
 
     # 4. 从 JSON 数据库重新生成 all-ideas.html
-    _rebuild_all_ideas_html(existing_data, html_path)
+    _rebuild_all_ideas_html(existing_data, html_path, mode=mode)
 
     return total
 
 
-def _rebuild_all_ideas_html(data, output_path="all-ideas.html"):
+def _rebuild_all_ideas_html(data, output_path="all-ideas.html", mode="professional"):
     """从 JSON 数据重新生成完整的 all-ideas.html 页面"""
     ideas = data.get("ideas", [])
     total = len(ideas)
@@ -273,19 +273,19 @@ def _rebuild_all_ideas_html(data, output_path="all-ideas.html"):
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>全部专业创意 - 专业创意广场</title>
+<title>全部{"日常" if mode == "life" else "专业"}创意 - {"日常" if mode == "life" else "专业"}创意广场</title>
 <style>{CSS}</style>
 </head>
 <body>
 <div class="container">
 <header>
-<h1>💡 全部专业创意</h1>
-<p class="subtitle">累计收录的所有 Reddit 创意项目</p>
+<h1>💡 全部{"日常" if mode == "life" else "专业"}创意</h1>
+<p class="subtitle">累计收录的所有 Reddit {"生活" if mode == "life" else ""}创意项目</p>
 <p class="date">📅 累计 {total} 个创意 · 持续更新中</p>
 <div class="nav-links" style="margin-top:20px">
 <a href="/" style="color:#00d9ff;text-decoration:none;margin:0 15px;padding:8px 16px;border:1px solid rgba(0,217,255,0.3);border-radius:20px;font-size:0.9rem">🏠 广场中心</a>
-<a href="/ideas.html" style="color:#00d9ff;text-decoration:none;margin:0 15px;padding:8px 16px;border:1px solid rgba(0,217,255,0.3);border-radius:20px;font-size:0.9rem">🚀 今日创意</a>
-<a href="/archive/ideas/" style="color:#00d9ff;text-decoration:none;margin:0 15px;padding:8px 16px;border:1px solid rgba(0,217,255,0.3);border-radius:20px;font-size:0.9rem">🗂️ 专业创意归档</a>
+<a href="/{"life-ideas" if mode == "life" else "ideas"}.html" style="color:#00d9ff;text-decoration:none;margin:0 15px;padding:8px 16px;border:1px solid rgba(0,217,255,0.3);border-radius:20px;font-size:0.9rem">{"🏠" if mode == "life" else "🚀"} 今日{"日常" if mode == "life" else ""}创意</a>
+<a href="/archive/{"life-ideas" if mode == "life" else "ideas"}/" style="color:#00d9ff;text-decoration:none;margin:0 15px;padding:8px 16px;border:1px solid rgba(0,217,255,0.3);border-radius:20px;font-size:0.9rem">🗂️ {"日常" if mode == "life" else "专业"}创意归档</a>
 </div>
 </header>
 
@@ -308,14 +308,14 @@ def _rebuild_all_ideas_html(data, output_path="all-ideas.html"):
 </div>
 
 <section class="sec">
-<h2>📋 全部专业创意（{total}个，按评分排序）</h2>
+<h2>📋 全部{"日常" if mode == "life" else "专业"}创意（{total}个，按评分排序）</h2>
 <div class="grid">
 {cards_html}
 </div>
 </section>
 
 <footer>
-<p>💡 专业创意广场 · 每日更新 · 数据来源 Reddit</p>
+<p>💡 {"日常" if mode == "life" else "专业"}创意广场 · 每日更新 · 数据来源 Reddit</p>
 <p style="margin-top:10px"><a href="/">返回广场中心</a></p>
 </footer>
 </div>
@@ -366,5 +366,8 @@ if __name__ == "__main__":
         data = json.load(f)
 
     build_ideas_html(data, mode=mode)
-    total = append_to_all_ideas(data, mode=mode)
+    if mode == "life":
+        total = append_to_all_ideas(data, json_db_path="all_life_ideas_data.json", html_path="all-life-ideas.html", mode=mode)
+    else:
+        total = append_to_all_ideas(data, mode=mode)
     print(f"📊 累计创意: {total}")

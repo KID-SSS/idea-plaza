@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-02-23",
-  "total": 22,
+  "last_updated": "2026-02-24",
+  "total": 34,
   "ideas": [
     {
       "title": "老人陪伴聊天机器人",
@@ -507,6 +507,282 @@
         "g": 8.0
       },
       "added_date": "2026-02-23"
+    },
+    {
+      "title": "老人医疗信息管家",
+      "desc": "帮助子女整理和管理父母的医疗记录、处方、医生信息和账单到期日",
+      "score": 9.0,
+      "deployable": true,
+      "users": "照顾老人的子女/护理者",
+      "type": "Web工具",
+      "platform": "Vercel",
+      "target": "需要管理父母多种医疗信息的成年子女，尤其是远程照护者",
+      "business": "免费基础版 + 高级版订阅（多成员协作、提醒通知）",
+      "reason": "来自AgingParents的高频痛点，医疗信息分散导致紧急时找不到关键数据，市场缺乏简单好用的解决方案",
+      "mvp": "表单录入+分类展示+PDF导出 | 2周",
+      "deploy": "Vercel + Supabase",
+      "source": "https://www.reddit.com/r/AgingParents/comments/1rcii52/how_do_you_organize_all_important_medical_info/",
+      "scores": {
+        "m": 9.5,
+        "t": 9.0,
+        "p": 8.5,
+        "c": 9.0,
+        "g": 9.0
+      },
+      "added_date": "2026-02-24"
+    },
+    {
+      "title": "家庭故事录音机",
+      "desc": "引导老人用语音记录人生故事，AI整理成家族传记",
+      "score": 8.8,
+      "deployable": true,
+      "users": "希望保留家族记忆的年轻人/老人",
+      "type": "Web App",
+      "platform": "Vercel",
+      "target": "失去或即将失去长辈的年轻人，想保存家族故事和智慧",
+      "business": "免费录制 + 付费AI整理成精美传记册/电子书",
+      "reason": "发帖者在失去祖父母后强烈希望有这类产品，情感需求真实且付费意愿高",
+      "mvp": "语音录制+文字转录+简单排版导出 | 2周",
+      "deploy": "Vercel + Whisper API",
+      "source": "https://www.reddit.com/r/AgingParents/comments/1rcxqlo/i_lost_both_my_grandparents_last_year_it_made_me/",
+      "scores": {
+        "m": 9.0,
+        "t": 8.5,
+        "p": 9.0,
+        "c": 8.5,
+        "g": 9.0
+      },
+      "added_date": "2026-02-24"
+    },
+    {
+      "title": "新手父母换班清洁助手",
+      "desc": "帮助新手父母和邻居/朋友协调轮流照看孩子+打扫卫生的排班工具",
+      "score": 8.5,
+      "deployable": true,
+      "users": "新手父母",
+      "type": "Web工具",
+      "platform": "Vercel",
+      "target": "有婴幼儿、请不起保洁的年轻父母，愿意互助协作",
+      "business": "免费基础版 + 社区匹配高级版",
+      "reason": "两个热门subreddit同时出现同一创意，说明需求真实；排班+协调是工具擅长的事",
+      "mvp": "日历排班+邀请链接+提醒通知 | 1.5周",
+      "deploy": "Vercel + 日历API",
+      "source": "https://www.reddit.com/r/lifehacks/comments/1rcd7bg/if_you_have_a_baby_and_cant_afford_cleaners_team/",
+      "scores": {
+        "m": 8.5,
+        "t": 9.0,
+        "p": 8.0,
+        "c": 8.5,
+        "g": 8.5
+      },
+      "added_date": "2026-02-24"
+    },
+    {
+      "title": "儿童行为打卡墙",
+      "desc": "可视化的儿童日常行为/习惯追踪墙，用贴纸和奖励激励好习惯",
+      "score": 8.3,
+      "deployable": true,
+      "users": "3-10岁孩子的父母",
+      "type": "Web工具/小程序",
+      "platform": "Vercel",
+      "target": "希望培养孩子好习惯、减少屏幕时间的父母",
+      "business": "免费基础版 + 高级贴纸包/家庭版订阅",
+      "reason": "父母求助如何制作行为/日常表，数字化打卡墙比纸质更持久、更有趣",
+      "mvp": "习惯列表+每日打卡+贴纸奖励+周报 | 1.5周",
+      "deploy": "Vercel + localStorage",
+      "source": "https://www.reddit.com/r/Parenting/comments/1rcnmp8/behaviorroutine_chart/",
+      "scores": {
+        "m": 8.5,
+        "t": 9.0,
+        "p": 8.0,
+        "c": 8.0,
+        "g": 8.0
+      },
+      "added_date": "2026-02-24"
+    },
+    {
+      "title": "护理者情绪日记",
+      "desc": "为照顾老人/病人的护理者提供私密情绪宣泄和心理健康追踪工具",
+      "score": 8.2,
+      "deployable": true,
+      "users": "家庭护理者/照顾老人的子女",
+      "type": "Web App",
+      "platform": "Vercel",
+      "target": "长期照顾生病或年迈家人、情绪压力大的照护者",
+      "business": "免费日记 + AI情绪分析/专业咨询引导付费版",
+      "reason": "多个帖子反映护理者情绪崩溃但无处倾诉，有人甚至考虑用AI聊天机器人来发泄",
+      "mvp": "语音/文字日记+情绪标签+趋势图+正念提示 | 1.5周",
+      "deploy": "Vercel + IndexedDB",
+      "source": "https://www.reddit.com/r/AgingParents/comments/1rcin0d/my_elderly_father_is_driving_me_nuts_should_i_use/",
+      "scores": {
+        "m": 8.5,
+        "t": 8.5,
+        "p": 8.0,
+        "c": 8.0,
+        "g": 8.0
+      },
+      "added_date": "2026-02-24"
+    },
+    {
+      "title": "垃圾短信STOP终结者",
+      "desc": "自动追踪已回复STOP但仍继续发送的垃圾短信，一键举报",
+      "score": 8.0,
+      "deployable": true,
+      "users": "所有手机用户",
+      "type": "Web工具",
+      "platform": "Vercel",
+      "target": "频繁收到营销短信、回复STOP无效的普通用户",
+      "business": "免费使用 + 批量举报高级功能",
+      "reason": "回复STOP仍收到短信是极高频的日常烦恼，用户需要系统化的追踪和举报方式",
+      "mvp": "记录垃圾号码+自动生成举报模板+追踪状态 | 1周",
+      "deploy": "Vercel",
+      "source": "https://www.reddit.com/r/mildlyinfuriating/comments/1rctyg5/reply_stop_to_still_receive_texts/",
+      "scores": {
+        "m": 8.5,
+        "t": 8.0,
+        "p": 8.0,
+        "c": 7.5,
+        "g": 8.0
+      },
+      "added_date": "2026-02-24"
+    },
+    {
+      "title": "儿童群聊安全卫士",
+      "desc": "帮助家长监控和引导孩子的群聊行为，识别霸凌信号",
+      "score": 8.0,
+      "deployable": true,
+      "users": "10-14岁孩子的父母",
+      "type": "Web工具/指南",
+      "platform": "Vercel",
+      "target": "孩子开始使用社交工具、担心网络霸凌的家长",
+      "business": "免费指南 + 家长培训课程付费",
+      "reason": "群聊霸凌是当前家长的高频焦虑点，缺乏实用的识别和应对工具",
+      "mvp": "霸凌信号识别清单+对话模板+家规生成器 | 1周",
+      "deploy": "Vercel",
+      "source": "https://www.reddit.com/r/Parenting/comments/1rcgadv/group_chats_with_11_year_olds_and_bullying/",
+      "scores": {
+        "m": 8.0,
+        "t": 8.0,
+        "p": 8.5,
+        "c": 7.5,
+        "g": 8.0
+      },
+      "added_date": "2026-02-24"
+    },
+    {
+      "title": "儿科医生面试题库",
+      "desc": "提供筛选靠谱儿科医生的标准化问题清单和评分卡",
+      "score": 7.8,
+      "deployable": true,
+      "users": "新手父母/需要换儿科医生的家长",
+      "type": "Web工具",
+      "platform": "Vercel",
+      "target": "对儿科医生不满意、想找更好医生的家长",
+      "business": "免费使用 + 医生评价社区",
+      "reason": "选择儿科医生是新手父母的重大决策，但缺乏系统化的评估方法",
+      "mvp": "问题清单+评分卡+对比表 | 1周",
+      "deploy": "Vercel",
+      "source": "https://www.reddit.com/r/Parenting/comments/1rc4buv/what_questions_can_i_ask_pediatricians_to_make/",
+      "scores": {
+        "m": 7.5,
+        "t": 8.5,
+        "p": 8.0,
+        "c": 7.5,
+        "g": 7.5
+      },
+      "added_date": "2026-02-24"
+    },
+    {
+      "title": "老人短信频率管理器",
+      "desc": "帮助护理者设置老人的短信/通话时段，减少不间断打扰的压力",
+      "score": 7.8,
+      "deployable": true,
+      "users": "照顾年迈父母的子女",
+      "type": "Web工具/指南",
+      "platform": "Vercel",
+      "target": "被年迈父母频繁短信/电话轰炸、自己也身心俱疲的照护者",
+      "business": "免费模板 + 定制化沟通方案",
+      "reason": "照护者既不想忽视老人又需要个人空间，缺乏平衡工具和沟通策略",
+      "mvp": "沟通时段规划+自动回复模板+边界设定指南 | 1周",
+      "deploy": "Vercel",
+      "source": "https://www.reddit.com/r/CaregiverSupport/comments/1rc5vr5/overwhelming_text_habits/",
+      "scores": {
+        "m": 8.0,
+        "t": 7.5,
+        "p": 8.0,
+        "c": 7.5,
+        "g": 8.0
+      },
+      "added_date": "2026-02-24"
+    },
+    {
+      "title": "日常发明愿望清单",
+      "desc": "收集和投票人们最想要的日常发明创意，连接创客和需求方",
+      "score": 7.7,
+      "deployable": true,
+      "users": "所有人/创客/发明爱好者",
+      "type": "Web平台",
+      "platform": "Vercel",
+      "target": "有日常痛点想要解决方案的普通人，以及寻找创业灵感的创客",
+      "business": "免费提交投票 + 创客对接付费",
+      "reason": "AskReddit热帖'你最希望有什么发明'获得大量回复，说明需求表达欲望强烈",
+      "mvp": "创意提交+投票排名+分类浏览 | 1.5周",
+      "deploy": "Vercel + Supabase",
+      "source": "https://www.reddit.com/r/AskReddit/comments/1rc80kl/what_are_some_things_you_really_wish_there_was_an/",
+      "scores": {
+        "m": 7.5,
+        "t": 8.0,
+        "p": 8.0,
+        "c": 7.5,
+        "g": 7.5
+      },
+      "added_date": "2026-02-24"
+    },
+    {
+      "title": "App迁移助手",
+      "desc": "换新手机时自动检测并恢复自定义图标、布局和个性化设置",
+      "score": 7.5,
+      "deployable": true,
+      "users": "所有智能手机用户",
+      "type": "Web工具/指南",
+      "platform": "Vercel",
+      "target": "频繁换手机或重视手机个性化设置的用户",
+      "business": "免费备份指南 + 付费自动化工具",
+      "reason": "换手机丢失自定义设置是常见痛点，目前没有好用的跨设备图标/布局备份工具",
+      "mvp": "设置备份清单+平台对应教程+图标包推荐 | 1周",
+      "deploy": "Vercel",
+      "source": "https://www.reddit.com/r/mildlyinfuriating/comments/1rc4sji/got_a_new_phone_and_it_changed_my_customized/",
+      "scores": {
+        "m": 7.5,
+        "t": 7.0,
+        "p": 7.5,
+        "c": 7.5,
+        "g": 8.0
+      },
+      "added_date": "2026-02-24"
+    },
+    {
+      "title": "青少年情绪温度计",
+      "desc": "帮助家长识别青少年抑郁信号并提供科学应对指南的工具",
+      "score": 7.5,
+      "deployable": true,
+      "users": "10-17岁青少年的父母",
+      "type": "Web工具",
+      "platform": "Vercel",
+      "target": "发现孩子情绪异常、不知如何应对的家长",
+      "business": "免费评估 + 专业心理咨询转介",
+      "reason": "青少年心理健康是当前社会热点，家长需要简单易用的识别和引导工具",
+      "mvp": "信号识别清单+严重度评估+应对策略+专业资源 | 1周",
+      "deploy": "Vercel",
+      "source": "https://www.reddit.com/r/Parenting/comments/1rcppzq/worried_because_d%C3%A9pressive_pre_teen/",
+      "scores": {
+        "m": 7.5,
+        "t": 8.0,
+        "p": 7.5,
+        "c": 7.0,
+        "g": 7.5
+      },
+      "added_date": "2026-02-24"
     }
   ]
 }
